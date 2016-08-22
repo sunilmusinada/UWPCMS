@@ -1,0 +1,102 @@
+<Page x:Class="CMS_Survey.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:CMS_Survey.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:CMS_Survey.ViewModels" 
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Wide Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True" Text="Main Page">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
+                <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
+                <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
+            </controls:PageHeader.SecondaryCommands>
+
+        </controls:PageHeader>
+
+
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="54,75,-634,-880">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <GridView ItemsSource="{x:Bind Usersurveys, Mode=OneWay}" IsItemClickEnabled="True" ItemClick="GridView_ItemClick"  Grid.RowSpan="2" Width="500" >
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="data:UserSurvey">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Background="SteelBlue" ScrollViewer.IsScrollInertiaEnabled="True" ScrollViewer.IsVerticalRailEnabled="True" ScrollViewer.VerticalScrollMode="Auto">
+                            <StackPanel Margin="20,20,0,0" Height="110" Width="110" >
+                                <TextBlock FontSize="14" Text="{x:Bind surveyProvider}" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock FontSize="10" Text="{x:Bind surveyKey }" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock FontSize="10" Text="{x:Bind surveyType }" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock FontSize="10" Text="{x:Bind status }" HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                
+            </GridView>
+            <TextBlock Name="SelectedSurveyIdBlock" FontSize="15" FontWeight="Normal" Margin="10,10,5,559" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Name="SelectedSurveyType" FontSize="15" FontWeight="Normal" Margin="10,35,5,535" Grid.Column="1" TextWrapping="WrapWholeWords" />
+            <TextBlock x:Name="SelectedProvider" FontSize="15" FontWeight="Normal" Margin="10,63,5,508" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Name="SelectedSurveyStatus" FontSize="15" FontWeight="Normal" Margin="10,121,5,455" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Name="SelectedSurveyEndDate" FontSize="15" FontWeight="Normal" Margin="10,147,5,457" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:Name="SelectedSurveyActionDate" FontSize="15" FontWeight="Normal" Margin="10,173,5,427" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <Button x:Name="Edit" FontSize="15" FontWeight="SemiBold" Margin="10,223,5,400" Grid.Column="1" Visibility="Collapsed" Content="Edit" Background="SteelBlue" Click="Edit_Click" Foreground="White"/>
+            <Button x:Name="Delete" FontSize="15" FontWeight="SemiBold" Margin="60,223,5,400" Grid.Column="2" Visibility="Collapsed" Content="Delete" Background="SteelBlue" Click="Delete_Click" Foreground="White"/>
+            
+        </Grid>
+    </RelativePanel>
+</Page>
+
