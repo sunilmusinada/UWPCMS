@@ -68,6 +68,30 @@ namespace CMS_Survey.Helpers
             
         }
 
+        internal List<JumpClass> GetJumpSections(SectionHelp.Section[] Sections)
+        {
+
+            List<JumpClass> JmpClassList = new List<Helpers.JumpClass>();
+            for(int i=0;i<Sections.Count();i++)
+            {
+                var secArray = Sections[i].sectionTitle.Split('.');
+                var jmpCls = new JumpClass();
+                jmpCls.PageIndex = i;
+                if(secArray.Count()>1)
+                {
+                    jmpCls.SubSection = secArray[0];
+                    jmpCls.SectionTitle = Sections[i].sectionTitle;
+
+                }
+                else
+                {
+                    jmpCls.SubSection = secArray[0];
+                }
+                JmpClassList.Add(jmpCls);
+            }
+            return JmpClassList;
+        }
+      
         internal void GetUserSurveys()
         {
 
@@ -81,4 +105,12 @@ namespace CMS_Survey.Helpers
 
         public List<Answer> Answers { get; set; }
     }
+    internal class JumpClass
+    {
+        public int PageIndex { get; set; }
+        public string SubSection { get; set; }
+
+        public string SectionTitle { get; set; }
+    }
+    
 }

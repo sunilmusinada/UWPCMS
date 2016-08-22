@@ -10,19 +10,19 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>13228281-de3c-4cee-b5f6-12b990ea723a</PackageIdentityName>
     <PackageIdentityPublisher>CN=kakar</PackageIdentityPublisher>
-    <IntermediateOutputPath>F:\CMS\CMS-Survey\CMS-Survey\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="F:\CMS\CMS-Survey\CMS-Survey\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\bin\x86\Debug\CMS-Survey.exe">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -358,43 +358,43 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Assets\Wide310x150Logo.scale-200_1234.png">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Wide310x150Logo.scale-200_1234.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200_1234.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Help.htm">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Help.htm">
       <PackagePath>Help.htm</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\bin\x86\Debug\CMS-Survey.xr.xml">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\CMS-Survey.xr.xml">
       <PackagePath>CMS-Survey.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
@@ -424,10 +424,10 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\Resizer.xaml">
       <PackagePath>Template10Library\Themes\Resizer.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\CMS-Survey\bin\x86\Debug\Core\CMS-Survey.exe">
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

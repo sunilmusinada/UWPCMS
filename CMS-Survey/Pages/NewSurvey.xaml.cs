@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows;
 using Windows.UI.Popups;
+using CMS_Survey.Helpers;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -139,7 +140,10 @@ namespace CMS_Survey.Pages
         }
         private SectionHelp.Rootobject getJson(Grid grid)
         {
-
+            //
+            SurveyHelper svHelper = new SurveyHelper();
+            List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
+            CreateJumpSection(jmpClass);
             ShowProgress();
             mainGrid.Children.Clear();
 
@@ -715,6 +719,41 @@ namespace CMS_Survey.Pages
             await SaveSurvey();
             NextButton.Visibility = Visibility.Visible;
             Previous.Visibility = Visibility.Visible;
+        }
+
+        private async void CreateJumpSection(List<JumpClass> jumpClass)
+        {
+
+            foreach (var Sec in jumpClass)
+            {
+                StackPanel stkPnl = new StackPanel();
+                stkPnl.Orientation = Orientation.Horizontal;
+                Button btn = new Button();
+                btn.Content = Sec.SubSection;
+                if (string.IsNullOrEmpty(Sec.SectionTitle))
+                {
+                    
+                }
+                else
+                {
+                    Flyout fly = new Flyout();
+                    StackPanel stp = new StackPanel();
+                    Button bn = new Button();
+                    bn.Content = Sec.SectionTitle;
+                    stp.Children.Add(bn);
+                    fly.Content = stp;
+
+                }
+            }
+            //for(int i=0;i<result.sections.Count();i++)
+            //{
+            //    StackPanel stkPnl = new StackPanel();
+            //    stkPnl.Orientation = Orientation.Horizontal;
+            //    Button btn = new Button();
+            //    btn.Content = result.sections[i].sectionTitle;
+            //    stkPnl.Children.Add(btn);
+            //    JumpSectionPanel.Children.Add(stkPnl);
+            //}
         }
 
         private bool Validate()
