@@ -21,6 +21,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows;
 using Windows.UI.Popups;
 using CMS_Survey.Helpers;
+using Windows.UI;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -45,6 +46,7 @@ namespace CMS_Survey.Pages
         private ComboBox stateControl = null;
         private ComboBox HospitalControl = null;
         private TextBox Hospitalcn = null;
+        List<JumpClass> jmpClass;
         public NewSurvey()
         {
 
@@ -141,9 +143,11 @@ namespace CMS_Survey.Pages
         private SectionHelp.Rootobject getJson(Grid grid)
         {
             //
+            //SurveyHelper svHelper = new SurveyHelper();
+            //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
             SurveyHelper svHelper = new SurveyHelper();
-            List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
-            CreateJumpSection(jmpClass);
+            jmpClass = svHelper.GetJumpSections(result.sections);
+            JumpButtonLoad();
             ShowProgress();
             mainGrid.Children.Clear();
 
@@ -184,6 +188,7 @@ namespace CMS_Survey.Pages
             //}
         }
 
+        #region ControlMethods
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox txtBx = sender as TextBox;
@@ -220,7 +225,8 @@ namespace CMS_Survey.Pages
             mainGrid.Children.Add(uiComponent);
             Grid.SetRow(uiComponent, rowIndex);
 
-        }
+        } 
+        #endregion
 
         private async void processNext(object sender, RoutedEventArgs e)
         {
@@ -768,6 +774,106 @@ namespace CMS_Survey.Pages
 
             return isvalid;
 
+        }
+
+        private void JumpButton_Loading(FrameworkElement sender, object args)
+        {
+           
+        }
+
+        private void JumpButton_Loaded(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void JumpButtonLoad()
+        {
+           
+            MenuFlyout m = new MenuFlyout();
+
+            foreach (JumpClass Sec in jmpClass)
+            {
+               
+                if (string.IsNullOrEmpty(Sec.SectionTitle))
+                {
+                    MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
+                    mFlyItem.Background = new SolidColorBrush(Colors.SteelBlue);
+                    mFlyItem.Foreground = new SolidColorBrush(Colors.White);
+                    mFlyItem.Text = Sec.SubSection;
+                    mFlyItem.Name = Sec.SubSection;
+                    mFlyItem.Click += MFlyItem_Click;
+                    m.Items.Add(mFlyItem);
+                }
+                else
+                {
+                    MenuFlyoutSubItem subMItem =(MenuFlyoutSubItem) m.Items.Where(e => e.Name.Equals(Sec.SubSection)).FirstOrDefault();
+                    if(subMItem != null)
+                    {
+                        MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
+                        mFlyItem.Background = new SolidColorBrush(Colors.SteelBlue);
+                        mFlyItem.Foreground = new SolidColorBrush(Colors.White);
+                        mFlyItem.Text = Sec.SectionTitle;
+                        mFlyItem.Name = Sec.SectionTitle;
+                        mFlyItem.Click += MFlyItem_Click;
+                        subMItem.Items.Add(mFlyItem);
+                    }
+                    else
+                    {
+                        MenuFlyoutSubItem mnSub = new MenuFlyoutSubItem();
+                        mnSub.Background = new SolidColorBrush(Colors.SteelBlue);
+                        mnSub.Foreground = new SolidColorBrush(Colors.White);
+                        mnSub.Text = Sec.SubSection;
+                        mnSub.Name = Sec.SubSection;
+                        m.Items.Add(mnSub);
+                        MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
+                        mFlyItem.Text = Sec.SectionTitle;
+                        mFlyItem.Name = Sec.SectionTitle;
+                        mFlyItem.Background = new SolidColorBrush(Colors.SteelBlue);
+                        mFlyItem.Foreground = new SolidColorBrush(Colors.White);
+                        mFlyItem.Click += MFlyItem_Click;
+                        mnSub.Items.Add(mFlyItem);
+                    }
+                }
+                //else if (string.IsNullOrEmpty(Sec.SectionTitle))
+                //{
+                //    MenuFlyoutSubItem mnSub = new MenuFlyoutSubItem();
+                    
+                //}
+                //else
+                //{
+                //    mn.Text = Sec.SectionTitle;
+                //}
+                //m.Items.Add(mn);
+            }
+            //m.ShowAt((FrameworkElement)sender);
+            JumpButton.Flyout = m;
+
+        }
+
+        private void MFlyItem_Click(object sender, RoutedEventArgs e)
+        {
+            int indx;
+            MenuFlyoutItem mFlyItem =(MenuFlyoutItem) e.OriginalSource;
+            var ClickedName = mFlyItem.Name;
+            var item = jmpClass.Where(t=>t.SectionTitle!=null).Where(t=>t.SectionTitle.Equals(ClickedName)).Select(t=>t).FirstOrDefault();
+            if (item == null)
+            {
+                item =   jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
+            }
+            else
+            {
+                indx = item.PageIndex;
+                if (indx.Equals(sectionIndex))
+                    return;
+                else
+                {
+                    sectionIndex = indx;
+                    getJson(mainGrid);
+                }
+            }
+            //e.OriginalSource
+            
+            //throw new NotImplementedException();
         }
     }
 }

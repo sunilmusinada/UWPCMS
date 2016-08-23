@@ -20,19 +20,13 @@
             <Button x:ConnectionId='3' x:Name="Previous" Content="Previous" HorizontalAlignment="Left" Grid.Column="0"                          Background="SteelBlue" Height="32" Margin="0,34" Width="76" Foreground="White"></Button>
             <Button x:ConnectionId='4' Content="Save" HorizontalAlignment="Center" Grid.Column="0"                      Background="SteelBlue" Margin="138,34,98,34" Height="32" Width="51" RenderTransformOrigin="-0.673,0.479" Foreground="White"/>
             <Button x:ConnectionId='5' x:Name="NextButton" Content="Next" HorizontalAlignment ="Right" Grid.Column="0"                     Background="SteelBlue" Height="32" Margin="0,34" Width="51" Foreground="White"></Button>
-            <Button  Content="Jump"
-                      Foreground="White" VerticalAlignment="Center" Margin="10,35,0,34" Grid.Column="1" Background="SteelBlue" Width="63" Height="31">
-                <Button.Flyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Text="Flyout 1" />
-                        <MenuFlyoutItem Text="Flyout 2" />
-                        <MenuFlyoutItem Text="Flyout 3" />
-                        <MenuFlyoutSubItem Text="Flyouts">
-                            <MenuFlyoutItem Text="Flyout 2" />
-                            <MenuFlyoutItem Text="Flyout 3" />
-                        </MenuFlyoutSubItem>
+            <Button x:ConnectionId='6' x:Name="JumpButton"  Content="Jump"
+                      Foreground="White" VerticalAlignment="Center" Margin="10,35,0,34" Grid.Column="1" Background="SteelBlue" Width="63" Height="31"                                                        >
+                <!--<Button.Flyout >
+                    <MenuFlyout >
+                        
                     </MenuFlyout>
-                    <!--<Flyout>
+                    --><!--<Flyout>
                         <StackPanel Name="JumpSectionPanel" Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <Button Content="Share">
@@ -52,8 +46,8 @@
                                 <TextBlock Text="Settings"></TextBlock>
                             </StackPanel>
                         </StackPanel>
-                    </Flyout>-->
-                </Button.Flyout>
+                    </Flyout>--><!--
+                </Button.Flyout>-->
             </Button>
         </Grid>
 
