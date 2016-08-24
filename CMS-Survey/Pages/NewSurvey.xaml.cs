@@ -47,6 +47,7 @@ namespace CMS_Survey.Pages
         private ComboBox HospitalControl = null;
         private TextBox Hospitalcn = null;
         List<JumpClass> jmpClass;
+        List<Tuple<string, string>> CitiableItems=new  List<Tuple<string, string>>();
         public NewSurvey()
         {
 
@@ -107,6 +108,7 @@ namespace CMS_Survey.Pages
                 }
             }
             survObj = getJson(mainGrid);
+            GetHelpDocuments();
             // parameters.Name
             // parameters.Text
             // ...
@@ -139,7 +141,22 @@ namespace CMS_Survey.Pages
                 result = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(json);
                 //System.Diagnostics.Debug.WriteLine(result);
             }
+            GetHelpDocuments();
         }
+
+        private void GetHelpDocuments()
+        {
+            CitiableItems = new List<Tuple<string, string>>();
+            foreach (var section in result.sections)
+            {
+
+                foreach (SectionHelp.Surveyquestionanswerlist question in section.surveyQuestionAnswerList)
+                {
+                    CitiableItems.Add(new Tuple<string, string>(question.citableTagName, question.citableTagURL));
+                }
+            }
+        }
+
         private SectionHelp.Rootobject getJson(Grid grid)
         {
             //
@@ -167,6 +184,7 @@ namespace CMS_Survey.Pages
                                      .Replace("<ul>", "").Replace("<\\li>", "").Replace("<\\ul>", "")
                                      .Replace("</li>", "").Replace("</ul>", "");
                 questionlabel.TextWrapping = TextWrapping.Wrap;
+                
                 addUIControl(grid, questionlabel, rowIndex++);
                 if (question.answersList != null && question.answersList.Length > 0)
                 {
@@ -177,7 +195,7 @@ namespace CMS_Survey.Pages
 
 
                         addBlankLine(grid, rowIndex++);
-
+                        
 
                     }
                 }
@@ -860,8 +878,7 @@ namespace CMS_Survey.Pages
             {
                 item =   jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             }
-            else
-            {
+            
                 indx = item.PageIndex;
                 if (indx.Equals(sectionIndex))
                     return;
@@ -870,7 +887,7 @@ namespace CMS_Survey.Pages
                     sectionIndex = indx;
                     getJson(mainGrid);
                 }
-            }
+            
             //e.OriginalSource
             
             //throw new NotImplementedException();

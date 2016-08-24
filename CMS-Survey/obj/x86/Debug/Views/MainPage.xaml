@@ -1,0 +1,103 @@
+﻿<Page x:ConnectionId='1' x:Class="CMS_Survey.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:CMS_Survey.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:CMS_Survey.ViewModels" 
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='3' x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:ConnectionId='4' x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='5' x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='6' x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Wide Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:ConnectionId='7' x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True" Text="Main Page">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton x:ConnectionId='22'                                         Label="Settings" />
+                <AppBarButton x:ConnectionId='23'                                        Label="Privacy" />
+                <AppBarButton x:ConnectionId='24'                                      Label="About" />
+            </controls:PageHeader.SecondaryCommands>
+
+        </controls:PageHeader>
+
+
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="54,75,-634,-880">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <GridView x:ConnectionId='8'                                                 IsItemClickEnabled="True"                                 Grid.RowSpan="2" Width="500" >
+                <GridView.ItemTemplate>
+                    <DataTemplate                             >
+                        <StackPanel x:ConnectionId='17' Orientation="Vertical" VerticalAlignment="Top" Background="SteelBlue" ScrollViewer.IsScrollInertiaEnabled="True" ScrollViewer.IsVerticalRailEnabled="True" ScrollViewer.VerticalScrollMode="Auto">
+                            <StackPanel Margin="20,20,0,0" Height="110" Width="110" >
+                                <TextBlock x:ConnectionId='18' FontSize="14"                                HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock x:ConnectionId='19' FontSize="10"                            HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock x:ConnectionId='20' FontSize="10"                             HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                                <TextBlock x:ConnectionId='21' FontSize="10"                         HorizontalAlignment="Left" TextWrapping="WrapWholeWords" Foreground="White"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                
+            </GridView>
+            <TextBlock x:ConnectionId='9' Name="SelectedSurveyIdBlock" FontSize="15" FontWeight="Normal" Margin="10,10,5,559" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:ConnectionId='10' x:Name="SelectedSurveyType" FontSize="15" FontWeight="Normal" Margin="10,35,5,535" Grid.Column="1" TextWrapping="WrapWholeWords" />
+            <TextBlock x:ConnectionId='11' x:Name="SelectedProvider" FontSize="15" FontWeight="Normal" Margin="10,63,5,508" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:ConnectionId='12' x:Name="SelectedSurveyStatus" FontSize="15" FontWeight="Normal" Margin="10,121,5,455" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:ConnectionId='13' x:Name="SelectedSurveyEndDate" FontSize="15" FontWeight="Normal" Margin="10,147,5,457" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <TextBlock x:ConnectionId='14' x:Name="SelectedSurveyActionDate" FontSize="15" FontWeight="Normal" Margin="10,173,5,427" Grid.Column="1" TextWrapping="WrapWholeWords"/>
+            <Button x:ConnectionId='15' x:Name="Edit" FontSize="15" FontWeight="SemiBold" Margin="10,223,5,400" Grid.Column="1" Visibility="Collapsed" Content="Edit" Background="SteelBlue"                    Foreground="White"/>
+            <Button x:ConnectionId='16' x:Name="Delete" FontSize="15" FontWeight="SemiBold" Margin="60,223,5,400" Grid.Column="2" Visibility="Collapsed" Content="Delete" Background="SteelBlue"                      Foreground="White"/>
+            
+        </Grid>
+    </RelativePanel>
+</Page>
+
+
