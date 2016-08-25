@@ -156,7 +156,7 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[72];
+            _typeNameTable = new string[90];
             _typeNameTable[0] = "Template10.Common.BootStrapper";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Template10.Common.StateItems";
@@ -218,19 +218,37 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             _typeNameTable[58] = "Template10.Common.IStateItems";
             _typeNameTable[59] = "CMS_Survey.Views.DetailPage";
             _typeNameTable[60] = "CMS_Survey.ViewModels.MainPageViewModel";
-            _typeNameTable[61] = "CMS_Survey.Views.MainPage";
-            _typeNameTable[62] = "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>";
-            _typeNameTable[63] = "System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>";
-            _typeNameTable[64] = "CMS_Survey.Models.UserSurvey";
-            _typeNameTable[65] = "CMS_Survey.ViewModels.SettingsPageViewModel";
-            _typeNameTable[66] = "CMS_Survey.ViewModels.SettingsPartViewModel";
-            _typeNameTable[67] = "CMS_Survey.ViewModels.AboutPartViewModel";
-            _typeNameTable[68] = "CMS_Survey.Views.SettingsPage";
-            _typeNameTable[69] = "Windows.UI.Xaml.Media.Animation.TransitionCollection";
-            _typeNameTable[70] = "CMS_Survey.Views.Shell";
-            _typeNameTable[71] = "CMS_Survey.Views.Splash";
+            _typeNameTable[61] = "MyToolkit.Controls.DataGrid";
+            _typeNameTable[62] = "Windows.UI.Xaml.Controls.SelectionMode";
+            _typeNameTable[63] = "Int32";
+            _typeNameTable[64] = "MyToolkit.Controls.DataGridColumnCollection";
+            _typeNameTable[65] = "System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>";
+            _typeNameTable[66] = "System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>";
+            _typeNameTable[67] = "MyToolkit.Controls.DataGridColumnBase";
+            _typeNameTable[68] = "Windows.UI.Xaml.GridLength";
+            _typeNameTable[69] = "Windows.UI.Xaml.PropertyPath";
+            _typeNameTable[70] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[71] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[72] = "MyToolkit.Collections.IObservableCollectionView";
+            _typeNameTable[73] = "Windows.UI.Xaml.Style";
+            _typeNameTable[74] = "MyToolkit.Controls.DataGridTextColumn";
+            _typeNameTable[75] = "MyToolkit.Controls.DataGridBoundColumn";
+            _typeNameTable[76] = "Windows.UI.Xaml.Data.Binding";
+            _typeNameTable[77] = "Windows.UI.Text.FontStyle";
+            _typeNameTable[78] = "CMS_Survey.Views.GridMainPage";
+            _typeNameTable[79] = "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>";
+            _typeNameTable[80] = "System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>";
+            _typeNameTable[81] = "CMS_Survey.Models.UserSurvey";
+            _typeNameTable[82] = "CMS_Survey.Views.MainPage";
+            _typeNameTable[83] = "CMS_Survey.ViewModels.SettingsPageViewModel";
+            _typeNameTable[84] = "CMS_Survey.ViewModels.SettingsPartViewModel";
+            _typeNameTable[85] = "CMS_Survey.ViewModels.AboutPartViewModel";
+            _typeNameTable[86] = "CMS_Survey.Views.SettingsPage";
+            _typeNameTable[87] = "Windows.UI.Xaml.Media.Animation.TransitionCollection";
+            _typeNameTable[88] = "CMS_Survey.Views.Shell";
+            _typeNameTable[89] = "CMS_Survey.Views.Splash";
 
-            _typeTable = new global::System.Type[72];
+            _typeTable = new global::System.Type[90];
             _typeTable[0] = typeof(global::Template10.Common.BootStrapper);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::Template10.Common.StateItems);
@@ -292,17 +310,35 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             _typeTable[58] = typeof(global::Template10.Common.IStateItems);
             _typeTable[59] = typeof(global::CMS_Survey.Views.DetailPage);
             _typeTable[60] = typeof(global::CMS_Survey.ViewModels.MainPageViewModel);
-            _typeTable[61] = typeof(global::CMS_Survey.Views.MainPage);
-            _typeTable[62] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>);
-            _typeTable[63] = typeof(global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>);
-            _typeTable[64] = typeof(global::CMS_Survey.Models.UserSurvey);
-            _typeTable[65] = typeof(global::CMS_Survey.ViewModels.SettingsPageViewModel);
-            _typeTable[66] = typeof(global::CMS_Survey.ViewModels.SettingsPartViewModel);
-            _typeTable[67] = typeof(global::CMS_Survey.ViewModels.AboutPartViewModel);
-            _typeTable[68] = typeof(global::CMS_Survey.Views.SettingsPage);
-            _typeTable[69] = typeof(global::Windows.UI.Xaml.Media.Animation.TransitionCollection);
-            _typeTable[70] = typeof(global::CMS_Survey.Views.Shell);
-            _typeTable[71] = typeof(global::CMS_Survey.Views.Splash);
+            _typeTable[61] = typeof(global::MyToolkit.Controls.DataGrid);
+            _typeTable[62] = typeof(global::Windows.UI.Xaml.Controls.SelectionMode);
+            _typeTable[63] = typeof(global::System.Int32);
+            _typeTable[64] = typeof(global::MyToolkit.Controls.DataGridColumnCollection);
+            _typeTable[65] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::MyToolkit.Controls.DataGridColumnBase>);
+            _typeTable[66] = typeof(global::System.Collections.ObjectModel.Collection<global::MyToolkit.Controls.DataGridColumnBase>);
+            _typeTable[67] = typeof(global::MyToolkit.Controls.DataGridColumnBase);
+            _typeTable[68] = typeof(global::Windows.UI.Xaml.GridLength);
+            _typeTable[69] = typeof(global::Windows.UI.Xaml.PropertyPath);
+            _typeTable[70] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[71] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[72] = typeof(global::MyToolkit.Collections.IObservableCollectionView);
+            _typeTable[73] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[74] = typeof(global::MyToolkit.Controls.DataGridTextColumn);
+            _typeTable[75] = typeof(global::MyToolkit.Controls.DataGridBoundColumn);
+            _typeTable[76] = typeof(global::Windows.UI.Xaml.Data.Binding);
+            _typeTable[77] = typeof(global::Windows.UI.Text.FontStyle);
+            _typeTable[78] = typeof(global::CMS_Survey.Views.GridMainPage);
+            _typeTable[79] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>);
+            _typeTable[80] = typeof(global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>);
+            _typeTable[81] = typeof(global::CMS_Survey.Models.UserSurvey);
+            _typeTable[82] = typeof(global::CMS_Survey.Views.MainPage);
+            _typeTable[83] = typeof(global::CMS_Survey.ViewModels.SettingsPageViewModel);
+            _typeTable[84] = typeof(global::CMS_Survey.ViewModels.SettingsPartViewModel);
+            _typeTable[85] = typeof(global::CMS_Survey.ViewModels.AboutPartViewModel);
+            _typeTable[86] = typeof(global::CMS_Survey.Views.SettingsPage);
+            _typeTable[87] = typeof(global::Windows.UI.Xaml.Media.Animation.TransitionCollection);
+            _typeTable[88] = typeof(global::CMS_Survey.Views.Shell);
+            _typeTable[89] = typeof(global::CMS_Survey.Views.Splash);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -353,15 +389,21 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
         private object Activate_54_DetailPageViewModel() { return new global::CMS_Survey.ViewModels.DetailPageViewModel(); }
         private object Activate_59_DetailPage() { return new global::CMS_Survey.Views.DetailPage(); }
         private object Activate_60_MainPageViewModel() { return new global::CMS_Survey.ViewModels.MainPageViewModel(); }
-        private object Activate_61_MainPage() { return new global::CMS_Survey.Views.MainPage(); }
-        private object Activate_62_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>(); }
-        private object Activate_63_Collection() { return new global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>(); }
-        private object Activate_64_UserSurvey() { return new global::CMS_Survey.Models.UserSurvey(); }
-        private object Activate_65_SettingsPageViewModel() { return new global::CMS_Survey.ViewModels.SettingsPageViewModel(); }
-        private object Activate_66_SettingsPartViewModel() { return new global::CMS_Survey.ViewModels.SettingsPartViewModel(); }
-        private object Activate_67_AboutPartViewModel() { return new global::CMS_Survey.ViewModels.AboutPartViewModel(); }
-        private object Activate_68_SettingsPage() { return new global::CMS_Survey.Views.SettingsPage(); }
-        private object Activate_70_Shell() { return new global::CMS_Survey.Views.Shell(); }
+        private object Activate_61_DataGrid() { return new global::MyToolkit.Controls.DataGrid(); }
+        private object Activate_64_DataGridColumnCollection() { return new global::MyToolkit.Controls.DataGridColumnCollection(); }
+        private object Activate_65_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::MyToolkit.Controls.DataGridColumnBase>(); }
+        private object Activate_66_Collection() { return new global::System.Collections.ObjectModel.Collection<global::MyToolkit.Controls.DataGridColumnBase>(); }
+        private object Activate_74_DataGridTextColumn() { return new global::MyToolkit.Controls.DataGridTextColumn(); }
+        private object Activate_78_GridMainPage() { return new global::CMS_Survey.Views.GridMainPage(); }
+        private object Activate_79_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>(); }
+        private object Activate_80_Collection() { return new global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>(); }
+        private object Activate_81_UserSurvey() { return new global::CMS_Survey.Models.UserSurvey(); }
+        private object Activate_82_MainPage() { return new global::CMS_Survey.Views.MainPage(); }
+        private object Activate_83_SettingsPageViewModel() { return new global::CMS_Survey.ViewModels.SettingsPageViewModel(); }
+        private object Activate_84_SettingsPartViewModel() { return new global::CMS_Survey.ViewModels.SettingsPartViewModel(); }
+        private object Activate_85_AboutPartViewModel() { return new global::CMS_Survey.ViewModels.AboutPartViewModel(); }
+        private object Activate_86_SettingsPage() { return new global::CMS_Survey.Views.SettingsPage(); }
+        private object Activate_88_Shell() { return new global::CMS_Survey.Views.Shell(); }
         private void MapAdd_2_StateItems(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -388,13 +430,37 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             var newItem = (global::Template10.Controls.HamburgerButtonInfo)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_62_ObservableCollection(object instance, object item)
+        private void VectorAdd_64_DataGridColumnCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_65_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_66_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_71_IList(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_79_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::CMS_Survey.Models.UserSurvey>)instance;
             var newItem = (global::CMS_Survey.Models.UserSurvey)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_63_Collection(object instance, object item)
+        private void VectorAdd_80_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::CMS_Survey.Models.UserSurvey>)instance;
             var newItem = (global::CMS_Survey.Models.UserSurvey)item;
@@ -843,31 +909,152 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 61:   //  CMS_Survey.Views.MainPage
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_61_MainPage;
-                userType.AddMemberName("Usersurveys");
-                userType.SetIsLocalType();
+            case 61:   //  MyToolkit.Controls.DataGrid
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_61_DataGrid;
+                userType.AddMemberName("SelectionMode");
+                userType.AddMemberName("DefaultOrderIndex");
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("Columns");
+                userType.AddMemberName("ItemDetailsTemplate");
+                userType.AddMemberName("SelectedItems");
+                userType.AddMemberName("Items");
+                userType.AddMemberName("SelectedColumn");
+                userType.AddMemberName("HeaderBackground");
+                userType.AddMemberName("SelectedItem");
+                userType.AddMemberName("RowStyle");
+                userType.AddMemberName("HeaderTemplate");
+                userType.AddMemberName("CellTemplate");
+                userType.AddMemberName("RowBackgroundOddBrush");
+                userType.AddMemberName("RowBackgroundEvenBrush");
                 xamlType = userType;
                 break;
 
-            case 62:   //  System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>"));
-                userType.CollectionAdd = VectorAdd_62_ObservableCollection;
+            case 62:   //  Windows.UI.Xaml.Controls.SelectionMode
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 63:   //  Int32
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 64:   //  MyToolkit.Controls.DataGridColumnCollection
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>"));
+                userType.CollectionAdd = VectorAdd_64_DataGridColumnCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 63:   //  System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_63_Collection;
-                userType.CollectionAdd = VectorAdd_63_Collection;
+            case 65:   //  System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>"));
+                userType.Activator = Activate_65_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_65_ObservableCollection;
                 xamlType = userType;
                 break;
 
-            case 64:   //  CMS_Survey.Models.UserSurvey
+            case 66:   //  System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_64_UserSurvey;
+                userType.Activator = Activate_66_Collection;
+                userType.CollectionAdd = VectorAdd_66_Collection;
+                xamlType = userType;
+                break;
+
+            case 67:   //  MyToolkit.Controls.DataGridColumnBase
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.AddMemberName("CanSort");
+                userType.AddMemberName("IsSelected");
+                userType.AddMemberName("IsAscending");
+                userType.AddMemberName("IsAscendingDefault");
+                userType.AddMemberName("Header");
+                userType.AddMemberName("Width");
+                userType.AddMemberName("OrderPropertyPath");
+                xamlType = userType;
+                break;
+
+            case 68:   //  Windows.UI.Xaml.GridLength
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 69:   //  Windows.UI.Xaml.PropertyPath
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 70:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 71:   //  System.Collections.Generic.IList`1<Object>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_71_IList;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 72:   //  MyToolkit.Collections.IObservableCollectionView
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 73:   //  Windows.UI.Xaml.Style
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 74:   //  MyToolkit.Controls.DataGridTextColumn
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn"));
+                userType.Activator = Activate_74_DataGridTextColumn;
+                userType.AddMemberName("Style");
+                userType.AddMemberName("FontSize");
+                userType.AddMemberName("FontStyle");
+                userType.AddMemberName("Foreground");
+                xamlType = userType;
+                break;
+
+            case 75:   //  MyToolkit.Controls.DataGridBoundColumn
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase"));
+                userType.AddMemberName("Binding");
+                userType.AddMemberName("OrderPropertyPath");
+                xamlType = userType;
+                break;
+
+            case 76:   //  Windows.UI.Xaml.Data.Binding
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 77:   //  Windows.UI.Text.FontStyle
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Normal", global::Windows.UI.Text.FontStyle.Normal);
+                userType.AddEnumValue("Oblique", global::Windows.UI.Text.FontStyle.Oblique);
+                userType.AddEnumValue("Italic", global::Windows.UI.Text.FontStyle.Italic);
+                xamlType = userType;
+                break;
+
+            case 78:   //  CMS_Survey.Views.GridMainPage
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_78_GridMainPage;
+                userType.AddMemberName("Usersurveys");
+                userType.AddMemberName("Filter");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 79:   //  System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>"));
+                userType.CollectionAdd = VectorAdd_79_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 80:   //  System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_80_Collection;
+                userType.CollectionAdd = VectorAdd_80_Collection;
+                xamlType = userType;
+                break;
+
+            case 81:   //  CMS_Survey.Models.UserSurvey
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_81_UserSurvey;
                 userType.AddMemberName("surveyKey");
                 userType.AddMemberName("surveyNumber");
                 userType.AddMemberName("surveyType");
@@ -885,48 +1072,56 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 65:   //  CMS_Survey.ViewModels.SettingsPageViewModel
+            case 82:   //  CMS_Survey.Views.MainPage
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_82_MainPage;
+                userType.AddMemberName("Usersurveys");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 83:   //  CMS_Survey.ViewModels.SettingsPageViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_65_SettingsPageViewModel;
+                userType.Activator = Activate_83_SettingsPageViewModel;
                 userType.AddMemberName("SettingsPartViewModel");
                 userType.AddMemberName("AboutPartViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 66:   //  CMS_Survey.ViewModels.SettingsPartViewModel
+            case 84:   //  CMS_Survey.ViewModels.SettingsPartViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 67:   //  CMS_Survey.ViewModels.AboutPartViewModel
+            case 85:   //  CMS_Survey.ViewModels.AboutPartViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 68:   //  CMS_Survey.Views.SettingsPage
+            case 86:   //  CMS_Survey.Views.SettingsPage
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_68_SettingsPage;
+                userType.Activator = Activate_86_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 69:   //  Windows.UI.Xaml.Media.Animation.TransitionCollection
+            case 87:   //  Windows.UI.Xaml.Media.Animation.TransitionCollection
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 70:   //  CMS_Survey.Views.Shell
+            case 88:   //  CMS_Survey.Views.Shell
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_70_Shell;
+                userType.Activator = Activate_88_Shell;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 71:   //  CMS_Survey.Views.Splash
+            case 89:   //  CMS_Survey.Views.Splash
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -944,6 +1139,8 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::MyToolkit.MyToolkit_Extended_Uwp_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     provider = new global::Template10.Template10__Library__XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
@@ -1840,212 +2037,477 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             var that = (global::CMS_Survey.ViewModels.MainPageViewModel)instance;
             that.Value = (global::System.String)Value;
         }
-        private object get_88_MainPage_Usersurveys(object instance)
+        private object get_88_DataGrid_SelectionMode(object instance)
         {
-            var that = (global::CMS_Survey.Views.MainPage)instance;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectionMode;
+        }
+        private void set_88_DataGrid_SelectionMode(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.SelectionMode = (global::Windows.UI.Xaml.Controls.SelectionMode)Value;
+        }
+        private object get_89_DataGrid_DefaultOrderIndex(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.DefaultOrderIndex;
+        }
+        private void set_89_DataGrid_DefaultOrderIndex(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.DefaultOrderIndex = (global::System.Int32)Value;
+        }
+        private object get_90_DataGrid_ItemsSource(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.ItemsSource;
+        }
+        private void set_90_DataGrid_ItemsSource(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.ItemsSource = (global::System.Object)Value;
+        }
+        private object get_91_DataGrid_Columns(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.Columns;
+        }
+        private void set_91_DataGrid_Columns(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.Columns = (global::MyToolkit.Controls.DataGridColumnCollection)Value;
+        }
+        private object get_92_DataGridColumnBase_CanSort(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.CanSort;
+        }
+        private void set_92_DataGridColumnBase_CanSort(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.CanSort = (global::System.Boolean)Value;
+        }
+        private object get_93_DataGridColumnBase_IsSelected(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsSelected;
+        }
+        private object get_94_DataGridColumnBase_IsAscending(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsAscending;
+        }
+        private object get_95_DataGridColumnBase_IsAscendingDefault(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsAscendingDefault;
+        }
+        private void set_95_DataGridColumnBase_IsAscendingDefault(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.IsAscendingDefault = (global::System.Boolean)Value;
+        }
+        private object get_96_DataGridColumnBase_Header(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.Header;
+        }
+        private void set_96_DataGridColumnBase_Header(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_97_DataGridColumnBase_Width(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.Width;
+        }
+        private void set_97_DataGridColumnBase_Width(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.Width = (global::Windows.UI.Xaml.GridLength)Value;
+        }
+        private object get_98_DataGridColumnBase_OrderPropertyPath(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.OrderPropertyPath;
+        }
+        private object get_99_DataGrid_ItemDetailsTemplate(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.ItemDetailsTemplate;
+        }
+        private void set_99_DataGrid_ItemDetailsTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.ItemDetailsTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_100_DataGrid_SelectedItems(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedItems;
+        }
+        private object get_101_DataGrid_Items(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.Items;
+        }
+        private object get_102_DataGrid_SelectedColumn(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedColumn;
+        }
+        private object get_103_DataGrid_HeaderBackground(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.HeaderBackground;
+        }
+        private void set_103_DataGrid_HeaderBackground(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.HeaderBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_104_DataGrid_SelectedItem(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedItem;
+        }
+        private void set_104_DataGrid_SelectedItem(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.SelectedItem = (global::System.Object)Value;
+        }
+        private object get_105_DataGrid_RowStyle(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowStyle;
+        }
+        private void set_105_DataGrid_RowStyle(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_106_DataGrid_HeaderTemplate(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_106_DataGrid_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.HeaderTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_107_DataGrid_CellTemplate(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.CellTemplate;
+        }
+        private void set_107_DataGrid_CellTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.CellTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_108_DataGrid_RowBackgroundOddBrush(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowBackgroundOddBrush;
+        }
+        private void set_108_DataGrid_RowBackgroundOddBrush(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowBackgroundOddBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_109_DataGrid_RowBackgroundEvenBrush(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowBackgroundEvenBrush;
+        }
+        private void set_109_DataGrid_RowBackgroundEvenBrush(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowBackgroundEvenBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_110_DataGridBoundColumn_Binding(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            return that.Binding;
+        }
+        private void set_110_DataGridBoundColumn_Binding(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            that.Binding = (global::Windows.UI.Xaml.Data.Binding)Value;
+        }
+        private object get_111_DataGridTextColumn_Style(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.Style;
+        }
+        private void set_111_DataGridTextColumn_Style(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.Style = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_112_DataGridTextColumn_FontSize(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.FontSize;
+        }
+        private void set_112_DataGridTextColumn_FontSize(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.FontSize = (global::System.Double)Value;
+        }
+        private object get_113_DataGridTextColumn_FontStyle(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.FontStyle;
+        }
+        private void set_113_DataGridTextColumn_FontStyle(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.FontStyle = (global::Windows.UI.Text.FontStyle)Value;
+        }
+        private object get_114_DataGridTextColumn_Foreground(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.Foreground;
+        }
+        private void set_114_DataGridTextColumn_Foreground(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.Foreground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_115_DataGridBoundColumn_OrderPropertyPath(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            return that.OrderPropertyPath;
+        }
+        private object get_116_GridMainPage_Usersurveys(object instance)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
             return that.Usersurveys;
         }
-        private void set_88_MainPage_Usersurveys(object instance, object Value)
+        private void set_116_GridMainPage_Usersurveys(object instance, object Value)
         {
-            var that = (global::CMS_Survey.Views.MainPage)instance;
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
             that.Usersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
         }
-        private object get_89_UserSurvey_surveyKey(object instance)
+        private object get_117_UserSurvey_surveyKey(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.surveyKey;
         }
-        private void set_89_UserSurvey_surveyKey(object instance, object Value)
+        private void set_117_UserSurvey_surveyKey(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.surveyKey = (global::System.String)Value;
         }
-        private object get_90_UserSurvey_surveyNumber(object instance)
+        private object get_118_UserSurvey_surveyNumber(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.surveyNumber;
         }
-        private void set_90_UserSurvey_surveyNumber(object instance, object Value)
+        private void set_118_UserSurvey_surveyNumber(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.surveyNumber = (global::System.String)Value;
         }
-        private object get_91_UserSurvey_surveyType(object instance)
+        private object get_119_UserSurvey_surveyType(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.surveyType;
         }
-        private void set_91_UserSurvey_surveyType(object instance, object Value)
+        private void set_119_UserSurvey_surveyType(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.surveyType = (global::System.String)Value;
         }
-        private object get_92_UserSurvey_surveyProvider(object instance)
+        private object get_120_UserSurvey_surveyProvider(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.surveyProvider;
         }
-        private void set_92_UserSurvey_surveyProvider(object instance, object Value)
+        private void set_120_UserSurvey_surveyProvider(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.surveyProvider = (global::System.String)Value;
         }
-        private object get_93_UserSurvey_status(object instance)
+        private object get_121_UserSurvey_status(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.status;
         }
-        private void set_93_UserSurvey_status(object instance, object Value)
+        private void set_121_UserSurvey_status(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.status = (global::System.String)Value;
         }
-        private object get_94_UserSurvey_endDate(object instance)
+        private object get_122_UserSurvey_endDate(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.endDate;
         }
-        private void set_94_UserSurvey_endDate(object instance, object Value)
+        private void set_122_UserSurvey_endDate(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.endDate = (global::System.Object)Value;
         }
-        private object get_95_UserSurvey_actionDate(object instance)
+        private object get_123_UserSurvey_actionDate(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.actionDate;
         }
-        private void set_95_UserSurvey_actionDate(object instance, object Value)
+        private void set_123_UserSurvey_actionDate(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.actionDate = (global::System.Object)Value;
         }
-        private object get_96_UserSurvey_supervisorComments(object instance)
+        private object get_124_UserSurvey_supervisorComments(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.supervisorComments;
         }
-        private void set_96_UserSurvey_supervisorComments(object instance, object Value)
+        private void set_124_UserSurvey_supervisorComments(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.supervisorComments = (global::System.Object)Value;
         }
-        private object get_97_UserSurvey_startDate(object instance)
+        private object get_125_UserSurvey_startDate(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.startDate;
         }
-        private void set_97_UserSurvey_startDate(object instance, object Value)
+        private void set_125_UserSurvey_startDate(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.startDate = (global::System.Object)Value;
         }
-        private object get_98_UserSurvey_active(object instance)
+        private object get_126_UserSurvey_active(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.active;
         }
-        private void set_98_UserSurvey_active(object instance, object Value)
+        private void set_126_UserSurvey_active(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.active = (global::System.Boolean)Value;
         }
-        private object get_99_UserSurvey_endDateString(object instance)
+        private object get_127_UserSurvey_endDateString(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.endDateString;
         }
-        private void set_99_UserSurvey_endDateString(object instance, object Value)
+        private void set_127_UserSurvey_endDateString(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.endDateString = (global::System.String)Value;
         }
-        private object get_100_UserSurvey_actionDateString(object instance)
+        private object get_128_UserSurvey_actionDateString(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.actionDateString;
         }
-        private void set_100_UserSurvey_actionDateString(object instance, object Value)
+        private void set_128_UserSurvey_actionDateString(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.actionDateString = (global::System.String)Value;
         }
-        private object get_101_UserSurvey_startDateString(object instance)
+        private object get_129_UserSurvey_startDateString(object instance)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             return that.startDateString;
         }
-        private void set_101_UserSurvey_startDateString(object instance, object Value)
+        private void set_129_UserSurvey_startDateString(object instance, object Value)
         {
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.startDateString = (global::System.String)Value;
         }
-        private object get_102_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private object get_130_GridMainPage_Filter(object instance)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            return that.Filter;
+        }
+        private void set_130_GridMainPage_Filter(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            that.Filter = (global::System.String)Value;
+        }
+        private object get_131_MainPage_Usersurveys(object instance)
+        {
+            var that = (global::CMS_Survey.Views.MainPage)instance;
+            return that.Usersurveys;
+        }
+        private void set_131_MainPage_Usersurveys(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.MainPage)instance;
+            that.Usersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
+        }
+        private object get_132_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_103_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_133_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
         }
-        private object get_104_ModalDialog_CanBackButtonDismiss(object instance)
+        private object get_134_ModalDialog_CanBackButtonDismiss(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.CanBackButtonDismiss;
         }
-        private void set_104_ModalDialog_CanBackButtonDismiss(object instance, object Value)
+        private void set_134_ModalDialog_CanBackButtonDismiss(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.CanBackButtonDismiss = (global::System.Boolean)Value;
         }
-        private object get_105_ModalDialog_DisableBackButtonWhenModal(object instance)
+        private object get_135_ModalDialog_DisableBackButtonWhenModal(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.DisableBackButtonWhenModal;
         }
-        private void set_105_ModalDialog_DisableBackButtonWhenModal(object instance, object Value)
+        private void set_135_ModalDialog_DisableBackButtonWhenModal(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.DisableBackButtonWhenModal = (global::System.Boolean)Value;
         }
-        private object get_106_ModalDialog_ModalContent(object instance)
+        private object get_136_ModalDialog_ModalContent(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalContent;
         }
-        private void set_106_ModalDialog_ModalContent(object instance, object Value)
+        private void set_136_ModalDialog_ModalContent(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalContent = (global::Windows.UI.Xaml.UIElement)Value;
         }
-        private object get_107_ModalDialog_IsModal(object instance)
+        private object get_137_ModalDialog_IsModal(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.IsModal;
         }
-        private void set_107_ModalDialog_IsModal(object instance, object Value)
+        private void set_137_ModalDialog_IsModal(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.IsModal = (global::System.Boolean)Value;
         }
-        private object get_108_ModalDialog_ModalBackground(object instance)
+        private object get_138_ModalDialog_ModalBackground(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalBackground;
         }
-        private void set_108_ModalDialog_ModalBackground(object instance, object Value)
+        private void set_138_ModalDialog_ModalBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_109_ModalDialog_ModalTransitions(object instance)
+        private object get_139_ModalDialog_ModalTransitions(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalTransitions;
         }
-        private void set_109_ModalDialog_ModalTransitions(object instance, object Value)
+        private void set_139_ModalDialog_ModalTransitions(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalTransitions = (global::Windows.UI.Xaml.Media.Animation.TransitionCollection)Value;
@@ -2652,143 +3114,345 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlMember.Getter = get_87_MainPageViewModel_Value;
                 xamlMember.Setter = set_87_MainPageViewModel_Value;
                 break;
-            case "CMS_Survey.Views.MainPage.Usersurveys":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.MainPage");
+            case "MyToolkit.Controls.DataGrid.SelectionMode":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectionMode", "Windows.UI.Xaml.Controls.SelectionMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_88_DataGrid_SelectionMode;
+                xamlMember.Setter = set_88_DataGrid_SelectionMode;
+                break;
+            case "MyToolkit.Controls.DataGrid.DefaultOrderIndex":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DefaultOrderIndex", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_89_DataGrid_DefaultOrderIndex;
+                xamlMember.Setter = set_89_DataGrid_DefaultOrderIndex;
+                break;
+            case "MyToolkit.Controls.DataGrid.ItemsSource":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_90_DataGrid_ItemsSource;
+                xamlMember.Setter = set_90_DataGrid_ItemsSource;
+                break;
+            case "MyToolkit.Controls.DataGrid.Columns":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Columns", "MyToolkit.Controls.DataGridColumnCollection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_91_DataGrid_Columns;
+                xamlMember.Setter = set_91_DataGrid_Columns;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.CanSort":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CanSort", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_92_DataGridColumnBase_CanSort;
+                xamlMember.Setter = set_92_DataGridColumnBase_CanSort;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.IsSelected":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_93_DataGridColumnBase_IsSelected;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.IsAscending":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsAscending", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_94_DataGridColumnBase_IsAscending;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.IsAscendingDefault":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsAscendingDefault", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_95_DataGridColumnBase_IsAscendingDefault;
+                xamlMember.Setter = set_95_DataGridColumnBase_IsAscendingDefault;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.Header":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_96_DataGridColumnBase_Header;
+                xamlMember.Setter = set_96_DataGridColumnBase_Header;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.Width":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Width", "Windows.UI.Xaml.GridLength");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_97_DataGridColumnBase_Width;
+                xamlMember.Setter = set_97_DataGridColumnBase_Width;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.OrderPropertyPath":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "OrderPropertyPath", "Windows.UI.Xaml.PropertyPath");
+                xamlMember.Getter = get_98_DataGridColumnBase_OrderPropertyPath;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGrid.ItemDetailsTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ItemDetailsTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_99_DataGrid_ItemDetailsTemplate;
+                xamlMember.Setter = set_99_DataGrid_ItemDetailsTemplate;
+                break;
+            case "MyToolkit.Controls.DataGrid.SelectedItems":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedItems", "System.Collections.Generic.IList`1<Object>");
+                xamlMember.Getter = get_100_DataGrid_SelectedItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGrid.Items":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Items", "MyToolkit.Collections.IObservableCollectionView");
+                xamlMember.Getter = get_101_DataGrid_Items;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGrid.SelectedColumn":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedColumn", "MyToolkit.Controls.DataGridColumnBase");
+                xamlMember.Getter = get_102_DataGrid_SelectedColumn;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MyToolkit.Controls.DataGrid.HeaderBackground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HeaderBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_103_DataGrid_HeaderBackground;
+                xamlMember.Setter = set_103_DataGrid_HeaderBackground;
+                break;
+            case "MyToolkit.Controls.DataGrid.SelectedItem":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_104_DataGrid_SelectedItem;
+                xamlMember.Setter = set_104_DataGrid_SelectedItem;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowStyle":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_105_DataGrid_RowStyle;
+                xamlMember.Setter = set_105_DataGrid_RowStyle;
+                break;
+            case "MyToolkit.Controls.DataGrid.HeaderTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_106_DataGrid_HeaderTemplate;
+                xamlMember.Setter = set_106_DataGrid_HeaderTemplate;
+                break;
+            case "MyToolkit.Controls.DataGrid.CellTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CellTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_107_DataGrid_CellTemplate;
+                xamlMember.Setter = set_107_DataGrid_CellTemplate;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowBackgroundOddBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowBackgroundOddBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_108_DataGrid_RowBackgroundOddBrush;
+                xamlMember.Setter = set_108_DataGrid_RowBackgroundOddBrush;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowBackgroundEvenBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowBackgroundEvenBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_109_DataGrid_RowBackgroundEvenBrush;
+                xamlMember.Setter = set_109_DataGrid_RowBackgroundEvenBrush;
+                break;
+            case "MyToolkit.Controls.DataGridBoundColumn.Binding":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Binding", "Windows.UI.Xaml.Data.Binding");
+                xamlMember.Getter = get_110_DataGridBoundColumn_Binding;
+                xamlMember.Setter = set_110_DataGridBoundColumn_Binding;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.Style":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Style", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_111_DataGridTextColumn_Style;
+                xamlMember.Setter = set_111_DataGridTextColumn_Style;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.FontSize":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "FontSize", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_112_DataGridTextColumn_FontSize;
+                xamlMember.Setter = set_112_DataGridTextColumn_FontSize;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.FontStyle":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "FontStyle", "Windows.UI.Text.FontStyle");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_113_DataGridTextColumn_FontStyle;
+                xamlMember.Setter = set_113_DataGridTextColumn_FontStyle;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.Foreground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Foreground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_114_DataGridTextColumn_Foreground;
+                xamlMember.Setter = set_114_DataGridTextColumn_Foreground;
+                break;
+            case "MyToolkit.Controls.DataGridBoundColumn.OrderPropertyPath":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "OrderPropertyPath", "Windows.UI.Xaml.PropertyPath");
+                xamlMember.Getter = get_115_DataGridBoundColumn_OrderPropertyPath;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "CMS_Survey.Views.GridMainPage.Usersurveys":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Usersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
-                xamlMember.Getter = get_88_MainPage_Usersurveys;
-                xamlMember.Setter = set_88_MainPage_Usersurveys;
+                xamlMember.Getter = get_116_GridMainPage_Usersurveys;
+                xamlMember.Setter = set_116_GridMainPage_Usersurveys;
                 break;
             case "CMS_Survey.Models.UserSurvey.surveyKey":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyKey", "String");
-                xamlMember.Getter = get_89_UserSurvey_surveyKey;
-                xamlMember.Setter = set_89_UserSurvey_surveyKey;
+                xamlMember.Getter = get_117_UserSurvey_surveyKey;
+                xamlMember.Setter = set_117_UserSurvey_surveyKey;
                 break;
             case "CMS_Survey.Models.UserSurvey.surveyNumber":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyNumber", "String");
-                xamlMember.Getter = get_90_UserSurvey_surveyNumber;
-                xamlMember.Setter = set_90_UserSurvey_surveyNumber;
+                xamlMember.Getter = get_118_UserSurvey_surveyNumber;
+                xamlMember.Setter = set_118_UserSurvey_surveyNumber;
                 break;
             case "CMS_Survey.Models.UserSurvey.surveyType":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyType", "String");
-                xamlMember.Getter = get_91_UserSurvey_surveyType;
-                xamlMember.Setter = set_91_UserSurvey_surveyType;
+                xamlMember.Getter = get_119_UserSurvey_surveyType;
+                xamlMember.Setter = set_119_UserSurvey_surveyType;
                 break;
             case "CMS_Survey.Models.UserSurvey.surveyProvider":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyProvider", "String");
-                xamlMember.Getter = get_92_UserSurvey_surveyProvider;
-                xamlMember.Setter = set_92_UserSurvey_surveyProvider;
+                xamlMember.Getter = get_120_UserSurvey_surveyProvider;
+                xamlMember.Setter = set_120_UserSurvey_surveyProvider;
                 break;
             case "CMS_Survey.Models.UserSurvey.status":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "status", "String");
-                xamlMember.Getter = get_93_UserSurvey_status;
-                xamlMember.Setter = set_93_UserSurvey_status;
+                xamlMember.Getter = get_121_UserSurvey_status;
+                xamlMember.Setter = set_121_UserSurvey_status;
                 break;
             case "CMS_Survey.Models.UserSurvey.endDate":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "endDate", "Object");
-                xamlMember.Getter = get_94_UserSurvey_endDate;
-                xamlMember.Setter = set_94_UserSurvey_endDate;
+                xamlMember.Getter = get_122_UserSurvey_endDate;
+                xamlMember.Setter = set_122_UserSurvey_endDate;
                 break;
             case "CMS_Survey.Models.UserSurvey.actionDate":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "actionDate", "Object");
-                xamlMember.Getter = get_95_UserSurvey_actionDate;
-                xamlMember.Setter = set_95_UserSurvey_actionDate;
+                xamlMember.Getter = get_123_UserSurvey_actionDate;
+                xamlMember.Setter = set_123_UserSurvey_actionDate;
                 break;
             case "CMS_Survey.Models.UserSurvey.supervisorComments":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "supervisorComments", "Object");
-                xamlMember.Getter = get_96_UserSurvey_supervisorComments;
-                xamlMember.Setter = set_96_UserSurvey_supervisorComments;
+                xamlMember.Getter = get_124_UserSurvey_supervisorComments;
+                xamlMember.Setter = set_124_UserSurvey_supervisorComments;
                 break;
             case "CMS_Survey.Models.UserSurvey.startDate":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "startDate", "Object");
-                xamlMember.Getter = get_97_UserSurvey_startDate;
-                xamlMember.Setter = set_97_UserSurvey_startDate;
+                xamlMember.Getter = get_125_UserSurvey_startDate;
+                xamlMember.Setter = set_125_UserSurvey_startDate;
                 break;
             case "CMS_Survey.Models.UserSurvey.active":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "active", "Boolean");
-                xamlMember.Getter = get_98_UserSurvey_active;
-                xamlMember.Setter = set_98_UserSurvey_active;
+                xamlMember.Getter = get_126_UserSurvey_active;
+                xamlMember.Setter = set_126_UserSurvey_active;
                 break;
             case "CMS_Survey.Models.UserSurvey.endDateString":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "endDateString", "String");
-                xamlMember.Getter = get_99_UserSurvey_endDateString;
-                xamlMember.Setter = set_99_UserSurvey_endDateString;
+                xamlMember.Getter = get_127_UserSurvey_endDateString;
+                xamlMember.Setter = set_127_UserSurvey_endDateString;
                 break;
             case "CMS_Survey.Models.UserSurvey.actionDateString":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "actionDateString", "String");
-                xamlMember.Getter = get_100_UserSurvey_actionDateString;
-                xamlMember.Setter = set_100_UserSurvey_actionDateString;
+                xamlMember.Getter = get_128_UserSurvey_actionDateString;
+                xamlMember.Setter = set_128_UserSurvey_actionDateString;
                 break;
             case "CMS_Survey.Models.UserSurvey.startDateString":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "startDateString", "String");
-                xamlMember.Getter = get_101_UserSurvey_startDateString;
-                xamlMember.Setter = set_101_UserSurvey_startDateString;
+                xamlMember.Getter = get_129_UserSurvey_startDateString;
+                xamlMember.Setter = set_129_UserSurvey_startDateString;
+                break;
+            case "CMS_Survey.Views.GridMainPage.Filter":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Filter", "String");
+                xamlMember.Getter = get_130_GridMainPage_Filter;
+                xamlMember.Setter = set_130_GridMainPage_Filter;
+                break;
+            case "CMS_Survey.Views.MainPage.Usersurveys":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.MainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Usersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
+                xamlMember.Getter = get_131_MainPage_Usersurveys;
+                xamlMember.Setter = set_131_MainPage_Usersurveys;
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "CMS_Survey.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_102_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_132_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "CMS_Survey.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_103_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_133_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Template10.Controls.ModalDialog.CanBackButtonDismiss":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CanBackButtonDismiss", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_104_ModalDialog_CanBackButtonDismiss;
-                xamlMember.Setter = set_104_ModalDialog_CanBackButtonDismiss;
+                xamlMember.Getter = get_134_ModalDialog_CanBackButtonDismiss;
+                xamlMember.Setter = set_134_ModalDialog_CanBackButtonDismiss;
                 break;
             case "Template10.Controls.ModalDialog.DisableBackButtonWhenModal":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DisableBackButtonWhenModal", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_105_ModalDialog_DisableBackButtonWhenModal;
-                xamlMember.Setter = set_105_ModalDialog_DisableBackButtonWhenModal;
+                xamlMember.Getter = get_135_ModalDialog_DisableBackButtonWhenModal;
+                xamlMember.Setter = set_135_ModalDialog_DisableBackButtonWhenModal;
                 break;
             case "Template10.Controls.ModalDialog.ModalContent":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalContent", "Windows.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_106_ModalDialog_ModalContent;
-                xamlMember.Setter = set_106_ModalDialog_ModalContent;
+                xamlMember.Getter = get_136_ModalDialog_ModalContent;
+                xamlMember.Setter = set_136_ModalDialog_ModalContent;
                 break;
             case "Template10.Controls.ModalDialog.IsModal":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsModal", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_107_ModalDialog_IsModal;
-                xamlMember.Setter = set_107_ModalDialog_IsModal;
+                xamlMember.Getter = get_137_ModalDialog_IsModal;
+                xamlMember.Setter = set_137_ModalDialog_IsModal;
                 break;
             case "Template10.Controls.ModalDialog.ModalBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_108_ModalDialog_ModalBackground;
-                xamlMember.Setter = set_108_ModalDialog_ModalBackground;
+                xamlMember.Getter = get_138_ModalDialog_ModalBackground;
+                xamlMember.Setter = set_138_ModalDialog_ModalBackground;
                 break;
             case "Template10.Controls.ModalDialog.ModalTransitions":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalTransitions", "Windows.UI.Xaml.Media.Animation.TransitionCollection");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_109_ModalDialog_ModalTransitions;
-                xamlMember.Setter = set_109_ModalDialog_ModalTransitions;
+                xamlMember.Getter = get_139_ModalDialog_ModalTransitions;
+                xamlMember.Setter = set_139_ModalDialog_ModalTransitions;
                 break;
             }
             return xamlMember;

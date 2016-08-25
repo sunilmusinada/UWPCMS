@@ -47,7 +47,7 @@ namespace CMS_Survey.Views
 
         private void LoginPart_LoggedIn(object sender, EventArgs e)
         {
-            MyHamburgerMenu.NavigationService.Navigate(typeof(Views.MainPage));
+            MyHamburgerMenu.NavigationService.Navigate(typeof(Views.GridMainPage));
         }
 
         public void SetNavigationService(INavigationService navigationService)

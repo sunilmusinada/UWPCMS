@@ -289,6 +289,27 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -2161,6 +2182,27 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -3948,6 +3990,27 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -5700,6 +5763,27 @@
         "runtime": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
         }
       },
       "Newtonsoft.Json/8.0.3": {
@@ -7492,6 +7576,27 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -9244,6 +9349,27 @@
         "runtime": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
         }
       },
       "Newtonsoft.Json/8.0.3": {
@@ -11034,6 +11160,27 @@
         "runtime": {
           "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MyToolkit/2.5.12": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.5.12": {
+        "type": "package",
+        "dependencies": {
+          "MyToolkit": "2.5.12"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
         }
       },
       "Newtonsoft.Json/8.0.3": {
@@ -13148,6 +13295,56 @@
         "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.xml"
+      ]
+    },
+    "MyToolkit/2.5.12": {
+      "sha512": "dUPVdRP5Intc4JSKjzXnbWp0wKhtiToQCiTNekF4tT0y0Dr+iCr2FCwY3HmOmyAz6XUnfseknBWCsdsmxbU4KQ==",
+      "type": "package",
+      "files": [
+        "MyToolkit.2.5.12.nupkg.sha512",
+        "MyToolkit.nuspec",
+        "lib/portable-net45+wp8+win8+wpa81/CodeContracts/MyToolkit.Contracts.dll",
+        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll",
+        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.xml",
+        "lib/portable-sl5+wp71/MyToolkit.dll",
+        "lib/portable-sl5+wp71/MyToolkit.xml"
+      ]
+    },
+    "MyToolkit.Extended/2.5.12": {
+      "sha512": "VSuWmUAOQ/VL+k5MzAmPCT2JLmt4zDi3j1HLRUnPN8axMQKDKu8SH8tu7IE25MfCTON2s8AVD2XUU3OdJA6yNQ==",
+      "type": "package",
+      "files": [
+        "MyToolkit.Extended.2.5.12.nupkg.sha512",
+        "MyToolkit.Extended.nuspec",
+        "lib/net40/MyToolkit.Extended.dll",
+        "lib/net40/MyToolkit.Extended.xml",
+        "lib/net45/MyToolkit.Extended.dll",
+        "lib/net45/MyToolkit.Extended.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.dll",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.pri",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/DatePicker.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/TimePicker.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.pdb",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Themes/Generic.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/UI/Popups/ListPickerBox.xbf",
+        "lib/sl4-wp71/MyToolkit.Extended.dll",
+        "lib/sl4-wp71/MyToolkit.Extended.xml",
+        "lib/sl4-wp71/de/MyToolkit.Extended.resources.dll",
+        "lib/sl4-wp71/fr/MyToolkit.Extended.resources.dll",
+        "lib/sl50/MyToolkit.Extended.dll",
+        "lib/sl50/MyToolkit.Extended.xml",
+        "lib/uap10.0/MyToolkit.Extended.dll",
+        "lib/uap10.0/MyToolkit.Extended.pri",
+        "lib/uap10.0/MyToolkit.Extended.xml",
+        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.pdb",
+        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
+        "lib/uap10.0/MyToolkit.Extended/Themes/Generic.xbf",
+        "lib/wp80/MyToolkit.Extended.dll",
+        "lib/wp80/MyToolkit.Extended.xml",
+        "lib/wp80/de/MyToolkit.Extended.resources.dll",
+        "lib/wp80/fr/MyToolkit.Extended.resources.dll"
       ]
     },
     "Newtonsoft.Json/8.0.3": {
@@ -15961,6 +16158,8 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.1.0",
+      "MyToolkit >= 2.5.12",
+      "MyToolkit.Extended >= 2.5.12",
       "Newtonsoft.Json >= 8.0.3",
       "SQLitePCL >= 3.8.7.2",
       "System.Data.SQLite >= 1.0.102",
