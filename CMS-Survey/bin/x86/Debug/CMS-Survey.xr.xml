@@ -213,6 +213,19 @@
       <RootProperty Name="GrabberBrush" />
       <RootProperty Name="GrabberVisibility" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Items" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="CMS_Survey.Views.BlankPage1" />
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
@@ -269,6 +282,8 @@
       <RootProperty Name="DefaultOrderIndex" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="RowBackgroundEvenBrush" />
+      <RootProperty Name="RowBackgroundOddBrush" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Columns" />
@@ -278,28 +293,16 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Header" />
       <RootProperty Name="Binding" />
+      <RootProperty Name="TextWrapping" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AutoSuggestBox">
-      <RootProperty Name="Text" />
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="AutoMaximizeSuggestionArea" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="CMS_Survey.Views.GridMainPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="ItemClick" />
-    </RootType>
     <RootType FullName="CMS_Survey.Views.MainPage" />
     <RootType FullName="CMS_Survey.ViewModels.SettingsPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">

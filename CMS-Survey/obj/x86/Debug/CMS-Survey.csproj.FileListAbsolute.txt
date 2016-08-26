@@ -1231,4 +1231,9 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\GridMainPage.g.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\GridMainPage.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\GridMainPage.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\MyToolkit.Extended.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Views\BlankPage1.xbf
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\BlankPage1.g.i.cs
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\BlankPage1.g.cs
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\BlankPage1.xaml
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\BlankPage1.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\MyToolkit.Extended.pri.xml

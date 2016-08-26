@@ -62,7 +62,7 @@
             </controls:PageHeader.SecondaryCommands>
 
         </controls:PageHeader>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Grid Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -74,36 +74,41 @@
                     <TextBlock Text="Filter" FontWeight="Bold" Margin="54,75,0,2" />
                     <AutoSuggestBox Text="{x:Bind Filter, Mode=OneWay}" 
                                 PlaceholderText="Filter" Margin="0,0,0,16" AutoMaximizeSuggestionArea="False" />
-                </StackPanel>
+                </StackPanel>-->
                 <ExtendedControls:DataGrid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="DataGrid" 
-                   SelectionMode="Multiple" DefaultOrderIndex="1" Margin="54,75,-634,-880" ItemsSource="{x:Bind Usersurveys, Mode=OneWay}"   Grid.RowSpan="1" Width="900" Height="800">
+                   SelectionMode="Single" DefaultOrderIndex="1" Margin="54,75,-634,-880" ItemsSource="{x:Bind Usersurveys, Mode=OneWay}" RowBackgroundEvenBrush="SteelBlue" RowBackgroundOddBrush="White"  Grid.RowSpan="1" Width="900" Height="800" >
 
-                    <ExtendedControls:DataGrid.Columns>
-                        <ExtendedControls:DataGridTextColumn Width="50" Header="Id" 
-                  Binding="{Binding surveyKey}"/>
+                    <ExtendedControls:DataGrid.Columns >
+                        <ExtendedControls:DataGridTextColumn Width="50" Header="Id"
+                  Binding="{Binding surveyKey}" />
 
-                        <ExtendedControls:DataGridTextColumn Width="*" Header="Provider" Binding="{Binding surveyProvider}" />
-                        <ExtendedControls:DataGridTextColumn Width="150" Header="Survey Type" 
+                        <ExtendedControls:DataGridTextColumn Width="*" Header="Provider" Binding="{Binding surveyProvider}" TextWrapping="WrapWholeWords"/>
+                        <ExtendedControls:DataGridTextColumn Width="*" Header="Survey Type" 
                   Binding="{Binding surveyType}"/>
-                        <ExtendedControls:DataGridTextColumn Width="100" Header="Status" 
+                        <ExtendedControls:DataGridTextColumn Width="*" Header="Status" 
                   Binding="{Binding status}"/>
                         <ExtendedControls:DataGridTextColumn Width="*" Header="Survey End Date" 
                   Binding="{Binding endDateString}"/>
                         <ExtendedControls:DataGridTextColumn Width="*" Header="Action Date" 
                   Binding="{Binding actionDateString}" />
-                    </ExtendedControls:DataGrid.Columns>
+               
+            </ExtendedControls:DataGrid.Columns>
                     <ExtendedControls:DataGrid.ItemDetailsTemplate>
                         <DataTemplate x:DataType="data:UserSurvey">
                             <StackPanel Margin="12,0,12,12">
                                 <TextBlock Text="Details: " FontWeight="Bold" />
-                                <TextBlock Text="{x:Bind surveyKey}" />
-                                <TextBlock Text="{x:Bind surveyProvider}" />
-                                <TextBlock Text="{x:Bind surveyType}" />
-                                <TextBlock Text="{x:Bind status}" />
-                                <TextBlock Text="{x:Bind endDateString}" />
-                                <TextBlock Text="{x:Bind actionDateString}" />
+                                <TextBlock Text="{x:Bind surveyKey}" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="{x:Bind surveyProvider}" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="{x:Bind surveyType}" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="{x:Bind status}" TextWrapping="WrapWholeWords" />
+                        <TextBlock Text="{x:Bind endDateString}" TextWrapping="WrapWholeWords"/>
+                        <TextBlock Text="{x:Bind actionDateString}" TextWrapping="WrapWholeWords"/>
+                        <GridView>
+                            <Button Name="Edit" Foreground="White" Background="SteelBlue" Content="Edit" Click="Edit_Click"></Button>
+                            <Button Name="Delete" Foreground="White" Background="SteelBlue" Content="Delete" Click="Delete_Click" Width="100"></Button>
 
-                            </StackPanel>
+                        </GridView>
+                    </StackPanel>
                         </DataTemplate>
                     </ExtendedControls:DataGrid.ItemDetailsTemplate>
                 </ExtendedControls:DataGrid>
@@ -139,8 +144,8 @@
             <TextBlock x:Name="SelectedSurveyActionDate" FontSize="15" FontWeight="Normal" Margin="10,173,5,427" Grid.Column="1" TextWrapping="WrapWholeWords"/>
             <Button x:Name="Edit" FontSize="15" FontWeight="SemiBold" Margin="10,223,5,400" Grid.Column="1" Visibility="Collapsed" Content="Edit" Background="SteelBlue" Click="Edit_Click" Foreground="White"/>
             <Button x:Name="Delete" FontSize="15" FontWeight="SemiBold" Margin="60,223,5,400" Grid.Column="2" Visibility="Collapsed" Content="Delete" Background="SteelBlue" Click="Delete_Click" Foreground="White"/>-->
-            </Grid>
-        </Grid>
+            <!--</Grid>
+        </Grid>-->
     </RelativePanel>
 </Page>
 
