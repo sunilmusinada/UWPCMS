@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using Template10.Common;
+using MyToolkit.Controls;
 
 namespace CMS_Survey.Views
 {
@@ -192,6 +193,12 @@ namespace CMS_Survey.Views
             }
             GetSurveys();
             //HideAllControls();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid dgrid = sender as DataGrid;
+            SelectedSurvey = dgrid.SelectedItem as UserSurvey;
         }
     }
 }

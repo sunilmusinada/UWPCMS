@@ -8,12 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <GridView x:Name="gridView" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Width="340" Height="86">
-            <Button x:Name="button" Content="Button"/>
-            <Button x:Name="button1" Content="Button"/>
-            <Button x:Name="button2" Content="Button"/>
-            <Button x:Name="button3" Content="Button"/>
-        </GridView>
+      
 
     </Grid>
 </Page>

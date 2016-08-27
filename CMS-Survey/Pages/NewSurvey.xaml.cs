@@ -661,7 +661,7 @@ namespace CMS_Survey.Pages
 
         private void NavigateToMainPage()
         {
-            this.Frame.Navigate(typeof(Views.MainPage));
+            this.Frame.Navigate(typeof(Views.GridMainPage));
         }
         public async Task SaveSurvey()
         {

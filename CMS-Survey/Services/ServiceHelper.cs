@@ -65,6 +65,8 @@ namespace CMS_Survey.Services
         private string DeleteSurveyUrl = HostUrl + @"/SurveyRest/rest/myresource/questionanswers?surveyKey={0}";
 
         private string HeartbeatUrl = HostUrl + @"/SurveyRest/rest/myresource/status";
+
+        private string HospitalJsonUrl = HostUrl + @"/SurveyRest/rest/myresource/questions";
         #endregion
         public static ServiceHelper ServiceHelperObject
         {
@@ -440,7 +442,7 @@ namespace CMS_Survey.Services
             var client = new HttpClient();
             try
             {
-                HttpResponseMessage response = await client.GetAsync(new Uri("http://localhost:8080/SurveyRest/rest/myresource/questions"));
+                HttpResponseMessage response = await client.GetAsync(new Uri(HospitalJsonUrl));
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
