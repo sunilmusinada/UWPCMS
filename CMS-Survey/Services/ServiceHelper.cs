@@ -47,26 +47,26 @@ namespace CMS_Survey.Services
 
         internal User currentUser;
         private IStorageFile textFile { get; set; }
-        static  string HostUrl = @"https://cms-specialtysurveys-internal.org";
+        public static  string HostUrl = @"https://cms-specialtysurveys-internal.org/";
 
         #region UrlStrings
-        private string LoginServiceUrl = HostUrl+ @"/SurveyRest/rest/myresource/authentication?userName={0}&password={1}";
+        private string LoginServiceUrl = HostUrl+ @"SurveyRest/rest/myresource/authentication?userName={0}&password={1}";
 
-        private string HospitalServiceUrl = HostUrl + @"/SurveyRest/rest/myresource/providers?state={0}";
+        private string HospitalServiceUrl = HostUrl + @"SurveyRest/rest/myresource/providers?state={0}";
 
-        private string StateServiceUrl = HostUrl + @"/SurveyRest/rest/myresource/states";
+        private string StateServiceUrl = HostUrl + @"SurveyRest/rest/myresource/states";
 
-        private string SurveyUrl = HostUrl + @"/SurveyRest/rest/myresource/questionanswers";
+        private string SurveyUrl = HostUrl + @"SurveyRest/rest/myresource/questionanswers";
 
-        private string UserSurveyUrl = HostUrl + @"/SurveyRest/rest/myresource/usersurveys?userKey={0}";
+        private string UserSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/usersurveys?userKey={0}";
 
-        private string ServeyDataUrl = HostUrl + @"/SurveyRest/rest/myresource/questionanswers?userKey={0}&surveyKey={1}";
+        private string ServeyDataUrl = HostUrl + @"SurveyRest/rest/myresource/questionanswers?userKey={0}&surveyKey={1}";
 
-        private string DeleteSurveyUrl = HostUrl + @"/SurveyRest/rest/myresource/questionanswers?surveyKey={0}";
+        private string DeleteSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/questionanswers?surveyKey={0}";
 
-        private string HeartbeatUrl = HostUrl + @"/SurveyRest/rest/myresource/status";
+        private string HeartbeatUrl = HostUrl + @"SurveyRest/rest/myresource/status";
 
-        private string HospitalJsonUrl = HostUrl + @"/SurveyRest/rest/myresource/questions";
+        private string  HospitalJsonUrl = HostUrl + @"/SurveyRest/rest/myresource/questions";
         #endregion
         public static ServiceHelper ServiceHelperObject
         {

@@ -22,6 +22,7 @@ using Windows;
 using Windows.UI.Popups;
 using CMS_Survey.Helpers;
 using Windows.UI;
+using Windows.UI.Xaml.Documents;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -165,6 +166,7 @@ namespace CMS_Survey.Pages
             SurveyHelper svHelper = new SurveyHelper();
             jmpClass = svHelper.GetJumpSections(result.sections);
             JumpButtonLoad();
+            HelpButtonLoad();
             ShowProgress();
             mainGrid.Children.Clear();
 
@@ -865,6 +867,58 @@ namespace CMS_Survey.Pages
             }
             //m.ShowAt((FrameworkElement)sender);
             JumpButton.Flyout = m;
+
+        }
+        private void HelpButtonLoad()
+        {
+            MenuFlyout m = new MenuFlyout();
+
+            foreach (SectionHelp.Help _help in result.help)
+            {
+                MenuFlyoutSubItem mFlySub = new MenuFlyoutSubItem();
+                mFlySub.Text = _help.helpSectionName;
+                foreach (SectionHelp.HelpSectionLink _HelpSectionLink in _help.helpSectionLink)
+                {
+                    MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
+                    mFlyItem.Text = _HelpSectionLink.helpLinkName;
+                    mFlyItem.Click += MyFlyItemClicked;
+                    mFlySub.Items.Add(mFlyItem);
+                }
+                m.Items.Add(mFlySub);
+            }
+            HelpButton.Flyout = m;
+        }
+
+        private void MyFlyItemClicked(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem mItem = e.OriginalSource as MenuFlyoutItem;
+            var ItemName = mItem.Text;
+            bool found = false; ;
+            SectionHelp.HelpSectionLink selectedHelp = null;
+            foreach (SectionHelp.Help _help in result.help)
+            {
+                if (found)
+                    break;
+                foreach (SectionHelp.HelpSectionLink _helpSectionLink in _help.helpSectionLink)
+                {
+
+                    if (_helpSectionLink.helpLinkName.Equals(ItemName))
+                    {
+                        selectedHelp = _helpSectionLink;
+                        found = true;
+                    }
+                }
+            }
+            Uri url = null;
+            if(!Uri.TryCreate(selectedHelp.helpLinkURL, UriKind.Absolute, out url))
+            {
+                //url =new Uri( Services.ServiceHelper.HostUrl + selectedHelp.helpLinkURL);
+            }
+            if (url == null)
+                return;
+            //string url=result.help.Where()
+            Windows.System.Launcher.LaunchUriAsync(url);
+            //link.NavigateUri = new Uri();
 
         }
 

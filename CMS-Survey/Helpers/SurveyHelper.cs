@@ -30,12 +30,12 @@ namespace CMS_Survey.Helpers
                 using (StreamReader file = File.OpenText(FilePath))
                 {
                     var json = file.ReadToEnd();
-                    SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject< List < Models.SectionHelp.Section >> (json);
+                    SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
                     Request.sections = SectionList.ToArray();
                     // System.Diagnostics.Debug.WriteLine(result);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -50,8 +50,8 @@ namespace CMS_Survey.Helpers
             foreach (Section section in Request.sections)
             {
                 SurverInsertObject surveyInsertObject = new Helpers.SurverInsertObject();
-                var survey = new Models.Survey(new Random().Next(int.MinValue, int.MaxValue), surveyTypeLu.SurveyTypeKey,currentTime, true, currentTime, usr.UserKey, currentTime, usr.UserKey);
-                surveyInsertObject.Survey=survey;
+                var survey = new Models.Survey(new Random().Next(int.MinValue, int.MaxValue), surveyTypeLu.SurveyTypeKey, currentTime, true, currentTime, usr.UserKey, currentTime, usr.UserKey);
+                surveyInsertObject.Survey = survey;
                 var surveyaccess = new UserSurveyAccess(new Random().Next(int.MinValue, int.MaxValue), usr.UserKey, survey.SurveyKey, "", currentTime, usr.UserKey, currentTime, usr.UserKey);
                 surveyInsertObject.userSurveyAccess = surveyaccess;
                 surveyInsertObject.Answers = new List<Models.Answer>();
@@ -63,21 +63,21 @@ namespace CMS_Survey.Helpers
                         surveyInsertObject.Answers.Add(ans);
                     }
                 }
-                surveyInsertObjectList.Add(surveyInsertObject); 
+                surveyInsertObjectList.Add(surveyInsertObject);
             }
-            
+
         }
 
         internal List<JumpClass> GetJumpSections(SectionHelp.Section[] Sections)
         {
 
             List<JumpClass> JmpClassList = new List<Helpers.JumpClass>();
-            for(int i=0;i<Sections.Count();i++)
+            for (int i = 0; i < Sections.Count(); i++)
             {
                 var secArray = Sections[i].sectionTitle.Split('.');
                 var jmpCls = new JumpClass();
                 jmpCls.PageIndex = i;
-                if(secArray.Count()>1)
+                if (secArray.Count() > 1)
                 {
                     jmpCls.SubSection = secArray[0];
                     jmpCls.SectionTitle = Sections[i].sectionTitle;
@@ -91,7 +91,11 @@ namespace CMS_Survey.Helpers
             }
             return JmpClassList;
         }
-      
+        internal void GetHelpSections(List<SectionHelp.Help> HelpSections)
+        {
+
+
+        }
         internal void GetUserSurveys()
         {
 
@@ -112,5 +116,5 @@ namespace CMS_Survey.Helpers
 
         public string SectionTitle { get; set; }
     }
-    
+
 }

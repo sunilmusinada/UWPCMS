@@ -28,7 +28,7 @@ namespace CMS_Survey.Models
 
             public Section[] sections { get; set; }
 
-            public object[] help { get; set; }
+            public List<Help> help { get; set; }
 
             public bool renderComments { get; set; }
 
@@ -267,7 +267,17 @@ namespace CMS_Survey.Models
             public string dateString { get; set; }
 
         }
+        public class HelpSectionLink
+        {
+            public string helpLinkName { get; set; }
+            public string helpLinkURL { get; set; }
+        }
 
+        public class Help
+        {
+            public string helpSectionName { get; set; }
+            public List<HelpSectionLink> helpSectionLink { get; set; }
+        }
     }
 
 }
