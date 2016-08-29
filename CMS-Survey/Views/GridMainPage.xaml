@@ -64,9 +64,9 @@
         </controls:PageHeader>
 
                 <ExtendedControls:DataGrid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="DataGrid" 
-                   SelectionMode="Single" DefaultOrderIndex="1" Margin="54,75,-634,-880" ItemsSource="{x:Bind Usersurveys, Mode=OneWay}" 
+                   SelectionMode="Single" DefaultOrderIndex="1" Margin="0,75,-634,-880" ItemsSource="{x:Bind Usersurveys, Mode=OneWay}" 
                                            RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
-                                         SelectionChanged="DataGrid_SelectionChanged"  Grid.RowSpan="1" Width="900" Height="800" HeaderBackground="SteelBlue" >
+                                         SelectionChanged="DataGrid_SelectionChanged"  Grid.RowSpan="1" Width="1150" Height="800" HeaderBackground="SteelBlue" HorizontalAlignment="Right" >
 
                     <ExtendedControls:DataGrid.Columns >
                         <ExtendedControls:DataGridTextColumn Width="50" Header="Id"

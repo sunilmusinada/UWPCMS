@@ -42,6 +42,9 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Name" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -75,8 +78,8 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Width" />
       <RootProperty Name="Style" />
-      <RootProperty Name="FontWeight" />
       <RootProperty Name="Name" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="LineHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
@@ -213,19 +216,6 @@
       <RootProperty Name="GrabberBrush" />
       <RootProperty Name="GrabberVisibility" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Items" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="ItemClick" />
-    </RootType>
-    <RootType FullName="CMS_Survey.Views.BlankPage1" />
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
@@ -286,13 +276,16 @@
       <RootProperty Name="RowBackgroundOddBrush" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootProperty Name="HeaderBackground" />
       <RootProperty Name="Columns" />
       <RootProperty Name="ItemDetailsTemplate" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="MyToolkit.Controls.DataGridTextColumn">
       <RootProperty Name="Width" />
       <RootProperty Name="Header" />
       <RootProperty Name="Binding" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -302,6 +295,13 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="CMS_Survey.Views.GridMainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
     <RootType FullName="CMS_Survey.Views.MainPage" />
     <RootType FullName="CMS_Survey.ViewModels.SettingsPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">

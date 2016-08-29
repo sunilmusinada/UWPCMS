@@ -8,7 +8,6 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Controls\ProgressRing.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Pages\LoginPart.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Pages\NewSurvey.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Styles\Custom.xbf
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Views\BlankPage1.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Views\Busy.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Views\DetailPage.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Views\GridMainPage.xbf
@@ -143,8 +142,6 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\LoginPart.g.i.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\LoginPart.g.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\NewSurvey.g.i.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\NewSurvey.g.cs
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\BlankPage1.g.i.cs
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\BlankPage1.g.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\Busy.g.i.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\Busy.g.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\DetailPage.g.i.cs
@@ -165,7 +162,6 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Controls\ProgressRing.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\LoginPart.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\NewSurvey.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Styles\Custom.xaml
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\BlankPage1.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\Busy.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\DetailPage.xaml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\GridMainPage.xaml
@@ -178,7 +174,6 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Controls\ProgressRing.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\LoginPart.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\NewSurvey.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Styles\Custom.xbf
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\BlankPage1.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\Busy.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\DetailPage.xbf
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Views\GridMainPage.xbf
@@ -263,3 +258,4 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Microsoft.Xaml.Interactivity.p
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Template10Library.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\SQLitePCL.Ext.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\ProjectArchitectures.txt
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\MyToolkit.Extended.pri.xml

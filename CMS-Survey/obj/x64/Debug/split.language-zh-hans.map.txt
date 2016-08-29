@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-zh-hans"
+"ResourceDimensions"		"language-zh-cn"
+
+[Files]
+"F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\split.language-zh-hans.pri"			"resources.pri"

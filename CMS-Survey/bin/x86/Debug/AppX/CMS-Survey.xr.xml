@@ -216,7 +216,6 @@
       <RootProperty Name="GrabberBrush" />
       <RootProperty Name="GrabberVisibility" />
     </RootType>
-    <RootType FullName="CMS_Survey.Views.BlankPage1" />
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
@@ -278,6 +277,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="HeaderBackground" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Columns" />
       <RootProperty Name="ItemDetailsTemplate" />
       <RootEvent Name="SelectionChanged" />

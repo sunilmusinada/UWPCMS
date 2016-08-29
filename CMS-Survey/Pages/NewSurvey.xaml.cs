@@ -465,7 +465,7 @@ namespace CMS_Survey.Pages
                     cmbbox.Name = answer.htmlControlId.ToString();
                     cmbbox.Width = 200;
                     var val = Convert.ToString(answer.answer);
-                    if (QuestionText.Equals("Name"))
+                    if (QuestionText.Equals("State"))
                     {
                         stateControl = cmbbox;
                         cmbbox.SelectionChanged += CmbBxStateValueChanged;
@@ -483,7 +483,7 @@ namespace CMS_Survey.Pages
                             cmbbox.SelectedValue = SelectedState;
                         }
                     }
-                    else if (QuestionText.Equals("1. Hospital Name"))
+                    else if (QuestionText.Equals("Hospital Name"))
                     {
                         HospitalControl = cmbbox;
                         HospitalControlName = cmbbox.Name;
@@ -502,7 +502,7 @@ namespace CMS_Survey.Pages
                     txtBx.Name = answer.htmlControlId.ToString();
                     //txtBx.Height = 150;
                     txtBx.HorizontalAlignment = HorizontalAlignment.Left;
-                    if (QuestionText.Equals("2. CMS Certification Number"))
+                    if (QuestionText.Equals("CMS Certification Number"))
                     {
                         CcnControlName = txtBx.Name;
                         Hospitalcn = txtBx;
@@ -927,6 +927,9 @@ namespace CMS_Survey.Pages
             int indx;
             MenuFlyoutItem mFlyItem =(MenuFlyoutItem) e.OriginalSource;
             var ClickedName = mFlyItem.Name;
+            if (sectionIndex == 0)
+                if (!Validate())
+                    return;
             var item = jmpClass.Where(t=>t.SectionTitle!=null).Where(t=>t.SectionTitle.Equals(ClickedName)).Select(t=>t).FirstOrDefault();
             if (item == null)
             {

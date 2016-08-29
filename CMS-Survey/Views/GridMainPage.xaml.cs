@@ -29,7 +29,7 @@ namespace CMS_Survey.Views
         //ProgressRing Progress = null;
         // Property.
         bool isOffline = false;
-        public UserSurvey SelectedSurvey = null;
+        public static UserSurvey SelectedSurvey = null;
         public ObservableCollection<UserSurvey> Usersurveys
         {
             get { return _Usersurveys; }
@@ -73,7 +73,7 @@ namespace CMS_Survey.Views
             GetSurveys();
             //HideAllControls();
             //isOffline = Services.ServiceHelper.ServiceHelperObject.isOffline;
-            SelectedSurvey = null;
+            //SelectedSurvey = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
