@@ -11,12 +11,12 @@
       xmlns:pages="using:CMS_Survey.Pages"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
-
-    <Controls:HamburgerMenu x:ConnectionId='1' x:Name="MyHamburgerMenu">
+    <Grid x:ConnectionId='1' x:Name="RootGrid">
+        <Controls:HamburgerMenu x:ConnectionId='2' x:Name="MyHamburgerMenu">
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:MainPage" 
+                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:GridMainPage" 
                                           AutomationProperties.Name="Jerry"
                                           >
                 <StackPanel Orientation="Horizontal">
@@ -36,11 +36,22 @@
                                Text="New Survey" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-        </Controls:HamburgerMenu.PrimaryButtons>
+               
+            </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
+            <!--<Controls:HamburgerButtonInfo x:Name="LoginButton"
+                                              MaxWidth="48"
+                                              ButtonType="Command"
+                Tapped="LoginTapped">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                    Height="48"
+                                    Symbol="Contact" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>-->
             <!--  settingspage button  -->
-            <Controls:HamburgerButtonInfo x:ConnectionId='2' x:Name="SettingsButton" PageParameter="0"
+            <Controls:HamburgerButtonInfo x:ConnectionId='5' x:Name="SettingsButton" PageParameter="0"
                                           PageType="views:SettingsPage">
                 <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
                     <SuppressNavigationTransitionInfo />
@@ -54,8 +65,19 @@
             </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>
 
-    </Controls:HamburgerMenu>
 
+
+    </Controls:HamburgerMenu>
+    <Controls:ModalDialog x:ConnectionId='3' x:Name="LoginModal" CanBackButtonDismiss="False" DisableBackButtonWhenModal="True">
+        <Controls:ModalDialog.ModalContent>
+                <pages:LoginPart x:ConnectionId='4' x:Name="loginPart"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                                             
+                                                           />
+        </Controls:ModalDialog.ModalContent>
+    </Controls:ModalDialog>
+    </Grid>
 </Page>
 
 

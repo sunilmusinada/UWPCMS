@@ -156,7 +156,7 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[77];
+            _typeNameTable = new string[91];
             _typeNameTable[0] = "Template10.Common.BootStrapper";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Template10.Common.StateItems";
@@ -176,66 +176,80 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             _typeNameTable[16] = "Template10.Controls.ModalDialog";
             _typeNameTable[17] = "Windows.UI.Xaml.Controls.ContentControl";
             _typeNameTable[18] = "Windows.UI.Xaml.UIElement";
-            _typeNameTable[19] = "CMS_Survey.Pages.NewSurvey";
-            _typeNameTable[20] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[21] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[22] = "Windows.UI.Color";
-            _typeNameTable[23] = "Byte";
-            _typeNameTable[24] = "Template10.Controls.HamburgerMenu";
-            _typeNameTable[25] = "System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>";
-            _typeNameTable[26] = "System.Collections.ObjectModel.Collection`1<Template10.Controls.HamburgerButtonInfo>";
-            _typeNameTable[27] = "Template10.Controls.HamburgerButtonInfo";
-            _typeNameTable[28] = "Template10.Mvvm.DependencyBindableBase";
-            _typeNameTable[29] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[30] = "Template10.Controls.HamburgerButtonInfo.ButtonTypes";
-            _typeNameTable[31] = "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
-            _typeNameTable[32] = "System.Windows.Input.ICommand";
-            _typeNameTable[33] = "System.Type";
-            _typeNameTable[34] = "Windows.UI.Xaml.Visibility";
-            _typeNameTable[35] = "System.Nullable`1<Boolean>";
-            _typeNameTable[36] = "Double";
-            _typeNameTable[37] = "Windows.UI.Xaml.Thickness";
-            _typeNameTable[38] = "Windows.UI.Xaml.Media.Brush";
-            _typeNameTable[39] = "Windows.UI.Xaml.Controls.SplitViewDisplayMode";
-            _typeNameTable[40] = "Windows.UI.Xaml.Controls.Orientation";
-            _typeNameTable[41] = "Template10.Controls.HamburgerMenu.OpenCloseModes";
-            _typeNameTable[42] = "Template10.Mvvm.DelegateCommand`1<Template10.Controls.HamburgerButtonInfo>";
-            _typeNameTable[43] = "Template10.Controls.PageHeader";
-            _typeNameTable[44] = "Windows.UI.Xaml.Controls.CommandBar";
-            _typeNameTable[45] = "Template10.Behaviors.EllipsisBehavior.Visibilities";
-            _typeNameTable[46] = "Windows.UI.Xaml.Controls.Symbol";
-            _typeNameTable[47] = "Windows.UI.Xaml.Controls.Frame";
-            _typeNameTable[48] = "Template10.Controls.Resizer";
-            _typeNameTable[49] = "Windows.UI.Xaml.Controls.Control";
-            _typeNameTable[50] = "Windows.Foundation.Size";
-            _typeNameTable[51] = "CMS_Survey.Views.Busy";
-            _typeNameTable[52] = "CMS_Survey.ViewModels.DetailPageViewModel";
-            _typeNameTable[53] = "Template10.Mvvm.ViewModelBase";
-            _typeNameTable[54] = "Template10.Mvvm.BindableBase";
-            _typeNameTable[55] = "Template10.Common.IDispatcherWrapper";
-            _typeNameTable[56] = "Template10.Common.IStateItems";
-            _typeNameTable[57] = "CMS_Survey.Views.DetailPage";
-            _typeNameTable[58] = "CMS_Survey.ViewModels.MainPageViewModel";
-            _typeNameTable[59] = "Microsoft.Xaml.Interactivity.Interaction";
-            _typeNameTable[60] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
-            _typeNameTable[61] = "Windows.UI.Xaml.DependencyObjectCollection";
-            _typeNameTable[62] = "Template10.Behaviors.KeyBehavior";
-            _typeNameTable[63] = "Microsoft.Xaml.Interactivity.ActionCollection";
-            _typeNameTable[64] = "Windows.System.VirtualKey";
-            _typeNameTable[65] = "Template10.Behaviors.KeyBehavior.Kinds";
-            _typeNameTable[66] = "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior";
-            _typeNameTable[67] = "Microsoft.Xaml.Interactivity.Behavior";
-            _typeNameTable[68] = "Template10.Behaviors.FocusAction";
-            _typeNameTable[69] = "Microsoft.Xaml.Interactions.Core.CallMethodAction";
-            _typeNameTable[70] = "CMS_Survey.Views.MainPage";
-            _typeNameTable[71] = "CMS_Survey.ViewModels.SettingsPageViewModel";
-            _typeNameTable[72] = "CMS_Survey.ViewModels.SettingsPartViewModel";
-            _typeNameTable[73] = "CMS_Survey.ViewModels.AboutPartViewModel";
-            _typeNameTable[74] = "CMS_Survey.Views.SettingsPage";
-            _typeNameTable[75] = "CMS_Survey.Views.Shell";
-            _typeNameTable[76] = "CMS_Survey.Views.Splash";
+            _typeNameTable[19] = "CMS_Survey.Controls.ProgressRing";
+            _typeNameTable[20] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[21] = "CMS_Survey.Pages.LoginPart";
+            _typeNameTable[22] = "CMS_Survey.Pages.NewSurvey";
+            _typeNameTable[23] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[24] = "Windows.UI.Color";
+            _typeNameTable[25] = "Byte";
+            _typeNameTable[26] = "Template10.Controls.HamburgerMenu";
+            _typeNameTable[27] = "System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>";
+            _typeNameTable[28] = "System.Collections.ObjectModel.Collection`1<Template10.Controls.HamburgerButtonInfo>";
+            _typeNameTable[29] = "Template10.Controls.HamburgerButtonInfo";
+            _typeNameTable[30] = "Template10.Mvvm.DependencyBindableBase";
+            _typeNameTable[31] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[32] = "Template10.Controls.HamburgerButtonInfo.ButtonTypes";
+            _typeNameTable[33] = "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
+            _typeNameTable[34] = "System.Windows.Input.ICommand";
+            _typeNameTable[35] = "System.Type";
+            _typeNameTable[36] = "Windows.UI.Xaml.Visibility";
+            _typeNameTable[37] = "System.Nullable`1<Boolean>";
+            _typeNameTable[38] = "Double";
+            _typeNameTable[39] = "Windows.UI.Xaml.Thickness";
+            _typeNameTable[40] = "Windows.UI.Xaml.Media.Brush";
+            _typeNameTable[41] = "Windows.UI.Xaml.Controls.SplitViewDisplayMode";
+            _typeNameTable[42] = "Windows.UI.Xaml.Controls.Orientation";
+            _typeNameTable[43] = "Template10.Controls.HamburgerMenu.OpenCloseModes";
+            _typeNameTable[44] = "Template10.Mvvm.DelegateCommand`1<Template10.Controls.HamburgerButtonInfo>";
+            _typeNameTable[45] = "Template10.Controls.PageHeader";
+            _typeNameTable[46] = "Windows.UI.Xaml.Controls.CommandBar";
+            _typeNameTable[47] = "Template10.Behaviors.EllipsisBehavior.Visibilities";
+            _typeNameTable[48] = "Windows.UI.Xaml.Controls.Symbol";
+            _typeNameTable[49] = "Windows.UI.Xaml.Controls.Frame";
+            _typeNameTable[50] = "Template10.Controls.Resizer";
+            _typeNameTable[51] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[52] = "Windows.Foundation.Size";
+            _typeNameTable[53] = "CMS_Survey.Views.Busy";
+            _typeNameTable[54] = "CMS_Survey.ViewModels.DetailPageViewModel";
+            _typeNameTable[55] = "Template10.Mvvm.ViewModelBase";
+            _typeNameTable[56] = "Template10.Mvvm.BindableBase";
+            _typeNameTable[57] = "Template10.Common.IDispatcherWrapper";
+            _typeNameTable[58] = "Template10.Common.IStateItems";
+            _typeNameTable[59] = "CMS_Survey.Views.DetailPage";
+            _typeNameTable[60] = "CMS_Survey.ViewModels.MainPageViewModel";
+            _typeNameTable[61] = "MyToolkit.Controls.DataGrid";
+            _typeNameTable[62] = "Windows.UI.Xaml.Controls.SelectionMode";
+            _typeNameTable[63] = "Int32";
+            _typeNameTable[64] = "MyToolkit.Controls.DataGridColumnCollection";
+            _typeNameTable[65] = "System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>";
+            _typeNameTable[66] = "System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>";
+            _typeNameTable[67] = "MyToolkit.Controls.DataGridColumnBase";
+            _typeNameTable[68] = "Windows.UI.Xaml.GridLength";
+            _typeNameTable[69] = "Windows.UI.Xaml.PropertyPath";
+            _typeNameTable[70] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[71] = "System.Collections.Generic.IList`1<Object>";
+            _typeNameTable[72] = "MyToolkit.Collections.IObservableCollectionView";
+            _typeNameTable[73] = "Windows.UI.Xaml.Style";
+            _typeNameTable[74] = "MyToolkit.Controls.DataGridTextColumn";
+            _typeNameTable[75] = "MyToolkit.Controls.DataGridBoundColumn";
+            _typeNameTable[76] = "Windows.UI.Xaml.Data.Binding";
+            _typeNameTable[77] = "Windows.UI.Text.FontStyle";
+            _typeNameTable[78] = "Windows.UI.Xaml.TextWrapping";
+            _typeNameTable[79] = "CMS_Survey.Views.GridMainPage";
+            _typeNameTable[80] = "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>";
+            _typeNameTable[81] = "System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>";
+            _typeNameTable[82] = "CMS_Survey.Models.UserSurvey";
+            _typeNameTable[83] = "CMS_Survey.Views.MainPage";
+            _typeNameTable[84] = "CMS_Survey.ViewModels.SettingsPageViewModel";
+            _typeNameTable[85] = "CMS_Survey.ViewModels.SettingsPartViewModel";
+            _typeNameTable[86] = "CMS_Survey.ViewModels.AboutPartViewModel";
+            _typeNameTable[87] = "CMS_Survey.Views.SettingsPage";
+            _typeNameTable[88] = "Windows.UI.Xaml.Media.Animation.TransitionCollection";
+            _typeNameTable[89] = "CMS_Survey.Views.Shell";
+            _typeNameTable[90] = "CMS_Survey.Views.Splash";
 
-            _typeTable = new global::System.Type[77];
+            _typeTable = new global::System.Type[91];
             _typeTable[0] = typeof(global::Template10.Common.BootStrapper);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::Template10.Common.StateItems);
@@ -255,64 +269,78 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             _typeTable[16] = typeof(global::Template10.Controls.ModalDialog);
             _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
             _typeTable[18] = typeof(global::Windows.UI.Xaml.UIElement);
-            _typeTable[19] = typeof(global::CMS_Survey.Pages.NewSurvey);
-            _typeTable[20] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[21] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[22] = typeof(global::Windows.UI.Color);
-            _typeTable[23] = typeof(global::System.Byte);
-            _typeTable[24] = typeof(global::Template10.Controls.HamburgerMenu);
-            _typeTable[25] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>);
-            _typeTable[26] = typeof(global::System.Collections.ObjectModel.Collection<global::Template10.Controls.HamburgerButtonInfo>);
-            _typeTable[27] = typeof(global::Template10.Controls.HamburgerButtonInfo);
-            _typeTable[28] = typeof(global::Template10.Mvvm.DependencyBindableBase);
-            _typeTable[29] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[30] = typeof(global::Template10.Controls.HamburgerButtonInfo.ButtonTypes);
-            _typeTable[31] = typeof(global::Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo);
-            _typeTable[32] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[33] = typeof(global::System.Type);
-            _typeTable[34] = typeof(global::Windows.UI.Xaml.Visibility);
-            _typeTable[35] = typeof(global::System.Nullable<global::System.Boolean>);
-            _typeTable[36] = typeof(global::System.Double);
-            _typeTable[37] = typeof(global::Windows.UI.Xaml.Thickness);
-            _typeTable[38] = typeof(global::Windows.UI.Xaml.Media.Brush);
-            _typeTable[39] = typeof(global::Windows.UI.Xaml.Controls.SplitViewDisplayMode);
-            _typeTable[40] = typeof(global::Windows.UI.Xaml.Controls.Orientation);
-            _typeTable[41] = typeof(global::Template10.Controls.HamburgerMenu.OpenCloseModes);
-            _typeTable[42] = typeof(global::Template10.Mvvm.DelegateCommand<global::Template10.Controls.HamburgerButtonInfo>);
-            _typeTable[43] = typeof(global::Template10.Controls.PageHeader);
-            _typeTable[44] = typeof(global::Windows.UI.Xaml.Controls.CommandBar);
-            _typeTable[45] = typeof(global::Template10.Behaviors.EllipsisBehavior.Visibilities);
-            _typeTable[46] = typeof(global::Windows.UI.Xaml.Controls.Symbol);
-            _typeTable[47] = typeof(global::Windows.UI.Xaml.Controls.Frame);
-            _typeTable[48] = typeof(global::Template10.Controls.Resizer);
-            _typeTable[49] = typeof(global::Windows.UI.Xaml.Controls.Control);
-            _typeTable[50] = typeof(global::Windows.Foundation.Size);
-            _typeTable[51] = typeof(global::CMS_Survey.Views.Busy);
-            _typeTable[52] = typeof(global::CMS_Survey.ViewModels.DetailPageViewModel);
-            _typeTable[53] = typeof(global::Template10.Mvvm.ViewModelBase);
-            _typeTable[54] = typeof(global::Template10.Mvvm.BindableBase);
-            _typeTable[55] = typeof(global::Template10.Common.IDispatcherWrapper);
-            _typeTable[56] = typeof(global::Template10.Common.IStateItems);
-            _typeTable[57] = typeof(global::CMS_Survey.Views.DetailPage);
-            _typeTable[58] = typeof(global::CMS_Survey.ViewModels.MainPageViewModel);
-            _typeTable[59] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
-            _typeTable[60] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
-            _typeTable[61] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
-            _typeTable[62] = typeof(global::Template10.Behaviors.KeyBehavior);
-            _typeTable[63] = typeof(global::Microsoft.Xaml.Interactivity.ActionCollection);
-            _typeTable[64] = typeof(global::Windows.System.VirtualKey);
-            _typeTable[65] = typeof(global::Template10.Behaviors.KeyBehavior.Kinds);
-            _typeTable[66] = typeof(global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior);
-            _typeTable[67] = typeof(global::Microsoft.Xaml.Interactivity.Behavior);
-            _typeTable[68] = typeof(global::Template10.Behaviors.FocusAction);
-            _typeTable[69] = typeof(global::Microsoft.Xaml.Interactions.Core.CallMethodAction);
-            _typeTable[70] = typeof(global::CMS_Survey.Views.MainPage);
-            _typeTable[71] = typeof(global::CMS_Survey.ViewModels.SettingsPageViewModel);
-            _typeTable[72] = typeof(global::CMS_Survey.ViewModels.SettingsPartViewModel);
-            _typeTable[73] = typeof(global::CMS_Survey.ViewModels.AboutPartViewModel);
-            _typeTable[74] = typeof(global::CMS_Survey.Views.SettingsPage);
-            _typeTable[75] = typeof(global::CMS_Survey.Views.Shell);
-            _typeTable[76] = typeof(global::CMS_Survey.Views.Splash);
+            _typeTable[19] = typeof(global::CMS_Survey.Controls.ProgressRing);
+            _typeTable[20] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[21] = typeof(global::CMS_Survey.Pages.LoginPart);
+            _typeTable[22] = typeof(global::CMS_Survey.Pages.NewSurvey);
+            _typeTable[23] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[24] = typeof(global::Windows.UI.Color);
+            _typeTable[25] = typeof(global::System.Byte);
+            _typeTable[26] = typeof(global::Template10.Controls.HamburgerMenu);
+            _typeTable[27] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>);
+            _typeTable[28] = typeof(global::System.Collections.ObjectModel.Collection<global::Template10.Controls.HamburgerButtonInfo>);
+            _typeTable[29] = typeof(global::Template10.Controls.HamburgerButtonInfo);
+            _typeTable[30] = typeof(global::Template10.Mvvm.DependencyBindableBase);
+            _typeTable[31] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[32] = typeof(global::Template10.Controls.HamburgerButtonInfo.ButtonTypes);
+            _typeTable[33] = typeof(global::Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo);
+            _typeTable[34] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[35] = typeof(global::System.Type);
+            _typeTable[36] = typeof(global::Windows.UI.Xaml.Visibility);
+            _typeTable[37] = typeof(global::System.Nullable<global::System.Boolean>);
+            _typeTable[38] = typeof(global::System.Double);
+            _typeTable[39] = typeof(global::Windows.UI.Xaml.Thickness);
+            _typeTable[40] = typeof(global::Windows.UI.Xaml.Media.Brush);
+            _typeTable[41] = typeof(global::Windows.UI.Xaml.Controls.SplitViewDisplayMode);
+            _typeTable[42] = typeof(global::Windows.UI.Xaml.Controls.Orientation);
+            _typeTable[43] = typeof(global::Template10.Controls.HamburgerMenu.OpenCloseModes);
+            _typeTable[44] = typeof(global::Template10.Mvvm.DelegateCommand<global::Template10.Controls.HamburgerButtonInfo>);
+            _typeTable[45] = typeof(global::Template10.Controls.PageHeader);
+            _typeTable[46] = typeof(global::Windows.UI.Xaml.Controls.CommandBar);
+            _typeTable[47] = typeof(global::Template10.Behaviors.EllipsisBehavior.Visibilities);
+            _typeTable[48] = typeof(global::Windows.UI.Xaml.Controls.Symbol);
+            _typeTable[49] = typeof(global::Windows.UI.Xaml.Controls.Frame);
+            _typeTable[50] = typeof(global::Template10.Controls.Resizer);
+            _typeTable[51] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[52] = typeof(global::Windows.Foundation.Size);
+            _typeTable[53] = typeof(global::CMS_Survey.Views.Busy);
+            _typeTable[54] = typeof(global::CMS_Survey.ViewModels.DetailPageViewModel);
+            _typeTable[55] = typeof(global::Template10.Mvvm.ViewModelBase);
+            _typeTable[56] = typeof(global::Template10.Mvvm.BindableBase);
+            _typeTable[57] = typeof(global::Template10.Common.IDispatcherWrapper);
+            _typeTable[58] = typeof(global::Template10.Common.IStateItems);
+            _typeTable[59] = typeof(global::CMS_Survey.Views.DetailPage);
+            _typeTable[60] = typeof(global::CMS_Survey.ViewModels.MainPageViewModel);
+            _typeTable[61] = typeof(global::MyToolkit.Controls.DataGrid);
+            _typeTable[62] = typeof(global::Windows.UI.Xaml.Controls.SelectionMode);
+            _typeTable[63] = typeof(global::System.Int32);
+            _typeTable[64] = typeof(global::MyToolkit.Controls.DataGridColumnCollection);
+            _typeTable[65] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::MyToolkit.Controls.DataGridColumnBase>);
+            _typeTable[66] = typeof(global::System.Collections.ObjectModel.Collection<global::MyToolkit.Controls.DataGridColumnBase>);
+            _typeTable[67] = typeof(global::MyToolkit.Controls.DataGridColumnBase);
+            _typeTable[68] = typeof(global::Windows.UI.Xaml.GridLength);
+            _typeTable[69] = typeof(global::Windows.UI.Xaml.PropertyPath);
+            _typeTable[70] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[71] = typeof(global::System.Collections.Generic.IList<global::System.Object>);
+            _typeTable[72] = typeof(global::MyToolkit.Collections.IObservableCollectionView);
+            _typeTable[73] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[74] = typeof(global::MyToolkit.Controls.DataGridTextColumn);
+            _typeTable[75] = typeof(global::MyToolkit.Controls.DataGridBoundColumn);
+            _typeTable[76] = typeof(global::Windows.UI.Xaml.Data.Binding);
+            _typeTable[77] = typeof(global::Windows.UI.Text.FontStyle);
+            _typeTable[78] = typeof(global::Windows.UI.Xaml.TextWrapping);
+            _typeTable[79] = typeof(global::CMS_Survey.Views.GridMainPage);
+            _typeTable[80] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>);
+            _typeTable[81] = typeof(global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>);
+            _typeTable[82] = typeof(global::CMS_Survey.Models.UserSurvey);
+            _typeTable[83] = typeof(global::CMS_Survey.Views.MainPage);
+            _typeTable[84] = typeof(global::CMS_Survey.ViewModels.SettingsPageViewModel);
+            _typeTable[85] = typeof(global::CMS_Survey.ViewModels.SettingsPartViewModel);
+            _typeTable[86] = typeof(global::CMS_Survey.ViewModels.AboutPartViewModel);
+            _typeTable[87] = typeof(global::CMS_Survey.Views.SettingsPage);
+            _typeTable[88] = typeof(global::Windows.UI.Xaml.Media.Animation.TransitionCollection);
+            _typeTable[89] = typeof(global::CMS_Survey.Views.Shell);
+            _typeTable[90] = typeof(global::CMS_Survey.Views.Splash);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -350,29 +378,34 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
         private object Activate_2_StateItems() { return new global::Template10.Common.StateItems(); }
         private object Activate_3_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object>(); }
         private object Activate_16_ModalDialog() { return new global::Template10.Controls.ModalDialog(); }
-        private object Activate_19_NewSurvey() { return new global::CMS_Survey.Pages.NewSurvey(); }
-        private object Activate_24_HamburgerMenu() { return new global::Template10.Controls.HamburgerMenu(); }
-        private object Activate_25_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>(); }
-        private object Activate_26_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Template10.Controls.HamburgerButtonInfo>(); }
-        private object Activate_27_HamburgerButtonInfo() { return new global::Template10.Controls.HamburgerButtonInfo(); }
-        private object Activate_43_PageHeader() { return new global::Template10.Controls.PageHeader(); }
-        private object Activate_48_Resizer() { return new global::Template10.Controls.Resizer(); }
-        private object Activate_51_Busy() { return new global::CMS_Survey.Views.Busy(); }
-        private object Activate_52_DetailPageViewModel() { return new global::CMS_Survey.ViewModels.DetailPageViewModel(); }
-        private object Activate_57_DetailPage() { return new global::CMS_Survey.Views.DetailPage(); }
-        private object Activate_58_MainPageViewModel() { return new global::CMS_Survey.ViewModels.MainPageViewModel(); }
-        private object Activate_60_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
-        private object Activate_62_KeyBehavior() { return new global::Template10.Behaviors.KeyBehavior(); }
-        private object Activate_63_ActionCollection() { return new global::Microsoft.Xaml.Interactivity.ActionCollection(); }
-        private object Activate_66_EventTriggerBehavior() { return new global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior(); }
-        private object Activate_68_FocusAction() { return new global::Template10.Behaviors.FocusAction(); }
-        private object Activate_69_CallMethodAction() { return new global::Microsoft.Xaml.Interactions.Core.CallMethodAction(); }
-        private object Activate_70_MainPage() { return new global::CMS_Survey.Views.MainPage(); }
-        private object Activate_71_SettingsPageViewModel() { return new global::CMS_Survey.ViewModels.SettingsPageViewModel(); }
-        private object Activate_72_SettingsPartViewModel() { return new global::CMS_Survey.ViewModels.SettingsPartViewModel(); }
-        private object Activate_73_AboutPartViewModel() { return new global::CMS_Survey.ViewModels.AboutPartViewModel(); }
-        private object Activate_74_SettingsPage() { return new global::CMS_Survey.Views.SettingsPage(); }
-        private object Activate_75_Shell() { return new global::CMS_Survey.Views.Shell(); }
+        private object Activate_19_ProgressRing() { return new global::CMS_Survey.Controls.ProgressRing(); }
+        private object Activate_21_LoginPart() { return new global::CMS_Survey.Pages.LoginPart(); }
+        private object Activate_22_NewSurvey() { return new global::CMS_Survey.Pages.NewSurvey(); }
+        private object Activate_26_HamburgerMenu() { return new global::Template10.Controls.HamburgerMenu(); }
+        private object Activate_27_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>(); }
+        private object Activate_28_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Template10.Controls.HamburgerButtonInfo>(); }
+        private object Activate_29_HamburgerButtonInfo() { return new global::Template10.Controls.HamburgerButtonInfo(); }
+        private object Activate_45_PageHeader() { return new global::Template10.Controls.PageHeader(); }
+        private object Activate_50_Resizer() { return new global::Template10.Controls.Resizer(); }
+        private object Activate_53_Busy() { return new global::CMS_Survey.Views.Busy(); }
+        private object Activate_54_DetailPageViewModel() { return new global::CMS_Survey.ViewModels.DetailPageViewModel(); }
+        private object Activate_59_DetailPage() { return new global::CMS_Survey.Views.DetailPage(); }
+        private object Activate_60_MainPageViewModel() { return new global::CMS_Survey.ViewModels.MainPageViewModel(); }
+        private object Activate_61_DataGrid() { return new global::MyToolkit.Controls.DataGrid(); }
+        private object Activate_64_DataGridColumnCollection() { return new global::MyToolkit.Controls.DataGridColumnCollection(); }
+        private object Activate_65_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::MyToolkit.Controls.DataGridColumnBase>(); }
+        private object Activate_66_Collection() { return new global::System.Collections.ObjectModel.Collection<global::MyToolkit.Controls.DataGridColumnBase>(); }
+        private object Activate_74_DataGridTextColumn() { return new global::MyToolkit.Controls.DataGridTextColumn(); }
+        private object Activate_79_GridMainPage() { return new global::CMS_Survey.Views.GridMainPage(); }
+        private object Activate_80_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>(); }
+        private object Activate_81_Collection() { return new global::System.Collections.ObjectModel.Collection<global::CMS_Survey.Models.UserSurvey>(); }
+        private object Activate_82_UserSurvey() { return new global::CMS_Survey.Models.UserSurvey(); }
+        private object Activate_83_MainPage() { return new global::CMS_Survey.Views.MainPage(); }
+        private object Activate_84_SettingsPageViewModel() { return new global::CMS_Survey.ViewModels.SettingsPageViewModel(); }
+        private object Activate_85_SettingsPartViewModel() { return new global::CMS_Survey.ViewModels.SettingsPartViewModel(); }
+        private object Activate_86_AboutPartViewModel() { return new global::CMS_Survey.ViewModels.AboutPartViewModel(); }
+        private object Activate_87_SettingsPage() { return new global::CMS_Survey.Views.SettingsPage(); }
+        private object Activate_89_Shell() { return new global::CMS_Survey.Views.Shell(); }
         private void MapAdd_2_StateItems(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
@@ -387,28 +420,52 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newKey, newItem);
         }
-        private void VectorAdd_25_ObservableCollection(object instance, object item)
+        private void VectorAdd_27_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Template10.Controls.HamburgerButtonInfo>)instance;
             var newItem = (global::Template10.Controls.HamburgerButtonInfo)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_26_Collection(object instance, object item)
+        private void VectorAdd_28_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Template10.Controls.HamburgerButtonInfo>)instance;
             var newItem = (global::Template10.Controls.HamburgerButtonInfo)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_60_BehaviorCollection(object instance, object item)
+        private void VectorAdd_64_DataGridColumnCollection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_63_ActionCollection(object instance, object item)
+        private void VectorAdd_65_ObservableCollection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
-            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_66_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MyToolkit.Controls.DataGridColumnBase>)instance;
+            var newItem = (global::MyToolkit.Controls.DataGridColumnBase)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_71_IList(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_80_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::CMS_Survey.Models.UserSurvey>)instance;
+            var newItem = (global::CMS_Survey.Models.UserSurvey)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_81_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::CMS_Survey.Models.UserSurvey>)instance;
+            var newItem = (global::CMS_Survey.Models.UserSurvey)item;
             collection.Add(newItem);
         }
 
@@ -522,7 +579,13 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
 
             case 16:   //  Template10.Controls.ModalDialog
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
-                userType.SetIsReturnTypeStub();
+                userType.Activator = Activate_16_ModalDialog;
+                userType.AddMemberName("CanBackButtonDismiss");
+                userType.AddMemberName("DisableBackButtonWhenModal");
+                userType.AddMemberName("ModalContent");
+                userType.AddMemberName("IsModal");
+                userType.AddMemberName("ModalBackground");
+                userType.AddMemberName("ModalTransitions");
                 xamlType = userType;
                 break;
 
@@ -534,22 +597,38 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 19:   //  CMS_Survey.Pages.NewSurvey
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_NewSurvey;
+            case 19:   //  CMS_Survey.Controls.ProgressRing
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_19_ProgressRing;
+                userType.AddMemberName("IsActive");
+                userType.AddMemberName("Text");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  Windows.UI.Xaml.Controls.Page
+            case 20:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  Windows.UI.Xaml.Controls.UserControl
+            case 21:   //  CMS_Survey.Pages.LoginPart
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_21_LoginPart;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  CMS_Survey.Pages.NewSurvey
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_22_NewSurvey;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Windows.UI.Color
+            case 24:   //  Windows.UI.Color
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.AddMemberName("A");
                 userType.AddMemberName("B");
@@ -558,15 +637,15 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 23:   //  Byte
+            case 25:   //  Byte
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 24:   //  Template10.Controls.HamburgerMenu
+            case 26:   //  Template10.Controls.HamburgerMenu
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_24_HamburgerMenu;
+                userType.Activator = Activate_26_HamburgerMenu;
                 userType.SetContentPropertyName("Template10.Controls.HamburgerMenu.PrimaryButtons");
                 userType.AddMemberName("PrimaryButtons");
                 userType.AddMemberName("PaneBorderThickness");
@@ -579,15 +658,15 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 userType.AddMemberName("VisualStateNarrowMinWidth");
                 userType.AddMemberName("VisualStateNormalMinWidth");
                 userType.AddMemberName("VisualStateWideMinWidth");
-                userType.AddMemberName("AccentColor");
-                userType.AddMemberName("PaneBorderBrush");
+                userType.AddMemberName("NavButtonHoverForeground");
+                userType.AddMemberName("NavButtonHoverBackground");
+                userType.AddMemberName("NavButtonPressedForeground");
+                userType.AddMemberName("NavButtonPressedBackground");
                 userType.AddMemberName("NavButtonCheckedForeground");
                 userType.AddMemberName("NavButtonCheckedBackground");
                 userType.AddMemberName("NavButtonCheckedIndicatorBrush");
-                userType.AddMemberName("NavButtonPressedForeground");
-                userType.AddMemberName("NavButtonPressedBackground");
-                userType.AddMemberName("NavButtonHoverForeground");
-                userType.AddMemberName("NavButtonHoverBackground");
+                userType.AddMemberName("AccentColor");
+                userType.AddMemberName("PaneBorderBrush");
                 userType.AddMemberName("HamburgerButtonVisibility");
                 userType.AddMemberName("DisplayMode");
                 userType.AddMemberName("VisualStateNarrowDisplayMode");
@@ -608,23 +687,23 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 25:   //  System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>
+            case 27:   //  System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Template10.Controls.HamburgerButtonInfo>"));
-                userType.CollectionAdd = VectorAdd_25_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_27_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 26:   //  System.Collections.ObjectModel.Collection`1<Template10.Controls.HamburgerButtonInfo>
+            case 28:   //  System.Collections.ObjectModel.Collection`1<Template10.Controls.HamburgerButtonInfo>
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_26_Collection;
-                userType.CollectionAdd = VectorAdd_26_Collection;
+                userType.Activator = Activate_28_Collection;
+                userType.CollectionAdd = VectorAdd_28_Collection;
                 xamlType = userType;
                 break;
 
-            case 27:   //  Template10.Controls.HamburgerButtonInfo
+            case 29:   //  Template10.Controls.HamburgerButtonInfo
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.DependencyBindableBase"));
-                userType.Activator = Activate_27_HamburgerButtonInfo;
+                userType.Activator = Activate_29_HamburgerButtonInfo;
                 userType.SetContentPropertyName("Template10.Controls.HamburgerButtonInfo.Content");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("ButtonType");
@@ -643,16 +722,16 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 28:   //  Template10.Mvvm.DependencyBindableBase
+            case 30:   //  Template10.Mvvm.DependencyBindableBase
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 xamlType = userType;
                 break;
 
-            case 29:   //  Windows.UI.Xaml.DependencyObject
+            case 31:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 30:   //  Template10.Controls.HamburgerButtonInfo.ButtonTypes
+            case 32:   //  Template10.Controls.HamburgerButtonInfo.ButtonTypes
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Toggle", global::Template10.Controls.HamburgerButtonInfo.ButtonTypes.Toggle);
                 userType.AddEnumValue("Command", global::Template10.Controls.HamburgerButtonInfo.ButtonTypes.Command);
@@ -660,53 +739,53 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 31:   //  Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo
+            case 33:   //  Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 32:   //  System.Windows.Input.ICommand
+            case 34:   //  System.Windows.Input.ICommand
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 33:   //  System.Type
+            case 35:   //  System.Type
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 34:   //  Windows.UI.Xaml.Visibility
+            case 36:   //  Windows.UI.Xaml.Visibility
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 35:   //  System.Nullable`1<Boolean>
+            case 37:   //  System.Nullable`1<Boolean>
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 36:   //  Double
+            case 38:   //  Double
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 37:   //  Windows.UI.Xaml.Thickness
+            case 39:   //  Windows.UI.Xaml.Thickness
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 38:   //  Windows.UI.Xaml.Media.Brush
+            case 40:   //  Windows.UI.Xaml.Media.Brush
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 39:   //  Windows.UI.Xaml.Controls.SplitViewDisplayMode
+            case 41:   //  Windows.UI.Xaml.Controls.SplitViewDisplayMode
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 40:   //  Windows.UI.Xaml.Controls.Orientation
+            case 42:   //  Windows.UI.Xaml.Controls.Orientation
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 41:   //  Template10.Controls.HamburgerMenu.OpenCloseModes
+            case 43:   //  Template10.Controls.HamburgerMenu.OpenCloseModes
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Template10.Controls.HamburgerMenu.OpenCloseModes.None);
                 userType.AddEnumValue("Auto", global::Template10.Controls.HamburgerMenu.OpenCloseModes.Auto);
@@ -715,15 +794,15 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 42:   //  Template10.Mvvm.DelegateCommand`1<Template10.Controls.HamburgerButtonInfo>
+            case 44:   //  Template10.Mvvm.DelegateCommand`1<Template10.Controls.HamburgerButtonInfo>
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 43:   //  Template10.Controls.PageHeader
+            case 45:   //  Template10.Controls.PageHeader
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.CommandBar"));
-                userType.Activator = Activate_43_PageHeader;
+                userType.Activator = Activate_45_PageHeader;
                 userType.AddMemberName("VisualStateNarrowMinWidth");
                 userType.AddMemberName("VisualStateNormalMinWidth");
                 userType.AddMemberName("EllipsisVisibility");
@@ -736,11 +815,11 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 44:   //  Windows.UI.Xaml.Controls.CommandBar
+            case 46:   //  Windows.UI.Xaml.Controls.CommandBar
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 45:   //  Template10.Behaviors.EllipsisBehavior.Visibilities
+            case 47:   //  Template10.Behaviors.EllipsisBehavior.Visibilities
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Visible", global::Template10.Behaviors.EllipsisBehavior.Visibilities.Visible);
                 userType.AddEnumValue("Collapsed", global::Template10.Behaviors.EllipsisBehavior.Visibilities.Collapsed);
@@ -748,17 +827,17 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 46:   //  Windows.UI.Xaml.Controls.Symbol
+            case 48:   //  Windows.UI.Xaml.Controls.Symbol
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 47:   //  Windows.UI.Xaml.Controls.Frame
+            case 49:   //  Windows.UI.Xaml.Controls.Frame
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 48:   //  Template10.Controls.Resizer
+            case 50:   //  Template10.Controls.Resizer
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_48_Resizer;
+                userType.Activator = Activate_50_Resizer;
                 userType.SetContentPropertyName("Template10.Controls.Resizer.ElementControl");
                 userType.AddMemberName("ElementControl");
                 userType.AddMemberName("GrabberBrush");
@@ -767,32 +846,32 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 49:   //  Windows.UI.Xaml.Controls.Control
+            case 51:   //  Windows.UI.Xaml.Controls.Control
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 50:   //  Windows.Foundation.Size
+            case 52:   //  Windows.Foundation.Size
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 51:   //  CMS_Survey.Views.Busy
+            case 53:   //  CMS_Survey.Views.Busy
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_51_Busy;
+                userType.Activator = Activate_53_Busy;
                 userType.AddMemberName("BusyText");
                 userType.AddMemberName("IsBusy");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 52:   //  CMS_Survey.ViewModels.DetailPageViewModel
+            case 54:   //  CMS_Survey.ViewModels.DetailPageViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_52_DetailPageViewModel;
+                userType.Activator = Activate_54_DetailPageViewModel;
                 userType.AddMemberName("Value");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 53:   //  Template10.Mvvm.ViewModelBase
+            case 55:   //  Template10.Mvvm.ViewModelBase
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.BindableBase"));
                 userType.AddMemberName("NavigationService");
                 userType.AddMemberName("Dispatcher");
@@ -800,334 +879,256 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 54:   //  Template10.Mvvm.BindableBase
+            case 56:   //  Template10.Mvvm.BindableBase
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 55:   //  Template10.Common.IDispatcherWrapper
+            case 57:   //  Template10.Common.IDispatcherWrapper
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 56:   //  Template10.Common.IStateItems
+            case 58:   //  Template10.Common.IStateItems
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 57:   //  CMS_Survey.Views.DetailPage
+            case 59:   //  CMS_Survey.Views.DetailPage
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_57_DetailPage;
+                userType.Activator = Activate_59_DetailPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 58:   //  CMS_Survey.ViewModels.MainPageViewModel
+            case 60:   //  CMS_Survey.ViewModels.MainPageViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_58_MainPageViewModel;
+                userType.Activator = Activate_60_MainPageViewModel;
                 userType.AddMemberName("Value");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 59:   //  Microsoft.Xaml.Interactivity.Interaction
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.AddMemberName("Behaviors");
+            case 61:   //  MyToolkit.Controls.DataGrid
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_61_DataGrid;
+                userType.AddMemberName("SelectionMode");
+                userType.AddMemberName("DefaultOrderIndex");
+                userType.AddMemberName("ItemsSource");
+                userType.AddMemberName("RowBackgroundEvenBrush");
+                userType.AddMemberName("RowBackgroundOddBrush");
+                userType.AddMemberName("HeaderBackground");
+                userType.AddMemberName("Columns");
+                userType.AddMemberName("ItemDetailsTemplate");
+                userType.AddMemberName("SelectedItems");
+                userType.AddMemberName("Items");
+                userType.AddMemberName("SelectedColumn");
+                userType.AddMemberName("SelectedItem");
+                userType.AddMemberName("RowStyle");
+                userType.AddMemberName("HeaderTemplate");
+                userType.AddMemberName("CellTemplate");
                 xamlType = userType;
                 break;
 
-            case 60:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_60_BehaviorCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 61:   //  Windows.UI.Xaml.DependencyObjectCollection
+            case 62:   //  Windows.UI.Xaml.Controls.SelectionMode
                 xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 62:   //  Template10.Behaviors.KeyBehavior
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_62_KeyBehavior;
-                userType.SetContentPropertyName("Template10.Behaviors.KeyBehavior.Actions");
-                userType.AddMemberName("Actions");
-                userType.AddMemberName("Key");
-                userType.AddMemberName("AssociatedObject");
-                userType.AddMemberName("AndControl");
-                userType.AddMemberName("AndAlt");
-                userType.AddMemberName("AndShift");
-                userType.AddMemberName("Event");
-                xamlType = userType;
+            case 63:   //  Int32
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 63:   //  Microsoft.Xaml.Interactivity.ActionCollection
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
-                userType.CollectionAdd = VectorAdd_63_ActionCollection;
+            case 64:   //  MyToolkit.Controls.DataGridColumnCollection
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>"));
+                userType.CollectionAdd = VectorAdd_64_DataGridColumnCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 64:   //  Windows.System.VirtualKey
+            case 65:   //  System.Collections.ObjectModel.ObservableCollection`1<MyToolkit.Controls.DataGridColumnBase>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>"));
+                userType.Activator = Activate_65_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_65_ObservableCollection;
+                xamlType = userType;
+                break;
+
+            case 66:   //  System.Collections.ObjectModel.Collection`1<MyToolkit.Controls.DataGridColumnBase>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_66_Collection;
+                userType.CollectionAdd = VectorAdd_66_Collection;
+                xamlType = userType;
+                break;
+
+            case 67:   //  MyToolkit.Controls.DataGridColumnBase
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.AddMemberName("CanSort");
+                userType.AddMemberName("IsSelected");
+                userType.AddMemberName("IsAscending");
+                userType.AddMemberName("IsAscendingDefault");
+                userType.AddMemberName("Header");
+                userType.AddMemberName("Width");
+                userType.AddMemberName("OrderPropertyPath");
+                xamlType = userType;
+                break;
+
+            case 68:   //  Windows.UI.Xaml.GridLength
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 69:   //  Windows.UI.Xaml.PropertyPath
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 70:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 71:   //  System.Collections.Generic.IList`1<Object>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.CollectionAdd = VectorAdd_71_IList;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 72:   //  MyToolkit.Collections.IObservableCollectionView
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 73:   //  Windows.UI.Xaml.Style
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 74:   //  MyToolkit.Controls.DataGridTextColumn
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn"));
+                userType.Activator = Activate_74_DataGridTextColumn;
+                userType.AddMemberName("Foreground");
+                userType.AddMemberName("Style");
+                userType.AddMemberName("FontSize");
+                userType.AddMemberName("FontStyle");
+                userType.AddMemberName("TextWrapping");
+                xamlType = userType;
+                break;
+
+            case 75:   //  MyToolkit.Controls.DataGridBoundColumn
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase"));
+                userType.AddMemberName("Binding");
+                userType.AddMemberName("OrderPropertyPath");
+                xamlType = userType;
+                break;
+
+            case 76:   //  Windows.UI.Xaml.Data.Binding
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 77:   //  Windows.UI.Text.FontStyle
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.AddEnumValue("None", global::Windows.System.VirtualKey.None);
-                userType.AddEnumValue("LeftButton", global::Windows.System.VirtualKey.LeftButton);
-                userType.AddEnumValue("RightButton", global::Windows.System.VirtualKey.RightButton);
-                userType.AddEnumValue("Cancel", global::Windows.System.VirtualKey.Cancel);
-                userType.AddEnumValue("MiddleButton", global::Windows.System.VirtualKey.MiddleButton);
-                userType.AddEnumValue("XButton1", global::Windows.System.VirtualKey.XButton1);
-                userType.AddEnumValue("XButton2", global::Windows.System.VirtualKey.XButton2);
-                userType.AddEnumValue("Back", global::Windows.System.VirtualKey.Back);
-                userType.AddEnumValue("Tab", global::Windows.System.VirtualKey.Tab);
-                userType.AddEnumValue("Clear", global::Windows.System.VirtualKey.Clear);
-                userType.AddEnumValue("Enter", global::Windows.System.VirtualKey.Enter);
-                userType.AddEnumValue("Shift", global::Windows.System.VirtualKey.Shift);
-                userType.AddEnumValue("Control", global::Windows.System.VirtualKey.Control);
-                userType.AddEnumValue("Menu", global::Windows.System.VirtualKey.Menu);
-                userType.AddEnumValue("Pause", global::Windows.System.VirtualKey.Pause);
-                userType.AddEnumValue("CapitalLock", global::Windows.System.VirtualKey.CapitalLock);
-                userType.AddEnumValue("Kana", global::Windows.System.VirtualKey.Kana);
-                userType.AddEnumValue("Hangul", global::Windows.System.VirtualKey.Hangul);
-                userType.AddEnumValue("Junja", global::Windows.System.VirtualKey.Junja);
-                userType.AddEnumValue("Final", global::Windows.System.VirtualKey.Final);
-                userType.AddEnumValue("Hanja", global::Windows.System.VirtualKey.Hanja);
-                userType.AddEnumValue("Kanji", global::Windows.System.VirtualKey.Kanji);
-                userType.AddEnumValue("Escape", global::Windows.System.VirtualKey.Escape);
-                userType.AddEnumValue("Convert", global::Windows.System.VirtualKey.Convert);
-                userType.AddEnumValue("NonConvert", global::Windows.System.VirtualKey.NonConvert);
-                userType.AddEnumValue("Accept", global::Windows.System.VirtualKey.Accept);
-                userType.AddEnumValue("ModeChange", global::Windows.System.VirtualKey.ModeChange);
-                userType.AddEnumValue("Space", global::Windows.System.VirtualKey.Space);
-                userType.AddEnumValue("PageUp", global::Windows.System.VirtualKey.PageUp);
-                userType.AddEnumValue("PageDown", global::Windows.System.VirtualKey.PageDown);
-                userType.AddEnumValue("End", global::Windows.System.VirtualKey.End);
-                userType.AddEnumValue("Home", global::Windows.System.VirtualKey.Home);
-                userType.AddEnumValue("Left", global::Windows.System.VirtualKey.Left);
-                userType.AddEnumValue("Up", global::Windows.System.VirtualKey.Up);
-                userType.AddEnumValue("Right", global::Windows.System.VirtualKey.Right);
-                userType.AddEnumValue("Down", global::Windows.System.VirtualKey.Down);
-                userType.AddEnumValue("Select", global::Windows.System.VirtualKey.Select);
-                userType.AddEnumValue("Print", global::Windows.System.VirtualKey.Print);
-                userType.AddEnumValue("Execute", global::Windows.System.VirtualKey.Execute);
-                userType.AddEnumValue("Snapshot", global::Windows.System.VirtualKey.Snapshot);
-                userType.AddEnumValue("Insert", global::Windows.System.VirtualKey.Insert);
-                userType.AddEnumValue("Delete", global::Windows.System.VirtualKey.Delete);
-                userType.AddEnumValue("Help", global::Windows.System.VirtualKey.Help);
-                userType.AddEnumValue("Number0", global::Windows.System.VirtualKey.Number0);
-                userType.AddEnumValue("Number1", global::Windows.System.VirtualKey.Number1);
-                userType.AddEnumValue("Number2", global::Windows.System.VirtualKey.Number2);
-                userType.AddEnumValue("Number3", global::Windows.System.VirtualKey.Number3);
-                userType.AddEnumValue("Number4", global::Windows.System.VirtualKey.Number4);
-                userType.AddEnumValue("Number5", global::Windows.System.VirtualKey.Number5);
-                userType.AddEnumValue("Number6", global::Windows.System.VirtualKey.Number6);
-                userType.AddEnumValue("Number7", global::Windows.System.VirtualKey.Number7);
-                userType.AddEnumValue("Number8", global::Windows.System.VirtualKey.Number8);
-                userType.AddEnumValue("Number9", global::Windows.System.VirtualKey.Number9);
-                userType.AddEnumValue("A", global::Windows.System.VirtualKey.A);
-                userType.AddEnumValue("B", global::Windows.System.VirtualKey.B);
-                userType.AddEnumValue("C", global::Windows.System.VirtualKey.C);
-                userType.AddEnumValue("D", global::Windows.System.VirtualKey.D);
-                userType.AddEnumValue("E", global::Windows.System.VirtualKey.E);
-                userType.AddEnumValue("F", global::Windows.System.VirtualKey.F);
-                userType.AddEnumValue("G", global::Windows.System.VirtualKey.G);
-                userType.AddEnumValue("H", global::Windows.System.VirtualKey.H);
-                userType.AddEnumValue("I", global::Windows.System.VirtualKey.I);
-                userType.AddEnumValue("J", global::Windows.System.VirtualKey.J);
-                userType.AddEnumValue("K", global::Windows.System.VirtualKey.K);
-                userType.AddEnumValue("L", global::Windows.System.VirtualKey.L);
-                userType.AddEnumValue("M", global::Windows.System.VirtualKey.M);
-                userType.AddEnumValue("N", global::Windows.System.VirtualKey.N);
-                userType.AddEnumValue("O", global::Windows.System.VirtualKey.O);
-                userType.AddEnumValue("P", global::Windows.System.VirtualKey.P);
-                userType.AddEnumValue("Q", global::Windows.System.VirtualKey.Q);
-                userType.AddEnumValue("R", global::Windows.System.VirtualKey.R);
-                userType.AddEnumValue("S", global::Windows.System.VirtualKey.S);
-                userType.AddEnumValue("T", global::Windows.System.VirtualKey.T);
-                userType.AddEnumValue("U", global::Windows.System.VirtualKey.U);
-                userType.AddEnumValue("V", global::Windows.System.VirtualKey.V);
-                userType.AddEnumValue("W", global::Windows.System.VirtualKey.W);
-                userType.AddEnumValue("X", global::Windows.System.VirtualKey.X);
-                userType.AddEnumValue("Y", global::Windows.System.VirtualKey.Y);
-                userType.AddEnumValue("Z", global::Windows.System.VirtualKey.Z);
-                userType.AddEnumValue("LeftWindows", global::Windows.System.VirtualKey.LeftWindows);
-                userType.AddEnumValue("RightWindows", global::Windows.System.VirtualKey.RightWindows);
-                userType.AddEnumValue("Application", global::Windows.System.VirtualKey.Application);
-                userType.AddEnumValue("Sleep", global::Windows.System.VirtualKey.Sleep);
-                userType.AddEnumValue("NumberPad0", global::Windows.System.VirtualKey.NumberPad0);
-                userType.AddEnumValue("NumberPad1", global::Windows.System.VirtualKey.NumberPad1);
-                userType.AddEnumValue("NumberPad2", global::Windows.System.VirtualKey.NumberPad2);
-                userType.AddEnumValue("NumberPad3", global::Windows.System.VirtualKey.NumberPad3);
-                userType.AddEnumValue("NumberPad4", global::Windows.System.VirtualKey.NumberPad4);
-                userType.AddEnumValue("NumberPad5", global::Windows.System.VirtualKey.NumberPad5);
-                userType.AddEnumValue("NumberPad6", global::Windows.System.VirtualKey.NumberPad6);
-                userType.AddEnumValue("NumberPad7", global::Windows.System.VirtualKey.NumberPad7);
-                userType.AddEnumValue("NumberPad8", global::Windows.System.VirtualKey.NumberPad8);
-                userType.AddEnumValue("NumberPad9", global::Windows.System.VirtualKey.NumberPad9);
-                userType.AddEnumValue("Multiply", global::Windows.System.VirtualKey.Multiply);
-                userType.AddEnumValue("Add", global::Windows.System.VirtualKey.Add);
-                userType.AddEnumValue("Separator", global::Windows.System.VirtualKey.Separator);
-                userType.AddEnumValue("Subtract", global::Windows.System.VirtualKey.Subtract);
-                userType.AddEnumValue("Decimal", global::Windows.System.VirtualKey.Decimal);
-                userType.AddEnumValue("Divide", global::Windows.System.VirtualKey.Divide);
-                userType.AddEnumValue("F1", global::Windows.System.VirtualKey.F1);
-                userType.AddEnumValue("F2", global::Windows.System.VirtualKey.F2);
-                userType.AddEnumValue("F3", global::Windows.System.VirtualKey.F3);
-                userType.AddEnumValue("F4", global::Windows.System.VirtualKey.F4);
-                userType.AddEnumValue("F5", global::Windows.System.VirtualKey.F5);
-                userType.AddEnumValue("F6", global::Windows.System.VirtualKey.F6);
-                userType.AddEnumValue("F7", global::Windows.System.VirtualKey.F7);
-                userType.AddEnumValue("F8", global::Windows.System.VirtualKey.F8);
-                userType.AddEnumValue("F9", global::Windows.System.VirtualKey.F9);
-                userType.AddEnumValue("F10", global::Windows.System.VirtualKey.F10);
-                userType.AddEnumValue("F11", global::Windows.System.VirtualKey.F11);
-                userType.AddEnumValue("F12", global::Windows.System.VirtualKey.F12);
-                userType.AddEnumValue("F13", global::Windows.System.VirtualKey.F13);
-                userType.AddEnumValue("F14", global::Windows.System.VirtualKey.F14);
-                userType.AddEnumValue("F15", global::Windows.System.VirtualKey.F15);
-                userType.AddEnumValue("F16", global::Windows.System.VirtualKey.F16);
-                userType.AddEnumValue("F17", global::Windows.System.VirtualKey.F17);
-                userType.AddEnumValue("F18", global::Windows.System.VirtualKey.F18);
-                userType.AddEnumValue("F19", global::Windows.System.VirtualKey.F19);
-                userType.AddEnumValue("F20", global::Windows.System.VirtualKey.F20);
-                userType.AddEnumValue("F21", global::Windows.System.VirtualKey.F21);
-                userType.AddEnumValue("F22", global::Windows.System.VirtualKey.F22);
-                userType.AddEnumValue("F23", global::Windows.System.VirtualKey.F23);
-                userType.AddEnumValue("F24", global::Windows.System.VirtualKey.F24);
-                userType.AddEnumValue("NavigationView", global::Windows.System.VirtualKey.NavigationView);
-                userType.AddEnumValue("NavigationMenu", global::Windows.System.VirtualKey.NavigationMenu);
-                userType.AddEnumValue("NavigationUp", global::Windows.System.VirtualKey.NavigationUp);
-                userType.AddEnumValue("NavigationDown", global::Windows.System.VirtualKey.NavigationDown);
-                userType.AddEnumValue("NavigationLeft", global::Windows.System.VirtualKey.NavigationLeft);
-                userType.AddEnumValue("NavigationRight", global::Windows.System.VirtualKey.NavigationRight);
-                userType.AddEnumValue("NavigationAccept", global::Windows.System.VirtualKey.NavigationAccept);
-                userType.AddEnumValue("NavigationCancel", global::Windows.System.VirtualKey.NavigationCancel);
-                userType.AddEnumValue("NumberKeyLock", global::Windows.System.VirtualKey.NumberKeyLock);
-                userType.AddEnumValue("Scroll", global::Windows.System.VirtualKey.Scroll);
-                userType.AddEnumValue("LeftShift", global::Windows.System.VirtualKey.LeftShift);
-                userType.AddEnumValue("RightShift", global::Windows.System.VirtualKey.RightShift);
-                userType.AddEnumValue("LeftControl", global::Windows.System.VirtualKey.LeftControl);
-                userType.AddEnumValue("RightControl", global::Windows.System.VirtualKey.RightControl);
-                userType.AddEnumValue("LeftMenu", global::Windows.System.VirtualKey.LeftMenu);
-                userType.AddEnumValue("RightMenu", global::Windows.System.VirtualKey.RightMenu);
-                userType.AddEnumValue("GoBack", global::Windows.System.VirtualKey.GoBack);
-                userType.AddEnumValue("GoForward", global::Windows.System.VirtualKey.GoForward);
-                userType.AddEnumValue("Refresh", global::Windows.System.VirtualKey.Refresh);
-                userType.AddEnumValue("Stop", global::Windows.System.VirtualKey.Stop);
-                userType.AddEnumValue("Search", global::Windows.System.VirtualKey.Search);
-                userType.AddEnumValue("Favorites", global::Windows.System.VirtualKey.Favorites);
-                userType.AddEnumValue("GoHome", global::Windows.System.VirtualKey.GoHome);
-                userType.AddEnumValue("GamepadA", global::Windows.System.VirtualKey.GamepadA);
-                userType.AddEnumValue("GamepadB", global::Windows.System.VirtualKey.GamepadB);
-                userType.AddEnumValue("GamepadX", global::Windows.System.VirtualKey.GamepadX);
-                userType.AddEnumValue("GamepadY", global::Windows.System.VirtualKey.GamepadY);
-                userType.AddEnumValue("GamepadRightShoulder", global::Windows.System.VirtualKey.GamepadRightShoulder);
-                userType.AddEnumValue("GamepadLeftShoulder", global::Windows.System.VirtualKey.GamepadLeftShoulder);
-                userType.AddEnumValue("GamepadLeftTrigger", global::Windows.System.VirtualKey.GamepadLeftTrigger);
-                userType.AddEnumValue("GamepadRightTrigger", global::Windows.System.VirtualKey.GamepadRightTrigger);
-                userType.AddEnumValue("GamepadDPadUp", global::Windows.System.VirtualKey.GamepadDPadUp);
-                userType.AddEnumValue("GamepadDPadDown", global::Windows.System.VirtualKey.GamepadDPadDown);
-                userType.AddEnumValue("GamepadDPadLeft", global::Windows.System.VirtualKey.GamepadDPadLeft);
-                userType.AddEnumValue("GamepadDPadRight", global::Windows.System.VirtualKey.GamepadDPadRight);
-                userType.AddEnumValue("GamepadMenu", global::Windows.System.VirtualKey.GamepadMenu);
-                userType.AddEnumValue("GamepadView", global::Windows.System.VirtualKey.GamepadView);
-                userType.AddEnumValue("GamepadLeftThumbstickButton", global::Windows.System.VirtualKey.GamepadLeftThumbstickButton);
-                userType.AddEnumValue("GamepadRightThumbstickButton", global::Windows.System.VirtualKey.GamepadRightThumbstickButton);
-                userType.AddEnumValue("GamepadLeftThumbstickUp", global::Windows.System.VirtualKey.GamepadLeftThumbstickUp);
-                userType.AddEnumValue("GamepadLeftThumbstickDown", global::Windows.System.VirtualKey.GamepadLeftThumbstickDown);
-                userType.AddEnumValue("GamepadLeftThumbstickRight", global::Windows.System.VirtualKey.GamepadLeftThumbstickRight);
-                userType.AddEnumValue("GamepadLeftThumbstickLeft", global::Windows.System.VirtualKey.GamepadLeftThumbstickLeft);
-                userType.AddEnumValue("GamepadRightThumbstickUp", global::Windows.System.VirtualKey.GamepadRightThumbstickUp);
-                userType.AddEnumValue("GamepadRightThumbstickDown", global::Windows.System.VirtualKey.GamepadRightThumbstickDown);
-                userType.AddEnumValue("GamepadRightThumbstickRight", global::Windows.System.VirtualKey.GamepadRightThumbstickRight);
-                userType.AddEnumValue("GamepadRightThumbstickLeft", global::Windows.System.VirtualKey.GamepadRightThumbstickLeft);
+                userType.AddEnumValue("Normal", global::Windows.UI.Text.FontStyle.Normal);
+                userType.AddEnumValue("Oblique", global::Windows.UI.Text.FontStyle.Oblique);
+                userType.AddEnumValue("Italic", global::Windows.UI.Text.FontStyle.Italic);
                 xamlType = userType;
                 break;
 
-            case 65:   //  Template10.Behaviors.KeyBehavior.Kinds
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.AddEnumValue("KeyUp", global::Template10.Behaviors.KeyBehavior.Kinds.KeyUp);
-                userType.AddEnumValue("KeyDown", global::Template10.Behaviors.KeyBehavior.Kinds.KeyDown);
-                xamlType = userType;
+            case 78:   //  Windows.UI.Xaml.TextWrapping
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 66:   //  Microsoft.Xaml.Interactions.Core.EventTriggerBehavior
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior"));
-                userType.Activator = Activate_66_EventTriggerBehavior;
-                userType.SetContentPropertyName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.Actions");
-                userType.AddMemberName("Actions");
-                userType.AddMemberName("EventName");
-                userType.AddMemberName("SourceObject");
-                xamlType = userType;
-                break;
-
-            case 67:   //  Microsoft.Xaml.Interactivity.Behavior
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.AddMemberName("AssociatedObject");
-                xamlType = userType;
-                break;
-
-            case 68:   //  Template10.Behaviors.FocusAction
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_68_FocusAction;
-                userType.AddMemberName("TargetObject");
-                xamlType = userType;
-                break;
-
-            case 69:   //  Microsoft.Xaml.Interactions.Core.CallMethodAction
-                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_69_CallMethodAction;
-                userType.AddMemberName("MethodName");
-                userType.AddMemberName("TargetObject");
-                xamlType = userType;
-                break;
-
-            case 70:   //  CMS_Survey.Views.MainPage
+            case 79:   //  CMS_Survey.Views.GridMainPage
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_70_MainPage;
+                userType.Activator = Activate_79_GridMainPage;
+                userType.AddMemberName("Usersurveys");
+                userType.AddMemberName("Filter");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 71:   //  CMS_Survey.ViewModels.SettingsPageViewModel
+            case 80:   //  System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>"));
+                userType.CollectionAdd = VectorAdd_80_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 81:   //  System.Collections.ObjectModel.Collection`1<CMS_Survey.Models.UserSurvey>
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_81_Collection;
+                userType.CollectionAdd = VectorAdd_81_Collection;
+                xamlType = userType;
+                break;
+
+            case 82:   //  CMS_Survey.Models.UserSurvey
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_82_UserSurvey;
+                userType.AddMemberName("surveyKey");
+                userType.AddMemberName("surveyNumber");
+                userType.AddMemberName("surveyType");
+                userType.AddMemberName("surveyProvider");
+                userType.AddMemberName("status");
+                userType.AddMemberName("endDate");
+                userType.AddMemberName("actionDate");
+                userType.AddMemberName("supervisorComments");
+                userType.AddMemberName("startDate");
+                userType.AddMemberName("active");
+                userType.AddMemberName("endDateString");
+                userType.AddMemberName("actionDateString");
+                userType.AddMemberName("startDateString");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 83:   //  CMS_Survey.Views.MainPage
+                userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_83_MainPage;
+                userType.AddMemberName("Usersurveys");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 84:   //  CMS_Survey.ViewModels.SettingsPageViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
-                userType.Activator = Activate_71_SettingsPageViewModel;
+                userType.Activator = Activate_84_SettingsPageViewModel;
                 userType.AddMemberName("SettingsPartViewModel");
                 userType.AddMemberName("AboutPartViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 72:   //  CMS_Survey.ViewModels.SettingsPartViewModel
+            case 85:   //  CMS_Survey.ViewModels.SettingsPartViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 73:   //  CMS_Survey.ViewModels.AboutPartViewModel
+            case 86:   //  CMS_Survey.ViewModels.AboutPartViewModel
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 74:   //  CMS_Survey.Views.SettingsPage
+            case 87:   //  CMS_Survey.Views.SettingsPage
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_74_SettingsPage;
+                userType.Activator = Activate_87_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 75:   //  CMS_Survey.Views.Shell
+            case 88:   //  Windows.UI.Xaml.Media.Animation.TransitionCollection
+                xamlType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 89:   //  CMS_Survey.Views.Shell
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_75_Shell;
+                userType.Activator = Activate_89_Shell;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 76:   //  CMS_Survey.Views.Splash
+            case 90:   //  CMS_Survey.Views.Splash
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -1145,6 +1146,8 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::MyToolkit.MyToolkit_Extended_Uwp_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     provider = new global::Template10.Template10__Library__XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
@@ -1281,883 +1284,1250 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             var that = (global::Template10.Common.BootStrapper)instance;
             that.ModalContent = (global::Windows.UI.Xaml.UIElement)Value;
         }
-        private object get_11_Color_A(object instance)
+        private object get_11_ProgressRing_IsActive(object instance)
+        {
+            var that = (global::CMS_Survey.Controls.ProgressRing)instance;
+            return that.IsActive;
+        }
+        private void set_11_ProgressRing_IsActive(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Controls.ProgressRing)instance;
+            that.IsActive = (global::System.Boolean)Value;
+        }
+        private object get_12_ProgressRing_Text(object instance)
+        {
+            var that = (global::CMS_Survey.Controls.ProgressRing)instance;
+            return that.Text;
+        }
+        private void set_12_ProgressRing_Text(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Controls.ProgressRing)instance;
+            that.Text = (global::System.String)Value;
+        }
+        private object get_13_Color_A(object instance)
         {
             var that = (global::Windows.UI.Color)instance;
             return that.A;
         }
-        private void set_11_Color_A(object instance, object Value)
+        private void set_13_Color_A(object instance, object Value)
         {
             var that = (global::Windows.UI.Color)instance;
             that.A = (global::System.Byte)Value;
         }
-        private object get_12_Color_B(object instance)
+        private object get_14_Color_B(object instance)
         {
             var that = (global::Windows.UI.Color)instance;
             return that.B;
         }
-        private void set_12_Color_B(object instance, object Value)
+        private void set_14_Color_B(object instance, object Value)
         {
             var that = (global::Windows.UI.Color)instance;
             that.B = (global::System.Byte)Value;
         }
-        private object get_13_Color_G(object instance)
+        private object get_15_Color_G(object instance)
         {
             var that = (global::Windows.UI.Color)instance;
             return that.G;
         }
-        private void set_13_Color_G(object instance, object Value)
+        private void set_15_Color_G(object instance, object Value)
         {
             var that = (global::Windows.UI.Color)instance;
             that.G = (global::System.Byte)Value;
         }
-        private object get_14_Color_R(object instance)
+        private object get_16_Color_R(object instance)
         {
             var that = (global::Windows.UI.Color)instance;
             return that.R;
         }
-        private void set_14_Color_R(object instance, object Value)
+        private void set_16_Color_R(object instance, object Value)
         {
             var that = (global::Windows.UI.Color)instance;
             that.R = (global::System.Byte)Value;
         }
-        private object get_15_HamburgerMenu_PrimaryButtons(object instance)
+        private object get_17_HamburgerMenu_PrimaryButtons(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.PrimaryButtons;
         }
-        private void set_15_HamburgerMenu_PrimaryButtons(object instance, object Value)
+        private void set_17_HamburgerMenu_PrimaryButtons(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.PrimaryButtons = (global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>)Value;
         }
-        private object get_16_HamburgerButtonInfo_Content(object instance)
+        private object get_18_HamburgerButtonInfo_Content(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.Content;
         }
-        private void set_16_HamburgerButtonInfo_Content(object instance, object Value)
+        private void set_18_HamburgerButtonInfo_Content(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.Content = (global::Windows.UI.Xaml.UIElement)Value;
         }
-        private object get_17_HamburgerButtonInfo_ButtonType(object instance)
+        private object get_19_HamburgerButtonInfo_ButtonType(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.ButtonType;
         }
-        private void set_17_HamburgerButtonInfo_ButtonType(object instance, object Value)
+        private void set_19_HamburgerButtonInfo_ButtonType(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.ButtonType = (global::Template10.Controls.HamburgerButtonInfo.ButtonTypes)Value;
         }
-        private object get_18_HamburgerButtonInfo_NavigationTransitionInfo(object instance)
+        private object get_20_HamburgerButtonInfo_NavigationTransitionInfo(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.NavigationTransitionInfo;
         }
-        private void set_18_HamburgerButtonInfo_NavigationTransitionInfo(object instance, object Value)
+        private void set_20_HamburgerButtonInfo_NavigationTransitionInfo(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.NavigationTransitionInfo = (global::Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo)Value;
         }
-        private object get_19_HamburgerButtonInfo_Command(object instance)
+        private object get_21_HamburgerButtonInfo_Command(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.Command;
         }
-        private void set_19_HamburgerButtonInfo_Command(object instance, object Value)
+        private void set_21_HamburgerButtonInfo_Command(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.Command = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_20_HamburgerButtonInfo_ToolTip(object instance)
+        private object get_22_HamburgerButtonInfo_ToolTip(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.ToolTip;
         }
-        private void set_20_HamburgerButtonInfo_ToolTip(object instance, object Value)
+        private void set_22_HamburgerButtonInfo_ToolTip(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.ToolTip = (global::System.Object)Value;
         }
-        private object get_21_HamburgerButtonInfo_CommandParameter(object instance)
+        private object get_23_HamburgerButtonInfo_CommandParameter(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.CommandParameter;
         }
-        private void set_21_HamburgerButtonInfo_CommandParameter(object instance, object Value)
+        private void set_23_HamburgerButtonInfo_CommandParameter(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.CommandParameter = (global::System.Object)Value;
         }
-        private object get_22_HamburgerButtonInfo_PageType(object instance)
+        private object get_24_HamburgerButtonInfo_PageType(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.PageType;
         }
-        private void set_22_HamburgerButtonInfo_PageType(object instance, object Value)
+        private void set_24_HamburgerButtonInfo_PageType(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.PageType = (global::System.Type)Value;
         }
-        private object get_23_HamburgerButtonInfo_PageParameter(object instance)
+        private object get_25_HamburgerButtonInfo_PageParameter(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.PageParameter;
         }
-        private void set_23_HamburgerButtonInfo_PageParameter(object instance, object Value)
+        private void set_25_HamburgerButtonInfo_PageParameter(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.PageParameter = (global::System.Object)Value;
         }
-        private object get_24_HamburgerButtonInfo_ClearHistory(object instance)
+        private object get_26_HamburgerButtonInfo_ClearHistory(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.ClearHistory;
         }
-        private void set_24_HamburgerButtonInfo_ClearHistory(object instance, object Value)
+        private void set_26_HamburgerButtonInfo_ClearHistory(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.ClearHistory = (global::System.Boolean)Value;
         }
-        private object get_25_HamburgerButtonInfo_ClearCache(object instance)
+        private object get_27_HamburgerButtonInfo_ClearCache(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.ClearCache;
         }
-        private void set_25_HamburgerButtonInfo_ClearCache(object instance, object Value)
+        private void set_27_HamburgerButtonInfo_ClearCache(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.ClearCache = (global::System.Boolean)Value;
         }
-        private object get_26_HamburgerButtonInfo_Visibility(object instance)
+        private object get_28_HamburgerButtonInfo_Visibility(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.Visibility;
         }
-        private void set_26_HamburgerButtonInfo_Visibility(object instance, object Value)
+        private void set_28_HamburgerButtonInfo_Visibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.Visibility = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_27_HamburgerButtonInfo_IsEnabled(object instance)
+        private object get_29_HamburgerButtonInfo_IsEnabled(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.IsEnabled;
         }
-        private void set_27_HamburgerButtonInfo_IsEnabled(object instance, object Value)
+        private void set_29_HamburgerButtonInfo_IsEnabled(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.IsEnabled = (global::System.Boolean)Value;
         }
-        private object get_28_HamburgerButtonInfo_IsChecked(object instance)
+        private object get_30_HamburgerButtonInfo_IsChecked(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.IsChecked;
         }
-        private void set_28_HamburgerButtonInfo_IsChecked(object instance, object Value)
+        private void set_30_HamburgerButtonInfo_IsChecked(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.IsChecked = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_29_HamburgerButtonInfo_MaxWidth(object instance)
+        private object get_31_HamburgerButtonInfo_MaxWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             return that.MaxWidth;
         }
-        private void set_29_HamburgerButtonInfo_MaxWidth(object instance, object Value)
+        private void set_31_HamburgerButtonInfo_MaxWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.MaxWidth = (global::System.Double)Value;
         }
-        private object get_30_HamburgerMenu_PaneBorderThickness(object instance)
+        private object get_32_HamburgerMenu_PaneBorderThickness(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.PaneBorderThickness;
         }
-        private void set_30_HamburgerMenu_PaneBorderThickness(object instance, object Value)
+        private void set_32_HamburgerMenu_PaneBorderThickness(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.PaneBorderThickness = (global::Windows.UI.Xaml.Thickness)Value;
         }
-        private object get_31_HamburgerMenu_SecondarySeparator(object instance)
+        private object get_33_HamburgerMenu_SecondarySeparator(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.SecondarySeparator;
         }
-        private void set_31_HamburgerMenu_SecondarySeparator(object instance, object Value)
+        private void set_33_HamburgerMenu_SecondarySeparator(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.SecondarySeparator = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_32_HamburgerMenu_NavButtonBackground(object instance)
+        private object get_34_HamburgerMenu_NavButtonBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavButtonBackground;
         }
-        private void set_32_HamburgerMenu_NavButtonBackground(object instance, object Value)
+        private void set_34_HamburgerMenu_NavButtonBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavButtonBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_33_HamburgerMenu_NavButtonForeground(object instance)
+        private object get_35_HamburgerMenu_NavButtonForeground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavButtonForeground;
         }
-        private void set_33_HamburgerMenu_NavButtonForeground(object instance, object Value)
+        private void set_35_HamburgerMenu_NavButtonForeground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavButtonForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_34_HamburgerMenu_NavAreaBackground(object instance)
+        private object get_36_HamburgerMenu_NavAreaBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavAreaBackground;
         }
-        private void set_34_HamburgerMenu_NavAreaBackground(object instance, object Value)
+        private void set_36_HamburgerMenu_NavAreaBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavAreaBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_35_HamburgerMenu_HamburgerForeground(object instance)
+        private object get_37_HamburgerMenu_HamburgerForeground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.HamburgerForeground;
         }
-        private void set_35_HamburgerMenu_HamburgerForeground(object instance, object Value)
+        private void set_37_HamburgerMenu_HamburgerForeground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.HamburgerForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_36_HamburgerMenu_HamburgerBackground(object instance)
+        private object get_38_HamburgerMenu_HamburgerBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.HamburgerBackground;
         }
-        private void set_36_HamburgerMenu_HamburgerBackground(object instance, object Value)
+        private void set_38_HamburgerMenu_HamburgerBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.HamburgerBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_37_HamburgerMenu_VisualStateNarrowMinWidth(object instance)
+        private object get_39_HamburgerMenu_VisualStateNarrowMinWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateNarrowMinWidth;
         }
-        private void set_37_HamburgerMenu_VisualStateNarrowMinWidth(object instance, object Value)
+        private void set_39_HamburgerMenu_VisualStateNarrowMinWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateNarrowMinWidth = (global::System.Double)Value;
         }
-        private object get_38_HamburgerMenu_VisualStateNormalMinWidth(object instance)
+        private object get_40_HamburgerMenu_VisualStateNormalMinWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateNormalMinWidth;
         }
-        private void set_38_HamburgerMenu_VisualStateNormalMinWidth(object instance, object Value)
+        private void set_40_HamburgerMenu_VisualStateNormalMinWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateNormalMinWidth = (global::System.Double)Value;
         }
-        private object get_39_HamburgerMenu_VisualStateWideMinWidth(object instance)
+        private object get_41_HamburgerMenu_VisualStateWideMinWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateWideMinWidth;
         }
-        private void set_39_HamburgerMenu_VisualStateWideMinWidth(object instance, object Value)
+        private void set_41_HamburgerMenu_VisualStateWideMinWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateWideMinWidth = (global::System.Double)Value;
         }
-        private object get_40_HamburgerMenu_AccentColor(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.AccentColor;
-        }
-        private void set_40_HamburgerMenu_AccentColor(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.AccentColor = (global::Windows.UI.Color)Value;
-        }
-        private object get_41_HamburgerMenu_PaneBorderBrush(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.PaneBorderBrush;
-        }
-        private void set_41_HamburgerMenu_PaneBorderBrush(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.PaneBorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_42_HamburgerMenu_NavButtonCheckedForeground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.NavButtonCheckedForeground;
-        }
-        private void set_42_HamburgerMenu_NavButtonCheckedForeground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.NavButtonCheckedForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_43_HamburgerMenu_NavButtonCheckedBackground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.NavButtonCheckedBackground;
-        }
-        private void set_43_HamburgerMenu_NavButtonCheckedBackground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.NavButtonCheckedBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_44_HamburgerMenu_NavButtonCheckedIndicatorBrush(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.NavButtonCheckedIndicatorBrush;
-        }
-        private void set_44_HamburgerMenu_NavButtonCheckedIndicatorBrush(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.NavButtonCheckedIndicatorBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_45_HamburgerMenu_NavButtonPressedForeground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.NavButtonPressedForeground;
-        }
-        private void set_45_HamburgerMenu_NavButtonPressedForeground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.NavButtonPressedForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_46_HamburgerMenu_NavButtonPressedBackground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.NavButtonPressedBackground;
-        }
-        private void set_46_HamburgerMenu_NavButtonPressedBackground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.NavButtonPressedBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_47_HamburgerMenu_NavButtonHoverForeground(object instance)
+        private object get_42_HamburgerMenu_NavButtonHoverForeground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavButtonHoverForeground;
         }
-        private void set_47_HamburgerMenu_NavButtonHoverForeground(object instance, object Value)
+        private void set_42_HamburgerMenu_NavButtonHoverForeground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavButtonHoverForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_48_HamburgerMenu_NavButtonHoverBackground(object instance)
+        private object get_43_HamburgerMenu_NavButtonHoverBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavButtonHoverBackground;
         }
-        private void set_48_HamburgerMenu_NavButtonHoverBackground(object instance, object Value)
+        private void set_43_HamburgerMenu_NavButtonHoverBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavButtonHoverBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_49_HamburgerMenu_HamburgerButtonVisibility(object instance)
+        private object get_44_HamburgerMenu_NavButtonPressedForeground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.NavButtonPressedForeground;
+        }
+        private void set_44_HamburgerMenu_NavButtonPressedForeground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.NavButtonPressedForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_45_HamburgerMenu_NavButtonPressedBackground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.NavButtonPressedBackground;
+        }
+        private void set_45_HamburgerMenu_NavButtonPressedBackground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.NavButtonPressedBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_46_HamburgerMenu_NavButtonCheckedForeground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.NavButtonCheckedForeground;
+        }
+        private void set_46_HamburgerMenu_NavButtonCheckedForeground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.NavButtonCheckedForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_47_HamburgerMenu_NavButtonCheckedBackground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.NavButtonCheckedBackground;
+        }
+        private void set_47_HamburgerMenu_NavButtonCheckedBackground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.NavButtonCheckedBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_48_HamburgerMenu_NavButtonCheckedIndicatorBrush(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.NavButtonCheckedIndicatorBrush;
+        }
+        private void set_48_HamburgerMenu_NavButtonCheckedIndicatorBrush(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.NavButtonCheckedIndicatorBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_49_HamburgerMenu_AccentColor(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.AccentColor;
+        }
+        private void set_49_HamburgerMenu_AccentColor(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.AccentColor = (global::Windows.UI.Color)Value;
+        }
+        private object get_50_HamburgerMenu_PaneBorderBrush(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.PaneBorderBrush;
+        }
+        private void set_50_HamburgerMenu_PaneBorderBrush(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.PaneBorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_51_HamburgerMenu_HamburgerButtonVisibility(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.HamburgerButtonVisibility;
         }
-        private void set_49_HamburgerMenu_HamburgerButtonVisibility(object instance, object Value)
+        private void set_51_HamburgerMenu_HamburgerButtonVisibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.HamburgerButtonVisibility = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_50_HamburgerMenu_DisplayMode(object instance)
+        private object get_52_HamburgerMenu_DisplayMode(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.DisplayMode;
         }
-        private void set_50_HamburgerMenu_DisplayMode(object instance, object Value)
+        private void set_52_HamburgerMenu_DisplayMode(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.DisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_51_HamburgerMenu_VisualStateNarrowDisplayMode(object instance)
+        private object get_53_HamburgerMenu_VisualStateNarrowDisplayMode(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateNarrowDisplayMode;
         }
-        private void set_51_HamburgerMenu_VisualStateNarrowDisplayMode(object instance, object Value)
+        private void set_53_HamburgerMenu_VisualStateNarrowDisplayMode(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateNarrowDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_52_HamburgerMenu_VisualStateNormalDisplayMode(object instance)
+        private object get_54_HamburgerMenu_VisualStateNormalDisplayMode(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateNormalDisplayMode;
         }
-        private void set_52_HamburgerMenu_VisualStateNormalDisplayMode(object instance, object Value)
+        private void set_54_HamburgerMenu_VisualStateNormalDisplayMode(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateNormalDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_53_HamburgerMenu_VisualStateWideDisplayMode(object instance)
+        private object get_55_HamburgerMenu_VisualStateWideDisplayMode(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.VisualStateWideDisplayMode;
         }
-        private void set_53_HamburgerMenu_VisualStateWideDisplayMode(object instance, object Value)
+        private void set_55_HamburgerMenu_VisualStateWideDisplayMode(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.VisualStateWideDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_54_HamburgerMenu_SecondaryButtonOrientation(object instance)
+        private object get_56_HamburgerMenu_SecondaryButtonOrientation(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.SecondaryButtonOrientation;
         }
-        private void set_54_HamburgerMenu_SecondaryButtonOrientation(object instance, object Value)
+        private void set_56_HamburgerMenu_SecondaryButtonOrientation(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.SecondaryButtonOrientation = (global::Windows.UI.Xaml.Controls.Orientation)Value;
         }
-        private object get_55_HamburgerMenu_Selected(object instance)
+        private object get_57_HamburgerMenu_Selected(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.Selected;
         }
-        private void set_55_HamburgerMenu_Selected(object instance, object Value)
+        private void set_57_HamburgerMenu_Selected(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.Selected = (global::Template10.Controls.HamburgerButtonInfo)Value;
         }
-        private object get_56_HamburgerMenu_NavigationService(object instance)
+        private object get_58_HamburgerMenu_NavigationService(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavigationService;
         }
-        private void set_56_HamburgerMenu_NavigationService(object instance, object Value)
+        private void set_58_HamburgerMenu_NavigationService(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavigationService = (global::Template10.Services.NavigationService.INavigationService)Value;
         }
-        private object get_57_HamburgerMenu_IsFullScreen(object instance)
+        private object get_59_HamburgerMenu_IsFullScreen(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.IsFullScreen;
         }
-        private void set_57_HamburgerMenu_IsFullScreen(object instance, object Value)
+        private void set_59_HamburgerMenu_IsFullScreen(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.IsFullScreen = (global::System.Boolean)Value;
         }
-        private object get_58_HamburgerMenu_PaneWidth(object instance)
+        private object get_60_HamburgerMenu_PaneWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.PaneWidth;
         }
-        private void set_58_HamburgerMenu_PaneWidth(object instance, object Value)
+        private void set_60_HamburgerMenu_PaneWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.PaneWidth = (global::System.Double)Value;
         }
-        private object get_59_HamburgerMenu_HamburgerButtonGridWidth(object instance)
+        private object get_61_HamburgerMenu_HamburgerButtonGridWidth(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.HamburgerButtonGridWidth;
         }
-        private void set_59_HamburgerMenu_HamburgerButtonGridWidth(object instance, object Value)
+        private void set_61_HamburgerMenu_HamburgerButtonGridWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.HamburgerButtonGridWidth = (global::System.Double)Value;
         }
-        private object get_60_HamburgerMenu_OpenCloseMode(object instance)
+        private object get_62_HamburgerMenu_OpenCloseMode(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.OpenCloseMode;
         }
-        private void set_60_HamburgerMenu_OpenCloseMode(object instance, object Value)
+        private void set_62_HamburgerMenu_OpenCloseMode(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.OpenCloseMode = (global::Template10.Controls.HamburgerMenu.OpenCloseModes)Value;
         }
-        private object get_61_HamburgerMenu_HeaderContent(object instance)
+        private object get_63_HamburgerMenu_HeaderContent(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.HeaderContent;
         }
-        private void set_61_HamburgerMenu_HeaderContent(object instance, object Value)
+        private void set_63_HamburgerMenu_HeaderContent(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.HeaderContent = (global::Windows.UI.Xaml.UIElement)Value;
         }
-        private object get_62_HamburgerMenu_IsOpen(object instance)
+        private object get_64_HamburgerMenu_IsOpen(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.IsOpen;
         }
-        private void set_62_HamburgerMenu_IsOpen(object instance, object Value)
+        private void set_64_HamburgerMenu_IsOpen(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.IsOpen = (global::System.Boolean)Value;
         }
-        private object get_63_HamburgerMenu_SecondaryButtons(object instance)
+        private object get_65_HamburgerMenu_SecondaryButtons(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.SecondaryButtons;
         }
-        private void set_63_HamburgerMenu_SecondaryButtons(object instance, object Value)
+        private void set_65_HamburgerMenu_SecondaryButtons(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.SecondaryButtons = (global::System.Collections.ObjectModel.ObservableCollection<global::Template10.Controls.HamburgerButtonInfo>)Value;
         }
-        private object get_64_HamburgerMenu_NavCommand(object instance)
+        private object get_66_HamburgerMenu_NavCommand(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavCommand;
         }
-        private object get_65_HamburgerMenu_PropertyChangedHandlers(object instance)
+        private object get_67_HamburgerMenu_PropertyChangedHandlers(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.PropertyChangedHandlers;
         }
-        private object get_66_PageHeader_VisualStateNarrowMinWidth(object instance)
+        private object get_68_PageHeader_VisualStateNarrowMinWidth(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.VisualStateNarrowMinWidth;
         }
-        private void set_66_PageHeader_VisualStateNarrowMinWidth(object instance, object Value)
+        private void set_68_PageHeader_VisualStateNarrowMinWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.VisualStateNarrowMinWidth = (global::System.Double)Value;
         }
-        private object get_67_PageHeader_VisualStateNormalMinWidth(object instance)
+        private object get_69_PageHeader_VisualStateNormalMinWidth(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.VisualStateNormalMinWidth;
         }
-        private void set_67_PageHeader_VisualStateNormalMinWidth(object instance, object Value)
+        private void set_69_PageHeader_VisualStateNormalMinWidth(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.VisualStateNormalMinWidth = (global::System.Double)Value;
         }
-        private object get_68_PageHeader_EllipsisVisibility(object instance)
+        private object get_70_PageHeader_EllipsisVisibility(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.EllipsisVisibility;
         }
-        private void set_68_PageHeader_EllipsisVisibility(object instance, object Value)
+        private void set_70_PageHeader_EllipsisVisibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.EllipsisVisibility = (global::Template10.Behaviors.EllipsisBehavior.Visibilities)Value;
         }
-        private object get_69_PageHeader_PrimaryCommandsVisibility(object instance)
+        private object get_71_PageHeader_PrimaryCommandsVisibility(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.PrimaryCommandsVisibility;
         }
-        private void set_69_PageHeader_PrimaryCommandsVisibility(object instance, object Value)
+        private void set_71_PageHeader_PrimaryCommandsVisibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.PrimaryCommandsVisibility = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_70_PageHeader_BackButtonVisibility(object instance)
+        private object get_72_PageHeader_BackButtonVisibility(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.BackButtonVisibility;
         }
-        private void set_70_PageHeader_BackButtonVisibility(object instance, object Value)
+        private void set_72_PageHeader_BackButtonVisibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.BackButtonVisibility = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_71_PageHeader_BackButtonContent(object instance)
+        private object get_73_PageHeader_BackButtonContent(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.BackButtonContent;
         }
-        private void set_71_PageHeader_BackButtonContent(object instance, object Value)
+        private void set_73_PageHeader_BackButtonContent(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.BackButtonContent = (global::Windows.UI.Xaml.Controls.Symbol)Value;
         }
-        private object get_72_PageHeader_Frame(object instance)
+        private object get_74_PageHeader_Frame(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.Frame;
         }
-        private void set_72_PageHeader_Frame(object instance, object Value)
+        private void set_74_PageHeader_Frame(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.Frame = (global::Windows.UI.Xaml.Controls.Frame)Value;
         }
-        private object get_73_PageHeader_EnableHamburgerMenuAutoLayout(object instance)
+        private object get_75_PageHeader_EnableHamburgerMenuAutoLayout(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.EnableHamburgerMenuAutoLayout;
         }
-        private void set_73_PageHeader_EnableHamburgerMenuAutoLayout(object instance, object Value)
+        private void set_75_PageHeader_EnableHamburgerMenuAutoLayout(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.EnableHamburgerMenuAutoLayout = (global::System.Boolean)Value;
         }
-        private object get_74_PageHeader_Text(object instance)
+        private object get_76_PageHeader_Text(object instance)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             return that.Text;
         }
-        private void set_74_PageHeader_Text(object instance, object Value)
+        private void set_76_PageHeader_Text(object instance, object Value)
         {
             var that = (global::Template10.Controls.PageHeader)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_75_Resizer_ElementControl(object instance)
+        private object get_77_Resizer_ElementControl(object instance)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             return that.ElementControl;
         }
-        private void set_75_Resizer_ElementControl(object instance, object Value)
+        private void set_77_Resizer_ElementControl(object instance, object Value)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             that.ElementControl = (global::Windows.UI.Xaml.Controls.Control)Value;
         }
-        private object get_76_Resizer_GrabberBrush(object instance)
+        private object get_78_Resizer_GrabberBrush(object instance)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             return that.GrabberBrush;
         }
-        private void set_76_Resizer_GrabberBrush(object instance, object Value)
+        private void set_78_Resizer_GrabberBrush(object instance, object Value)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             that.GrabberBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_77_Resizer_GrabberVisibility(object instance)
+        private object get_79_Resizer_GrabberVisibility(object instance)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             return that.GrabberVisibility;
         }
-        private void set_77_Resizer_GrabberVisibility(object instance, object Value)
+        private void set_79_Resizer_GrabberVisibility(object instance, object Value)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             that.GrabberVisibility = (global::Windows.UI.Xaml.Visibility)Value;
         }
-        private object get_78_Resizer_GrabberSize(object instance)
+        private object get_80_Resizer_GrabberSize(object instance)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             return that.GrabberSize;
         }
-        private void set_78_Resizer_GrabberSize(object instance, object Value)
+        private void set_80_Resizer_GrabberSize(object instance, object Value)
         {
             var that = (global::Template10.Controls.Resizer)instance;
             that.GrabberSize = (global::Windows.Foundation.Size)Value;
         }
-        private object get_79_Busy_BusyText(object instance)
+        private object get_81_Busy_BusyText(object instance)
         {
             var that = (global::CMS_Survey.Views.Busy)instance;
             return that.BusyText;
         }
-        private void set_79_Busy_BusyText(object instance, object Value)
+        private void set_81_Busy_BusyText(object instance, object Value)
         {
             var that = (global::CMS_Survey.Views.Busy)instance;
             that.BusyText = (global::System.String)Value;
         }
-        private object get_80_Busy_IsBusy(object instance)
+        private object get_82_Busy_IsBusy(object instance)
         {
             var that = (global::CMS_Survey.Views.Busy)instance;
             return that.IsBusy;
         }
-        private void set_80_Busy_IsBusy(object instance, object Value)
+        private void set_82_Busy_IsBusy(object instance, object Value)
         {
             var that = (global::CMS_Survey.Views.Busy)instance;
             that.IsBusy = (global::System.Boolean)Value;
         }
-        private object get_81_DetailPageViewModel_Value(object instance)
+        private object get_83_DetailPageViewModel_Value(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.DetailPageViewModel)instance;
             return that.Value;
         }
-        private void set_81_DetailPageViewModel_Value(object instance, object Value)
+        private void set_83_DetailPageViewModel_Value(object instance, object Value)
         {
             var that = (global::CMS_Survey.ViewModels.DetailPageViewModel)instance;
             that.Value = (global::System.String)Value;
         }
-        private object get_82_ViewModelBase_NavigationService(object instance)
+        private object get_84_ViewModelBase_NavigationService(object instance)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             return that.NavigationService;
         }
-        private void set_82_ViewModelBase_NavigationService(object instance, object Value)
+        private void set_84_ViewModelBase_NavigationService(object instance, object Value)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             that.NavigationService = (global::Template10.Services.NavigationService.INavigationService)Value;
         }
-        private object get_83_ViewModelBase_Dispatcher(object instance)
+        private object get_85_ViewModelBase_Dispatcher(object instance)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             return that.Dispatcher;
         }
-        private void set_83_ViewModelBase_Dispatcher(object instance, object Value)
+        private void set_85_ViewModelBase_Dispatcher(object instance, object Value)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             that.Dispatcher = (global::Template10.Common.IDispatcherWrapper)Value;
         }
-        private object get_84_ViewModelBase_SessionState(object instance)
+        private object get_86_ViewModelBase_SessionState(object instance)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             return that.SessionState;
         }
-        private void set_84_ViewModelBase_SessionState(object instance, object Value)
+        private void set_86_ViewModelBase_SessionState(object instance, object Value)
         {
             var that = (global::Template10.Mvvm.ViewModelBase)instance;
             that.SessionState = (global::Template10.Common.IStateItems)Value;
         }
-        private object get_85_MainPageViewModel_Value(object instance)
+        private object get_87_MainPageViewModel_Value(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.MainPageViewModel)instance;
             return that.Value;
         }
-        private void set_85_MainPageViewModel_Value(object instance, object Value)
+        private void set_87_MainPageViewModel_Value(object instance, object Value)
         {
             var that = (global::CMS_Survey.ViewModels.MainPageViewModel)instance;
             that.Value = (global::System.String)Value;
         }
-        private object get_86_Interaction_Behaviors(object instance)
+        private object get_88_DataGrid_SelectionMode(object instance)
         {
-            return global::Microsoft.Xaml.Interactivity.Interaction.GetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance);
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectionMode;
         }
-        private void set_86_Interaction_Behaviors(object instance, object Value)
+        private void set_88_DataGrid_SelectionMode(object instance, object Value)
         {
-            global::Microsoft.Xaml.Interactivity.Interaction.SetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance, (global::Microsoft.Xaml.Interactivity.BehaviorCollection)Value);
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.SelectionMode = (global::Windows.UI.Xaml.Controls.SelectionMode)Value;
         }
-        private object get_87_KeyBehavior_Actions(object instance)
+        private object get_89_DataGrid_DefaultOrderIndex(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.Actions;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.DefaultOrderIndex;
         }
-        private object get_88_KeyBehavior_Key(object instance)
+        private void set_89_DataGrid_DefaultOrderIndex(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.Key;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.DefaultOrderIndex = (global::System.Int32)Value;
         }
-        private void set_88_KeyBehavior_Key(object instance, object Value)
+        private object get_90_DataGrid_ItemsSource(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            that.Key = (global::Windows.System.VirtualKey)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.ItemsSource;
         }
-        private object get_89_KeyBehavior_AssociatedObject(object instance)
+        private void set_90_DataGrid_ItemsSource(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.AssociatedObject;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.ItemsSource = (global::System.Object)Value;
         }
-        private object get_90_KeyBehavior_AndControl(object instance)
+        private object get_91_DataGrid_RowBackgroundEvenBrush(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.AndControl;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowBackgroundEvenBrush;
         }
-        private void set_90_KeyBehavior_AndControl(object instance, object Value)
+        private void set_91_DataGrid_RowBackgroundEvenBrush(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            that.AndControl = (global::System.Boolean)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowBackgroundEvenBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_91_KeyBehavior_AndAlt(object instance)
+        private object get_92_DataGrid_RowBackgroundOddBrush(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.AndAlt;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowBackgroundOddBrush;
         }
-        private void set_91_KeyBehavior_AndAlt(object instance, object Value)
+        private void set_92_DataGrid_RowBackgroundOddBrush(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            that.AndAlt = (global::System.Boolean)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowBackgroundOddBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_92_KeyBehavior_AndShift(object instance)
+        private object get_93_DataGrid_HeaderBackground(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.AndShift;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.HeaderBackground;
         }
-        private void set_92_KeyBehavior_AndShift(object instance, object Value)
+        private void set_93_DataGrid_HeaderBackground(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            that.AndShift = (global::System.Boolean)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.HeaderBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_93_KeyBehavior_Event(object instance)
+        private object get_94_DataGrid_Columns(object instance)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            return that.Event;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.Columns;
         }
-        private void set_93_KeyBehavior_Event(object instance, object Value)
+        private void set_94_DataGrid_Columns(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.KeyBehavior)instance;
-            that.Event = (global::Template10.Behaviors.KeyBehavior.Kinds)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.Columns = (global::MyToolkit.Controls.DataGridColumnCollection)Value;
         }
-        private object get_94_EventTriggerBehavior_Actions(object instance)
+        private object get_95_DataGridColumnBase_CanSort(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.Actions;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.CanSort;
         }
-        private object get_95_EventTriggerBehavior_EventName(object instance)
+        private void set_95_DataGridColumnBase_CanSort(object instance, object Value)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.EventName;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.CanSort = (global::System.Boolean)Value;
         }
-        private void set_95_EventTriggerBehavior_EventName(object instance, object Value)
+        private object get_96_DataGridColumnBase_IsSelected(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            that.EventName = (global::System.String)Value;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsSelected;
         }
-        private object get_96_EventTriggerBehavior_SourceObject(object instance)
+        private object get_97_DataGridColumnBase_IsAscending(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            return that.SourceObject;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsAscending;
         }
-        private void set_96_EventTriggerBehavior_SourceObject(object instance, object Value)
+        private object get_98_DataGridColumnBase_IsAscendingDefault(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.EventTriggerBehavior)instance;
-            that.SourceObject = (global::System.Object)Value;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.IsAscendingDefault;
         }
-        private object get_97_Behavior_AssociatedObject(object instance)
+        private void set_98_DataGridColumnBase_IsAscendingDefault(object instance, object Value)
         {
-            var that = (global::Microsoft.Xaml.Interactivity.Behavior)instance;
-            return that.AssociatedObject;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.IsAscendingDefault = (global::System.Boolean)Value;
         }
-        private object get_98_FocusAction_TargetObject(object instance)
+        private object get_99_DataGridColumnBase_Header(object instance)
         {
-            var that = (global::Template10.Behaviors.FocusAction)instance;
-            return that.TargetObject;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.Header;
         }
-        private void set_98_FocusAction_TargetObject(object instance, object Value)
+        private void set_99_DataGridColumnBase_Header(object instance, object Value)
         {
-            var that = (global::Template10.Behaviors.FocusAction)instance;
-            that.TargetObject = (global::Windows.UI.Xaml.Controls.Control)Value;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.Header = (global::System.Object)Value;
         }
-        private object get_99_CallMethodAction_MethodName(object instance)
+        private object get_100_DataGridColumnBase_Width(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            return that.MethodName;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.Width;
         }
-        private void set_99_CallMethodAction_MethodName(object instance, object Value)
+        private void set_100_DataGridColumnBase_Width(object instance, object Value)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            that.MethodName = (global::System.String)Value;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            that.Width = (global::Windows.UI.Xaml.GridLength)Value;
         }
-        private object get_100_CallMethodAction_TargetObject(object instance)
+        private object get_101_DataGridColumnBase_OrderPropertyPath(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            return that.TargetObject;
+            var that = (global::MyToolkit.Controls.DataGridColumnBase)instance;
+            return that.OrderPropertyPath;
         }
-        private void set_100_CallMethodAction_TargetObject(object instance, object Value)
+        private object get_102_DataGrid_ItemDetailsTemplate(object instance)
         {
-            var that = (global::Microsoft.Xaml.Interactions.Core.CallMethodAction)instance;
-            that.TargetObject = (global::System.Object)Value;
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.ItemDetailsTemplate;
         }
-        private object get_101_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private void set_102_DataGrid_ItemDetailsTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.ItemDetailsTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_103_DataGrid_SelectedItems(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedItems;
+        }
+        private object get_104_DataGrid_Items(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.Items;
+        }
+        private object get_105_DataGrid_SelectedColumn(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedColumn;
+        }
+        private object get_106_DataGrid_SelectedItem(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.SelectedItem;
+        }
+        private void set_106_DataGrid_SelectedItem(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.SelectedItem = (global::System.Object)Value;
+        }
+        private object get_107_DataGrid_RowStyle(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.RowStyle;
+        }
+        private void set_107_DataGrid_RowStyle(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.RowStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_108_DataGrid_HeaderTemplate(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_108_DataGrid_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.HeaderTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_109_DataGrid_CellTemplate(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            return that.CellTemplate;
+        }
+        private void set_109_DataGrid_CellTemplate(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGrid)instance;
+            that.CellTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_110_DataGridBoundColumn_Binding(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            return that.Binding;
+        }
+        private void set_110_DataGridBoundColumn_Binding(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            that.Binding = (global::Windows.UI.Xaml.Data.Binding)Value;
+        }
+        private object get_111_DataGridTextColumn_Foreground(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.Foreground;
+        }
+        private void set_111_DataGridTextColumn_Foreground(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.Foreground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_112_DataGridTextColumn_Style(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.Style;
+        }
+        private void set_112_DataGridTextColumn_Style(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.Style = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_113_DataGridTextColumn_FontSize(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.FontSize;
+        }
+        private void set_113_DataGridTextColumn_FontSize(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.FontSize = (global::System.Double)Value;
+        }
+        private object get_114_DataGridTextColumn_FontStyle(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.FontStyle;
+        }
+        private void set_114_DataGridTextColumn_FontStyle(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.FontStyle = (global::Windows.UI.Text.FontStyle)Value;
+        }
+        private object get_115_DataGridTextColumn_TextWrapping(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            return that.TextWrapping;
+        }
+        private void set_115_DataGridTextColumn_TextWrapping(object instance, object Value)
+        {
+            var that = (global::MyToolkit.Controls.DataGridTextColumn)instance;
+            that.TextWrapping = (global::Windows.UI.Xaml.TextWrapping)Value;
+        }
+        private object get_116_DataGridBoundColumn_OrderPropertyPath(object instance)
+        {
+            var that = (global::MyToolkit.Controls.DataGridBoundColumn)instance;
+            return that.OrderPropertyPath;
+        }
+        private object get_117_GridMainPage_Usersurveys(object instance)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            return that.Usersurveys;
+        }
+        private void set_117_GridMainPage_Usersurveys(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            that.Usersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
+        }
+        private object get_118_UserSurvey_surveyKey(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.surveyKey;
+        }
+        private void set_118_UserSurvey_surveyKey(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.surveyKey = (global::System.String)Value;
+        }
+        private object get_119_UserSurvey_surveyNumber(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.surveyNumber;
+        }
+        private void set_119_UserSurvey_surveyNumber(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.surveyNumber = (global::System.String)Value;
+        }
+        private object get_120_UserSurvey_surveyType(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.surveyType;
+        }
+        private void set_120_UserSurvey_surveyType(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.surveyType = (global::System.String)Value;
+        }
+        private object get_121_UserSurvey_surveyProvider(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.surveyProvider;
+        }
+        private void set_121_UserSurvey_surveyProvider(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.surveyProvider = (global::System.String)Value;
+        }
+        private object get_122_UserSurvey_status(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.status;
+        }
+        private void set_122_UserSurvey_status(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.status = (global::System.String)Value;
+        }
+        private object get_123_UserSurvey_endDate(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.endDate;
+        }
+        private void set_123_UserSurvey_endDate(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.endDate = (global::System.Object)Value;
+        }
+        private object get_124_UserSurvey_actionDate(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.actionDate;
+        }
+        private void set_124_UserSurvey_actionDate(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.actionDate = (global::System.Object)Value;
+        }
+        private object get_125_UserSurvey_supervisorComments(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.supervisorComments;
+        }
+        private void set_125_UserSurvey_supervisorComments(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.supervisorComments = (global::System.Object)Value;
+        }
+        private object get_126_UserSurvey_startDate(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.startDate;
+        }
+        private void set_126_UserSurvey_startDate(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.startDate = (global::System.Object)Value;
+        }
+        private object get_127_UserSurvey_active(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.active;
+        }
+        private void set_127_UserSurvey_active(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.active = (global::System.Boolean)Value;
+        }
+        private object get_128_UserSurvey_endDateString(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.endDateString;
+        }
+        private void set_128_UserSurvey_endDateString(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.endDateString = (global::System.String)Value;
+        }
+        private object get_129_UserSurvey_actionDateString(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.actionDateString;
+        }
+        private void set_129_UserSurvey_actionDateString(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.actionDateString = (global::System.String)Value;
+        }
+        private object get_130_UserSurvey_startDateString(object instance)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            return that.startDateString;
+        }
+        private void set_130_UserSurvey_startDateString(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Models.UserSurvey)instance;
+            that.startDateString = (global::System.String)Value;
+        }
+        private object get_131_GridMainPage_Filter(object instance)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            return that.Filter;
+        }
+        private void set_131_GridMainPage_Filter(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            that.Filter = (global::System.String)Value;
+        }
+        private object get_132_MainPage_Usersurveys(object instance)
+        {
+            var that = (global::CMS_Survey.Views.MainPage)instance;
+            return that.Usersurveys;
+        }
+        private void set_132_MainPage_Usersurveys(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.MainPage)instance;
+            that.Usersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
+        }
+        private object get_133_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_102_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_134_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
+        }
+        private object get_135_ModalDialog_CanBackButtonDismiss(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.CanBackButtonDismiss;
+        }
+        private void set_135_ModalDialog_CanBackButtonDismiss(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.CanBackButtonDismiss = (global::System.Boolean)Value;
+        }
+        private object get_136_ModalDialog_DisableBackButtonWhenModal(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.DisableBackButtonWhenModal;
+        }
+        private void set_136_ModalDialog_DisableBackButtonWhenModal(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.DisableBackButtonWhenModal = (global::System.Boolean)Value;
+        }
+        private object get_137_ModalDialog_ModalContent(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.ModalContent;
+        }
+        private void set_137_ModalDialog_ModalContent(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.ModalContent = (global::Windows.UI.Xaml.UIElement)Value;
+        }
+        private object get_138_ModalDialog_IsModal(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.IsModal;
+        }
+        private void set_138_ModalDialog_IsModal(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.IsModal = (global::System.Boolean)Value;
+        }
+        private object get_139_ModalDialog_ModalBackground(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.ModalBackground;
+        }
+        private void set_139_ModalDialog_ModalBackground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.ModalBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_140_ModalDialog_ModalTransitions(object instance)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            return that.ModalTransitions;
+        }
+        private void set_140_ModalDialog_ModalTransitions(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.ModalDialog)instance;
+            that.ModalTransitions = (global::Windows.UI.Xaml.Media.Animation.TransitionCollection)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -2233,630 +2603,880 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlMember.Getter = get_10_BootStrapper_ModalContent;
                 xamlMember.Setter = set_10_BootStrapper_ModalContent;
                 break;
+            case "CMS_Survey.Controls.ProgressRing.IsActive":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Controls.ProgressRing");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsActive", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_ProgressRing_IsActive;
+                xamlMember.Setter = set_11_ProgressRing_IsActive;
+                break;
+            case "CMS_Survey.Controls.ProgressRing.Text":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Controls.ProgressRing");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_ProgressRing_Text;
+                xamlMember.Setter = set_12_ProgressRing_Text;
+                break;
             case "Windows.UI.Color.A":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "A", "Byte");
-                xamlMember.Getter = get_11_Color_A;
-                xamlMember.Setter = set_11_Color_A;
+                xamlMember.Getter = get_13_Color_A;
+                xamlMember.Setter = set_13_Color_A;
                 break;
             case "Windows.UI.Color.B":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "B", "Byte");
-                xamlMember.Getter = get_12_Color_B;
-                xamlMember.Setter = set_12_Color_B;
+                xamlMember.Getter = get_14_Color_B;
+                xamlMember.Setter = set_14_Color_B;
                 break;
             case "Windows.UI.Color.G":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "G", "Byte");
-                xamlMember.Getter = get_13_Color_G;
-                xamlMember.Setter = set_13_Color_G;
+                xamlMember.Getter = get_15_Color_G;
+                xamlMember.Setter = set_15_Color_G;
                 break;
             case "Windows.UI.Color.R":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "R", "Byte");
-                xamlMember.Getter = get_14_Color_R;
-                xamlMember.Setter = set_14_Color_R;
+                xamlMember.Getter = get_16_Color_R;
+                xamlMember.Setter = set_16_Color_R;
                 break;
             case "Template10.Controls.HamburgerMenu.PrimaryButtons":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PrimaryButtons", "System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_HamburgerMenu_PrimaryButtons;
-                xamlMember.Setter = set_15_HamburgerMenu_PrimaryButtons;
+                xamlMember.Getter = get_17_HamburgerMenu_PrimaryButtons;
+                xamlMember.Setter = set_17_HamburgerMenu_PrimaryButtons;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.Content":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Content", "Windows.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_HamburgerButtonInfo_Content;
-                xamlMember.Setter = set_16_HamburgerButtonInfo_Content;
+                xamlMember.Getter = get_18_HamburgerButtonInfo_Content;
+                xamlMember.Setter = set_18_HamburgerButtonInfo_Content;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.ButtonType":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ButtonType", "Template10.Controls.HamburgerButtonInfo.ButtonTypes");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_HamburgerButtonInfo_ButtonType;
-                xamlMember.Setter = set_17_HamburgerButtonInfo_ButtonType;
+                xamlMember.Getter = get_19_HamburgerButtonInfo_ButtonType;
+                xamlMember.Setter = set_19_HamburgerButtonInfo_ButtonType;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.NavigationTransitionInfo":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavigationTransitionInfo", "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_HamburgerButtonInfo_NavigationTransitionInfo;
-                xamlMember.Setter = set_18_HamburgerButtonInfo_NavigationTransitionInfo;
+                xamlMember.Getter = get_20_HamburgerButtonInfo_NavigationTransitionInfo;
+                xamlMember.Setter = set_20_HamburgerButtonInfo_NavigationTransitionInfo;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.Command":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Command", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_HamburgerButtonInfo_Command;
-                xamlMember.Setter = set_19_HamburgerButtonInfo_Command;
+                xamlMember.Getter = get_21_HamburgerButtonInfo_Command;
+                xamlMember.Setter = set_21_HamburgerButtonInfo_Command;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.ToolTip":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ToolTip", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_HamburgerButtonInfo_ToolTip;
-                xamlMember.Setter = set_20_HamburgerButtonInfo_ToolTip;
+                xamlMember.Getter = get_22_HamburgerButtonInfo_ToolTip;
+                xamlMember.Setter = set_22_HamburgerButtonInfo_ToolTip;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.CommandParameter":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_HamburgerButtonInfo_CommandParameter;
-                xamlMember.Setter = set_21_HamburgerButtonInfo_CommandParameter;
+                xamlMember.Getter = get_23_HamburgerButtonInfo_CommandParameter;
+                xamlMember.Setter = set_23_HamburgerButtonInfo_CommandParameter;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.PageType":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PageType", "System.Type");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_22_HamburgerButtonInfo_PageType;
-                xamlMember.Setter = set_22_HamburgerButtonInfo_PageType;
+                xamlMember.Getter = get_24_HamburgerButtonInfo_PageType;
+                xamlMember.Setter = set_24_HamburgerButtonInfo_PageType;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.PageParameter":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PageParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_HamburgerButtonInfo_PageParameter;
-                xamlMember.Setter = set_23_HamburgerButtonInfo_PageParameter;
+                xamlMember.Getter = get_25_HamburgerButtonInfo_PageParameter;
+                xamlMember.Setter = set_25_HamburgerButtonInfo_PageParameter;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.ClearHistory":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ClearHistory", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_HamburgerButtonInfo_ClearHistory;
-                xamlMember.Setter = set_24_HamburgerButtonInfo_ClearHistory;
+                xamlMember.Getter = get_26_HamburgerButtonInfo_ClearHistory;
+                xamlMember.Setter = set_26_HamburgerButtonInfo_ClearHistory;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.ClearCache":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ClearCache", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_HamburgerButtonInfo_ClearCache;
-                xamlMember.Setter = set_25_HamburgerButtonInfo_ClearCache;
+                xamlMember.Getter = get_27_HamburgerButtonInfo_ClearCache;
+                xamlMember.Setter = set_27_HamburgerButtonInfo_ClearCache;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.Visibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Visibility", "Windows.UI.Xaml.Visibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_26_HamburgerButtonInfo_Visibility;
-                xamlMember.Setter = set_26_HamburgerButtonInfo_Visibility;
+                xamlMember.Getter = get_28_HamburgerButtonInfo_Visibility;
+                xamlMember.Setter = set_28_HamburgerButtonInfo_Visibility;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.IsEnabled":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_HamburgerButtonInfo_IsEnabled;
-                xamlMember.Setter = set_27_HamburgerButtonInfo_IsEnabled;
+                xamlMember.Getter = get_29_HamburgerButtonInfo_IsEnabled;
+                xamlMember.Setter = set_29_HamburgerButtonInfo_IsEnabled;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.IsChecked":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsChecked", "System.Nullable`1<Boolean>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_28_HamburgerButtonInfo_IsChecked;
-                xamlMember.Setter = set_28_HamburgerButtonInfo_IsChecked;
+                xamlMember.Getter = get_30_HamburgerButtonInfo_IsChecked;
+                xamlMember.Setter = set_30_HamburgerButtonInfo_IsChecked;
                 break;
             case "Template10.Controls.HamburgerButtonInfo.MaxWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerButtonInfo");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "MaxWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_29_HamburgerButtonInfo_MaxWidth;
-                xamlMember.Setter = set_29_HamburgerButtonInfo_MaxWidth;
+                xamlMember.Getter = get_31_HamburgerButtonInfo_MaxWidth;
+                xamlMember.Setter = set_31_HamburgerButtonInfo_MaxWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.PaneBorderThickness":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PaneBorderThickness", "Windows.UI.Xaml.Thickness");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_30_HamburgerMenu_PaneBorderThickness;
-                xamlMember.Setter = set_30_HamburgerMenu_PaneBorderThickness;
+                xamlMember.Getter = get_32_HamburgerMenu_PaneBorderThickness;
+                xamlMember.Setter = set_32_HamburgerMenu_PaneBorderThickness;
                 break;
             case "Template10.Controls.HamburgerMenu.SecondarySeparator":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SecondarySeparator", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_31_HamburgerMenu_SecondarySeparator;
-                xamlMember.Setter = set_31_HamburgerMenu_SecondarySeparator;
+                xamlMember.Getter = get_33_HamburgerMenu_SecondarySeparator;
+                xamlMember.Setter = set_33_HamburgerMenu_SecondarySeparator;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_32_HamburgerMenu_NavButtonBackground;
-                xamlMember.Setter = set_32_HamburgerMenu_NavButtonBackground;
+                xamlMember.Getter = get_34_HamburgerMenu_NavButtonBackground;
+                xamlMember.Setter = set_34_HamburgerMenu_NavButtonBackground;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonForeground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonForeground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_33_HamburgerMenu_NavButtonForeground;
-                xamlMember.Setter = set_33_HamburgerMenu_NavButtonForeground;
+                xamlMember.Getter = get_35_HamburgerMenu_NavButtonForeground;
+                xamlMember.Setter = set_35_HamburgerMenu_NavButtonForeground;
                 break;
             case "Template10.Controls.HamburgerMenu.NavAreaBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavAreaBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_34_HamburgerMenu_NavAreaBackground;
-                xamlMember.Setter = set_34_HamburgerMenu_NavAreaBackground;
+                xamlMember.Getter = get_36_HamburgerMenu_NavAreaBackground;
+                xamlMember.Setter = set_36_HamburgerMenu_NavAreaBackground;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerForeground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HamburgerForeground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_35_HamburgerMenu_HamburgerForeground;
-                xamlMember.Setter = set_35_HamburgerMenu_HamburgerForeground;
+                xamlMember.Getter = get_37_HamburgerMenu_HamburgerForeground;
+                xamlMember.Setter = set_37_HamburgerMenu_HamburgerForeground;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HamburgerBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_36_HamburgerMenu_HamburgerBackground;
-                xamlMember.Setter = set_36_HamburgerMenu_HamburgerBackground;
+                xamlMember.Getter = get_38_HamburgerMenu_HamburgerBackground;
+                xamlMember.Setter = set_38_HamburgerMenu_HamburgerBackground;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateNarrowMinWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNarrowMinWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_37_HamburgerMenu_VisualStateNarrowMinWidth;
-                xamlMember.Setter = set_37_HamburgerMenu_VisualStateNarrowMinWidth;
+                xamlMember.Getter = get_39_HamburgerMenu_VisualStateNarrowMinWidth;
+                xamlMember.Setter = set_39_HamburgerMenu_VisualStateNarrowMinWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateNormalMinWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNormalMinWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_38_HamburgerMenu_VisualStateNormalMinWidth;
-                xamlMember.Setter = set_38_HamburgerMenu_VisualStateNormalMinWidth;
+                xamlMember.Getter = get_40_HamburgerMenu_VisualStateNormalMinWidth;
+                xamlMember.Setter = set_40_HamburgerMenu_VisualStateNormalMinWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateWideMinWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateWideMinWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_39_HamburgerMenu_VisualStateWideMinWidth;
-                xamlMember.Setter = set_39_HamburgerMenu_VisualStateWideMinWidth;
-                break;
-            case "Template10.Controls.HamburgerMenu.AccentColor":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AccentColor", "Windows.UI.Color");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_40_HamburgerMenu_AccentColor;
-                xamlMember.Setter = set_40_HamburgerMenu_AccentColor;
-                break;
-            case "Template10.Controls.HamburgerMenu.PaneBorderBrush":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PaneBorderBrush", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_41_HamburgerMenu_PaneBorderBrush;
-                xamlMember.Setter = set_41_HamburgerMenu_PaneBorderBrush;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavButtonCheckedForeground":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedForeground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_42_HamburgerMenu_NavButtonCheckedForeground;
-                xamlMember.Setter = set_42_HamburgerMenu_NavButtonCheckedForeground;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavButtonCheckedBackground":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedBackground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_HamburgerMenu_NavButtonCheckedBackground;
-                xamlMember.Setter = set_43_HamburgerMenu_NavButtonCheckedBackground;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavButtonCheckedIndicatorBrush":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedIndicatorBrush", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_HamburgerMenu_NavButtonCheckedIndicatorBrush;
-                xamlMember.Setter = set_44_HamburgerMenu_NavButtonCheckedIndicatorBrush;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavButtonPressedForeground":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonPressedForeground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_HamburgerMenu_NavButtonPressedForeground;
-                xamlMember.Setter = set_45_HamburgerMenu_NavButtonPressedForeground;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavButtonPressedBackground":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonPressedBackground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_46_HamburgerMenu_NavButtonPressedBackground;
-                xamlMember.Setter = set_46_HamburgerMenu_NavButtonPressedBackground;
+                xamlMember.Getter = get_41_HamburgerMenu_VisualStateWideMinWidth;
+                xamlMember.Setter = set_41_HamburgerMenu_VisualStateWideMinWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonHoverForeground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonHoverForeground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_47_HamburgerMenu_NavButtonHoverForeground;
-                xamlMember.Setter = set_47_HamburgerMenu_NavButtonHoverForeground;
+                xamlMember.Getter = get_42_HamburgerMenu_NavButtonHoverForeground;
+                xamlMember.Setter = set_42_HamburgerMenu_NavButtonHoverForeground;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonHoverBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonHoverBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_48_HamburgerMenu_NavButtonHoverBackground;
-                xamlMember.Setter = set_48_HamburgerMenu_NavButtonHoverBackground;
+                xamlMember.Getter = get_43_HamburgerMenu_NavButtonHoverBackground;
+                xamlMember.Setter = set_43_HamburgerMenu_NavButtonHoverBackground;
+                break;
+            case "Template10.Controls.HamburgerMenu.NavButtonPressedForeground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonPressedForeground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_44_HamburgerMenu_NavButtonPressedForeground;
+                xamlMember.Setter = set_44_HamburgerMenu_NavButtonPressedForeground;
+                break;
+            case "Template10.Controls.HamburgerMenu.NavButtonPressedBackground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonPressedBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_45_HamburgerMenu_NavButtonPressedBackground;
+                xamlMember.Setter = set_45_HamburgerMenu_NavButtonPressedBackground;
+                break;
+            case "Template10.Controls.HamburgerMenu.NavButtonCheckedForeground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedForeground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_46_HamburgerMenu_NavButtonCheckedForeground;
+                xamlMember.Setter = set_46_HamburgerMenu_NavButtonCheckedForeground;
+                break;
+            case "Template10.Controls.HamburgerMenu.NavButtonCheckedBackground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_47_HamburgerMenu_NavButtonCheckedBackground;
+                xamlMember.Setter = set_47_HamburgerMenu_NavButtonCheckedBackground;
+                break;
+            case "Template10.Controls.HamburgerMenu.NavButtonCheckedIndicatorBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavButtonCheckedIndicatorBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_48_HamburgerMenu_NavButtonCheckedIndicatorBrush;
+                xamlMember.Setter = set_48_HamburgerMenu_NavButtonCheckedIndicatorBrush;
+                break;
+            case "Template10.Controls.HamburgerMenu.AccentColor":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AccentColor", "Windows.UI.Color");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_49_HamburgerMenu_AccentColor;
+                xamlMember.Setter = set_49_HamburgerMenu_AccentColor;
+                break;
+            case "Template10.Controls.HamburgerMenu.PaneBorderBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PaneBorderBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_50_HamburgerMenu_PaneBorderBrush;
+                xamlMember.Setter = set_50_HamburgerMenu_PaneBorderBrush;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerButtonVisibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HamburgerButtonVisibility", "Windows.UI.Xaml.Visibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_49_HamburgerMenu_HamburgerButtonVisibility;
-                xamlMember.Setter = set_49_HamburgerMenu_HamburgerButtonVisibility;
+                xamlMember.Getter = get_51_HamburgerMenu_HamburgerButtonVisibility;
+                xamlMember.Setter = set_51_HamburgerMenu_HamburgerButtonVisibility;
                 break;
             case "Template10.Controls.HamburgerMenu.DisplayMode":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_50_HamburgerMenu_DisplayMode;
-                xamlMember.Setter = set_50_HamburgerMenu_DisplayMode;
+                xamlMember.Getter = get_52_HamburgerMenu_DisplayMode;
+                xamlMember.Setter = set_52_HamburgerMenu_DisplayMode;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateNarrowDisplayMode":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNarrowDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_51_HamburgerMenu_VisualStateNarrowDisplayMode;
-                xamlMember.Setter = set_51_HamburgerMenu_VisualStateNarrowDisplayMode;
+                xamlMember.Getter = get_53_HamburgerMenu_VisualStateNarrowDisplayMode;
+                xamlMember.Setter = set_53_HamburgerMenu_VisualStateNarrowDisplayMode;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateNormalDisplayMode":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNormalDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_52_HamburgerMenu_VisualStateNormalDisplayMode;
-                xamlMember.Setter = set_52_HamburgerMenu_VisualStateNormalDisplayMode;
+                xamlMember.Getter = get_54_HamburgerMenu_VisualStateNormalDisplayMode;
+                xamlMember.Setter = set_54_HamburgerMenu_VisualStateNormalDisplayMode;
                 break;
             case "Template10.Controls.HamburgerMenu.VisualStateWideDisplayMode":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateWideDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_53_HamburgerMenu_VisualStateWideDisplayMode;
-                xamlMember.Setter = set_53_HamburgerMenu_VisualStateWideDisplayMode;
+                xamlMember.Getter = get_55_HamburgerMenu_VisualStateWideDisplayMode;
+                xamlMember.Setter = set_55_HamburgerMenu_VisualStateWideDisplayMode;
                 break;
             case "Template10.Controls.HamburgerMenu.SecondaryButtonOrientation":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SecondaryButtonOrientation", "Windows.UI.Xaml.Controls.Orientation");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_54_HamburgerMenu_SecondaryButtonOrientation;
-                xamlMember.Setter = set_54_HamburgerMenu_SecondaryButtonOrientation;
+                xamlMember.Getter = get_56_HamburgerMenu_SecondaryButtonOrientation;
+                xamlMember.Setter = set_56_HamburgerMenu_SecondaryButtonOrientation;
                 break;
             case "Template10.Controls.HamburgerMenu.Selected":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Selected", "Template10.Controls.HamburgerButtonInfo");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_55_HamburgerMenu_Selected;
-                xamlMember.Setter = set_55_HamburgerMenu_Selected;
+                xamlMember.Getter = get_57_HamburgerMenu_Selected;
+                xamlMember.Setter = set_57_HamburgerMenu_Selected;
                 break;
             case "Template10.Controls.HamburgerMenu.NavigationService":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavigationService", "Template10.Services.NavigationService.INavigationService");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_56_HamburgerMenu_NavigationService;
-                xamlMember.Setter = set_56_HamburgerMenu_NavigationService;
+                xamlMember.Getter = get_58_HamburgerMenu_NavigationService;
+                xamlMember.Setter = set_58_HamburgerMenu_NavigationService;
                 break;
             case "Template10.Controls.HamburgerMenu.IsFullScreen":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsFullScreen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_57_HamburgerMenu_IsFullScreen;
-                xamlMember.Setter = set_57_HamburgerMenu_IsFullScreen;
+                xamlMember.Getter = get_59_HamburgerMenu_IsFullScreen;
+                xamlMember.Setter = set_59_HamburgerMenu_IsFullScreen;
                 break;
             case "Template10.Controls.HamburgerMenu.PaneWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PaneWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_58_HamburgerMenu_PaneWidth;
-                xamlMember.Setter = set_58_HamburgerMenu_PaneWidth;
+                xamlMember.Getter = get_60_HamburgerMenu_PaneWidth;
+                xamlMember.Setter = set_60_HamburgerMenu_PaneWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerButtonGridWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HamburgerButtonGridWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_59_HamburgerMenu_HamburgerButtonGridWidth;
-                xamlMember.Setter = set_59_HamburgerMenu_HamburgerButtonGridWidth;
+                xamlMember.Getter = get_61_HamburgerMenu_HamburgerButtonGridWidth;
+                xamlMember.Setter = set_61_HamburgerMenu_HamburgerButtonGridWidth;
                 break;
             case "Template10.Controls.HamburgerMenu.OpenCloseMode":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "OpenCloseMode", "Template10.Controls.HamburgerMenu.OpenCloseModes");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_60_HamburgerMenu_OpenCloseMode;
-                xamlMember.Setter = set_60_HamburgerMenu_OpenCloseMode;
+                xamlMember.Getter = get_62_HamburgerMenu_OpenCloseMode;
+                xamlMember.Setter = set_62_HamburgerMenu_OpenCloseMode;
                 break;
             case "Template10.Controls.HamburgerMenu.HeaderContent":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HeaderContent", "Windows.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_61_HamburgerMenu_HeaderContent;
-                xamlMember.Setter = set_61_HamburgerMenu_HeaderContent;
+                xamlMember.Getter = get_63_HamburgerMenu_HeaderContent;
+                xamlMember.Setter = set_63_HamburgerMenu_HeaderContent;
                 break;
             case "Template10.Controls.HamburgerMenu.IsOpen":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_62_HamburgerMenu_IsOpen;
-                xamlMember.Setter = set_62_HamburgerMenu_IsOpen;
+                xamlMember.Getter = get_64_HamburgerMenu_IsOpen;
+                xamlMember.Setter = set_64_HamburgerMenu_IsOpen;
                 break;
             case "Template10.Controls.HamburgerMenu.SecondaryButtons":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SecondaryButtons", "System.Collections.ObjectModel.ObservableCollection`1<Template10.Controls.HamburgerButtonInfo>");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_63_HamburgerMenu_SecondaryButtons;
-                xamlMember.Setter = set_63_HamburgerMenu_SecondaryButtons;
+                xamlMember.Getter = get_65_HamburgerMenu_SecondaryButtons;
+                xamlMember.Setter = set_65_HamburgerMenu_SecondaryButtons;
                 break;
             case "Template10.Controls.HamburgerMenu.NavCommand":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavCommand", "Template10.Mvvm.DelegateCommand`1<Template10.Controls.HamburgerButtonInfo>");
-                xamlMember.Getter = get_64_HamburgerMenu_NavCommand;
+                xamlMember.Getter = get_66_HamburgerMenu_NavCommand;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Template10.Controls.HamburgerMenu.PropertyChangedHandlers":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PropertyChangedHandlers", "Object");
-                xamlMember.Getter = get_65_HamburgerMenu_PropertyChangedHandlers;
+                xamlMember.Getter = get_67_HamburgerMenu_PropertyChangedHandlers;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Template10.Controls.PageHeader.VisualStateNarrowMinWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNarrowMinWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_66_PageHeader_VisualStateNarrowMinWidth;
-                xamlMember.Setter = set_66_PageHeader_VisualStateNarrowMinWidth;
+                xamlMember.Getter = get_68_PageHeader_VisualStateNarrowMinWidth;
+                xamlMember.Setter = set_68_PageHeader_VisualStateNarrowMinWidth;
                 break;
             case "Template10.Controls.PageHeader.VisualStateNormalMinWidth":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "VisualStateNormalMinWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_67_PageHeader_VisualStateNormalMinWidth;
-                xamlMember.Setter = set_67_PageHeader_VisualStateNormalMinWidth;
+                xamlMember.Getter = get_69_PageHeader_VisualStateNormalMinWidth;
+                xamlMember.Setter = set_69_PageHeader_VisualStateNormalMinWidth;
                 break;
             case "Template10.Controls.PageHeader.EllipsisVisibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "EllipsisVisibility", "Template10.Behaviors.EllipsisBehavior.Visibilities");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_68_PageHeader_EllipsisVisibility;
-                xamlMember.Setter = set_68_PageHeader_EllipsisVisibility;
+                xamlMember.Getter = get_70_PageHeader_EllipsisVisibility;
+                xamlMember.Setter = set_70_PageHeader_EllipsisVisibility;
                 break;
             case "Template10.Controls.PageHeader.PrimaryCommandsVisibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "PrimaryCommandsVisibility", "Windows.UI.Xaml.Visibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_69_PageHeader_PrimaryCommandsVisibility;
-                xamlMember.Setter = set_69_PageHeader_PrimaryCommandsVisibility;
+                xamlMember.Getter = get_71_PageHeader_PrimaryCommandsVisibility;
+                xamlMember.Setter = set_71_PageHeader_PrimaryCommandsVisibility;
                 break;
             case "Template10.Controls.PageHeader.BackButtonVisibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "BackButtonVisibility", "Windows.UI.Xaml.Visibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_70_PageHeader_BackButtonVisibility;
-                xamlMember.Setter = set_70_PageHeader_BackButtonVisibility;
+                xamlMember.Getter = get_72_PageHeader_BackButtonVisibility;
+                xamlMember.Setter = set_72_PageHeader_BackButtonVisibility;
                 break;
             case "Template10.Controls.PageHeader.BackButtonContent":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "BackButtonContent", "Windows.UI.Xaml.Controls.Symbol");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_PageHeader_BackButtonContent;
-                xamlMember.Setter = set_71_PageHeader_BackButtonContent;
+                xamlMember.Getter = get_73_PageHeader_BackButtonContent;
+                xamlMember.Setter = set_73_PageHeader_BackButtonContent;
                 break;
             case "Template10.Controls.PageHeader.Frame":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Frame", "Windows.UI.Xaml.Controls.Frame");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_72_PageHeader_Frame;
-                xamlMember.Setter = set_72_PageHeader_Frame;
+                xamlMember.Getter = get_74_PageHeader_Frame;
+                xamlMember.Setter = set_74_PageHeader_Frame;
                 break;
             case "Template10.Controls.PageHeader.EnableHamburgerMenuAutoLayout":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "EnableHamburgerMenuAutoLayout", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_PageHeader_EnableHamburgerMenuAutoLayout;
-                xamlMember.Setter = set_73_PageHeader_EnableHamburgerMenuAutoLayout;
+                xamlMember.Getter = get_75_PageHeader_EnableHamburgerMenuAutoLayout;
+                xamlMember.Setter = set_75_PageHeader_EnableHamburgerMenuAutoLayout;
                 break;
             case "Template10.Controls.PageHeader.Text":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.PageHeader");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_74_PageHeader_Text;
-                xamlMember.Setter = set_74_PageHeader_Text;
+                xamlMember.Getter = get_76_PageHeader_Text;
+                xamlMember.Setter = set_76_PageHeader_Text;
                 break;
             case "Template10.Controls.Resizer.ElementControl":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.Resizer");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ElementControl", "Windows.UI.Xaml.Controls.Control");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_Resizer_ElementControl;
-                xamlMember.Setter = set_75_Resizer_ElementControl;
+                xamlMember.Getter = get_77_Resizer_ElementControl;
+                xamlMember.Setter = set_77_Resizer_ElementControl;
                 break;
             case "Template10.Controls.Resizer.GrabberBrush":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.Resizer");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "GrabberBrush", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_76_Resizer_GrabberBrush;
-                xamlMember.Setter = set_76_Resizer_GrabberBrush;
+                xamlMember.Getter = get_78_Resizer_GrabberBrush;
+                xamlMember.Setter = set_78_Resizer_GrabberBrush;
                 break;
             case "Template10.Controls.Resizer.GrabberVisibility":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.Resizer");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "GrabberVisibility", "Windows.UI.Xaml.Visibility");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_Resizer_GrabberVisibility;
-                xamlMember.Setter = set_77_Resizer_GrabberVisibility;
+                xamlMember.Getter = get_79_Resizer_GrabberVisibility;
+                xamlMember.Setter = set_79_Resizer_GrabberVisibility;
                 break;
             case "Template10.Controls.Resizer.GrabberSize":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.Resizer");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "GrabberSize", "Windows.Foundation.Size");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_78_Resizer_GrabberSize;
-                xamlMember.Setter = set_78_Resizer_GrabberSize;
+                xamlMember.Getter = get_80_Resizer_GrabberSize;
+                xamlMember.Setter = set_80_Resizer_GrabberSize;
                 break;
             case "CMS_Survey.Views.Busy.BusyText":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.Busy");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "BusyText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_79_Busy_BusyText;
-                xamlMember.Setter = set_79_Busy_BusyText;
+                xamlMember.Getter = get_81_Busy_BusyText;
+                xamlMember.Setter = set_81_Busy_BusyText;
                 break;
             case "CMS_Survey.Views.Busy.IsBusy":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.Busy");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsBusy", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_80_Busy_IsBusy;
-                xamlMember.Setter = set_80_Busy_IsBusy;
+                xamlMember.Getter = get_82_Busy_IsBusy;
+                xamlMember.Setter = set_82_Busy_IsBusy;
                 break;
             case "CMS_Survey.ViewModels.DetailPageViewModel.Value":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.DetailPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Value", "String");
-                xamlMember.Getter = get_81_DetailPageViewModel_Value;
-                xamlMember.Setter = set_81_DetailPageViewModel_Value;
+                xamlMember.Getter = get_83_DetailPageViewModel_Value;
+                xamlMember.Setter = set_83_DetailPageViewModel_Value;
                 break;
             case "Template10.Mvvm.ViewModelBase.NavigationService":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Mvvm.ViewModelBase");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "NavigationService", "Template10.Services.NavigationService.INavigationService");
-                xamlMember.Getter = get_82_ViewModelBase_NavigationService;
-                xamlMember.Setter = set_82_ViewModelBase_NavigationService;
+                xamlMember.Getter = get_84_ViewModelBase_NavigationService;
+                xamlMember.Setter = set_84_ViewModelBase_NavigationService;
                 break;
             case "Template10.Mvvm.ViewModelBase.Dispatcher":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Mvvm.ViewModelBase");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Dispatcher", "Template10.Common.IDispatcherWrapper");
-                xamlMember.Getter = get_83_ViewModelBase_Dispatcher;
-                xamlMember.Setter = set_83_ViewModelBase_Dispatcher;
+                xamlMember.Getter = get_85_ViewModelBase_Dispatcher;
+                xamlMember.Setter = set_85_ViewModelBase_Dispatcher;
                 break;
             case "Template10.Mvvm.ViewModelBase.SessionState":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Mvvm.ViewModelBase");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SessionState", "Template10.Common.IStateItems");
-                xamlMember.Getter = get_84_ViewModelBase_SessionState;
-                xamlMember.Setter = set_84_ViewModelBase_SessionState;
+                xamlMember.Getter = get_86_ViewModelBase_SessionState;
+                xamlMember.Setter = set_86_ViewModelBase_SessionState;
                 break;
             case "CMS_Survey.ViewModels.MainPageViewModel.Value":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.MainPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Value", "String");
-                xamlMember.Getter = get_85_MainPageViewModel_Value;
-                xamlMember.Setter = set_85_MainPageViewModel_Value;
+                xamlMember.Getter = get_87_MainPageViewModel_Value;
+                xamlMember.Setter = set_87_MainPageViewModel_Value;
                 break;
-            case "Microsoft.Xaml.Interactivity.Interaction.Behaviors":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Interaction");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Behaviors", "Microsoft.Xaml.Interactivity.BehaviorCollection");
-                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
-                xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_86_Interaction_Behaviors;
-                xamlMember.Setter = set_86_Interaction_Behaviors;
-                break;
-            case "Template10.Behaviors.KeyBehavior.Actions":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Actions", "Microsoft.Xaml.Interactivity.ActionCollection");
+            case "MyToolkit.Controls.DataGrid.SelectionMode":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectionMode", "Windows.UI.Xaml.Controls.SelectionMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_87_KeyBehavior_Actions;
+                xamlMember.Getter = get_88_DataGrid_SelectionMode;
+                xamlMember.Setter = set_88_DataGrid_SelectionMode;
+                break;
+            case "MyToolkit.Controls.DataGrid.DefaultOrderIndex":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DefaultOrderIndex", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_89_DataGrid_DefaultOrderIndex;
+                xamlMember.Setter = set_89_DataGrid_DefaultOrderIndex;
+                break;
+            case "MyToolkit.Controls.DataGrid.ItemsSource":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_90_DataGrid_ItemsSource;
+                xamlMember.Setter = set_90_DataGrid_ItemsSource;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowBackgroundEvenBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowBackgroundEvenBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_91_DataGrid_RowBackgroundEvenBrush;
+                xamlMember.Setter = set_91_DataGrid_RowBackgroundEvenBrush;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowBackgroundOddBrush":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowBackgroundOddBrush", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_92_DataGrid_RowBackgroundOddBrush;
+                xamlMember.Setter = set_92_DataGrid_RowBackgroundOddBrush;
+                break;
+            case "MyToolkit.Controls.DataGrid.HeaderBackground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HeaderBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_93_DataGrid_HeaderBackground;
+                xamlMember.Setter = set_93_DataGrid_HeaderBackground;
+                break;
+            case "MyToolkit.Controls.DataGrid.Columns":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Columns", "MyToolkit.Controls.DataGridColumnCollection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_94_DataGrid_Columns;
+                xamlMember.Setter = set_94_DataGrid_Columns;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.CanSort":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CanSort", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_95_DataGridColumnBase_CanSort;
+                xamlMember.Setter = set_95_DataGridColumnBase_CanSort;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.IsSelected":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsSelected", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_96_DataGridColumnBase_IsSelected;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Template10.Behaviors.KeyBehavior.Key":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Key", "Windows.System.VirtualKey");
-                xamlMember.Getter = get_88_KeyBehavior_Key;
-                xamlMember.Setter = set_88_KeyBehavior_Key;
-                break;
-            case "Template10.Behaviors.KeyBehavior.AssociatedObject":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Windows.UI.Xaml.DependencyObject");
-                xamlMember.Getter = get_89_KeyBehavior_AssociatedObject;
+            case "MyToolkit.Controls.DataGridColumnBase.IsAscending":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsAscending", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_97_DataGridColumnBase_IsAscending;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Template10.Behaviors.KeyBehavior.AndControl":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AndControl", "Boolean");
-                xamlMember.Getter = get_90_KeyBehavior_AndControl;
-                xamlMember.Setter = set_90_KeyBehavior_AndControl;
-                break;
-            case "Template10.Behaviors.KeyBehavior.AndAlt":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AndAlt", "Boolean");
-                xamlMember.Getter = get_91_KeyBehavior_AndAlt;
-                xamlMember.Setter = set_91_KeyBehavior_AndAlt;
-                break;
-            case "Template10.Behaviors.KeyBehavior.AndShift":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AndShift", "Boolean");
-                xamlMember.Getter = get_92_KeyBehavior_AndShift;
-                xamlMember.Setter = set_92_KeyBehavior_AndShift;
-                break;
-            case "Template10.Behaviors.KeyBehavior.Event":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.KeyBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Event", "Template10.Behaviors.KeyBehavior.Kinds");
-                xamlMember.Getter = get_93_KeyBehavior_Event;
-                xamlMember.Setter = set_93_KeyBehavior_Event;
-                break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.Actions":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Actions", "Microsoft.Xaml.Interactivity.ActionCollection");
+            case "MyToolkit.Controls.DataGridColumnBase.IsAscendingDefault":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsAscendingDefault", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_94_EventTriggerBehavior_Actions;
+                xamlMember.Getter = get_98_DataGridColumnBase_IsAscendingDefault;
+                xamlMember.Setter = set_98_DataGridColumnBase_IsAscendingDefault;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.Header":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_99_DataGridColumnBase_Header;
+                xamlMember.Setter = set_99_DataGridColumnBase_Header;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.Width":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Width", "Windows.UI.Xaml.GridLength");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_100_DataGridColumnBase_Width;
+                xamlMember.Setter = set_100_DataGridColumnBase_Width;
+                break;
+            case "MyToolkit.Controls.DataGridColumnBase.OrderPropertyPath":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridColumnBase");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "OrderPropertyPath", "Windows.UI.Xaml.PropertyPath");
+                xamlMember.Getter = get_101_DataGridColumnBase_OrderPropertyPath;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.EventName":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "EventName", "String");
+            case "MyToolkit.Controls.DataGrid.ItemDetailsTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ItemDetailsTemplate", "Windows.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_95_EventTriggerBehavior_EventName;
-                xamlMember.Setter = set_95_EventTriggerBehavior_EventName;
+                xamlMember.Getter = get_102_DataGrid_ItemDetailsTemplate;
+                xamlMember.Setter = set_102_DataGrid_ItemDetailsTemplate;
                 break;
-            case "Microsoft.Xaml.Interactions.Core.EventTriggerBehavior.SourceObject":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.EventTriggerBehavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SourceObject", "Object");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_96_EventTriggerBehavior_SourceObject;
-                xamlMember.Setter = set_96_EventTriggerBehavior_SourceObject;
-                break;
-            case "Microsoft.Xaml.Interactivity.Behavior.AssociatedObject":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Behavior");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Windows.UI.Xaml.DependencyObject");
-                xamlMember.Getter = get_97_Behavior_AssociatedObject;
+            case "MyToolkit.Controls.DataGrid.SelectedItems":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedItems", "System.Collections.Generic.IList`1<Object>");
+                xamlMember.Getter = get_103_DataGrid_SelectedItems;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Template10.Behaviors.FocusAction.TargetObject":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Behaviors.FocusAction");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "TargetObject", "Windows.UI.Xaml.Controls.Control");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_98_FocusAction_TargetObject;
-                xamlMember.Setter = set_98_FocusAction_TargetObject;
+            case "MyToolkit.Controls.DataGrid.Items":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Items", "MyToolkit.Collections.IObservableCollectionView");
+                xamlMember.Getter = get_104_DataGrid_Items;
+                xamlMember.SetIsReadOnly();
                 break;
-            case "Microsoft.Xaml.Interactions.Core.CallMethodAction.MethodName":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.CallMethodAction");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "MethodName", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_99_CallMethodAction_MethodName;
-                xamlMember.Setter = set_99_CallMethodAction_MethodName;
+            case "MyToolkit.Controls.DataGrid.SelectedColumn":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedColumn", "MyToolkit.Controls.DataGridColumnBase");
+                xamlMember.Getter = get_105_DataGrid_SelectedColumn;
+                xamlMember.SetIsReadOnly();
                 break;
-            case "Microsoft.Xaml.Interactions.Core.CallMethodAction.TargetObject":
-                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactions.Core.CallMethodAction");
-                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "TargetObject", "Object");
+            case "MyToolkit.Controls.DataGrid.SelectedItem":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_100_CallMethodAction_TargetObject;
-                xamlMember.Setter = set_100_CallMethodAction_TargetObject;
+                xamlMember.Getter = get_106_DataGrid_SelectedItem;
+                xamlMember.Setter = set_106_DataGrid_SelectedItem;
+                break;
+            case "MyToolkit.Controls.DataGrid.RowStyle":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "RowStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_107_DataGrid_RowStyle;
+                xamlMember.Setter = set_107_DataGrid_RowStyle;
+                break;
+            case "MyToolkit.Controls.DataGrid.HeaderTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_108_DataGrid_HeaderTemplate;
+                xamlMember.Setter = set_108_DataGrid_HeaderTemplate;
+                break;
+            case "MyToolkit.Controls.DataGrid.CellTemplate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGrid");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CellTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_109_DataGrid_CellTemplate;
+                xamlMember.Setter = set_109_DataGrid_CellTemplate;
+                break;
+            case "MyToolkit.Controls.DataGridBoundColumn.Binding":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Binding", "Windows.UI.Xaml.Data.Binding");
+                xamlMember.Getter = get_110_DataGridBoundColumn_Binding;
+                xamlMember.Setter = set_110_DataGridBoundColumn_Binding;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.Foreground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Foreground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_111_DataGridTextColumn_Foreground;
+                xamlMember.Setter = set_111_DataGridTextColumn_Foreground;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.Style":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Style", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_112_DataGridTextColumn_Style;
+                xamlMember.Setter = set_112_DataGridTextColumn_Style;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.FontSize":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "FontSize", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_113_DataGridTextColumn_FontSize;
+                xamlMember.Setter = set_113_DataGridTextColumn_FontSize;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.FontStyle":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "FontStyle", "Windows.UI.Text.FontStyle");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_114_DataGridTextColumn_FontStyle;
+                xamlMember.Setter = set_114_DataGridTextColumn_FontStyle;
+                break;
+            case "MyToolkit.Controls.DataGridTextColumn.TextWrapping":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridTextColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "TextWrapping", "Windows.UI.Xaml.TextWrapping");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_115_DataGridTextColumn_TextWrapping;
+                xamlMember.Setter = set_115_DataGridTextColumn_TextWrapping;
+                break;
+            case "MyToolkit.Controls.DataGridBoundColumn.OrderPropertyPath":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyToolkit.Controls.DataGridBoundColumn");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "OrderPropertyPath", "Windows.UI.Xaml.PropertyPath");
+                xamlMember.Getter = get_116_DataGridBoundColumn_OrderPropertyPath;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "CMS_Survey.Views.GridMainPage.Usersurveys":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Usersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
+                xamlMember.Getter = get_117_GridMainPage_Usersurveys;
+                xamlMember.Setter = set_117_GridMainPage_Usersurveys;
+                break;
+            case "CMS_Survey.Models.UserSurvey.surveyKey":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyKey", "String");
+                xamlMember.Getter = get_118_UserSurvey_surveyKey;
+                xamlMember.Setter = set_118_UserSurvey_surveyKey;
+                break;
+            case "CMS_Survey.Models.UserSurvey.surveyNumber":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyNumber", "String");
+                xamlMember.Getter = get_119_UserSurvey_surveyNumber;
+                xamlMember.Setter = set_119_UserSurvey_surveyNumber;
+                break;
+            case "CMS_Survey.Models.UserSurvey.surveyType":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyType", "String");
+                xamlMember.Getter = get_120_UserSurvey_surveyType;
+                xamlMember.Setter = set_120_UserSurvey_surveyType;
+                break;
+            case "CMS_Survey.Models.UserSurvey.surveyProvider":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "surveyProvider", "String");
+                xamlMember.Getter = get_121_UserSurvey_surveyProvider;
+                xamlMember.Setter = set_121_UserSurvey_surveyProvider;
+                break;
+            case "CMS_Survey.Models.UserSurvey.status":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "status", "String");
+                xamlMember.Getter = get_122_UserSurvey_status;
+                xamlMember.Setter = set_122_UserSurvey_status;
+                break;
+            case "CMS_Survey.Models.UserSurvey.endDate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "endDate", "Object");
+                xamlMember.Getter = get_123_UserSurvey_endDate;
+                xamlMember.Setter = set_123_UserSurvey_endDate;
+                break;
+            case "CMS_Survey.Models.UserSurvey.actionDate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "actionDate", "Object");
+                xamlMember.Getter = get_124_UserSurvey_actionDate;
+                xamlMember.Setter = set_124_UserSurvey_actionDate;
+                break;
+            case "CMS_Survey.Models.UserSurvey.supervisorComments":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "supervisorComments", "Object");
+                xamlMember.Getter = get_125_UserSurvey_supervisorComments;
+                xamlMember.Setter = set_125_UserSurvey_supervisorComments;
+                break;
+            case "CMS_Survey.Models.UserSurvey.startDate":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "startDate", "Object");
+                xamlMember.Getter = get_126_UserSurvey_startDate;
+                xamlMember.Setter = set_126_UserSurvey_startDate;
+                break;
+            case "CMS_Survey.Models.UserSurvey.active":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "active", "Boolean");
+                xamlMember.Getter = get_127_UserSurvey_active;
+                xamlMember.Setter = set_127_UserSurvey_active;
+                break;
+            case "CMS_Survey.Models.UserSurvey.endDateString":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "endDateString", "String");
+                xamlMember.Getter = get_128_UserSurvey_endDateString;
+                xamlMember.Setter = set_128_UserSurvey_endDateString;
+                break;
+            case "CMS_Survey.Models.UserSurvey.actionDateString":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "actionDateString", "String");
+                xamlMember.Getter = get_129_UserSurvey_actionDateString;
+                xamlMember.Setter = set_129_UserSurvey_actionDateString;
+                break;
+            case "CMS_Survey.Models.UserSurvey.startDateString":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Models.UserSurvey");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "startDateString", "String");
+                xamlMember.Getter = get_130_UserSurvey_startDateString;
+                xamlMember.Setter = set_130_UserSurvey_startDateString;
+                break;
+            case "CMS_Survey.Views.GridMainPage.Filter":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Filter", "String");
+                xamlMember.Getter = get_131_GridMainPage_Filter;
+                xamlMember.Setter = set_131_GridMainPage_Filter;
+                break;
+            case "CMS_Survey.Views.MainPage.Usersurveys":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.MainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Usersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
+                xamlMember.Getter = get_132_MainPage_Usersurveys;
+                xamlMember.Setter = set_132_MainPage_Usersurveys;
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "CMS_Survey.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_101_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_133_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "CMS_Survey.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_102_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_134_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
+                break;
+            case "Template10.Controls.ModalDialog.CanBackButtonDismiss":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CanBackButtonDismiss", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_135_ModalDialog_CanBackButtonDismiss;
+                xamlMember.Setter = set_135_ModalDialog_CanBackButtonDismiss;
+                break;
+            case "Template10.Controls.ModalDialog.DisableBackButtonWhenModal":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DisableBackButtonWhenModal", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_136_ModalDialog_DisableBackButtonWhenModal;
+                xamlMember.Setter = set_136_ModalDialog_DisableBackButtonWhenModal;
+                break;
+            case "Template10.Controls.ModalDialog.ModalContent":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalContent", "Windows.UI.Xaml.UIElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_137_ModalDialog_ModalContent;
+                xamlMember.Setter = set_137_ModalDialog_ModalContent;
+                break;
+            case "Template10.Controls.ModalDialog.IsModal":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsModal", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_138_ModalDialog_IsModal;
+                xamlMember.Setter = set_138_ModalDialog_IsModal;
+                break;
+            case "Template10.Controls.ModalDialog.ModalBackground":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_139_ModalDialog_ModalBackground;
+                xamlMember.Setter = set_139_ModalDialog_ModalBackground;
+                break;
+            case "Template10.Controls.ModalDialog.ModalTransitions":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalTransitions", "Windows.UI.Xaml.Media.Animation.TransitionCollection");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_140_ModalDialog_ModalTransitions;
+                xamlMember.Setter = set_140_ModalDialog_ModalTransitions;
                 break;
             }
             return xamlMember;

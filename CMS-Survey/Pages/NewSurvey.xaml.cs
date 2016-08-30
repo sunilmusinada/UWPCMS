@@ -47,6 +47,7 @@ namespace CMS_Survey.Pages
         private ComboBox stateControl = null;
         private ComboBox HospitalControl = null;
         private TextBox Hospitalcn = null;
+        private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock;
         List<JumpClass> jmpClass;
         List<Tuple<string, string>> CitiableItems=new  List<Tuple<string, string>>();
         public NewSurvey()
@@ -169,7 +170,7 @@ namespace CMS_Survey.Pages
             HelpButtonLoad();
             ShowProgress();
             mainGrid.Children.Clear();
-
+            
             int rowIndex = 0;
 
             SectionHelp.Section section = result.sections[sectionIndex];
@@ -245,7 +246,30 @@ namespace CMS_Survey.Pages
             mainGrid.Children.Add(uiComponent);
             Grid.SetRow(uiComponent, rowIndex);
 
-        } 
+        }
+        private void addErrorLabelControl(Grid mainGrid, string Message, int rowIndex,string Question)
+        {
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0, GridUnitType.Auto);
+            TextBlock ErrorTextBlock = new TextBlock();
+            ErrorTextBlock.Text = Message;
+            ErrorTextBlock.TextWrapping = TextWrapping.Wrap;
+            ErrorTextBlock.Foreground =new SolidColorBrush(Colors.Red);
+            ErrorTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
+            if (Question.Equals("State"))
+                StateErrorBlock = ErrorTextBlock;
+            if (Question.Equals("Hospital"))
+                HospitalErrorBlock = ErrorTextBlock;
+            if (Question.Equals("CCN"))
+                HospitalCnBlock = ErrorTextBlock;
+            ErrorTextBlock.Visibility = Visibility.Collapsed;
+            mainGrid.RowDefinitions.Add(row);
+            mainGrid.Children.Add(ErrorTextBlock);
+            Grid.SetColumnSpan(ErrorTextBlock, 1);
+            Grid.SetRow(ErrorTextBlock, rowIndex);
+            Grid.SetColumn(ErrorTextBlock, 1);
+
+        }
         #endregion
 
         private async void processNext(object sender, RoutedEventArgs e)
@@ -254,7 +278,7 @@ namespace CMS_Survey.Pages
             {
                 if(!Validate())
                 {
-                    ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
+                   // ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
                     return;
                 }
             }
@@ -459,7 +483,19 @@ namespace CMS_Survey.Pages
                     }
                     groupIndex++;
                     break;
-
+                case "checkbox":
+                    CheckBox chkBox = new CheckBox();
+                    chkBox.Name = answer.htmlControlId.ToString();
+                    string label = string.Empty;
+                    if(answer.htmlOptions.Count()>0)
+                    {
+                        label = answer.htmlOptions.First().value;
+                    }
+                    var chkVal= Convert.ToBoolean(answer.answer);
+                    chkBox.IsChecked = chkVal;
+                    chkBox.Content = label;
+                    addUIControl(grid, chkBox, rowIndex++);
+                    break;
                 case "select":
                     ComboBox cmbbox = new ComboBox();
                     cmbbox.Name = answer.htmlControlId.ToString();
@@ -482,6 +518,7 @@ namespace CMS_Survey.Pages
                             SelectedState = GetStateFromCode(val);
                             cmbbox.SelectedValue = SelectedState;
                         }
+                        addErrorLabelControl(grid,"Please select a state",rowIndex,"State");
                     }
                     else if (QuestionText.Equals("Hospital Name"))
                     {
@@ -491,7 +528,7 @@ namespace CMS_Survey.Pages
                         cmbbox.SelectionChanged += CmbBxHospitalSelected;
                         if (!string.IsNullOrEmpty(val))
                             SetHospital(cmbbox, val);
-
+                        addErrorLabelControl(grid, "Please select a Hospital", rowIndex, "Hospital");
                     }
                     //cmbbox.SelectedValue = string.IsNullOrEmpty((Convert.ToString(answer.answer))) ? "" : (Convert.ToString(answer.answer));
                     addUIControl(grid, cmbbox, rowIndex++);
@@ -518,6 +555,7 @@ namespace CMS_Survey.Pages
                     txtBx.Width = 200;
                     txtBx.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     txtBx.LostFocus += TextBox_LostFocus;
+                    addErrorLabelControl(grid, "Please select a Certificate number", rowIndex, "CCN");
                     addUIControl(grid, txtBx, rowIndex++);
                     break;
                 case "date":
@@ -736,7 +774,7 @@ namespace CMS_Survey.Pages
             {
                 if (!Validate())
                 {
-                    ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
+                    //ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
                     return;
                 }
             }
@@ -786,11 +824,26 @@ namespace CMS_Survey.Pages
         {
             bool isvalid = true;
             if (string.IsNullOrEmpty(Convert.ToString(stateControl.SelectedValue)))
+            {
                 isvalid = false;
+                StateErrorBlock.Visibility = Visibility.Visible;
+            }
+            else
+                StateErrorBlock.Visibility = Visibility.Collapsed;
             if (string.IsNullOrEmpty(Convert.ToString(HospitalControl.SelectedValue)))
+            {
                 isvalid = false;
+                HospitalErrorBlock.Visibility = Visibility.Visible;
+            }
+            else
+                HospitalErrorBlock.Visibility = Visibility.Collapsed;
             if (string.IsNullOrEmpty(Convert.ToString(Hospitalcn.Text)))
+            {
                 isvalid = false;
+                HospitalCnBlock.Visibility = Visibility.Visible;
+            }
+            else
+                HospitalCnBlock.Visibility = Visibility.Collapsed;
 
             return isvalid;
 

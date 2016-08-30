@@ -14,6 +14,8 @@ Microsoft.Win32.Primitives.dll                         : 4.6.23123.00
 Microsoft.Xaml.Interactions.dll                        : 1.1.0.0
 Microsoft.Xaml.Interactivity.dll                       : 1.1.0.0
 mscorlib.dll                                           : 4.6.23123.0
+MyToolkit.dll                                          : 2.5.12.0
+MyToolkit.Extended.dll                                 : 2.5.12.0
 Newtonsoft.Json.dll                                    : 8.0.3.19514
 sqlite3.dll                                            : 3.13.0
 SQLitePCL.dll                                          : 3.8.7.2

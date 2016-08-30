@@ -9,6 +9,7 @@
     <RootPropertyPathName Name="surveyType" />
     <RootPropertyPathName Name="surveyProvider" />
     <RootPropertyPathName Name="surveyKey" />
+    <RootPropertyPathName Name="Filter" />
     <RootPropertyPathName Name="AboutPartViewModel" />
     <RootPropertyPathName Name="Version" />
     <RootPropertyPathName Name="Publisher" />
@@ -33,6 +34,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="RowDefinitions" />
@@ -126,6 +128,8 @@
       <RootProperty Name="Header" />
       <RootProperty Name="Text" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>

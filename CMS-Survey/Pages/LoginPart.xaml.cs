@@ -13,6 +13,10 @@ namespace CMS_Survey.Pages
         {
 
             this.InitializeComponent();
+#if WINDOWS_UWP
+            this.UserName.Text = "kalyan";
+            this.Password.Password = "kalyancpamula";
+#endif
         }
 
         public event EventHandler HideRequested;
@@ -45,6 +49,11 @@ namespace CMS_Survey.Pages
             Services.ServiceHelper srvHelper = Services.ServiceHelper.ServiceHelperObject;
            await srvHelper.CallLoginService(this.UserName.Text, this.Password.Password);
             
+        }
+
+        private void ThisPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            UserName.Focus(FocusState.Keyboard);
         }
         //public Models.UserCredentials UserCredentials { get; set; }
     }
