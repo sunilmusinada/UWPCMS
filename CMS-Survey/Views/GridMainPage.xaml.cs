@@ -15,7 +15,7 @@ using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using Template10.Common;
 using MyToolkit.Controls;
-
+using System.Linq;
 namespace CMS_Survey.Views
 {
     public sealed partial class GridMainPage : Page, INotifyPropertyChanged
@@ -43,7 +43,23 @@ namespace CMS_Survey.Views
                 }
             }
         }
-
+        private ObservableCollection<UserSurvey> _FilteredUsersurveys;
+        //ProgressRing Progress = null;
+        // Property.
+      
+        public ObservableCollection<UserSurvey> FilteredUsersurveys
+        {
+            get { return _FilteredUsersurveys; }
+            set
+            {
+                if (value != _FilteredUsersurveys)
+                {
+                    _FilteredUsersurveys = value;
+                    // Notify of the change.
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -92,78 +108,16 @@ namespace CMS_Survey.Views
 
             // Progress.IsActive = true;
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
+            this.FilteredUsersurveys = this.Usersurveys;
             //progressRing.IsActive = false;
             //Progress.IsActive = false;
         }
-        //private async void GridView_ItemClick(object sender, ItemClickEventArgs e)
-        //{
-        //    // this.Frame.Navigate(typeof(Pages.NewSurvey));
-        //    if (e == null)
-        //    {
-        //        HideAllControls();
-        //        return;
-        //    }
-        //    SelectedSurvey = (UserSurvey)e.ClickedItem;
-        //    if (SelectedSurvey != null)
-        //    {
-        //        SelectedSurveyIdBlock.Visibility = Visibility.Visible;
-        //        SelectedSurveyIdBlock.Text = "Survey #" + SelectedSurvey.surveyKey;
-        //        SelectedSurveyType.Visibility = Visibility.Visible;
-        //        SelectedSurveyType.Text = "Survey Type : " + SelectedSurvey.surveyType;
-        //        SelectedProvider.Visibility = Visibility.Visible;
-        //        SelectedProvider.Text = "Provider : " + SelectedSurvey.surveyProvider;
-        //        SelectedSurveyStatus.Visibility = Visibility.Visible;
-        //        SelectedSurveyStatus.Text = "Status : " + SelectedSurvey.status;
-        //        SelectedSurveyEndDate.Visibility = Visibility.Visible;
-        //        SelectedSurveyEndDate.Text = "Survey Start Date : " + SelectedSurvey.startDateString;
-        //        SelectedSurveyActionDate.Visibility = Visibility.Visible;
-        //        SelectedSurveyActionDate.Text = "Survey Action Date : " + SelectedSurvey.actionDateString;
-        //        Edit.Visibility = Visibility.Visible;
-        //        Delete.Visibility = Visibility.Visible;
-        //        Delete.IsEnabled = false;
-        //        if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-        //        Delete.IsEnabled =false;
-        //        else
-        //            Delete.IsEnabled = true;
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-
-        //private void HideAllControls()
-        //{
-        //    SelectedSurvey = null;
-        //    SelectedSurveyIdBlock.Text = "Survey #";
-        //    SelectedSurveyIdBlock.Visibility = Visibility.Collapsed;
-        //    SelectedSurveyType.Text = "Survey Type : ";
-        //    SelectedSurveyType.Visibility = Visibility.Collapsed;
-        //    SelectedProvider.Text = "Provider : ";
-        //    SelectedProvider.Visibility = Visibility.Collapsed;
-        //    SelectedSurveyStatus.Text = "Status : ";
-        //    SelectedSurveyStatus.Visibility = Visibility.Collapsed;
-        //    SelectedSurveyEndDate.Text = "Survey End Date : ";
-        //    SelectedSurveyEndDate.Visibility = Visibility.Collapsed;
-        //    SelectedSurveyActionDate.Text = "Survey Action Date : ";
-        //    SelectedSurveyActionDate.Visibility = Visibility.Collapsed;
-        //    Edit.Visibility = Visibility.Collapsed;
-        //    Delete.Visibility = Visibility.Collapsed;
-        //}
-
+    
         private void GetClickedSurvey(string SurveyKey)
         {
             try
             {
-                //var currentUserKey = Services.ServiceHelper.ServiceHelperObject.currentUser.UserKey;
-                //SectionHelp.Rootobject secHelp = await Services.ServiceHelper.ServiceHelperObject.CallGetSurveyService(Convert.ToString(currentUserKey), SurveyKey);
-                //SectionHelp.Rootobject param = new Models.SectionHelp.Rootobject();
-                //param.help = secHelp.help;
-                //param.renderComments = secHelp.renderComments;
-                //param.sections = secHelp.sections;
-                ////var str = "Hello";
-                //var param1=JsonConvert.SerializeObject(secHelp);
-                //var param = Newtonsoft.Json.JsonConvert.SerializeObject<SectionHelp.Rootobject>(secHelp);
+               
                     var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SurveyKey);
                     this.Frame.Navigate(typeof(Pages.NewSurvey), param);
                 
@@ -199,6 +153,44 @@ namespace CMS_Survey.Views
         {
             DataGrid dgrid = sender as DataGrid;
             SelectedSurvey = dgrid.SelectedItem as UserSurvey;
+        }
+
+        private void Filter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+            TextBox txtBox = sender as TextBox;
+            string txtBxName = txtBox.Name;
+            string FilterText = txtBox.Text.ToUpper();
+            if (string.IsNullOrEmpty(FilterText))
+            {
+                FilteredUsersurveys = Usersurveys;
+                return;
+            }
+            switch(txtBxName)
+            {
+                case "IDFilter":
+                    FilteredUsersurveys = new ObservableCollection<UserSurvey>((from surv in Usersurveys
+                                                                                where surv.surveyKey.StartsWith(FilterText)
+                                                                                select surv).ToList());
+                    break;
+                case "ProviderFilter":
+                    FilteredUsersurveys = new ObservableCollection<UserSurvey>((from surv in Usersurveys
+                                                                                where surv.surveyProvider.Contains(FilterText)
+                                                                                select surv).ToList());
+                    break;
+                case "EndDateFilter":
+                    FilteredUsersurveys = new ObservableCollection<UserSurvey>((from surv in Usersurveys
+                                                                                where surv.endDateString.StartsWith(FilterText)
+                                                                                select surv).ToList());
+                    break;
+                case "ActionDateFilter":
+                    FilteredUsersurveys = new ObservableCollection<UserSurvey>((from surv in Usersurveys
+                                                                                where surv.actionDateString.StartsWith(FilterText)
+                                                                                select surv).ToList());
+                    break;
+            }
+              
+                
         }
     }
 }

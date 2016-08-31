@@ -16,25 +16,25 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>5AE25296A2C49EC973B60F3DB90453EA7DEFEFE9549F2464791F66E4345F9460</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.2.0_x86__z0txew2x9f0ce</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>0A9628CA332D59BA85E3ED8FC647B048ADF4B7614C50400804C1A030B9A4E1B9</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.9.0_x86__z0txew2x9f0ce</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>13228281-de3c-4cee-b5f6-12b990ea723a_z0txew2x9f0ce!App</RegisteredUserModeAppID>
     <RegisteredPackageID>13228281-de3c-4cee-b5f6-12b990ea723a</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=kakar</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.2.0</RegisteredVersion>
+    <RegisteredVersion>1.0.9.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-30T18:05:09.160</Modified>
+      <Modified>2016-08-31T20:01:24.197</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-30T18:05:06.494</Modified>
+      <Modified>2016-08-31T20:01:21.765</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -488,35 +488,39 @@
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
       <Modified>2014-12-09T05:34:52.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square300x300Logo.scale-200.png">
+      <PackagePath>Assets\Square300x300Logo.scale-200.png</PackagePath>
+      <Modified>2016-08-31T02:36:14.679</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:31:25.609</Modified>
+      <Modified>2016-08-31T02:27:14.835</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:28:11.161</Modified>
+      <Modified>2016-08-31T02:28:18.265</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:30:11.432</Modified>
+      <Modified>2016-08-31T02:24:52.843</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:01:49.128</Modified>
+      <Modified>2016-08-31T02:26:25.636</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:15:40.975</Modified>
+      <Modified>2016-08-31T02:36:14.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:15:52.027</Modified>
+      <Modified>2016-08-31T02:31:45.860</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png</PackagePath>
@@ -536,7 +540,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\CMS-Survey.xr.xml">
       <PackagePath>CMS-Survey.xr.xml</PackagePath>
-      <Modified>2016-08-30T18:05:05.575</Modified>
+      <Modified>2016-08-31T17:01:55.418</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -580,11 +584,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-08-30T18:05:07.876</Modified>
+      <Modified>2016-08-31T20:01:23.079</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-30T18:05:09.153</Modified>
+      <Modified>2016-08-31T20:01:24.191</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

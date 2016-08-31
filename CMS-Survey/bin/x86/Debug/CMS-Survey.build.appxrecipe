@@ -364,6 +364,9 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square300x300Logo.scale-200.png">
+      <PackagePath>Assets\Square300x300Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>

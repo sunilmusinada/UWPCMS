@@ -48,7 +48,7 @@ namespace CMS_Survey.Services
         internal User currentUser;
         private IStorageFile textFile { get; set; }
         public static  string HostUrl = @"https://cms-specialtysurveys-internal.org/";
-
+        public static string CitationUrl = HostUrl + "Survey-web";
         #region UrlStrings
         private string LoginServiceUrl = HostUrl+ @"SurveyRest/rest/myresource/authentication?userName={0}&password={1}";
 

@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
               xmlns:Controls="using:Template10.Controls"
              Width="300" d:DesignHeight="300" x:Name="ThisPage"
-             mc:Ignorable="d">
+             mc:Ignorable="d"                         >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,-22">
         

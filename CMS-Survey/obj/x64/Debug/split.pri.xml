@@ -44,6 +44,11 @@
 						<Value>Assets\Square150x150Logo.scale-200.png</Value>
 					</Candidate>
 				</NamedResource>
+				<NamedResource name="Square300x300Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square300x300Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square300x300Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
 				<NamedResource name="Square44x44Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square44x44Logo.png">
 					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
 						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>

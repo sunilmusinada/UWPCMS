@@ -187,16 +187,15 @@ namespace CMS_Survey.Pages
                                      .Replace("<ul>", "").Replace("<\\li>", "").Replace("<\\ul>", "")
                                      .Replace("</li>", "").Replace("</ul>", "");
                 questionlabel.TextWrapping = TextWrapping.Wrap;
-                
+                //bool renderObservation = question.renderAddObservation;
                 addUIControl(grid, questionlabel, rowIndex++);
                 if (question.answersList != null && question.answersList.Length > 0)
                 {
                     foreach (SectionHelp.Answerslist answer in question.answersList)
                     {
 
-                        AddControlByType(answer, grid, ref rowIndex, question.questionText);
-
-
+                        AddControlByType(answer, grid, ref rowIndex, question);
+                       
                         addBlankLine(grid, rowIndex++);
                         
 
@@ -245,7 +244,7 @@ namespace CMS_Survey.Pages
             mainGrid.RowDefinitions.Add(row);
             mainGrid.Children.Add(uiComponent);
             Grid.SetRow(uiComponent, rowIndex);
-
+            //addBlankLine(mainGrid, rowIndex);
         }
         private void addErrorLabelControl(Grid mainGrid, string Message, int rowIndex,string Question)
         {
@@ -270,15 +269,28 @@ namespace CMS_Survey.Pages
             Grid.SetColumn(ErrorTextBlock, 1);
 
         }
+        private void addCitationLinkControl(Grid mainGrid, FrameworkElement uiComponent, int rowIndex)
+        {
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0, GridUnitType.Auto);
+            mainGrid.RowDefinitions.Add(row);
+           
+            mainGrid.Children.Add(uiComponent);
+            Grid.SetColumnSpan(uiComponent, 1);
+            Grid.SetRow(uiComponent, rowIndex);
+            Grid.SetColumn(uiComponent, 1);
+            //addBlankLine(mainGrid, rowIndex);
+        }
         #endregion
 
+        #region SaveAndProcess
         private async void processNext(object sender, RoutedEventArgs e)
         {
-            if(sectionIndex==0)
+            if (sectionIndex == 0)
             {
-                if(!Validate())
+                if (!Validate())
                 {
-                   // ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
+                    // ShowMessage("Name,Hospital Name and CMS certification number are mandatory.", "Error");
                     return;
                 }
             }
@@ -321,6 +333,7 @@ namespace CMS_Survey.Pages
             }
         }
 
+        #endregion
         private void SetControlValue(object ControlValue, string ControlID, string ControlType)
         {
             SectionHelp.Section section = result.sections[sectionIndex];
@@ -452,10 +465,12 @@ namespace CMS_Survey.Pages
 
             }
         }
-        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, string QuestionText)
+        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, SectionHelp.Surveyquestionanswerlist Question)
         {
+            string QuestionText = Question.questionText;
             if (!answer.defaultVisible)
                 return;
+            #region Control Switch
             switch (answer.htmlControlType)
             {
                 case "textarea":
@@ -487,11 +502,11 @@ namespace CMS_Survey.Pages
                     CheckBox chkBox = new CheckBox();
                     chkBox.Name = answer.htmlControlId.ToString();
                     string label = string.Empty;
-                    if(answer.htmlOptions.Count()>0)
+                    if (answer.htmlOptions.Count() > 0)
                     {
                         label = answer.htmlOptions.First().value;
                     }
-                    var chkVal= Convert.ToBoolean(answer.answer);
+                    var chkVal = Convert.ToBoolean(answer.answer);
                     chkBox.IsChecked = chkVal;
                     chkBox.Content = label;
                     addUIControl(grid, chkBox, rowIndex++);
@@ -518,7 +533,7 @@ namespace CMS_Survey.Pages
                             SelectedState = GetStateFromCode(val);
                             cmbbox.SelectedValue = SelectedState;
                         }
-                        addErrorLabelControl(grid,"Please select a state",rowIndex,"State");
+                        addErrorLabelControl(grid, "Please select a state", rowIndex, "State");
                     }
                     else if (QuestionText.Equals("Hospital Name"))
                     {
@@ -580,8 +595,38 @@ namespace CMS_Survey.Pages
                     addUIControl(grid, dtPicker, rowIndex++);
                     break;
             }
+            #endregion
+            if (Question.renderAddObservation)
+            {
+                //StackPanel stpnl = new StackPanel();
+               
+                Button Btn = new Button();
+                Btn.Name = Question.questionId.ToString();
+                Btn.Height = 40;
+                Btn.Width = 150;
+                Btn.IsEnabled = true;
+
+                Btn.ClickMode = ClickMode.Press;
+                Btn.Content = "Add Observation";
+                addUIControl(grid, Btn, rowIndex);
+                TextBlock tb = new TextBlock();
+                Hyperlink hyperlink = new Hyperlink();
+                Run run = new Run();
+                run.Text = Question.citableTagName;
+                hyperlink.NavigateUri = new Uri(Services.ServiceHelper.CitationUrl + Question.citableTagURL);
+                hyperlink.Inlines.Add(run);
+                tb.Inlines.Add(hyperlink);
+                // stpnl.Children.Add(tb);
+                addCitationLinkControl(mainGrid, tb, rowIndex++);
+
+            }
+
         }
 
+        private void AddObservation(Grid grid,ref int rowIndex, SectionHelp.Surveyquestionanswerlist question)
+        {
+
+        }
         private void Hospital_comboBoxOpened(object sender, object e)
         {
             ComboBox provCmbbx = sender as ComboBox;
@@ -848,25 +893,26 @@ namespace CMS_Survey.Pages
             return isvalid;
 
         }
+        #region MenuFlyouts
 
         private void JumpButton_Loading(FrameworkElement sender, object args)
         {
-           
+
         }
 
         private void JumpButton_Loaded(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private void JumpButtonLoad()
         {
-           
+
             MenuFlyout m = new MenuFlyout();
 
             foreach (JumpClass Sec in jmpClass)
             {
-               
+
                 if (string.IsNullOrEmpty(Sec.SectionTitle))
                 {
                     MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
@@ -879,8 +925,8 @@ namespace CMS_Survey.Pages
                 }
                 else
                 {
-                    MenuFlyoutSubItem subMItem =(MenuFlyoutSubItem) m.Items.Where(e => e.Name.Equals(Sec.SubSection)).FirstOrDefault();
-                    if(subMItem != null)
+                    MenuFlyoutSubItem subMItem = (MenuFlyoutSubItem)m.Items.Where(e => e.Name.Equals(Sec.SubSection)).FirstOrDefault();
+                    if (subMItem != null)
                     {
                         MenuFlyoutItem mFlyItem = new MenuFlyoutItem();
                         mFlyItem.Background = new SolidColorBrush(Colors.SteelBlue);
@@ -910,7 +956,7 @@ namespace CMS_Survey.Pages
                 //else if (string.IsNullOrEmpty(Sec.SectionTitle))
                 //{
                 //    MenuFlyoutSubItem mnSub = new MenuFlyoutSubItem();
-                    
+
                 //}
                 //else
                 //{
@@ -963,7 +1009,7 @@ namespace CMS_Survey.Pages
                 }
             }
             Uri url = null;
-            if(!Uri.TryCreate(selectedHelp.helpLinkURL, UriKind.Absolute, out url))
+            if (!Uri.TryCreate(selectedHelp.helpLinkURL, UriKind.Absolute, out url))
             {
                 //url =new Uri( Services.ServiceHelper.HostUrl + selectedHelp.helpLinkURL);
             }
@@ -978,29 +1024,30 @@ namespace CMS_Survey.Pages
         private void MFlyItem_Click(object sender, RoutedEventArgs e)
         {
             int indx;
-            MenuFlyoutItem mFlyItem =(MenuFlyoutItem) e.OriginalSource;
+            MenuFlyoutItem mFlyItem = (MenuFlyoutItem)e.OriginalSource;
             var ClickedName = mFlyItem.Name;
             if (sectionIndex == 0)
                 if (!Validate())
                     return;
-            var item = jmpClass.Where(t=>t.SectionTitle!=null).Where(t=>t.SectionTitle.Equals(ClickedName)).Select(t=>t).FirstOrDefault();
+            var item = jmpClass.Where(t => t.SectionTitle != null).Where(t => t.SectionTitle.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             if (item == null)
             {
-                item =   jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
+                item = jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             }
-            
-                indx = item.PageIndex;
-                if (indx.Equals(sectionIndex))
-                    return;
-                else
-                {
-                    sectionIndex = indx;
-                    getJson(mainGrid);
-                }
-            
+
+            indx = item.PageIndex;
+            if (indx.Equals(sectionIndex))
+                return;
+            else
+            {
+                sectionIndex = indx;
+                getJson(mainGrid);
+            }
+
             //e.OriginalSource
-            
+
             //throw new NotImplementedException();
-        }
+        } 
+        #endregion
     }
 }

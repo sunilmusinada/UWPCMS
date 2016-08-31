@@ -5,12 +5,13 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DeviceId>90F4E8F4-EC5F-4B64-B2E8-6EDE6F813BD3</DeviceId>
+    <DeviceId>F554226E-1E47-460D-B76A-338418AD356B</DeviceId>
     <UseEmulator>false</UseEmulator>
     <AllowLocalNetworkLoopback>true</AllowLocalNetworkLoopback>
+    <UseSimulator>false</UseSimulator>
   </PropertyGroup>
   <PropertyGroup>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <AppxPackageIsForStore>False</AppxPackageIsForStore>
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>

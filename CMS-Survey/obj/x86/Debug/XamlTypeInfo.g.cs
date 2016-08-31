@@ -1040,6 +1040,7 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 userType = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_79_GridMainPage;
                 userType.AddMemberName("Usersurveys");
+                userType.AddMemberName("FilteredUsersurveys");
                 userType.AddMemberName("Filter");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -2439,92 +2440,102 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
             var that = (global::CMS_Survey.Models.UserSurvey)instance;
             that.startDateString = (global::System.String)Value;
         }
-        private object get_131_GridMainPage_Filter(object instance)
+        private object get_131_GridMainPage_FilteredUsersurveys(object instance)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            return that.FilteredUsersurveys;
+        }
+        private void set_131_GridMainPage_FilteredUsersurveys(object instance, object Value)
+        {
+            var that = (global::CMS_Survey.Views.GridMainPage)instance;
+            that.FilteredUsersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
+        }
+        private object get_132_GridMainPage_Filter(object instance)
         {
             var that = (global::CMS_Survey.Views.GridMainPage)instance;
             return that.Filter;
         }
-        private void set_131_GridMainPage_Filter(object instance, object Value)
+        private void set_132_GridMainPage_Filter(object instance, object Value)
         {
             var that = (global::CMS_Survey.Views.GridMainPage)instance;
             that.Filter = (global::System.String)Value;
         }
-        private object get_132_MainPage_Usersurveys(object instance)
+        private object get_133_MainPage_Usersurveys(object instance)
         {
             var that = (global::CMS_Survey.Views.MainPage)instance;
             return that.Usersurveys;
         }
-        private void set_132_MainPage_Usersurveys(object instance, object Value)
+        private void set_133_MainPage_Usersurveys(object instance, object Value)
         {
             var that = (global::CMS_Survey.Views.MainPage)instance;
             that.Usersurveys = (global::System.Collections.ObjectModel.ObservableCollection<global::CMS_Survey.Models.UserSurvey>)Value;
         }
-        private object get_133_SettingsPageViewModel_SettingsPartViewModel(object instance)
+        private object get_134_SettingsPageViewModel_SettingsPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.SettingsPartViewModel;
         }
-        private object get_134_SettingsPageViewModel_AboutPartViewModel(object instance)
+        private object get_135_SettingsPageViewModel_AboutPartViewModel(object instance)
         {
             var that = (global::CMS_Survey.ViewModels.SettingsPageViewModel)instance;
             return that.AboutPartViewModel;
         }
-        private object get_135_ModalDialog_CanBackButtonDismiss(object instance)
+        private object get_136_ModalDialog_CanBackButtonDismiss(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.CanBackButtonDismiss;
         }
-        private void set_135_ModalDialog_CanBackButtonDismiss(object instance, object Value)
+        private void set_136_ModalDialog_CanBackButtonDismiss(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.CanBackButtonDismiss = (global::System.Boolean)Value;
         }
-        private object get_136_ModalDialog_DisableBackButtonWhenModal(object instance)
+        private object get_137_ModalDialog_DisableBackButtonWhenModal(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.DisableBackButtonWhenModal;
         }
-        private void set_136_ModalDialog_DisableBackButtonWhenModal(object instance, object Value)
+        private void set_137_ModalDialog_DisableBackButtonWhenModal(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.DisableBackButtonWhenModal = (global::System.Boolean)Value;
         }
-        private object get_137_ModalDialog_ModalContent(object instance)
+        private object get_138_ModalDialog_ModalContent(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalContent;
         }
-        private void set_137_ModalDialog_ModalContent(object instance, object Value)
+        private void set_138_ModalDialog_ModalContent(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalContent = (global::Windows.UI.Xaml.UIElement)Value;
         }
-        private object get_138_ModalDialog_IsModal(object instance)
+        private object get_139_ModalDialog_IsModal(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.IsModal;
         }
-        private void set_138_ModalDialog_IsModal(object instance, object Value)
+        private void set_139_ModalDialog_IsModal(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.IsModal = (global::System.Boolean)Value;
         }
-        private object get_139_ModalDialog_ModalBackground(object instance)
+        private object get_140_ModalDialog_ModalBackground(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalBackground;
         }
-        private void set_139_ModalDialog_ModalBackground(object instance, object Value)
+        private void set_140_ModalDialog_ModalBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_140_ModalDialog_ModalTransitions(object instance)
+        private object get_141_ModalDialog_ModalTransitions(object instance)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             return that.ModalTransitions;
         }
-        private void set_140_ModalDialog_ModalTransitions(object instance, object Value)
+        private void set_141_ModalDialog_ModalTransitions(object instance, object Value)
         {
             var that = (global::Template10.Controls.ModalDialog)instance;
             that.ModalTransitions = (global::Windows.UI.Xaml.Media.Animation.TransitionCollection)Value;
@@ -3412,71 +3423,77 @@ namespace CMS_Survey.CMS_Survey_XamlTypeInfo
                 xamlMember.Getter = get_130_UserSurvey_startDateString;
                 xamlMember.Setter = set_130_UserSurvey_startDateString;
                 break;
+            case "CMS_Survey.Views.GridMainPage.FilteredUsersurveys":
+                userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
+                xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "FilteredUsersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
+                xamlMember.Getter = get_131_GridMainPage_FilteredUsersurveys;
+                xamlMember.Setter = set_131_GridMainPage_FilteredUsersurveys;
+                break;
             case "CMS_Survey.Views.GridMainPage.Filter":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.GridMainPage");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Filter", "String");
-                xamlMember.Getter = get_131_GridMainPage_Filter;
-                xamlMember.Setter = set_131_GridMainPage_Filter;
+                xamlMember.Getter = get_132_GridMainPage_Filter;
+                xamlMember.Setter = set_132_GridMainPage_Filter;
                 break;
             case "CMS_Survey.Views.MainPage.Usersurveys":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.Views.MainPage");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "Usersurveys", "System.Collections.ObjectModel.ObservableCollection`1<CMS_Survey.Models.UserSurvey>");
-                xamlMember.Getter = get_132_MainPage_Usersurveys;
-                xamlMember.Setter = set_132_MainPage_Usersurveys;
+                xamlMember.Getter = get_133_MainPage_Usersurveys;
+                xamlMember.Setter = set_133_MainPage_Usersurveys;
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.SettingsPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "SettingsPartViewModel", "CMS_Survey.ViewModels.SettingsPartViewModel");
-                xamlMember.Getter = get_133_SettingsPageViewModel_SettingsPartViewModel;
+                xamlMember.Getter = get_134_SettingsPageViewModel_SettingsPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "CMS_Survey.ViewModels.SettingsPageViewModel.AboutPartViewModel":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CMS_Survey.ViewModels.SettingsPageViewModel");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "AboutPartViewModel", "CMS_Survey.ViewModels.AboutPartViewModel");
-                xamlMember.Getter = get_134_SettingsPageViewModel_AboutPartViewModel;
+                xamlMember.Getter = get_135_SettingsPageViewModel_AboutPartViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Template10.Controls.ModalDialog.CanBackButtonDismiss":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "CanBackButtonDismiss", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_135_ModalDialog_CanBackButtonDismiss;
-                xamlMember.Setter = set_135_ModalDialog_CanBackButtonDismiss;
+                xamlMember.Getter = get_136_ModalDialog_CanBackButtonDismiss;
+                xamlMember.Setter = set_136_ModalDialog_CanBackButtonDismiss;
                 break;
             case "Template10.Controls.ModalDialog.DisableBackButtonWhenModal":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "DisableBackButtonWhenModal", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_136_ModalDialog_DisableBackButtonWhenModal;
-                xamlMember.Setter = set_136_ModalDialog_DisableBackButtonWhenModal;
+                xamlMember.Getter = get_137_ModalDialog_DisableBackButtonWhenModal;
+                xamlMember.Setter = set_137_ModalDialog_DisableBackButtonWhenModal;
                 break;
             case "Template10.Controls.ModalDialog.ModalContent":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalContent", "Windows.UI.Xaml.UIElement");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_137_ModalDialog_ModalContent;
-                xamlMember.Setter = set_137_ModalDialog_ModalContent;
+                xamlMember.Getter = get_138_ModalDialog_ModalContent;
+                xamlMember.Setter = set_138_ModalDialog_ModalContent;
                 break;
             case "Template10.Controls.ModalDialog.IsModal":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "IsModal", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_138_ModalDialog_IsModal;
-                xamlMember.Setter = set_138_ModalDialog_IsModal;
+                xamlMember.Getter = get_139_ModalDialog_IsModal;
+                xamlMember.Setter = set_139_ModalDialog_IsModal;
                 break;
             case "Template10.Controls.ModalDialog.ModalBackground":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_139_ModalDialog_ModalBackground;
-                xamlMember.Setter = set_139_ModalDialog_ModalBackground;
+                xamlMember.Getter = get_140_ModalDialog_ModalBackground;
+                xamlMember.Setter = set_140_ModalDialog_ModalBackground;
                 break;
             case "Template10.Controls.ModalDialog.ModalTransitions":
                 userType = (global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.ModalDialog");
                 xamlMember = new global::CMS_Survey.CMS_Survey_XamlTypeInfo.XamlMember(this, "ModalTransitions", "Windows.UI.Xaml.Media.Animation.TransitionCollection");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_140_ModalDialog_ModalTransitions;
-                xamlMember.Setter = set_140_ModalDialog_ModalTransitions;
+                xamlMember.Getter = get_141_ModalDialog_ModalTransitions;
+                xamlMember.Setter = set_141_ModalDialog_ModalTransitions;
                 break;
             }
             return xamlMember;
