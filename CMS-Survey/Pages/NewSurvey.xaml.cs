@@ -291,6 +291,7 @@ namespace CMS_Survey.Pages
             answerList.answersList[index+1].defaultVisible = false;
             answerList.answersList[index].defaultVisible = false;
             answerList.obsevationNumber = answerList.obsevationNumber - 1;
+            RemoveBlankObservations();
             //AdjustObservations(answerList, index * 2);
             getJson(mainGrid);
          }
