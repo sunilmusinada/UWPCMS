@@ -28,13 +28,13 @@
     <AppXManifest Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-31T20:01:24.197</Modified>
+      <Modified>2016-09-03T18:59:40.553</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-31T20:01:21.765</Modified>
+      <Modified>2016-09-03T18:59:39.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -584,11 +584,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-08-31T20:01:23.079</Modified>
+      <Modified>2016-09-03T18:19:16.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-31T20:01:24.191</Modified>
+      <Modified>2016-09-03T18:59:40.550</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

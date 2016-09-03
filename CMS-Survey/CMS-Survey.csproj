@@ -115,6 +115,7 @@
     <Compile Include="Helpers\SurveyHelper.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Hospital.cs" />
+    <Compile Include="Models\ObservationHelper.cs" />
     <Compile Include="Models\ProvidersLu.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\StatesLu.cs" />

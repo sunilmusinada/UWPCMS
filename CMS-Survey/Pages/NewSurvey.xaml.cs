@@ -49,7 +49,12 @@ namespace CMS_Survey.Pages
         private TextBox Hospitalcn = null;
         private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock;
         List<JumpClass> jmpClass;
+        string tempObservvationQuestionId = string.Empty;
+        string tempCitiationId = string.Empty;
+        List<ObservationHelper> ObservationsList = null;
         List<Tuple<string, string>> CitiableItems=new  List<Tuple<string, string>>();
+        
+        Dictionary<int, int> QuestionObservationDictionary;
         public NewSurvey()
         {
 
@@ -59,6 +64,7 @@ namespace CMS_Survey.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            ObservationsList = new List<Models.ObservationHelper>();
             SectionHelp.Rootobject survObj = null;
             base.OnNavigatedTo(e);
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
@@ -104,7 +110,7 @@ namespace CMS_Survey.Pages
                 }
                 else
                 {
-                    ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
+                    ShowMessage("Application went offline. You will be redirected to the Main page", "Error");
                     NavigateToMainPage();
                     return;
                 }
@@ -164,6 +170,7 @@ namespace CMS_Survey.Pages
             //
             //SurveyHelper svHelper = new SurveyHelper();
             //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
+            QuestionObservationDictionary = new Dictionary<int, int>();
             SurveyHelper svHelper = new SurveyHelper();
             jmpClass = svHelper.GetJumpSections(result.sections);
             JumpButtonLoad();
@@ -189,17 +196,41 @@ namespace CMS_Survey.Pages
                 questionlabel.TextWrapping = TextWrapping.Wrap;
                 //bool renderObservation = question.renderAddObservation;
                 addUIControl(grid, questionlabel, rowIndex++);
+                if (!QuestionObservationDictionary.Keys.Contains(question.questionId))
+                    QuestionObservationDictionary.Add(question.questionId, 1);
                 if (question.answersList != null && question.answersList.Length > 0)
                 {
+                    
                     foreach (SectionHelp.Answerslist answer in question.answersList)
                     {
-
+                        
                         AddControlByType(answer, grid, ref rowIndex, question);
                        
                         addBlankLine(grid, rowIndex++);
-                        
+                       
 
                     }
+                    if (question.renderAddObservation)
+
+                    {
+                        //StackPanel stpnl = new StackPanel();
+                        //if (tempObservvationQuestionId.Equals(question.questionId.ToString()))
+                        //    break;
+                        //else
+                        //{
+                        tempObservvationQuestionId = question.questionId.ToString();
+                        //}
+
+                        //ObservationsList.Add(new ObservationHelper(question,)
+                        addBlankLine(grid, rowIndex++);
+                        addBlankLine(grid, rowIndex++);
+                        if(question.obsevationNumber<=5)
+                        AddObservationButton(grid, rowIndex, question);
+                        //AddRemoveObservationButton(grid, rowIndex, question);
+                        ObservationsList.Add(new ObservationHelper(question, question.questionId.ToString(), rowIndex));
+
+                    }
+                    
                 }
                 // }
             }
@@ -208,6 +239,61 @@ namespace CMS_Survey.Pages
             //}
         }
 
+        private void AddObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question)
+        {
+            Button Btn = new Button();
+            //Btn.Name = question.questionId.ToString();
+            Btn.Height = 40;
+            Btn.Width = 150;
+            Btn.IsEnabled = true;
+            Btn.Click += Btn_Click;
+            Btn.ClickMode = ClickMode.Press;
+            int cntObservation = question.obsevationNumber;
+            Btn.Name = question.questionId.ToString() + "_Add Observation_" + cntObservation.ToString();
+            
+            Btn.Content = "Add Observation " + cntObservation.ToString();
+            addUIControl(grid, Btn, rowIndex-2);
+        }
+        private void AddRemoveObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question,int ObservationIndex)
+        {
+            int cntObservation = question.obsevationNumber - 1;
+            if (cntObservation < 1)
+                return;
+            Button Btn = new Button();
+            //Btn.Name = question.questionId.ToString();
+            Btn.Height = 40;
+            Btn.Width = 175;
+            Btn.IsEnabled = true;
+            Btn.Click += RemoveObservationButtonClick; ;
+            Btn.ClickMode = ClickMode.Press;
+
+            Btn.HorizontalAlignment = HorizontalAlignment.Right;
+            Btn.Content = "Remove Observation " + ObservationIndex.ToString();
+            Btn.Name = question.questionId.ToString() + "_Remove Observation_"+ ObservationIndex.ToString()  ;
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0, GridUnitType.Auto);
+            mainGrid.RowDefinitions.Add(row);
+            mainGrid.Children.Add(Btn);
+            Grid.SetRow(Btn, rowIndex-1);
+           
+        }
+
+        private void RemoveObservationButtonClick(object sender, RoutedEventArgs e)
+        {
+            Button bn = sender as Button;
+            var name = bn.Name.Split('_').First();
+            var index = Convert.ToInt32(bn.Name.Split('_').Last());
+            var answerList = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
+            if (answerList.obsevationNumber == 2)
+                return;
+            answerList.answersList[index+1].answer = null;
+            answerList.answersList[index].answer = null;
+            answerList.answersList[index+1].defaultVisible = false;
+            answerList.answersList[index].defaultVisible = false;
+            answerList.obsevationNumber = answerList.obsevationNumber - 1;
+            //AdjustObservations(answerList, index * 2);
+            getJson(mainGrid);
+         }
         #region ControlMethods
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -274,7 +360,7 @@ namespace CMS_Survey.Pages
             RowDefinition row = new RowDefinition();
             row.Height = new GridLength(0, GridUnitType.Auto);
             mainGrid.RowDefinitions.Add(row);
-           
+            uiComponent.HorizontalAlignment = HorizontalAlignment.Center;
             mainGrid.Children.Add(uiComponent);
             Grid.SetColumnSpan(uiComponent, 1);
             Grid.SetRow(uiComponent, rowIndex);
@@ -474,12 +560,25 @@ namespace CMS_Survey.Pages
             switch (answer.htmlControlType)
             {
                 case "textarea":
+                    if(Question.renderAddObservation)
+                    {
+                        TextBlock txBlock = new TextBlock();
+                        txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
+                        addUIControl(mainGrid, txBlock, rowIndex - 1);
+                        
+                    }
                     TextBox textBox = new TextBox();
                     textBox.Name = answer.htmlControlId.ToString();
                     textBox.Height = 150;
                     //textBox.Width = 150;
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     textBox.LostFocus += TextBox_LostFocus;
+                    if (answer.renderRemoveButton)
+                    {
+                        int ind = QuestionObservationDictionary[Question.questionId];
+                        AddRemoveObservationButton(mainGrid, rowIndex - 1, Question, ind);
+                        QuestionObservationDictionary[Question.questionId] = ind + 1;
+                    }
                     addUIControl(grid, textBox, rowIndex++);
                     break;
                 case "radio":
@@ -496,6 +595,7 @@ namespace CMS_Survey.Pages
                         addUIControl(grid, radio, rowIndex++);
 
                     }
+                    
                     groupIndex++;
                     break;
                 case "checkbox":
@@ -596,19 +696,12 @@ namespace CMS_Survey.Pages
                     break;
             }
             #endregion
-            if (Question.renderAddObservation)
+            if(!string.IsNullOrEmpty(Question.citableTagURL))
             {
-                //StackPanel stpnl = new StackPanel();
-               
-                Button Btn = new Button();
-                Btn.Name = Question.questionId.ToString();
-                Btn.Height = 40;
-                Btn.Width = 150;
-                Btn.IsEnabled = true;
-
-                Btn.ClickMode = ClickMode.Press;
-                Btn.Content = "Add Observation";
-                addUIControl(grid, Btn, rowIndex);
+                if (tempCitiationId.Equals(Question.questionId.ToString()))
+                    return;
+                else
+                    tempCitiationId = Question.questionId.ToString();
                 TextBlock tb = new TextBlock();
                 Hyperlink hyperlink = new Hyperlink();
                 Run run = new Run();
@@ -617,15 +710,37 @@ namespace CMS_Survey.Pages
                 hyperlink.Inlines.Add(run);
                 tb.Inlines.Add(hyperlink);
                 // stpnl.Children.Add(tb);
-                addCitationLinkControl(mainGrid, tb, rowIndex++);
-
+                addCitationLinkControl(mainGrid, tb, rowIndex-1);
             }
+            //if(answer.renderRemoveButton)
+            //{
+            //    AddRemoveObservationButton(grid, rowIndex, Question);
+            //}
+        }
 
+        private void Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Button bn = sender as Button;
+            var name = bn.Name.Split('_').First();
+            var answerList=result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
+           
+            if (answerList == null&&answerList.obsevationNumber>5)
+                return;
+            int startIndex = (answerList.obsevationNumber * 2) - 2;
+            answerList.answersList[startIndex].defaultVisible = true;
+            answerList.answersList[startIndex + 1].defaultVisible = true;
+            answerList.obsevationNumber = answerList.obsevationNumber+1;
+            getJson(mainGrid);
+            
+            //bn.Visibility = Visibility.Collapsed;
         }
 
         private void AddObservation(Grid grid,ref int rowIndex, SectionHelp.Surveyquestionanswerlist question)
         {
+            if(question.renderAddObservation)
+            {
 
+            }
         }
         private void Hospital_comboBoxOpened(object sender, object e)
         {
@@ -751,6 +866,7 @@ namespace CMS_Survey.Pages
         public async Task SaveSurvey()
         {
             ShowProgress();
+            RemoveBlankObservations();
             Services.ServiceHelper serviceHelper = Services.ServiceHelper.ServiceHelperObject;
             if (await serviceHelper.IsOffline())
             {
@@ -828,6 +944,7 @@ namespace CMS_Survey.Pages
             await SaveSurvey();
             NextButton.Visibility = Visibility.Visible;
             Previous.Visibility = Visibility.Visible;
+            getJson(mainGrid);
         }
 
         private async void CreateJumpSection(List<JumpClass> jumpClass)
@@ -1049,5 +1166,119 @@ namespace CMS_Survey.Pages
             //throw new NotImplementedException();
         } 
         #endregion
+
+        private void RemoveBlankObservations()
+        {
+            foreach (SectionHelp.Section section in result.sections)
+            {
+                foreach (SectionHelp.Surveyquestionanswerlist secQA in section.surveyQuestionAnswerList)
+                {
+                  if(secQA.renderAddObservation)
+                    {
+                        int obsNumber = secQA.obsevationNumber;
+                        if (obsNumber == 1)
+                            continue;
+                        for(int i=2;i<=5;i++)
+                        {
+                            int n = i * 2;
+                            if (secQA.answersList[n - 2].defaultVisible && secQA.answersList[n - 1].defaultVisible)
+                            {
+                                if (secQA.answersList[n - 2].answer == null && secQA.answersList[n - 1].answer == null)
+                                {
+                                    secQA.answersList[n - 2].defaultVisible = false;
+                                    secQA.answersList[n - 1].defaultVisible = false;
+                                    secQA.obsevationNumber = secQA.obsevationNumber - 1;
+                                }
+                                else
+                                {
+                                    AdjustObservations(secQA, n);
+                                }
+                            }
+                            //var AnsList = secQA.answersList.ToList();
+                            //if(AnsList.ElementAt(n-2).answer==null&& AnsList.ElementAt(n-1).answer==null)
+                            //{
+                            //    AnsList.ElementAt(n - 2).defaultVisible = false;
+                            //    AnsList.ElementAt(n - 1).defaultVisible = true;
+                            //    var tempRadioElement = AnsList.ElementAt(n - 2);
+                            //    var tempTextBoxElement = AnsList.ElementAt(n - 1);
+                            //    AnsList.RemoveAt(n - 2);
+                            //    AnsList.RemoveAt(n - 1);
+                            //    tempRadioElement.htmlControlId = AnsList.Last().htmlControlId;
+                            //    tempRadioElement.htmlControlId = AnsList.Last().htmlControlId + 1;
+                            //    AnsList.Add(tempRadioElement);
+                            //    AnsList.Add(tempTextBoxElement);
+                            //    secQA.obsevationNumber = secQA.obsevationNumber - 1;
+                                
+                            //}
+                           
+                        }                       
+                    }
+                }
+            }
+        }
+
+        private void AdjustObservations(SectionHelp.Surveyquestionanswerlist secQA, int n)
+        {
+            int emptySlot;
+            if (FindFirstEmptyObservation(secQA, out emptySlot))
+            {
+                int sl = emptySlot * 2;
+                secQA.answersList[sl - 2].answer = secQA.answersList[n - 2].answer;
+                secQA.answersList[sl - 2].defaultVisible = true;
+                secQA.answersList[sl - 1].answer = secQA.answersList[n - 1].answer;
+                secQA.answersList[sl - 1].defaultVisible = true;
+                secQA.answersList[n - 2].answer = null;
+                secQA.answersList[n - 2].defaultVisible = false;
+                secQA.answersList[n - 1].answer = null;
+                secQA.answersList[n - 1].defaultVisible = false;
+            }
+        }
+
+        private bool FindFirstEmptyObservation(SectionHelp.Surveyquestionanswerlist seCQA,out int foundblank)
+        {
+            bool found = false;
+            foundblank = -1;
+           for(int j=2;j<=seCQA.obsevationNumber;j++)
+            {
+                int n = j * 2;
+                if (seCQA.answersList[n - 2].answer == null&& seCQA.answersList[n-1].answer==null)
+                {
+                    foundblank = j;
+                    found = true;
+                    break;
+                }
+            }
+            return found;
+        }
+
+        private void MoveObservation()
+        {
+            foreach (SectionHelp.Section section in result.sections)
+            {
+                foreach (SectionHelp.Surveyquestionanswerlist secQA in section.surveyQuestionAnswerList)
+                {
+                    
+                    if (secQA.renderAddObservation)
+                    {
+                        int obsNumber = secQA.obsevationNumber;
+                        if (obsNumber == 1)
+                            continue;
+                        var ansList = secQA.answersList.ToList() ;
+                        for(int i=1;i<=obsNumber;i++)
+                        {
+                            int n = i * 2;
+                            //var AnsList = secQA.answersList.ToList();
+                            if (ansList[n - 2].answer == null && ansList[n - 1].answer == null)
+                            {
+                                secQA.answersList[n - 2].defaultDisalbled = true;
+                                secQA.answersList[n - 1].defaultDisalbled = true;
+                                secQA.obsevationNumber = secQA.obsevationNumber - 1;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
