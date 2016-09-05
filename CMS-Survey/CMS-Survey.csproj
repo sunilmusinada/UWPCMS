@@ -112,6 +112,7 @@
     <Compile Include="Database\states_lu_table.cs" />
     <Compile Include="Database\survey_table.cs" />
     <Compile Include="Database\survey_type_lu_table.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\SurveyHelper.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Hospital.cs" />
