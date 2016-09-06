@@ -189,8 +189,7 @@ namespace CMS_Survey.Database
             //Creating users_lu table
             string users_sql = @"CREATE TABLE IF NOT EXISTS
                                     users (
-                                        User_Key   INTEGER       PRIMARY KEY AUTOINCREMENT
-                                                                 NOT NULL,
+                                        User_Key   INTEGER       PRIMARY KEY    NOT NULL,
                                         UserId     VARCHAR (45)  NOT NULL
                                                                  COLLATE NOCASE,
                                         Password   VARCHAR (45)  NOT NULL

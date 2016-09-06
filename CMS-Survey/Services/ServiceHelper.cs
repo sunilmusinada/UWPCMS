@@ -66,7 +66,9 @@ namespace CMS_Survey.Services
 
         private string HeartbeatUrl = HostUrl + @"SurveyRest/rest/myresource/status";
 
-        private string  HospitalJsonUrl = HostUrl + @"/SurveyRest/rest/myresource/questions";
+        private string  HospitalJsonUrl = HostUrl + @"SurveyRest/rest/myresource/questions";
+
+        private string UsersUrl = HostUrl+@"SurveyRest/rest/myresource/users?state={0}";
         #endregion
         public static ServiceHelper ServiceHelperObject
         {
@@ -218,7 +220,7 @@ namespace CMS_Survey.Services
            
             if (isOffline)
             {
-                await SaveSurveyLocal(jsonRequest);
+                await SaveSurveyLocal(jsonRequest,SectionList.First().surveyKey.ToString());
                 SecList = new SectionHelp.Rootobject();
                 SecList.sections = new List<SectionHelp.Section>().ToArray();
                 SecList.sections = SectionList.ToArray();
@@ -238,7 +240,7 @@ namespace CMS_Survey.Services
                     SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
                     isSuccess = true;
                     isSaveSuccessful = true;
-                    await SaveSurveyLocal(jsonRequest);
+                    await SaveSurveyLocal(jsonRequest, SectionList.First().surveyKey.ToString());
                 }
             }
             catch (Exception ex)
@@ -248,18 +250,24 @@ namespace CMS_Survey.Services
             return SecList;
         }
 
-        public async Task SaveSurveyLocal(string jsonRequest)
+        public async Task SaveSurveyLocal(string jsonRequest,string SurveyKey)
         {
-            var folder = ApplicationData.Current.LocalFolder;
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Survey.json");
+            var usrfolder = ApplicationData.Current.LocalFolder;
+           StorageFolder folder= await usrfolder.CreateFolderAsync("Surveys",
+                  CreationCollisionOption.OpenIfExists);
+            var path = folder.Path;
+            
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            string FilePath = Path.Combine(path, string.Format("{0}.json",SurveyKey));
             textFile = (IStorageFile)null;
             if (!File.Exists(FilePath))
             {
-                textFile = await folder.CreateFileAsync("Survey.json");
+                textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey));
             }
             else
             {
-                textFile = await folder.GetFileAsync("Survey.json");
+                textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
             if (Hospitals != null && Hospitals.Count > 0)
@@ -315,7 +323,7 @@ namespace CMS_Survey.Services
                     currentUser.UserId = UserName;
                     currentUser.Password = Password;
 
-                    currentUser.InsertUser();
+                    //currentUser.InsertUser();
                    
                 }
                 else if (response.StatusCode == HttpStatusCode.ServiceUnavailable || response.StatusCode == HttpStatusCode.InternalServerError)
@@ -371,23 +379,28 @@ namespace CMS_Survey.Services
         internal void CallUserSurveyServiceOffline()
         {
             SurveyHelper svHelper = new SurveyHelper();
-            UserSurvey usrSurvey = new UserSurvey();
+            
             UserSurveyList = new ObservableCollection<UserSurvey>();
-            var surObj = SurveyHelper.Request.sections.FirstOrDefault();
-            if (surObj == null)
-                return;
-            GetHospitalForStateOffline("");
-            usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
-            usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
-            usrSurvey.surveyNumber = "";
+            foreach (var SurveyObj in SurveyHelper.SurveyList)
+            {
+                UserSurvey usrSurvey = new UserSurvey();
+                var surObj = SurveyObj.sections.FirstOrDefault();
+                if (surObj == null)
+                    return;
+                //GetHospitalForStateOffline("");
+                usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
+                usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
+                usrSurvey.surveyNumber = "";
 
-            var ansList = surObj.surveyQuestionAnswerList.Where(e=>e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
-            int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
-           var _hospital =Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
-            usrSurvey.surveyProvider = Convert.ToString(_hospital);
-            usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
-            usrSurvey.endDateString = "";
-            UserSurveyList.Add(usrSurvey);  
+                var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
+                int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
+               // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
+                usrSurvey.surveyProvider = Convert.ToString(usrSurvey.surveyProvider);
+                usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
+                usrSurvey.endDateString = "";
+                UserSurveyList.Add(usrSurvey);
+            }
+            
 
         }
 
@@ -500,7 +513,32 @@ namespace CMS_Survey.Services
         }
 
 
-        #endregion 
+        #endregion
+
+        #region Users
+        internal async Task<List<Models.User>> GetUsersForState(string state)
+        {
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UsersUrl,state)));
+            List<Models.User> Users=null;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                Users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<User>>(jsonString);
+              
+            }
+            return Users;
+        }
+        //internal async Task UpdateAllUsers()
+        //{
+        //    List<User> users =await GetUsersForState("ALL");
+        //    Database.users_table usrTable = new Database.users_table();
+        //    usrTable.deleteAll();
+        //    await usrTable.BulkInsertUsers(users);
+
+        //}
+      
+        #endregion
 
     }
 }

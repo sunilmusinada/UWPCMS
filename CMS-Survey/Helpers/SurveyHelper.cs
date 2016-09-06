@@ -1,6 +1,7 @@
 ﻿using CMS_Survey.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,25 +15,38 @@ namespace CMS_Survey.Helpers
     {
         internal static SectionHelp.Rootobject Request;
         public List<SurverInsertObject> surveyInsertObjectList { get; set; }
+        public static ObservableCollection<SectionHelp.Rootobject> SurveyList { get; set; }
         internal SurveyHelper(SectionHelp.Rootobject SectionHelpRoot)
         {
             Request = SectionHelpRoot;
+           
         }
         internal SurveyHelper()
         {
-            Request = new Rootobject();
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Survey.json");
-            List<Models.SectionHelp.Section> SectionList = null;
-            if (!File.Exists(FilePath))
+            SurveyList = new ObservableCollection<Models.SectionHelp.Rootobject>();
+            
+            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path,"Surveys");
+            
+           
+            if (!Directory.Exists(FilePath))
                 return;
+            DirectoryInfo dInfo = new DirectoryInfo(FilePath);
+            
             try
             {
-                using (StreamReader file = File.OpenText(FilePath))
+                foreach (var item in dInfo.GetFiles("*.json"))
                 {
-                    var json = file.ReadToEnd();
-                    SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
-                    Request.sections = SectionList.ToArray();
-                    // System.Diagnostics.Debug.WriteLine(result);
+                   var RootObj = new Rootobject();
+                    List<Models.SectionHelp.Section> SectionList = null;
+                    
+                    using (StreamReader file = File.OpenText(item.FullName))
+                    {
+                        var json = file.ReadToEnd();
+                        SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
+                        RootObj.sections = SectionList.ToArray();
+                        SurveyList.Add(RootObj);
+                        // System.Diagnostics.Debug.WriteLine(result);
+                    }
                 }
             }
             catch (Exception ex)

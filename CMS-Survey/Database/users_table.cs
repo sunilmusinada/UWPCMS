@@ -125,5 +125,40 @@ namespace CMS_Survey.Database
          
 
         }
+
+        public async Task BulkInsertUsers(List<User> users)
+        {
+            if (users == null)
+                return;
+            try
+            {
+                using (var statement = db.Prepare(" BEGIN TRANSACTION"))
+                {
+                    statement.Step();
+                }
+                string insert_sql;
+                foreach (User user in users)
+                {
+
+                    
+                insert_sql = string.Format(" INSERT INTO users (UserId, Password, First_Name, Last_Name, email, role, state) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}')", user.UserId, user.Password, user.FirstName, user.LastName, user.Email, user.Role, user.State);
+                    System.Diagnostics.Debug.WriteLine(insert_sql);
+                    using (var userinsert = db.Prepare(insert_sql))
+                {
+                  
+                    userinsert.Step();
+                }
+                }
+                //COMMIT to accept all changes
+                using (var statement = db.Prepare("COMMIT TRANSACTION"))
+                {
+                    statement.Step();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -72,15 +72,18 @@ namespace CMS_Survey.Pages
                 LoadedOffline = true;
                 if (e.Parameter != null)
                 {
-                    if (Helpers.SurveyHelper.Request == null)
+                   var surKey= Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                    if (Helpers.SurveyHelper.SurveyList == null && Helpers.SurveyHelper.SurveyList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
                         NavigateToMainPage();
                         return;
                     }
                     else
-                        result = Helpers.SurveyHelper.Request;
-
+                    {
+                        result = Helpers.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
+                        //result = Helpers.SurveyHelper.Request;
+                    }
                 }
                 else if (e.Parameter == null)
                 {
@@ -628,9 +631,9 @@ namespace CMS_Survey.Pages
                         GetStates().ForEach(e => cmbbox.Items.Add(e));
                         if (LoadedOffline)
                         {
-                            SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState();
-                            cmbbox.SelectedValue = SelectedState;
-                            cmbbox.IsEnabled = false;
+                           // SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState();  //Sunil
+                            //cmbbox.SelectedValue = SelectedState;
+                            //cmbbox.IsEnabled = false;
                         }
                         else
                         {
@@ -931,7 +934,7 @@ namespace CMS_Survey.Pages
             if (await serviceHelper.IsOffline())
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest);
+                await serviceHelper.SaveSurveyLocal(jsonRequest,result.sections.First().surveyKey.ToString());
                 HideProgress();
             }
             else if (!await serviceHelper.IsOffline())
@@ -942,7 +945,7 @@ namespace CMS_Survey.Pages
             else
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest);
+                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString());
                 HideProgress();
                 ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
                 NavigateToMainPage();
@@ -1121,7 +1124,8 @@ namespace CMS_Survey.Pages
         private void HelpButtonLoad()
         {
             MenuFlyout m = new MenuFlyout();
-
+            if (result.help == null)
+                return;
             foreach (SectionHelp.Help _help in result.help)
             {
                 MenuFlyoutSubItem mFlySub = new MenuFlyoutSubItem();
@@ -1171,7 +1175,7 @@ namespace CMS_Survey.Pages
 
         }
 
-        private void MFlyItem_Click(object sender, RoutedEventArgs e)
+        private async void MFlyItem_Click(object sender, RoutedEventArgs e)
         {
             int indx;
             MenuFlyoutItem mFlyItem = (MenuFlyoutItem)e.OriginalSource;
@@ -1191,6 +1195,7 @@ namespace CMS_Survey.Pages
             else
             {
                 sectionIndex = indx;
+                await SaveSurvey();
                 getJson(mainGrid);
             }
 

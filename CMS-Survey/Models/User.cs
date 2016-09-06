@@ -100,6 +100,18 @@ namespace CMS_Survey.Models
             users_table usrTb = new Database.users_table();
             CurrentUser = usrTb.getUser(userId, password);
         }
+        internal async Task UpdateAllUsers()
+        {
+            if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                return;
+            List<User> users = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+            Database.users_table usrTable = new Database.users_table();
+            if (users == null)
+                return;
+            usrTable.deleteAll();
+            await usrTable.BulkInsertUsers(users);
+
+        }
     }
 
 }

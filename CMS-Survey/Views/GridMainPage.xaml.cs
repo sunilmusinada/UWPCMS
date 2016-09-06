@@ -87,13 +87,19 @@ namespace CMS_Survey.Views
         {
 
             GetSurveys();
+            UpdateUsers();
             //HideAllControls();
             //isOffline = Services.ServiceHelper.ServiceHelperObject.isOffline;
             //SelectedSurvey = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public async void UpdateUsers()
+        {
+            User usr = new Models.User();
+            await usr.UpdateAllUsers();
 
+        }
         public async void GetSurveys()
         {
             //progressRing = new ProgressRing();
