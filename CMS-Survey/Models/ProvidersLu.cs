@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS_Survey.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,8 @@ namespace CMS_Survey.Models
     public partial class ProvidersLu : ViewModelBase
     {
         #region Properties
-        private int providerKey;
-        public int ProviderKey
+        private Int64 providerKey;
+        public Int64 ProviderKey
         {
             get { return providerKey; }
             set { if (SetProperty(ref providerKey, value)) IsDirty = true; }
@@ -134,8 +135,9 @@ namespace CMS_Survey.Models
         }
 
         #endregion
-
-        internal ProvidersLu(int providerKey, string region, string state, string cCN, string pRVDRINTRNLNUM, string fACINTRNLID, string facilityName, string typeOfOwnership, string streetAddress, string city, string zipCode, string county, string phoneNumber, string stateRegion, string certifiedBeds, string providerType, string providerSubtype, string deemedStatus, string deemingAgency)
+        internal ProvidersLu()
+        { }
+        internal ProvidersLu(Int64 providerKey, string region, string state, string cCN, string pRVDRINTRNLNUM, string fACINTRNLID, string facilityName, string typeOfOwnership, string streetAddress, string city, string zipCode, string county, string phoneNumber, string stateRegion, string certifiedBeds, string providerType, string providerSubtype, string deemedStatus, string deemingAgency)
         {
             this.providerKey = providerKey;
             this.region = region;
@@ -157,7 +159,18 @@ namespace CMS_Survey.Models
             this.deemedStatus = deemedStatus;
             this.deemingAgency = deemingAgency;
         }
-
+        internal List<Hospital> GetHospitalsForState(string StateCode)
+        {
+            providers_lu_table provTable = new providers_lu_table();
+            var Hospitals=provTable.GetHospitalsForState(StateCode);
+            return Hospitals;
+        }
+        internal Hospital GetHospitalForProviderKey(int Key)
+        {
+            providers_lu_table provTable = new Database.providers_lu_table();
+            var Hospital = provTable.GetHospitalForProvCode(Key);
+            return Hospital;
+        }
     }
 
 }

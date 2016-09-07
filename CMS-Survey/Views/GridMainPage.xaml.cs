@@ -87,7 +87,8 @@ namespace CMS_Survey.Views
         {
 
             GetSurveys();
-            UpdateUsers();
+           
+            //UpdateUsers();
             //HideAllControls();
             //isOffline = Services.ServiceHelper.ServiceHelperObject.isOffline;
             //SelectedSurvey = null;

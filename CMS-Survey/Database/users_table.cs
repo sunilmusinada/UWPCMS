@@ -39,7 +39,7 @@ namespace CMS_Survey.Database
                     statement.Step();
                 }
 
-                string insert_sql = string.Format(" INSERT INTO users (UserId, Password, First_Name, Last_Name, email, role, state) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}')", user.UserId, user.Password, user.FirstName, user.LastName, user.Email,user.Role, user.State);
+                string insert_sql = string.Format(" INSERT INTO users (User_Key,UserId, Password, First_Name, Last_Name, email, role, state) VALUES({0}, '{1}', '{2}', '{3}', '{4}', '{5}', {6},'{7}')",user.userKey, user.userName, user.Password, user.FirstName, user.LastName, user.Email,user.Role, user.State);
                 System.Diagnostics.Debug.WriteLine(insert_sql);
                 using (var userinsert = db.Prepare(insert_sql))
                 {
@@ -75,8 +75,8 @@ namespace CMS_Survey.Database
                 {
                     user = new User()
                     {
-                        UserKey = (Int64)statement[0],
-                        UserId = (string)statement[1],
+                        userKey = (Int64)statement[0],
+                        userName = (string)statement[1],
                         Password = (string)statement[2],
                         FirstName = (string)statement[3],
                         LastName = (string)statement[4],
@@ -140,8 +140,8 @@ namespace CMS_Survey.Database
                 foreach (User user in users)
                 {
 
-                    
-                insert_sql = string.Format(" INSERT INTO users (UserId, Password, First_Name, Last_Name, email, role, state) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}')", user.UserId, user.Password, user.FirstName, user.LastName, user.Email, user.Role, user.State);
+
+                    insert_sql = string.Format(" INSERT INTO users (User_Key,UserId, Password, First_Name, Last_Name, email, role, state) VALUES({0}, '{1}', '{2}', '{3}', '{4}', '{5}', {6},'{7}')", user.userKey, user.userName, user.Password, user.FirstName, user.LastName, user.Email, user.Role, user.State);
                     System.Diagnostics.Debug.WriteLine(insert_sql);
                     using (var userinsert = db.Prepare(insert_sql))
                 {

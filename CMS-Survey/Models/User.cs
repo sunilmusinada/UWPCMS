@@ -16,14 +16,14 @@ namespace CMS_Survey.Models
 
         #region Properties
         public User CurrentUser = null;
-        private Int64 userKey;
-        public Int64 UserKey
+        private Int64 _userKey;
+        public Int64 userKey
         {
-            get { return userKey; }
-            set { if (SetProperty(ref userKey, value)) IsDirty = true; }
+            get { return _userKey; }
+            set { if (SetProperty(ref _userKey, value)) IsDirty = true; }
         }
         private string userId;
-        public string UserId
+        public string userName
         {
             get { return userId; }
             set { if (SetProperty(ref userId, value)) IsDirty = true; }
@@ -91,7 +91,7 @@ namespace CMS_Survey.Models
         public async Task InsertUser()
         {
             users_table usrTb = new Database.users_table();
-            if(!usrTb.DoesUserExist(this.UserId))
+            if(!usrTb.DoesUserExist(this.userName))
             await usrTb.insertUser(this);
         }
 

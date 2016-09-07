@@ -64,16 +64,16 @@ namespace CMS_Survey.Helpers
             foreach (Section section in Request.sections)
             {
                 SurverInsertObject surveyInsertObject = new Helpers.SurverInsertObject();
-                var survey = new Models.Survey(new Random().Next(int.MinValue, int.MaxValue), surveyTypeLu.SurveyTypeKey, currentTime, true, currentTime, usr.UserKey, currentTime, usr.UserKey);
+                var survey = new Models.Survey(new Random().Next(int.MinValue, int.MaxValue), surveyTypeLu.SurveyTypeKey, currentTime, true, currentTime, usr.userKey, currentTime, usr.userKey);
                 surveyInsertObject.Survey = survey;
-                var surveyaccess = new UserSurveyAccess(new Random().Next(int.MinValue, int.MaxValue), usr.UserKey, survey.SurveyKey, "", currentTime, usr.UserKey, currentTime, usr.UserKey);
+                var surveyaccess = new UserSurveyAccess(new Random().Next(int.MinValue, int.MaxValue), usr.userKey, survey.SurveyKey, "", currentTime, usr.userKey, currentTime, usr.userKey);
                 surveyInsertObject.userSurveyAccess = surveyaccess;
                 surveyInsertObject.Answers = new List<Models.Answer>();
                 foreach (Surveyquestionanswerlist surveyQuestionAnswerList in section.surveyQuestionAnswerList.ToList())
                 {
                     foreach (Answerslist answer in surveyQuestionAnswerList.answersList)
                     {
-                        Answer ans = new Models.Answer(surveyaccess.UserSurveyKey, answer.answer.ToString(), answer.htmlControlId, currentTime, usr.UserKey, currentTime, usr.UserKey);
+                        Answer ans = new Models.Answer(surveyaccess.UserSurveyKey, answer.answer.ToString(), answer.htmlControlId, currentTime, usr.userKey, currentTime, usr.userKey);
                         surveyInsertObject.Answers.Add(ans);
                     }
                 }

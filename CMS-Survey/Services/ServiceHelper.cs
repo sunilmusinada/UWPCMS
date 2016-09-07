@@ -192,21 +192,24 @@ namespace CMS_Survey.Services
         {
             Hospitals = new List<Hospital>();
 
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Hospitals.json");
+            //string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Hospitals.json");
             try
             {
-                using (StreamReader file = File.OpenText(FilePath))
-                {
-                    var json = file.ReadToEnd();
-                    Hospitals = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.Hospital>>(json);
-                    // System.Diagnostics.Debug.WriteLine(result);
-                }
+                ProvidersLu proVlu = new Models.ProvidersLu();
+               Hospitals= proVlu.GetHospitalsForState(StateCode);
             }
             catch (Exception ex)
             {
 
             }
             return Hospitals;
+        }
+        internal Hospital GetHospitalForProviderKey(int HospitalKey)
+        {
+            Hospital hsp = new Models.Hospital();
+            ProvidersLu plu = new Models.ProvidersLu();
+            hsp=plu.GetHospitalForProviderKey(HospitalKey);
+            return hsp;
         }
         #endregion
 
@@ -320,10 +323,10 @@ namespace CMS_Survey.Services
                     string jsonString = await response.Content.ReadAsStringAsync();
 
                     currentUser = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(jsonString);
-                    currentUser.UserId = UserName;
+                    //currentUser.userName = UserName;
                     currentUser.Password = Password;
 
-                    //currentUser.InsertUser();
+                    currentUser.InsertUser();
                    
                 }
                 else if (response.StatusCode == HttpStatusCode.ServiceUnavailable || response.StatusCode == HttpStatusCode.InternalServerError)
@@ -360,7 +363,7 @@ namespace CMS_Survey.Services
             {
                 var client = new HttpClient();
 
-                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.UserKey)));
+                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.userKey)));
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
 
@@ -387,14 +390,17 @@ namespace CMS_Survey.Services
                 var surObj = SurveyObj.sections.FirstOrDefault();
                 if (surObj == null)
                     return;
-                //GetHospitalForStateOffline("");
+                var stateList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
+                var Statecode = stateList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault();
+                var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
+                int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
+                var hsp= GetHospitalForProviderKey(provider);
+                usrSurvey.surveyProvider = hsp.facilityName;
+               
                 usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
                 usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
                 usrSurvey.surveyNumber = "";
-
-                var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
-                int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
-               // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
+                // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
                 usrSurvey.surveyProvider = Convert.ToString(usrSurvey.surveyProvider);
                 usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
                 usrSurvey.endDateString = "";
@@ -404,15 +410,15 @@ namespace CMS_Survey.Services
 
         }
 
-        internal string GetOfflineSelectedState()
+        internal string GetOfflineSelectedState(string stateCode)
         {
-            if (SurveyHelper.Request == null)
-                CallUserSurveyServiceOffline();
-            var surObj = SurveyHelper.Request.sections.FirstOrDefault();
-            if (surObj == null)
-                return null;
-            var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
-            string stateCode = Convert.ToString(ansList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault());
+            //if (SurveyHelper.Request == null)
+            //    CallUserSurveyServiceOffline();
+            //var surObj = SurveyHelper.Request.sections.FirstOrDefault();
+            //if (surObj == null)
+            //    return null;
+            //var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
+            //string stateCode = Convert.ToString(ansList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault());
             var state = StateCode.Where(e => e.stateCode.ToUpper().Equals(stateCode.ToUpper())).Select(e => e.stateName).FirstOrDefault();
            
             return state;

@@ -8,7 +8,7 @@ namespace CMS_Survey.Models
 {
     internal class Hospital
     {
-        public int providerKey { get; set; }
+        public Int64 providerKey { get; set; }
         public string ccn { get; set; }
         public string facilityName { get; set; }
     }

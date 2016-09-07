@@ -126,7 +126,7 @@ namespace CMS_Survey.Pages
         }
         private async Task<SectionHelp.Rootobject> GetClickedSurvey(string SurveyKey)
         {
-            var currentUserKey = Services.ServiceHelper.ServiceHelperObject.currentUser.UserKey;
+            var currentUserKey = Services.ServiceHelper.ServiceHelperObject.currentUser.userKey;
             SectionHelp.Rootobject secHelp = await Services.ServiceHelper.ServiceHelperObject.CallGetSurveyService(Convert.ToString(currentUserKey), SurveyKey);
             return secHelp;
         }
@@ -139,7 +139,7 @@ namespace CMS_Survey.Pages
             {
                 section.status = 1;
                 section.surveyKey = -1;
-                section.userKey = svcHelper.currentUser.UserKey;
+                section.userKey = svcHelper.currentUser.userKey;
             }
         }
 
@@ -631,8 +631,8 @@ namespace CMS_Survey.Pages
                         GetStates().ForEach(e => cmbbox.Items.Add(e));
                         if (LoadedOffline)
                         {
-                           // SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState();  //Sunil
-                            //cmbbox.SelectedValue = SelectedState;
+                           SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(val);  //Sunil
+                            cmbbox.SelectedValue = SelectedState;
                             //cmbbox.IsEnabled = false;
                         }
                         else
