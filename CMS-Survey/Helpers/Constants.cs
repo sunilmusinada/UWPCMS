@@ -8,8 +8,10 @@ namespace CMS_Survey.Helpers
 {
     internal class Constants
     {
-
-    public static readonly String HTML_CONTROL_LABEL = "label";
+        public static readonly string TaskName = "SyncSurveyTask";
+        public static readonly string SurveyFolder = "Surveys";
+        public static readonly string TempSurveyFolder = "TempSurveys";
+        public static readonly String HTML_CONTROL_LABEL = "label";
 	public static readonly String HTML_CONTROL_RADIO = "radio";
 	public static readonly String HTML_CONTROL_CHECK_BOX = "checkbox";
 	public static readonly String HTML_CONTROL_SELECT = "select";

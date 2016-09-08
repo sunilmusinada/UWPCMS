@@ -16,6 +16,8 @@ using Newtonsoft.Json;
 using Template10.Common;
 using MyToolkit.Controls;
 using System.Linq;
+using Template10.Mvvm;
+
 namespace CMS_Survey.Views
 {
     public sealed partial class GridMainPage : Page, INotifyPropertyChanged
@@ -85,13 +87,9 @@ namespace CMS_Survey.Views
 
         private void MainPage_Loading(FrameworkElement sender, object args)
         {
-
+           
             GetSurveys();
            
-            //UpdateUsers();
-            //HideAllControls();
-            //isOffline = Services.ServiceHelper.ServiceHelperObject.isOffline;
-            //SelectedSurvey = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -101,6 +99,8 @@ namespace CMS_Survey.Views
             await usr.UpdateAllUsers();
 
         }
+
+
         public async void GetSurveys()
         {
             //progressRing = new ProgressRing();

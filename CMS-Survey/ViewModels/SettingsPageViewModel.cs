@@ -57,7 +57,7 @@ namespace CMS_Survey.ViewModels
             => _ShowBusyCommand ?? (_ShowBusyCommand = new DelegateCommand(async () =>
             {
                 Views.Busy.SetBusy(true, _BusyText);
-                await Task.Delay(5000);
+                await Task.Delay(50000);
                 Views.Busy.SetBusy(false);
             }, () => !string.IsNullOrEmpty(BusyText)));
     }

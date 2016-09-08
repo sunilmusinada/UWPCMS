@@ -355,6 +355,9 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library.dll">
       <PackagePath>Template10Library.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x86\Debug\SurveySyncComponent.winmd">
+      <PackagePath>SurveySyncComponent.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.13.0\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
@@ -363,6 +366,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Surveydb.sqlite">
+      <PackagePath>Surveydb.sqlite</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square300x300Logo.scale-200.png">
       <PackagePath>Assets\Square300x300Logo.scale-200.png</PackagePath>

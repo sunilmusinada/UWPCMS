@@ -1,9 +1,11 @@
 ﻿using SQLitePCL;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace CMS_Survey.Database
 {
@@ -216,6 +218,17 @@ namespace CMS_Survey.Database
                 statement.Step();
             }
 
+        }
+
+        public static void CopyDataBase()
+        {
+            var folder = ApplicationData.Current.LocalFolder;
+            var path = Path.Combine(folder.Path, "Surveydb.sqlite");
+            if (File.Exists(path))
+                return;
+            var currentworkingDirectory = System.IO.Directory.GetCurrentDirectory();
+            var destinationpath = Path.Combine(currentworkingDirectory, "Surveydb.sqlite");
+            File.Copy(destinationpath, path);
         }
     }
 }

@@ -14,7 +14,7 @@ using Windows.Storage;
 using System.IO;
 using System.Net;
 using Windows.UI.Xaml.Controls;
-
+using CMS_Survey.Helpers;
 namespace CMS_Survey
 {
     /// Documentation on APIs used in this page:
@@ -55,23 +55,26 @@ namespace CMS_Survey
                     ModalContent = new Pages.LoginPart()//.Busy(),
                 };
             }
-            conn = new SQLiteConnection("Surveydb.sqlite");
+            //conn = new SQLiteConnection("Surveydb.sqlite");
             Services.ServiceHelper.ServiceHelperObject.GetStates();
-            CreateDatabase.LoadDatabse(conn);
-           // getJsonFile();
-            
+            //CreateDatabase.LoadDatabse(conn);
+            // getJsonFile();
+            CreateDatabase.CopyDataBase();
+            BackGroundTaskHelper bgtHelper = new Helpers.BackGroundTaskHelper();
+            if (!bgtHelper.TaskRegistered)
+            {
+                bgtHelper.RegisterTask();
+            }
+           //bgtHelper.Unregister();
 
-           
+
             await Task.CompletedTask;
         }
 
       
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-            // long-running startup tasks go here
-            //await Task.Delay(5000);
-
-            //NavigationService.Navigate(typeof(Views.MainPage));
+           
             await Task.CompletedTask;
         }
     }

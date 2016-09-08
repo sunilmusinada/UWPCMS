@@ -20,7 +20,25 @@ namespace CMS_Survey.ViewModels
 
         string _Value = "Survey";
         public string Value { get { return _Value; } set { Set(ref _Value, value); } }
+        private string _BusyText = "Please wait...";
+        public string BusyText
+        {
+            get { return _BusyText; }
+            set
+            {
+                Set(ref _BusyText, value);
+                _ShowBusyCommand.RaiseCanExecuteChanged();
+            }
+        }
 
+        DelegateCommand _ShowBusyCommand;
+        public DelegateCommand ShowBusyCommand
+            => _ShowBusyCommand ?? (_ShowBusyCommand = new DelegateCommand(async () =>
+            {
+                Views.Busy.SetBusy(true, _BusyText);
+                await Task.Delay(50000);
+                Views.Busy.SetBusy(false);
+            }, () => !string.IsNullOrEmpty(BusyText)));
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             if (suspensionState.Any())

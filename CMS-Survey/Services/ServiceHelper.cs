@@ -223,7 +223,7 @@ namespace CMS_Survey.Services
            
             if (isOffline)
             {
-                await SaveSurveyLocal(jsonRequest,SectionList.First().surveyKey.ToString());
+                await SaveSurveyLocal(jsonRequest,SectionList.First().surveyKey.ToString(),Constants.SurveyFolder);
                 SecList = new SectionHelp.Rootobject();
                 SecList.sections = new List<SectionHelp.Section>().ToArray();
                 SecList.sections = SectionList.ToArray();
@@ -243,7 +243,7 @@ namespace CMS_Survey.Services
                     SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
                     isSuccess = true;
                     isSaveSuccessful = true;
-                    await SaveSurveyLocal(jsonRequest, SectionList.First().surveyKey.ToString());
+                    await SaveSurveyLocal(jsonRequest, SectionList.First().surveyKey.ToString(),Constants.SurveyFolder);
                 }
             }
             catch (Exception ex)
@@ -253,17 +253,44 @@ namespace CMS_Survey.Services
             return SecList;
         }
 
-        public async Task SaveSurveyLocal(string jsonRequest,string SurveyKey)
+        public async Task SaveSurveyLocal(string jsonRequest,string SurveyKey,string SubFolder)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
-           StorageFolder folder= await usrfolder.CreateFolderAsync("Surveys",
-                  CreationCollisionOption.OpenIfExists);
+            StorageFolder folder = await usrfolder.CreateFolderAsync(SubFolder,
+                   CreationCollisionOption.OpenIfExists);
             var path = folder.Path;
-            
+           
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            string FilePath = Path.Combine(path, string.Format("{0}.json",SurveyKey));
+          
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+          
             textFile = (IStorageFile)null;
+            await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
+        
+        }
+        public async Task SaveSurveyTemp(string jsonRequest, string SurveyKey)
+        {
+            var usrfolder = ApplicationData.Current.LocalFolder;
+            StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
+                   CreationCollisionOption.OpenIfExists);
+            var path = folder.Path;
+            StorageFolder tempFolder = await usrfolder.CreateFolderAsync("TempSurveys",
+                 CreationCollisionOption.OpenIfExists);
+            var Temppath = tempFolder.Path;
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            if (!Directory.Exists(Temppath))
+                Directory.CreateDirectory(Temppath);
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+            string TempFilePath = Path.Combine(Temppath, string.Format("{0}.json", SurveyKey));
+            textFile = (IStorageFile)null;
+            await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
+            await WriteFile(jsonRequest, SurveyKey, tempFolder, TempFilePath);
+           
+        }
+        private async Task WriteFile(string jsonRequest, string SurveyKey, StorageFolder folder, string FilePath)
+        {
             if (!File.Exists(FilePath))
             {
                 textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey));
@@ -273,11 +300,6 @@ namespace CMS_Survey.Services
                 textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
-            if (Hospitals != null && Hospitals.Count > 0)
-            {
-                var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(Hospitals);
-                SaveHospitalsLocal(jsonString);
-            }
         }
 
         internal async Task<SectionHelp.Rootobject> CallGetSurveyService(string CurrentuserKey, string surveykey)

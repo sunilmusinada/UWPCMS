@@ -15,7 +15,7 @@ namespace CMS_Survey.Models
 
 {
 
-    class SectionHelp
+    public class SectionHelp
 
     {
 

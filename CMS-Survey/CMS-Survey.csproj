@@ -98,6 +98,7 @@
     <None Include="CMS-Survey_TemporaryKey.pfx" />
     <None Include="Models\graph.dgml" />
     <None Include="project.json" />
+    <Content Include="Surveydb.sqlite" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -112,6 +113,7 @@
     <Compile Include="Database\states_lu_table.cs" />
     <Compile Include="Database\survey_table.cs" />
     <Compile Include="Database\survey_type_lu_table.cs" />
+    <Compile Include="Helpers\BackGroundTaskHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\SurveyHelper.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -252,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SurveySyncComponent\SurveySyncComponent.csproj">
+      <Project>{d8a56a08-fed4-4d2d-a608-197d7ac89977}</Project>
+      <Name>SurveySyncComponent</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -934,7 +934,8 @@ namespace CMS_Survey.Pages
             if (await serviceHelper.IsOffline())
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest,result.sections.First().surveyKey.ToString());
+                await serviceHelper.SaveSurveyLocal(jsonRequest,result.sections.First().surveyKey.ToString(),Constants.SurveyFolder);
+                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
                 HideProgress();
             }
             else if (!await serviceHelper.IsOffline())
@@ -945,7 +946,7 @@ namespace CMS_Survey.Pages
             else
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString());
+                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(),Constants.SurveyFolder);
                 HideProgress();
                 ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
                 NavigateToMainPage();
