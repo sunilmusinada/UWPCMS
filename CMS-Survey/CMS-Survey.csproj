@@ -98,9 +98,6 @@
     <None Include="CMS-Survey_TemporaryKey.pfx" />
     <None Include="Models\graph.dgml" />
     <None Include="project.json" />
-    <None Include="Providers.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
