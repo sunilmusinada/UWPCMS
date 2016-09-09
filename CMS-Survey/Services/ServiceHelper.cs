@@ -85,22 +85,27 @@ namespace CMS_Survey.Services
         private List<Models.State> _StateCode;
         internal List<Models.State> GetStates()
         {
-            var folder = ApplicationData.Current.LocalFolder;
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "States.json");
-            if (!File.Exists(FilePath))
-            {
-                CallStateService();
-            }
-            if (StateCode == null||StateCode.Count==0)
-            {
-                StateCode = new List<Models.State>();
-                CreateStateDictionary();
-                return StateCode;
-            }
-            else
-            {
-                return StateCode;
-            }
+
+            Models.State state = new Models.State();
+            StateCode= state.States;
+            return StateCode;
+
+            //var folder = ApplicationData.Current.LocalFolder;
+            //string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "States.json");
+            //if (!File.Exists(FilePath))
+            //{
+            //    CallStateService();
+            //}
+            //if (StateCode == null||StateCode.Count==0)
+            //{
+            //    StateCode = new List<Models.State>();
+            //    CreateStateDictionary();
+            //    return StateCode;
+            //}
+            //else
+            //{
+            //    return StateCode;
+            //}
 
         }
 
@@ -289,7 +294,7 @@ namespace CMS_Survey.Services
             await WriteFile(jsonRequest, SurveyKey, tempFolder, TempFilePath);
            
         }
-        private async Task WriteFile(string jsonRequest, string SurveyKey, StorageFolder folder, string FilePath)
+        public async Task WriteFile(string jsonRequest, string SurveyKey, StorageFolder folder, string FilePath)
         {
             if (!File.Exists(FilePath))
             {
@@ -309,16 +314,9 @@ namespace CMS_Survey.Services
             var client = new HttpClient();
             try
             {
-               
-                    HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(ServeyDataUrl, CurrentuserKey, surveykey)));
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-
-                        jsonString = await response.Content.ReadAsStringAsync();
-
-                        SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
-
-                    }
+                jsonString = await CallGetSurveyServiceJson(CurrentuserKey, surveykey);
+                SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                   
                
             }
             catch(Exception ex)
@@ -326,6 +324,32 @@ namespace CMS_Survey.Services
                 throw ex;
             }
             return SectionList;
+
+        }
+        internal async Task<string> CallGetSurveyServiceJson(string CurrentuserKey, string surveykey)
+        {
+            string jsonString = null;
+           
+            var client = new HttpClient();
+            try
+            {
+
+                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(ServeyDataUrl, CurrentuserKey, surveykey)));
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                   
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return jsonString;
 
         }
         #endregion

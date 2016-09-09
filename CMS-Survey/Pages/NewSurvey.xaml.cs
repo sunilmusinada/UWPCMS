@@ -99,11 +99,12 @@ namespace CMS_Survey.Pages
                 {
                     if (e.Parameter != null)
                     {
-
+                        //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        result = await GetClickedSurvey(Convert.ToString(res));
-                        var MyVariable = await WindowWrapper.Current().Dispatcher
-                     .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
+                        result = Helpers.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
+                    //    result = await GetClickedSurvey(Convert.ToString(res));
+                    //    var MyVariable = await WindowWrapper.Current().Dispatcher
+                    // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
                     }
                     else if (e.Parameter == null)
                     {
@@ -534,7 +535,8 @@ namespace CMS_Survey.Pages
             if (!off && !LoadedOffline)
             {
                 string StateCode = serviceHelper.GetCodeforState(StateName);
-                SelectedHospitals = await serviceHelper.GetHospitalsForState(StateCode);
+                //SelectedHospitals = await serviceHelper.GetHospitalsForState(StateCode);//Modified by Sunil since DB has all the hospitals
+                SelectedHospitals = serviceHelper.GetHospitalForStateOffline(StateCode);
                 if (SelectedHospitals == null || SelectedHospitals.Count == 0)
                     return null;
                 _Hospitals = SelectedHospitals.Select(e => e.facilityName).ToList();

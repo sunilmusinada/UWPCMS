@@ -23,22 +23,26 @@ namespace CMS_Survey.Helpers
         }
         internal SurveyHelper()
         {
+            CreateSurveyList();
+        }
+        public void CreateSurveyList()
+        {
             SurveyList = new ObservableCollection<Models.SectionHelp.Rootobject>();
-            
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path,"Surveys");
-            
-           
+
+            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, Constants.SurveyFolder);
+
+
             if (!Directory.Exists(FilePath))
                 return;
             DirectoryInfo dInfo = new DirectoryInfo(FilePath);
-            
+
             try
             {
                 foreach (var item in dInfo.GetFiles("*.json"))
                 {
-                   var RootObj = new Rootobject();
+                    var RootObj = new Rootobject();
                     List<Models.SectionHelp.Section> SectionList = null;
-                    
+
                     using (StreamReader file = File.OpenText(item.FullName))
                     {
                         var json = file.ReadToEnd();
@@ -53,6 +57,10 @@ namespace CMS_Survey.Helpers
             {
 
             }
+
+        }
+        internal SurveyHelper (bool IsOnline)
+        {
 
         }
         private void ProcessSaveRequest()
@@ -110,9 +118,57 @@ namespace CMS_Survey.Helpers
 
 
         }
-        internal void GetUserSurveys()
+        internal async Task GetUserSurveys()
         {
+            try
+            {
+                var svcHelper = Services.ServiceHelper.ServiceHelperObject;
+                if (await svcHelper.IsOffline())
+                {
+                    svcHelper.CallUserSurveyServiceOffline();
+                }
+                else
+                    await svcHelper.CallUserSurveyService();
+                var surveyList = svcHelper.UserSurveyList;
+                
+                foreach (UserSurvey usrSurvey in surveyList)
+                {
+                    
+                    string jsonString = await GetClickedSurvey(usrSurvey.surveyKey);
+                    await WriteFilesToDirectory(jsonString, usrSurvey.surveyKey);
+                 
+                }
+                CreateSurveyList();
+            }
+            catch(Exception ex)
+            {
 
+            }
+        }
+        private async Task<string> GetClickedSurvey(string SurveyKey)
+        {
+            var currentUserKey = Convert.ToString(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
+            var jsonString= await Services.ServiceHelper.ServiceHelperObject.CallGetSurveyServiceJson(currentUserKey, SurveyKey);
+
+            return jsonString;
+        }
+
+        private async Task WriteFilesToDirectory(string JsonRequest,string SurveyKey)
+        {
+            if (string.IsNullOrEmpty(JsonRequest))
+                return;
+            var usrfolder = ApplicationData.Current.LocalFolder;
+            StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
+                   CreationCollisionOption.OpenIfExists);
+            var path = folder.Path;
+          
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+          
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+            var sectionHelp = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(JsonRequest);
+            JsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(sectionHelp.sections.ToList());
+            await Services.ServiceHelper.ServiceHelperObject.WriteFile(JsonRequest, SurveyKey, folder, FilePath);
         }
     }
 

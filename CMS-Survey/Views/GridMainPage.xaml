@@ -1,4 +1,4 @@
-<Page x:Class="CMS_Survey.Views.GridMainPage"
+<Page x:Name="GridMainPage1" x:Class="CMS_Survey.Views.GridMainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:Behaviors="using:Template10.Behaviors"
@@ -10,7 +10,7 @@
       xmlns:local="using:CMS_Survey.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:CMS_Survey.ViewModels" 
-      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d">
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d" Loaded="GridMainPage1_Loaded">
    
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />

@@ -26,7 +26,7 @@ namespace CMS_Survey.Views
         public delegate void MainPageLoadingHandler(object sender, EventArgs e);
         private string _filter;
         public event MainPageLoadingHandler PageLoadEvent;
-        
+        bool Fetched = false;
         private ObservableCollection<UserSurvey> _Usersurveys;
         //ProgressRing Progress = null;
         // Property.
@@ -85,10 +85,10 @@ namespace CMS_Survey.Views
             //SurveyObject.Rootobject survObj = getJson();
         }
 
-        private void MainPage_Loading(FrameworkElement sender, object args)
+        private async void MainPage_Loading(FrameworkElement sender, object args)
         {
            
-            GetSurveys();
+           await GetSurveys();
            
         }
 
@@ -101,10 +101,11 @@ namespace CMS_Survey.Views
         }
 
 
-        public async void GetSurveys()
+        public async Task GetSurveys()
         {
             //progressRing = new ProgressRing();
             //progressRing.IsActive = true;
+           
             var svcHelper = Services.ServiceHelper.ServiceHelperObject;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
@@ -114,8 +115,14 @@ namespace CMS_Survey.Views
                 await svcHelper.CallUserSurveyService();
 
             // Progress.IsActive = true;
+            if (Fetched)
+            {
+                Helpers.SurveyHelper surveyHelper = new Helpers.SurveyHelper(true);
+                surveyHelper.CreateSurveyList();
+            }
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             this.FilteredUsersurveys = this.Usersurveys;
+           
             //progressRing.IsActive = false;
             //Progress.IsActive = false;
         }
@@ -152,7 +159,7 @@ namespace CMS_Survey.Views
             {
                 await Services.ServiceHelper.ServiceHelperObject.DeleteSurvey(SelectedSurvey.surveyKey);
             }
-            GetSurveys();
+           await  GetSurveys();
             //HideAllControls();
         }
 
@@ -198,6 +205,26 @@ namespace CMS_Survey.Views
             }
               
                 
+        }
+
+        private async void GridMainPage1_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Fetched)
+                return;
+            if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                return;
+            Helpers.SurveyHelper surveyHelper =new Helpers.SurveyHelper(true);
+            DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
+            DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
+            showBusyCommand.Execute();
+            
+            await surveyHelper.GetUserSurveys();
+            await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+            this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
+            this.FilteredUsersurveys = this.Usersurveys;
+            
+            hideBusyCommand.Execute();
+            Fetched = true;
         }
     }
 }

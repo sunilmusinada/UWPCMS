@@ -55,11 +55,13 @@ namespace CMS_Survey
                     ModalContent = new Pages.LoginPart()//.Busy(),
                 };
             }
-            //conn = new SQLiteConnection("Surveydb.sqlite");
+            //
+            CreateDatabase.CopyDataBase();
+            conn = new SQLiteConnection("Surveydb.sqlite");
             Services.ServiceHelper.ServiceHelperObject.GetStates();
             //CreateDatabase.LoadDatabse(conn);
             // getJsonFile();
-            CreateDatabase.CopyDataBase();
+           
             BackGroundTaskHelper bgtHelper = new Helpers.BackGroundTaskHelper();
             if (!bgtHelper.TaskRegistered)
             {

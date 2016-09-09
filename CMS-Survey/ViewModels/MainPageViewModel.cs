@@ -36,8 +36,16 @@ namespace CMS_Survey.ViewModels
             => _ShowBusyCommand ?? (_ShowBusyCommand = new DelegateCommand(async () =>
             {
                 Views.Busy.SetBusy(true, _BusyText);
-                await Task.Delay(50000);
-                Views.Busy.SetBusy(false);
+                await Task.Delay(50);
+              
+            }, () => !string.IsNullOrEmpty(BusyText)));
+        DelegateCommand _HideBusyCommand;
+        public DelegateCommand HideBusyCommand
+            => _HideBusyCommand ?? (_HideBusyCommand = new DelegateCommand(async () =>
+            {
+                Views.Busy.SetBusy(false, _BusyText);
+                await Task.Delay(10);
+
             }, () => !string.IsNullOrEmpty(BusyText)));
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
