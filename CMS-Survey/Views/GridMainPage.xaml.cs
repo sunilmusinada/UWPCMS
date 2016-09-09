@@ -105,20 +105,21 @@ namespace CMS_Survey.Views
         {
             //progressRing = new ProgressRing();
             //progressRing.IsActive = true;
-           
+
             var svcHelper = Services.ServiceHelper.ServiceHelperObject;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 svcHelper.CallUserSurveyServiceOffline();
             }
             else
+            {
                 await svcHelper.CallUserSurveyService();
-
+                await svcHelper.CallUserSurveyService();
+            }
             // Progress.IsActive = true;
             if (Fetched)
             {
-                Helpers.SurveyHelper surveyHelper = new Helpers.SurveyHelper(true);
-                surveyHelper.CreateSurveyList();
+               
             }
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             this.FilteredUsersurveys = this.Usersurveys;
@@ -209,6 +210,7 @@ namespace CMS_Survey.Views
 
         private async void GridMainPage1_Loaded(object sender, RoutedEventArgs e)
         {
+            //Fetched = true;
             if (Fetched)
                 return;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
@@ -222,7 +224,8 @@ namespace CMS_Survey.Views
             await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             this.FilteredUsersurveys = this.Usersurveys;
-            
+        
+            surveyHelper.CreateSurveyList();
             hideBusyCommand.Execute();
             Fetched = true;
         }

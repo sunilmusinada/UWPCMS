@@ -46,6 +46,7 @@ namespace CMS_Survey.Pages
         private bool LoadedOffline = false;
         private ComboBox stateControl = null;
         private ComboBox HospitalControl = null;
+        private ComboBox MailIdCombobox = null;
         private TextBox Hospitalcn = null;
         private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock;
         List<JumpClass> jmpClass;
@@ -175,7 +176,7 @@ namespace CMS_Survey.Pages
             //SurveyHelper svHelper = new SurveyHelper();
             //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
             QuestionObservationDictionary = new Dictionary<int, int>();
-            SurveyHelper svHelper = new SurveyHelper();
+            SurveyHelper svHelper = new SurveyHelper(true);
             jmpClass = svHelper.GetJumpSections(result.sections);
             JumpButtonLoad();
             HelpButtonLoad();
@@ -198,7 +199,7 @@ namespace CMS_Survey.Pages
                 TextBlock questionlabel = new TextBlock();
                 questionlabel.Text = question.questionText.Replace("<br>", Environment.NewLine).Replace("<li>", Environment.NewLine)
                                      .Replace("<ul>", "").Replace("<\\li>", "").Replace("<\\ul>", "")
-                                     .Replace("</li>", "").Replace("</ul>", "");
+                                     .Replace("</li>", "").Replace("</ul>", "").Replace("<br/>", "").Replace("<br/>>", "").Replace("<div>", "").Replace("<div class=\"h4\"", "") ;
                 questionlabel.TextWrapping = TextWrapping.Wrap;
                 //bool renderObservation = question.renderAddObservation;
                 addUIControl(grid, questionlabel, rowIndex++);
@@ -240,9 +241,77 @@ namespace CMS_Survey.Pages
                 }
                 // }
             }
+            if(result.sections.Count()-1==sectionIndex)
+            {
+
+                SectionHelp.Surveyquestionanswerlist question = new Models.SectionHelp.Surveyquestionanswerlist();
+                TextBlock questionlabel = new TextBlock();
+                questionlabel.Text = "Survey Approver Details";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                //bool renderObservation = question.renderAddObservation;
+                questionlabel.FontSize = 15;
+
+                addUIControl(grid, questionlabel, rowIndex++);
+                addBlankLine(grid,rowIndex++);
+                questionlabel = new TextBlock();
+                questionlabel.Text = "• Enter Email Address of the Approver in this section.";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                addUIControl(grid, questionlabel, rowIndex++);
+                questionlabel = new TextBlock();
+                questionlabel.Text = "• Upon submission of the survey, a notification will be sent to the Approver.";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                addUIControl(grid, questionlabel, rowIndex++);
+                questionlabel = new TextBlock();
+                questionlabel.Text = "• If Approver’s State is different from State of facility surveyed, use the drop - down to select the desired state.";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                addUIControl(grid, questionlabel, rowIndex++);
+                addBlankLine(grid, rowIndex++);
+                addBlankLine(grid, rowIndex++);
+                addBlankLine(grid, rowIndex++);
+                questionlabel = new TextBlock();
+                questionlabel.Text = "State";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                addUIControl(grid, questionlabel, rowIndex++);
+                ComboBox cmbbox = new ComboBox();
+                cmbbox.Name = "StateSelectCombobox";
+                cmbbox.Width = 50;
+                cmbbox.Items.Add("ALL");
+                Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
+                cmbbox.SelectionChanged += StateSelectionComboboxChanged;
+                addUIControl(grid, cmbbox,rowIndex++);
+                questionlabel = new TextBlock();
+                questionlabel.Text = "Email address";
+                questionlabel.TextWrapping = TextWrapping.Wrap;
+                addUIControl(grid, questionlabel, rowIndex++);
+                ComboBox cmbbox1 = new ComboBox();
+                cmbbox1.Name = "EmailIDCombobox";
+                MailIdCombobox = cmbbox1;
+                cmbbox1.Width = 400;
+                addUIControl(grid, cmbbox1, rowIndex++);
+                addBlankLine(grid, rowIndex++);
+                addBlankLine(grid, rowIndex++);
+                Button btn = new Button();
+                btn.Content = "Submit";
+                btn.Width = 200;
+                btn.Click += SubmitButtonClicked;
+                addUIControl(grid, btn, rowIndex++);
+            }
             HideProgress();
             return result;
             //}
+        }
+
+        private void SubmitButtonClicked(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cmb = sender as ComboBox;
+            var selectedItem = Convert.ToString(cmb.SelectedItem);
+            var Maillist=await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
+            Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
         }
 
         private void AddObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question)

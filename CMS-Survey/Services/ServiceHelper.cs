@@ -69,6 +69,8 @@ namespace CMS_Survey.Services
         private string  HospitalJsonUrl = HostUrl + @"SurveyRest/rest/myresource/questions";
 
         private string UsersUrl = HostUrl+@"SurveyRest/rest/myresource/users?state={0}";
+
+       // private string UsersListUrl=
         #endregion
         public static ServiceHelper ServiceHelperObject
         {
@@ -469,6 +471,36 @@ namespace CMS_Survey.Services
            
             return state;
 
+        }
+
+        internal async Task<List<string>> GetMaildsForState(string stateCode)
+        {
+            List<string> MailIds = new List<string>();
+            try
+            {
+                var client = new HttpClient();
+
+                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UsersUrl, stateCode)));
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    string jsonString = await response.Content.ReadAsStringAsync();
+
+                    var users = Newtonsoft.Json.JsonConvert.DeserializeObject<ObservableCollection<User>>(jsonString);
+
+                    foreach (User usr in users)
+                    {
+                        var item = string.Format("{0} ({1})", usr.FirstName, usr.Email);
+                        MailIds.Add(item);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return MailIds;
         }
         #endregion
 
