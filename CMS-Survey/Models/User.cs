@@ -90,9 +90,15 @@ namespace CMS_Survey.Models
         }
         public async Task InsertUser()
         {
+            Int64 UserKey = -1;
             users_table usrTb = new Database.users_table();
-            if(!usrTb.DoesUserExist(this.userName))
-            await usrTb.insertUser(this);
+            if(!usrTb.DoesUserExist(this.userName,this.password,out UserKey))
+                await usrTb.UpdateUser(this.userName, this.password, this.userKey);
+            //await usrTb.insertUser(this);
+            //else
+            //{
+            //    await usrTb.UpdateUser(this.userName, this.password, UserKey);
+            //}
         }
 
         public void GetUser(string userId,string password)

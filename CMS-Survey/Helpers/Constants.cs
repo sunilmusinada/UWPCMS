@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS_Survey.Helpers
+namespace CMS_Survey.Template
 {
     internal class Constants
     {
         public static readonly string TaskName = "SyncSurveyTask";
         public static readonly string SurveyFolder = "Surveys";
         public static readonly string TempSurveyFolder = "TempSurveys";
+        public const string InProgressStatus = "In Progress";
+        public const string PendingReview = "Pending Review";
+        public const string Submitted = "Submitted";
+        public const string Approved = "Approved";
+        public const string Rejected = "Rejected";
+        
         public static readonly String HTML_CONTROL_LABEL = "label";
 	public static readonly String HTML_CONTROL_RADIO = "radio";
 	public static readonly String HTML_CONTROL_CHECK_BOX = "checkbox";

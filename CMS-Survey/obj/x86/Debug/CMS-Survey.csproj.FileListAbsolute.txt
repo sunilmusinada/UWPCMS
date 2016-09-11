@@ -1235,3 +1235,4 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\MyToolkit.Extended.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\SurveySyncComponent.winmd
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\SurveySyncComponent.pdb
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\SurveySyncComponent.pri
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Surveydb.sqlite

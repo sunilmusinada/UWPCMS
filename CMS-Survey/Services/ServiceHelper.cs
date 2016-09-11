@@ -9,7 +9,7 @@ using System.IO;
 using System.Net;
 using CMS_Survey.Models;
 using System.Collections.ObjectModel;
-using CMS_Survey.Helpers;
+using CMS_Survey.Template;
 namespace CMS_Survey.Services
 {
     internal class ServiceHelper
@@ -69,6 +69,8 @@ namespace CMS_Survey.Services
         private string  HospitalJsonUrl = HostUrl + @"SurveyRest/rest/myresource/questions";
 
         private string UsersUrl = HostUrl+@"SurveyRest/rest/myresource/users?state={0}";
+
+        private string AssignSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/assignsurvey?userKey={0}&surveyKey={1}&userEmail={2}";
 
        // private string UsersListUrl=
         #endregion
@@ -270,13 +272,13 @@ namespace CMS_Survey.Services
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
           
-            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey,this.currentUser.userKey));
           
             textFile = (IStorageFile)null;
-            await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
+            await WriteFile(jsonRequest, SurveyKey,this.currentUser.userKey.ToString(), folder, FilePath);
         
         }
-        public async Task SaveSurveyTemp(string jsonRequest, string SurveyKey)
+        public async Task SaveSurveyTemp(string jsonRequest, string SurveyKey,Int64 userKey)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
             StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
@@ -289,22 +291,22 @@ namespace CMS_Survey.Services
                 Directory.CreateDirectory(path);
             if (!Directory.Exists(Temppath))
                 Directory.CreateDirectory(Temppath);
-            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
-            string TempFilePath = Path.Combine(Temppath, string.Format("{0}.json", SurveyKey));
+            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey,userKey));
+            string TempFilePath = Path.Combine(Temppath, string.Format("{0}_{1}.json", SurveyKey,userKey));
             textFile = (IStorageFile)null;
-            await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
-            await WriteFile(jsonRequest, SurveyKey, tempFolder, TempFilePath);
+            await WriteFile(jsonRequest, SurveyKey,userKey.ToString(), folder, FilePath);
+            await WriteFile(jsonRequest, SurveyKey,userKey.ToString(), tempFolder, TempFilePath);
            
         }
-        public async Task WriteFile(string jsonRequest, string SurveyKey, StorageFolder folder, string FilePath)
+        public async Task WriteFile(string jsonRequest, string SurveyKey,string UserKey, StorageFolder folder, string FilePath)
         {
             if (!File.Exists(FilePath))
             {
-                textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey));
+                textFile = await folder.CreateFileAsync(string.Format("{0}_{1}.json", SurveyKey,UserKey));
             }
             else
             {
-                textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey));
+                textFile = await folder.GetFileAsync(string.Format("{0}_{1}.json", SurveyKey,UserKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
         }
@@ -353,6 +355,42 @@ namespace CMS_Survey.Services
             }
             return jsonString;
 
+        }
+
+        internal async Task<SectionHelp.Rootobject> CallAssignSurvey(string EmailId,string SurveyKey)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+
+
+            try
+            {
+                var client = new HttpClient();
+                isSaveSuccessful = false;
+                //var values = new Dictionary<string, string>();
+                
+                var content = new StringContent("", Encoding.UTF8, "application/json");
+
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+                string mailid = EmailId.Substring(EmailId.IndexOf('(')+1).Replace(")", "");
+                HttpResponseMessage response = await client.PutAsync(string.Format(AssignSurveyUrl,this.currentUser.userKey,SurveyKey, mailid),content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                    isSuccess = true;
+                    isSaveSuccessful = true;
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return SecList;
         }
         #endregion
 
@@ -502,6 +540,14 @@ namespace CMS_Survey.Services
             }
             return MailIds;
         }
+
+        internal async Task<List<string>> GetMaildsForStateOffline(string stateCode)
+        {
+            List<string> MailIDs = new List<string>();
+            Database.users_table usrTable = new Database.users_table();
+            MailIDs = await usrTable.GetUsersForState(stateCode);
+            return MailIDs;
+        }
         #endregion
 
         #region DeleteSurvey
@@ -613,15 +659,15 @@ namespace CMS_Survey.Services
             }
             return Users;
         }
-        //internal async Task UpdateAllUsers()
-        //{
-        //    List<User> users =await GetUsersForState("ALL");
-        //    Database.users_table usrTable = new Database.users_table();
-        //    usrTable.deleteAll();
-        //    await usrTable.BulkInsertUsers(users);
+        internal async Task AddAllUsers()
+        {
+            List<User> users = await GetUsersForState("ALL");
+            Database.users_table usrTable = new Database.users_table();
+           // usrTable.deleteAll();
+            await usrTable.BulkInsertUsers(users);
 
-        //}
-      
+        }
+
         #endregion
 
     }

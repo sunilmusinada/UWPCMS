@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using static CMS_Survey.Models.SectionHelp;
 
-namespace CMS_Survey.Helpers
+namespace CMS_Survey.Template
 {
     internal class SurveyHelper
     {
@@ -67,11 +67,11 @@ namespace CMS_Survey.Helpers
         {
             User usr = new Models.User();
             SurveyTypeLu surveyTypeLu = new Models.SurveyTypeLu();
-            surveyInsertObjectList = new List<Helpers.SurverInsertObject>();
+            surveyInsertObjectList = new List<Template.SurverInsertObject>();
             DateTime currentTime = DateTime.Now;
             foreach (Section section in Request.sections)
             {
-                SurverInsertObject surveyInsertObject = new Helpers.SurverInsertObject();
+                SurverInsertObject surveyInsertObject = new Template.SurverInsertObject();
                 var survey = new Models.Survey(new Random().Next(int.MinValue, int.MaxValue), surveyTypeLu.SurveyTypeKey, currentTime, true, currentTime, usr.userKey, currentTime, usr.userKey);
                 surveyInsertObject.Survey = survey;
                 var surveyaccess = new UserSurveyAccess(new Random().Next(int.MinValue, int.MaxValue), usr.userKey, survey.SurveyKey, "", currentTime, usr.userKey, currentTime, usr.userKey);
@@ -93,7 +93,7 @@ namespace CMS_Survey.Helpers
         internal List<JumpClass> GetJumpSections(SectionHelp.Section[] Sections)
         {
 
-            List<JumpClass> JmpClassList = new List<Helpers.JumpClass>();
+            List<JumpClass> JmpClassList = new List<Template.JumpClass>();
             for (int i = 0; i < Sections.Count(); i++)
             {
                 var secArray = Sections[i].sectionTitle.Split('.');
@@ -164,11 +164,11 @@ namespace CMS_Survey.Helpers
           
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-          
-            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+          var userKey= Services.ServiceHelper.ServiceHelperObject.currentUser.userKey;
+            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey, userKey));
             var sectionHelp = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(JsonRequest);
             JsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(sectionHelp.sections.ToList());
-            await Services.ServiceHelper.ServiceHelperObject.WriteFile(JsonRequest, SurveyKey, folder, FilePath);
+            await Services.ServiceHelper.ServiceHelperObject.WriteFile(JsonRequest, SurveyKey,userKey.ToString(), folder, FilePath);
         }
     }
 

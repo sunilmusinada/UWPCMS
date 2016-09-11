@@ -15,6 +15,7 @@ namespace SurveySyncComponent
     public sealed class SyncSurveyBackgroundTask : IBackgroundTask
     {
         BackgroundTaskDeferral _deferral;
+        internal string userKey=null;
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             _deferral = taskInstance.GetDeferral();
@@ -49,7 +50,7 @@ namespace SurveySyncComponent
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
-            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
+            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey,userKey));
 
             textFile = (IStorageFile)null;
             await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
@@ -59,11 +60,11 @@ namespace SurveySyncComponent
         {
             if (!File.Exists(FilePath))
             {
-                textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey));
+                textFile = await folder.CreateFileAsync(string.Format("{0}_{1}.json", SurveyKey, userKey));
             }
             else
             {
-                textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey));
+                textFile = await folder.GetFileAsync(string.Format("{0}_{1}.json", SurveyKey, userKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
         }
@@ -104,6 +105,8 @@ namespace SurveySyncComponent
             foreach (FileInfo SurveyFile in Dinfo.GetFiles("*.json"))
             {
                 string json = "";
+
+                userKey = SurveyFile.Name.Replace(".json", "").Substring(SurveyFile.Name.IndexOf('_') + 1);
                 using (StreamReader sr = SurveyFile.OpenText())
                 {
                    

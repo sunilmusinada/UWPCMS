@@ -28,7 +28,40 @@ namespace CMS_Survey.Database
                 statement.Step();
             }
         }
-
+        public void deleteUser(long userKey)
+        {
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            string sql = string.Format("DELETE FROM users where User_Key={}",userKey);
+            using (var users = db.Prepare(sql))
+            {
+                users.Step();
+            }
+            //COMMIT to accept all changes
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+        }
+        public async Task UpdateUser(string userName,string Password,long UserKey)
+        {
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            string sql = string.Format(@" UPDATE[users] SET[UserId] = ""{0}"",[Password] = ""{1}"" WHERE[User_Key]={2}",userName,Password,UserKey);
+            using (var users = db.Prepare(sql))
+            {
+                users.Step();
+            }
+            //COMMIT to accept all changes
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+        }
         public async Task insertUser(User user)
         {
 
@@ -94,7 +127,7 @@ namespace CMS_Survey.Database
             return user;
         }
 
-        public bool DoesUserExist(string userId)
+        public bool DoesUserExist(string userId,string password,out Int64 UserKey)
 
         {
             bool exists = false;
@@ -102,16 +135,28 @@ namespace CMS_Survey.Database
             {
                 statement.Step();
             }
+            UserKey=-1;
             User user = null;
-            string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}'",userId);
+            string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}' & Password='{1}'",userId,password);
             using (var statement = db.Prepare(get_sql))
             {
                 
                 if (SQLiteResult.ROW == statement.Step())
                 {
-                   // var count = (int)statement[1];
-                    if (statement.DataCount > 0)
+                    // var count = (int)statement[1];
+                    if (statement.DataCount <= 0)
+                    {
+                        exists = false;
+                        return exists;
+                    }
+                    else
+                    {
                         exists = true;
+                        UserKey = Convert.ToInt64(statement[0]);
+                        if (string.IsNullOrEmpty(Convert.ToString(statement[2])))
+                            exists = false;
+                    }
+                    
                    
                 }
             }
@@ -125,6 +170,42 @@ namespace CMS_Survey.Database
          
 
         }
+        public bool DoesUserExist(string userId, out Int64 UserKey)
+
+        {
+            bool exists = false;
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            UserKey = -1;
+            User user = null;
+            string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}'", userId);
+            using (var statement = db.Prepare(get_sql))
+            {
+
+                if (SQLiteResult.ROW == statement.Step())
+                {
+                    // var count = (int)statement[1];
+                    if (statement.DataCount <= 0)
+                    {
+                        exists = false;
+                        return exists;
+                    }
+
+
+                }
+            }
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+            return exists;
+
+
+
+
+        }
 
         public async Task BulkInsertUsers(List<User> users)
         {
@@ -132,6 +213,7 @@ namespace CMS_Survey.Database
                 return;
             try
             {
+                long userId;
                 using (var statement = db.Prepare(" BEGIN TRANSACTION"))
                 {
                     statement.Step();
@@ -139,8 +221,10 @@ namespace CMS_Survey.Database
                 string insert_sql;
                 foreach (User user in users)
                 {
-
-
+                    if (DoesUserExist(user.userName,user.Password, out userId))
+                        continue;
+                    if(DoesUserExist(user.userName,out userId))
+                    deleteUser(user.userKey);
                     insert_sql = string.Format(" INSERT INTO users (User_Key,UserId, Password, First_Name, Last_Name, email, role, state) VALUES({0}, '{1}', '{2}', '{3}', '{4}', '{5}', {6},'{7}')", user.userKey, user.userName, user.Password, user.FirstName, user.LastName, user.Email, user.Role, user.State);
                     System.Diagnostics.Debug.WriteLine(insert_sql);
                     using (var userinsert = db.Prepare(insert_sql))
@@ -159,6 +243,39 @@ namespace CMS_Survey.Database
             {
                 throw ex;
             }
+        }
+
+        public async Task<List<string>> GetUsersForState(string StateCode)
+        {
+
+            List<string> EmailIds = new List<string>();
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            
+            string get_sql;
+            if (StateCode=="ALL")
+                get_sql = string.Format("SELECT email,First_Name FROM users");
+            else
+                get_sql = string.Format("SELECT email,First_Name FROM users WHERE state = '{0}'",StateCode);
+
+            using (var statement = db.Prepare(get_sql))
+            {
+
+                System.Diagnostics.Debug.WriteLine(get_sql);
+                while (statement.Step().Equals(SQLiteResult.ROW))
+                {
+                    var mail = string.Format("{0} {1}", Convert.ToString(statement[1]), Convert.ToString(statement[0]));
+                    EmailIds.Add(mail);
+
+                }
+            }
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            return EmailIds;
         }
     }
 }

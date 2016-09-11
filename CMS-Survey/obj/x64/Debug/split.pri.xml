@@ -33,6 +33,11 @@
 					<Value>SQLitePCL.Ext.pri</Value>
 				</Candidate>
 			</NamedResource>
+			<NamedResource name="Surveydb.sqlite" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Surveydb.sqlite">
+				<Candidate type="Path">
+					<Value>Surveydb.sqlite</Value>
+				</Candidate>
+			</NamedResource>
 			<ResourceMapSubtree name="Assets">
 				<NamedResource name="SplashScreen.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/SplashScreen.png">
 					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">

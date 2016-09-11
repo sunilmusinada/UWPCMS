@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SurveySyncComponent;
 using Windows.ApplicationModel.Background;
 
-namespace CMS_Survey.Helpers
+namespace CMS_Survey.Template
 {
    internal class BackGroundTaskHelper
     {

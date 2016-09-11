@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows;
 using Windows.UI.Popups;
-using CMS_Survey.Helpers;
+using CMS_Survey.Template;
 using Windows.UI;
 using Windows.UI.Xaml.Documents;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -40,6 +40,7 @@ namespace CMS_Survey.Pages
         private string CcnControlName;
         private TextBox ccnTextBox;
         private static List<Hospital> SelectedHospitals;
+        public static bool isEnabled=true;
         private string FetchedHospitalCcn;
         private bool fromSavedObject = false;
         private string SelectedState = null;
@@ -74,7 +75,7 @@ namespace CMS_Survey.Pages
                 if (e.Parameter != null)
                 {
                    var surKey= Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                    if (Helpers.SurveyHelper.SurveyList == null && Helpers.SurveyHelper.SurveyList.Count == 0)
+                    if (CMS_Survey.Template.SurveyHelper.SurveyList == null && CMS_Survey.Template.SurveyHelper.SurveyList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
                         NavigateToMainPage();
@@ -82,7 +83,7 @@ namespace CMS_Survey.Pages
                     }
                     else
                     {
-                        result = Helpers.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
+                        result = CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
                         //result = Helpers.SurveyHelper.Request;
                     }
                 }
@@ -100,12 +101,26 @@ namespace CMS_Survey.Pages
                 {
                     if (e.Parameter != null)
                     {
-                        //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                          //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                          
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        result = Helpers.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
-                    //    result = await GetClickedSurvey(Convert.ToString(res));
-                    //    var MyVariable = await WindowWrapper.Current().Dispatcher
-                    // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
+                        if (CMS_Survey.Template.SurveyHelper.SurveyList != null)
+                        {
+
+                            result = CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
+                            if (result == null)
+                            {
+                                if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                                    result = await GetClickedSurvey(Convert.ToString(res));
+                            }
+                        }
+                        else
+                        {
+                            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                                result = await GetClickedSurvey(Convert.ToString(res));
+                        }
+                        //    var MyVariable = await WindowWrapper.Current().Dispatcher
+                        // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
                     }
                     else if (e.Parameter == null)
                     {
@@ -115,12 +130,18 @@ namespace CMS_Survey.Pages
                 }
                 else
                 {
-                    ShowMessage("Application went offline. You will be redirected to the Main page", "Error");
+                    ShowMessage("Application went offline. You will be re-directed to the Main page", "Error");
                     NavigateToMainPage();
                     return;
                 }
             }
             survObj = getJson(mainGrid);
+            if (survObj == null)
+            {
+                ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
+                NavigateToMainPage();
+                return;
+            }
             GetHelpDocuments();
             // parameters.Name
             // parameters.Text
@@ -136,7 +157,7 @@ namespace CMS_Survey.Pages
         {
             Services.ServiceHelper svcHelper = Services.ServiceHelper.ServiceHelperObject;
             // await svcHelper.CallLoginService("kalyan", "kalyancpamula");
-
+            if(result==null)
             foreach (var section in result.sections)
             {
                 section.status = 1;
@@ -177,6 +198,12 @@ namespace CMS_Survey.Pages
             //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
             QuestionObservationDictionary = new Dictionary<int, int>();
             SurveyHelper svHelper = new SurveyHelper(true);
+            if (result == null)
+            {
+                //
+                //NavigateToMainPage();
+                return null;
+             }
             jmpClass = svHelper.GetJumpSections(result.sections);
             JumpButtonLoad();
             HelpButtonLoad();
@@ -220,15 +247,9 @@ namespace CMS_Survey.Pages
                     if (question.renderAddObservation)
 
                     {
-                        //StackPanel stpnl = new StackPanel();
-                        //if (tempObservvationQuestionId.Equals(question.questionId.ToString()))
-                        //    break;
-                        //else
-                        //{
+                       
                         tempObservvationQuestionId = question.questionId.ToString();
-                        //}
-
-                        //ObservationsList.Add(new ObservationHelper(question,)
+                      
                         addBlankLine(grid, rowIndex++);
                         addBlankLine(grid, rowIndex++);
                         if (question.obsevationNumber <= 5)
@@ -243,74 +264,104 @@ namespace CMS_Survey.Pages
             }
             if(result.sections.Count()-1==sectionIndex)
             {
-
-                SectionHelp.Surveyquestionanswerlist question = new Models.SectionHelp.Surveyquestionanswerlist();
-                TextBlock questionlabel = new TextBlock();
-                questionlabel.Text = "Survey Approver Details";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                //bool renderObservation = question.renderAddObservation;
-                questionlabel.FontSize = 15;
-
-                addUIControl(grid, questionlabel, rowIndex++);
-                addBlankLine(grid,rowIndex++);
-                questionlabel = new TextBlock();
-                questionlabel.Text = "• Enter Email Address of the Approver in this section.";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                addUIControl(grid, questionlabel, rowIndex++);
-                questionlabel = new TextBlock();
-                questionlabel.Text = "• Upon submission of the survey, a notification will be sent to the Approver.";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                addUIControl(grid, questionlabel, rowIndex++);
-                questionlabel = new TextBlock();
-                questionlabel.Text = "• If Approver’s State is different from State of facility surveyed, use the drop - down to select the desired state.";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                addUIControl(grid, questionlabel, rowIndex++);
-                addBlankLine(grid, rowIndex++);
-                addBlankLine(grid, rowIndex++);
-                addBlankLine(grid, rowIndex++);
-                questionlabel = new TextBlock();
-                questionlabel.Text = "State";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                addUIControl(grid, questionlabel, rowIndex++);
-                ComboBox cmbbox = new ComboBox();
-                cmbbox.Name = "StateSelectCombobox";
-                cmbbox.Width = 50;
-                cmbbox.Items.Add("ALL");
-                Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
-                cmbbox.SelectionChanged += StateSelectionComboboxChanged;
-                addUIControl(grid, cmbbox,rowIndex++);
-                questionlabel = new TextBlock();
-                questionlabel.Text = "Email address";
-                questionlabel.TextWrapping = TextWrapping.Wrap;
-                addUIControl(grid, questionlabel, rowIndex++);
-                ComboBox cmbbox1 = new ComboBox();
-                cmbbox1.Name = "EmailIDCombobox";
-                MailIdCombobox = cmbbox1;
-                cmbbox1.Width = 400;
-                addUIControl(grid, cmbbox1, rowIndex++);
-                addBlankLine(grid, rowIndex++);
-                addBlankLine(grid, rowIndex++);
-                Button btn = new Button();
-                btn.Content = "Submit";
-                btn.Width = 200;
-                btn.Click += SubmitButtonClicked;
-                addUIControl(grid, btn, rowIndex++);
+                rowIndex = AddSurveyNotesSection(grid, rowIndex);
             }
             HideProgress();
             return result;
             //}
         }
 
-        private void SubmitButtonClicked(object sender, RoutedEventArgs e)
+        private int AddSurveyNotesSection(Grid grid, int rowIndex)
         {
-            throw new NotImplementedException();
+            SectionHelp.Surveyquestionanswerlist question = new Models.SectionHelp.Surveyquestionanswerlist();
+            TextBlock questionlabel = new TextBlock();
+            questionlabel.Text = "Survey Approver Details";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            //bool renderObservation = question.renderAddObservation;
+            questionlabel.FontSize = 15;
+
+            addUIControl(grid, questionlabel, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            questionlabel = new TextBlock();
+            questionlabel.Text = "• Enter Email Address of the Approver in this section.";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            addUIControl(grid, questionlabel, rowIndex++);
+            questionlabel = new TextBlock();
+            questionlabel.Text = "• Upon submission of the survey, a notification will be sent to the Approver.";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            addUIControl(grid, questionlabel, rowIndex++);
+            questionlabel = new TextBlock();
+            questionlabel.Text = "• If Approver’s State is different from State of facility surveyed, use the drop - down to select the desired state.";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            addUIControl(grid, questionlabel, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            questionlabel = new TextBlock();
+            questionlabel.Text = "State";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            addUIControl(grid, questionlabel, rowIndex++);
+            ComboBox cmbbox = new ComboBox();
+            cmbbox.Name = "StateSelectCombobox";
+            cmbbox.Width = 66;
+            cmbbox.Items.Add("ALL");
+            Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
+            cmbbox.SelectionChanged += StateSelectionComboboxChanged;
+            addUIControl(grid, cmbbox, rowIndex++);
+            questionlabel = new TextBlock();
+            questionlabel.Text = "Email address";
+            questionlabel.TextWrapping = TextWrapping.Wrap;
+            addUIControl(grid, questionlabel, rowIndex++);
+            ComboBox cmbbox1 = new ComboBox();
+            cmbbox1.Name = "EmailIDCombobox";
+            MailIdCombobox = cmbbox1;
+            cmbbox1.Width = 400;
+            addUIControl(grid, cmbbox1, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            addBlankLine(grid, rowIndex++);
+            Button btn = new Button();
+            btn.Content = "Submit";
+            btn.Width = 200;
+            btn.Click += SubmitButtonClicked;
+            addUIControl(grid, btn, rowIndex++);
+            return rowIndex;
+        }
+
+        private async void SubmitButtonClicked(object sender, RoutedEventArgs e)
+        {
+            string mailId = Convert.ToString(MailIdCombobox.SelectedValue);
+            string SurveyKey = Convert.ToString(result.sections.First().surveyKey);
+            if (string.IsNullOrEmpty(mailId))
+                return;
+
+           if(!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            {
+                await SaveSurvey();
+                await Services.ServiceHelper.ServiceHelperObject.CallAssignSurvey(mailId, SurveyKey);
+            }
+           else
+            {
+                await SaveSurvey();
+                Assignment assignment = new Assignment();
+                assignment.Assignment_ID = -1;
+                assignment.User_Key = Services.ServiceHelper.ServiceHelperObject.currentUser.userKey;
+                assignment.Survey_Key = Convert.ToInt64(SurveyKey);
+                assignment.EmailID = mailId;
+                assignment.InsertAssignment(assignment);
+            }
+
         }
 
         private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
             var selectedItem = Convert.ToString(cmb.SelectedItem);
-            var Maillist=await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
+            MailIdCombobox.Items.Clear();
+            List<string> Maillist = null;
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
+            else
+                Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForStateOffline(selectedItem);
             Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
         }
 
@@ -325,12 +376,14 @@ namespace CMS_Survey.Pages
             Btn.ClickMode = ClickMode.Press;
             int cntObservation = question.obsevationNumber;
             Btn.Name = question.questionId.ToString() + "_Add Observation_" + cntObservation.ToString();
-
+            Btn.IsEnabled = IsEnabled;
             Btn.Content = "Add Observation " + cntObservation.ToString();
             addUIControl(grid, Btn, rowIndex - 2);
         }
         private void AddRemoveObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question, int ObservationIndex)
         {
+            if (result.sections.Count() - 1 == sectionIndex)
+                return;
             int cntObservation = question.obsevationNumber - 1;
             if (cntObservation < 1)
                 return;
@@ -341,7 +394,7 @@ namespace CMS_Survey.Pages
             Btn.IsEnabled = true;
             Btn.Click += RemoveObservationButtonClick; ;
             Btn.ClickMode = ClickMode.Press;
-
+            Btn.IsEnabled = isEnabled;
             Btn.HorizontalAlignment = HorizontalAlignment.Right;
             Btn.Content = "Remove Observation " + ObservationIndex.ToString();
             Btn.Name = question.questionId.ToString() + "_Remove Observation_" + ObservationIndex.ToString();
@@ -448,6 +501,16 @@ namespace CMS_Survey.Pages
         #region SaveAndProcess
         private async void processNext(object sender, RoutedEventArgs e)
         {
+            if(!isEnabled)
+            {
+                if (sectionIndex < result.sections.Length - 1)
+                {
+                    sectionIndex++;
+                    getJson(mainGrid);
+                }
+                    return;
+                
+            }
             if (sectionIndex == 0)
             {
                 if (!Validate())
@@ -639,7 +702,9 @@ namespace CMS_Survey.Pages
                 case "textarea":
                     if (Question.renderAddObservation)
                     {
+
                         TextBlock txBlock = new TextBlock();
+                       
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
 
@@ -647,7 +712,8 @@ namespace CMS_Survey.Pages
                     TextBox textBox = new TextBox();
                     textBox.Name = answer.htmlControlId.ToString();
                     textBox.Height = 150;
-                    //textBox.Width = 150;
+
+                  
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     textBox.LostFocus += TextBox_LostFocus;
                     if (answer.renderRemoveButton)
@@ -656,6 +722,7 @@ namespace CMS_Survey.Pages
                         AddRemoveObservationButton(mainGrid, rowIndex - 1, Question, ind);
                         QuestionObservationDictionary[Question.questionId] = ind + 1;
                     }
+                    textBox.IsEnabled = isEnabled;
                     addUIControl(grid, textBox, rowIndex++);
                     break;
                 case "radio":
@@ -667,7 +734,7 @@ namespace CMS_Survey.Pages
                         SetRadioState(radio.Content.ToString(), (Convert.ToString(answer.answer)), radio);
                         //radio.IsChecked = Convert.ToBoolean(answer.htmlControlText);
                         radio.Checked += Radio_Checked;
-
+                        radio.IsEnabled = isEnabled;
                         radio.GroupName = groupIndex.ToString();
                         addUIControl(grid, radio, rowIndex++);
 
@@ -688,6 +755,7 @@ namespace CMS_Survey.Pages
                     chkBox.Content = label;
                     chkBox.Unchecked += ChkBox_Unchecked;
                     chkBox.Checked += ChkBox_Checked;
+                    chkBox.IsEnabled = isEnabled;
                     addUIControl(grid, chkBox, rowIndex++);
                     break;
                 case "select":
@@ -724,6 +792,7 @@ namespace CMS_Survey.Pages
                             SetHospital(cmbbox, val);
                         addErrorLabelControl(grid, "Please select a Hospital", rowIndex, "Hospital");
                     }
+                    cmbbox.IsEnabled = isEnabled;
                     //cmbbox.SelectedValue = string.IsNullOrEmpty((Convert.ToString(answer.answer))) ? "" : (Convert.ToString(answer.answer));
                     addUIControl(grid, cmbbox, rowIndex++);
                     break;
@@ -749,6 +818,7 @@ namespace CMS_Survey.Pages
                     txtBx.Width = 200;
                     txtBx.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     txtBx.LostFocus += TextBox_LostFocus;
+                    txtBx.IsEnabled = isEnabled;
                     addErrorLabelControl(grid, "Please select a Certificate number", rowIndex, "CCN");
                     addUIControl(grid, txtBx, rowIndex++);
                     break;
@@ -769,6 +839,7 @@ namespace CMS_Survey.Pages
                     {
                         txtBlock.Text = (Convert.ToString(answer.answer));
                     }
+                    dtPicker.IsEnabled = isEnabled;
                     txtBlock.TextWrapping = TextWrapping.Wrap;
                     addUIControl(grid, txtBlock, rowIndex++);
                     addUIControl(grid, dtPicker, rowIndex++);
@@ -990,7 +1061,7 @@ namespace CMS_Survey.Pages
         private async void ShowMessage(string message, string caption)
         {
             MessageDialog msgDialog = new MessageDialog(message, caption);
-            await msgDialog.ShowAsync();
+           IUICommand cmd= await msgDialog.ShowAsync();
         }
 
         private void NavigateToMainPage()
@@ -1039,6 +1110,8 @@ namespace CMS_Survey.Pages
 
         private async void ProcessSave(object sender, RoutedEventArgs e)
         {
+            if (!isEnabled)
+                return;
             if (sectionIndex == 0)
             {
                 if (!Validate())
@@ -1250,6 +1323,11 @@ namespace CMS_Survey.Pages
         private async void MFlyItem_Click(object sender, RoutedEventArgs e)
         {
             int indx;
+            //if(!isEnabled)
+            //{
+            //    sectionIndex++;
+            //    getJson(mainGrid);
+            //}
             MenuFlyoutItem mFlyItem = (MenuFlyoutItem)e.OriginalSource;
             var ClickedName = mFlyItem.Name;
             if (sectionIndex == 0)
@@ -1267,6 +1345,7 @@ namespace CMS_Survey.Pages
             else
             {
                 sectionIndex = indx;
+                if(isEnabled)
                 await SaveSurvey();
                 getJson(mainGrid);
             }
@@ -1304,22 +1383,7 @@ namespace CMS_Survey.Pages
                                     AdjustObservations(secQA, n);
                                 }
                             }
-                            //var AnsList = secQA.answersList.ToList();
-                            //if(AnsList.ElementAt(n-2).answer==null&& AnsList.ElementAt(n-1).answer==null)
-                            //{
-                            //    AnsList.ElementAt(n - 2).defaultVisible = false;
-                            //    AnsList.ElementAt(n - 1).defaultVisible = true;
-                            //    var tempRadioElement = AnsList.ElementAt(n - 2);
-                            //    var tempTextBoxElement = AnsList.ElementAt(n - 1);
-                            //    AnsList.RemoveAt(n - 2);
-                            //    AnsList.RemoveAt(n - 1);
-                            //    tempRadioElement.htmlControlId = AnsList.Last().htmlControlId;
-                            //    tempRadioElement.htmlControlId = AnsList.Last().htmlControlId + 1;
-                            //    AnsList.Add(tempRadioElement);
-                            //    AnsList.Add(tempTextBoxElement);
-                            //    secQA.obsevationNumber = secQA.obsevationNumber - 1;
-
-                            //}
+                           
 
                         }
                     }

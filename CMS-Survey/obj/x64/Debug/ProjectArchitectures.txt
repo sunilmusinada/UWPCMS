@@ -1,1 +1,2 @@
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\CMS-Survey.csproj;x64
+F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\SurveySyncComponent.csproj;x64

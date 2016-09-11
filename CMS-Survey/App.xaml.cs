@@ -14,7 +14,7 @@ using Windows.Storage;
 using System.IO;
 using System.Net;
 using Windows.UI.Xaml.Controls;
-using CMS_Survey.Helpers;
+using CMS_Survey.Template;
 namespace CMS_Survey
 {
     /// Documentation on APIs used in this page:
@@ -61,8 +61,8 @@ namespace CMS_Survey
             Services.ServiceHelper.ServiceHelperObject.GetStates();
             //CreateDatabase.LoadDatabse(conn);
             // getJsonFile();
-           
-            BackGroundTaskHelper bgtHelper = new Helpers.BackGroundTaskHelper();
+            await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
+            BackGroundTaskHelper bgtHelper = new Template.BackGroundTaskHelper();
             if (!bgtHelper.TaskRegistered)
             {
                 bgtHelper.RegisterTask();

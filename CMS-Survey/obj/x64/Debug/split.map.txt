@@ -14,6 +14,7 @@
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Template10Library\Template10Library.xr.xml"			"Template10Library\Template10Library.xr.xml"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Template10Library\Properties\Template10Library.rd.xml"			"Template10Library\Properties\Template10Library.rd.xml"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Template10Library\Controls\HamburgerMenu.xaml"			"Template10Library\Controls\HamburgerMenu.xaml"
+"F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Surveydb.sqlite"			"Surveydb.sqlite"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\SQLitePCL.Ext.pri"			"SQLitePCL.Ext.pri"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\SQLitePCL.Ext.dll"			"SQLitePCL.Ext.dll"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Properties\Default.rd.xml"			"Properties\Default.rd.xml"

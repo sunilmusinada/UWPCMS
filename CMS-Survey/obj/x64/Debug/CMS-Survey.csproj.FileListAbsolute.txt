@@ -260,3 +260,7 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\SQLitePCL.Ext.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\ProjectArchitectures.txt
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\MyToolkit.Extended.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\ForBundle\AppxManifest.xml
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Surveydb.sqlite
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.winmd
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pdb
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pri

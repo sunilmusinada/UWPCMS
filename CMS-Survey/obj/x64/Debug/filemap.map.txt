@@ -105,6 +105,8 @@
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\System.Collections.dll"			"System.Collections.dll"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\System.Collections.Concurrent.dll"			"System.Collections.Concurrent.dll"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\System.AppContext.dll"			"System.AppContext.dll"
+"F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\SurveySyncComponent.winmd"			"SurveySyncComponent.winmd"
+"F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\Surveydb.sqlite"			"Surveydb.sqlite"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\SQLitePCL.Ext.dll"			"SQLitePCL.Ext.dll"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\SQLitePCL.dll"			"SQLitePCL.dll"
 "F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\PackageLayout\sqlite3.dll"			"sqlite3.dll"

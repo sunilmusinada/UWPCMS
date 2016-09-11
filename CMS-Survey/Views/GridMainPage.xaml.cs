@@ -17,6 +17,8 @@ using Template10.Common;
 using MyToolkit.Controls;
 using System.Linq;
 using Template10.Mvvm;
+using CMS_Survey.Template;
+using Windows.UI.Popups;
 
 namespace CMS_Survey.Views
 {
@@ -91,7 +93,11 @@ namespace CMS_Survey.Views
            await GetSurveys();
            
         }
-
+        private async void ShowMessage(string message, string caption)
+        {
+            MessageDialog msgDialog = new MessageDialog(message, caption);
+            await msgDialog.ShowAsync();
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public async void UpdateUsers()
         {
@@ -100,7 +106,32 @@ namespace CMS_Survey.Views
 
         }
 
+        private void RenderButtons(string Status)
+        {
+            
+            //this.vi
+           
+        }
 
+        //public void AddEditButton()
+        //{
+        //    Button btn = new Button();
+        //    btn.Name = "Edit";
+        //    btn.Content = "Edit";
+        //    btn.HorizontalAlignment = HorizontalAlignment.Left;
+        //    btn.VerticalAlignment = VerticalAlignment.Top;
+        //    btn.Click += Edit_Click;
+        //    btn.Margin = new Thickness(10, 10, 0, 0);
+            
+        //    Grid btnGrid = CMS_Survey.Pages.NewSurvey.FindVisualChildren<Grid>(this.DataGrid).ToList().Where(t=>t.Name.Equals("ButtonGrid")).FirstOrDefault();
+        //    btnGrid.Children.Add(btn);
+        //   ////// var obj=this.FindName("ButtonGrid") as Grid;
+        //   // obj.Children.Add(btn);
+        //    //btn.Margin.Left = 10;
+        //    //btn.Margin.Top = 10;
+        //    //btn.Margin.Right = 0;
+        //    //btn.Margin.Bottom = 0;
+        //}
         public async Task GetSurveys()
         {
             //progressRing = new ProgressRing();
@@ -113,7 +144,8 @@ namespace CMS_Survey.Views
             }
             else
             {
-                await svcHelper.CallUserSurveyService();
+                await svcHelper.IsOffline();
+                //await svcHelper.CallUserSurveyService();
                 await svcHelper.CallUserSurveyService();
             }
             // Progress.IsActive = true;
@@ -147,8 +179,10 @@ namespace CMS_Survey.Views
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            CMS_Survey.Pages.NewSurvey.isEnabled = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
+        
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -168,6 +202,8 @@ namespace CMS_Survey.Views
         {
             DataGrid dgrid = sender as DataGrid;
             SelectedSurvey = dgrid.SelectedItem as UserSurvey;
+            if(SelectedSurvey!=null)
+            RenderButtons(SelectedSurvey.status);
         }
 
         private void Filter_TextChanged(object sender, TextChangedEventArgs e)
@@ -215,19 +251,25 @@ namespace CMS_Survey.Views
                 return;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 return;
-            Helpers.SurveyHelper surveyHelper =new Helpers.SurveyHelper(true);
+            Template.SurveyHelper surveyHelper =new Template.SurveyHelper(true);
             DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
             DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             showBusyCommand.Execute();
             
-            await surveyHelper.GetUserSurveys();
-            await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+             surveyHelper.GetUserSurveys();
+             Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             this.FilteredUsersurveys = this.Usersurveys;
         
             surveyHelper.CreateSurveyList();
             hideBusyCommand.Execute();
             Fetched = true;
+        }
+
+        private void View_Click(object sender, RoutedEventArgs e)
+        {
+            CMS_Survey.Pages.NewSurvey.isEnabled = false;
+            GetClickedSurvey(SelectedSurvey.surveyKey);
         }
     }
 }
