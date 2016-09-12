@@ -59,7 +59,7 @@ namespace CMS_Survey
             CreateDatabase.CopyDataBase();
             conn = new SQLiteConnection("Surveydb.sqlite");
             Services.ServiceHelper.ServiceHelperObject.GetStates();
-            //CreateDatabase.LoadDatabse(conn);
+           //CreateDatabase.LoadDatabse(conn);
             // getJsonFile();
             await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
             BackGroundTaskHelper bgtHelper = new Template.BackGroundTaskHelper();
@@ -67,7 +67,7 @@ namespace CMS_Survey
             {
                 bgtHelper.RegisterTask();
             }
-           //bgtHelper.Unregister();
+         // bgtHelper.Unregister();
 
 
             await Task.CompletedTask;

@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="13228281-de3c-4cee-b5f6-12b990ea723a" Publisher="CN=kakar" Version="1.0.13.0" ProcessorArchitecture="x64" />
+  <Identity Name="13228281-de3c-4cee-b5f6-12b990ea723a" Publisher="CN=kakar" Version="1.0.14.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="13228281-de3c-4cee-b5f6-12b990ea723a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>CMS-Survey</DisplayName>

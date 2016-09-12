@@ -85,7 +85,7 @@
                                 PlaceholderText="Action Date"  Margin="850,0,0,0"                                  />
                             </Grid>
                     </StackPanel>
-                    <ExtendedControls:DataGrid x:ConnectionId='9' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="DataGrid" 
+                    <ExtendedControls:DataGrid x:ConnectionId='9' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid" 
                    SelectionMode="Single" DefaultOrderIndex="0" Margin="0,50,-800,-800"                                                         
                                            RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
                                                                                        Grid.RowSpan="1" 

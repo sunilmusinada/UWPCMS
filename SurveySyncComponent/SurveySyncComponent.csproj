@@ -108,6 +108,8 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assignment.cs" />
+    <Compile Include="Assignment_table.cs" />
     <Compile Include="SectionHelp.cs" />
     <Compile Include="SyncSurveyBackgroundTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

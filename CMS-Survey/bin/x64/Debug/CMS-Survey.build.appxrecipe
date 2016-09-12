@@ -367,6 +367,9 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
+      <PackagePath>SurveySyncComponent\SQLitePCL.Ext.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Surveydb.sqlite">
       <PackagePath>Surveydb.sqlite</PackagePath>
     </AppxPackagedFile>

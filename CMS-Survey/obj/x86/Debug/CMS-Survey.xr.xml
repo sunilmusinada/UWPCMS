@@ -149,7 +149,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
       <RootProperty Name="DataContext" />
-      <RootProperty Name="Resources" />
       <RootProperty Name="Background" />
       <RootEvent Name="Loaded" />
     </RootType>

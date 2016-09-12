@@ -1,4 +1,5 @@
 ﻿using CMS_Survey.Models;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,16 +15,21 @@ namespace SurveySyncComponent
 {
     public sealed class SyncSurveyBackgroundTask : IBackgroundTask
     {
+        private static SQLiteConnection conn;
+        Assignment_table assignTable;
         BackgroundTaskDeferral _deferral;
         internal string userKey=null;
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             _deferral = taskInstance.GetDeferral();
-           
+            conn = new SQLiteConnection("Surveydb.sqlite");
             try
             {
+                assignTable = new Assignment_table(conn);
                Task t= SyncAllLocalSurveys();
                 await t;
+                Task t2 = AssignSurveys();
+                await t2;
 
             }
             catch(Exception ex)
@@ -37,9 +43,10 @@ namespace SurveySyncComponent
 
         private IStorageFile textFile { get; set; }
         public bool isSaveSuccessful { get; private set; }
+        public bool isAssignSuccessful { get; private set; }
         static string HostUrl = @"https://cms-specialtysurveys-internal.org/";
         private string SurveyUrl = HostUrl + @"SurveyRest/rest/myresource/questionanswers";
-       
+        private string AssignSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/assignsurvey?userKey={0}&surveyKey={1}&userEmail={2}";
         private async Task SaveSurveyLocal(string jsonRequest, string SurveyKey, string SubFolder)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
@@ -140,6 +147,61 @@ namespace SurveySyncComponent
                 fin.Delete();
         }
 
-       
+        private async Task AssignSurveys()
+        {
+            List<Assignment> assignments = GetAllAssignments();
+            foreach (Assignment assign in assignments)
+            {
+               bool assigned= await CallAssignSurvey(assign.EmailID, Convert.ToString(assign.Survey_Key),assign.User_Key);
+                if(assigned)
+                DeleteAssignment(assign.Assignment_ID);
+            }
+        }
+        private List<Assignment> GetAllAssignments()
+        {
+            List<Assignment> AssignmentList = new List<Assignment>();
+          
+           AssignmentList= assignTable.GetAssignments();
+            return AssignmentList;
+        }
+        private void DeleteAssignment(long id)
+        {
+            assignTable.deleteAssignment(id);
+        }
+        private async Task<bool> CallAssignSurvey(string EmailId, string SurveyKey,long userKey)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+
+
+            try
+            {
+                var client = new HttpClient();
+                isAssignSuccessful = false;
+                //var values = new Dictionary<string, string>();
+
+                var content = new StringContent("", Encoding.UTF8, "application/json");
+
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+                string mailid = EmailId.Substring(EmailId.IndexOf('(') + 1).Replace(")", "");
+                HttpResponseMessage response = await client.PutAsync(string.Format(AssignSurveyUrl, userKey, SurveyKey, mailid), content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                   
+                    isAssignSuccessful = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isAssignSuccessful;
+        }
     }
 }

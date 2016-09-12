@@ -266,7 +266,7 @@ namespace CMS_Survey.Database
                 System.Diagnostics.Debug.WriteLine(get_sql);
                 while (statement.Step().Equals(SQLiteResult.ROW))
                 {
-                    var mail = string.Format("{0} {1}", Convert.ToString(statement[1]), Convert.ToString(statement[0]));
+                    var mail = string.Format("{0} ({1})", Convert.ToString(statement[1]), Convert.ToString(statement[0]));
                     EmailIds.Add(mail);
 
                 }

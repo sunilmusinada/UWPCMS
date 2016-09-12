@@ -6,12 +6,15 @@ using System.Data.Common;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+
 namespace CMS_Survey.Models
 {
    internal class Assignment:ViewModelBase
     {
 
         private Int64 assignment_ID;
+
+      
         public Int64 Assignment_ID
         {
             get { return assignment_ID; }
@@ -59,7 +62,7 @@ namespace CMS_Survey.Models
         public async void InsertAssignment(Assignment assignment)
         {
             Database.Assignment_table assignTable = new Database.Assignment_table();
-            await assignTable.InsertAssignment(assignment);
+             assignTable.InsertAssignment(assignment);
         }
 
     }

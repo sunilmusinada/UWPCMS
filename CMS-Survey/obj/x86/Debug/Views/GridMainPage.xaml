@@ -10,9 +10,8 @@
       xmlns:local="using:CMS_Survey.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:CMS_Survey.ViewModels" 
-      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d"                              
-      xmlns:Tplate="using:CMS_Survey.Template">
-      
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d"                              >
+   
     <Page.DataContext>
         <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
     </Page.DataContext>
@@ -108,7 +107,7 @@
 
                         </ExtendedControls:DataGrid.Columns>
                         <ExtendedControls:DataGrid.ItemDetailsTemplate>
-                            <DataTemplate                              >
+                            <DataTemplate                             >
                                 <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
 
                                     <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
@@ -126,36 +125,6 @@
         </StackPanel>
           
     </RelativePanel>
-    <Page.Resources>
-        <DataTemplate x:Key="InprogressTemplate">
-            <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
-
-                <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
-                    <Button x:ConnectionId='23' x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"                   />
-                    <Button x:ConnectionId='24' x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"                   />
-                    <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>-->
-                </Grid>
-
-            </StackPanel>
-        </DataTemplate>
-
-        <DataTemplate x:Key="SubmittedTemplate">
-            <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
-
-                <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
-                    <Button x:ConnectionId='20' x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"                   />
-                    <Button x:ConnectionId='21' x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"                   />
-                    <Button x:ConnectionId='22' x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top"                     />
-                </Grid>
-
-            </StackPanel>
-        </DataTemplate>
-
-        <!--<Tplate:SurveyDataTemplateSelector x:Key="SurveyDataTemplateSelector"
-        InprogressTemplate="{StaticResource InprogressTemplate}"
-        SubmittedTemplate="{StaticResource SubmittedTemplate}">
-        </Tplate:SurveyDataTemplateSelector>-->
-    </Page.Resources>
 </Page>
 
 

@@ -17,7 +17,7 @@ namespace CMS_Survey.Database
             {
                 statement.Step();
             }
-            string sql = string.Format("DELETE FROM Assignment where Assignment_ID={}", Id);
+            string sql = string.Format("DELETE FROM Assignment where Assignment_ID={0}", Id);
             using (var users = db.Prepare(sql))
             {
                 users.Step();
@@ -28,7 +28,7 @@ namespace CMS_Survey.Database
                 statement.Step();
             }
         }
-        public async Task InsertAssignment(Assignment Assignment)
+        public void InsertAssignment(Assignment Assignment)
         {
 
             try
@@ -37,8 +37,8 @@ namespace CMS_Survey.Database
                 {
                     statement.Step();
                 }
-
-                string insert_sql = string.Format("INSERT INTO [Assignment] ([Assignment_ID],[Survey_Key],[User_Key],[EmailID])VALUES ({0},{1},{2},'{3}')",Assignment.Assignment_ID,Assignment.Survey_Key,Assignment.User_Key,Assignment.EmailID);
+                string mail = Assignment.EmailID.Substring(Assignment.EmailID.IndexOf('(') + 1).Replace(")", "");
+                string insert_sql = string.Format("INSERT INTO [Assignment] ([Survey_Key],[User_Key],[EmailID])VALUES ({0},{1},'{2}')",Assignment.Survey_Key, Assignment.User_Key, mail);
                 //System.Diagnostics.Debug.WriteLine(insert_sql);
                 using (var userinsert = db.Prepare(insert_sql))
                 {

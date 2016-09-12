@@ -16,25 +16,25 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>B09AA11718ECDC929A77C40D3F8D011873A89D7BC7972A256BA74F4E27E8A91B</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.0.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>983312CD70A7136505087CF0272986310F429DC543804FAB5F24E7A6132B2440</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.14.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>13228281-de3c-4cee-b5f6-12b990ea723a_z0txew2x9f0ce!App</RegisteredUserModeAppID>
     <RegisteredPackageID>13228281-de3c-4cee-b5f6-12b990ea723a</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=kakar</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.14.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-26T20:05:23.720</Modified>
+      <Modified>2016-09-12T17:36:34.351</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-26T20:05:18.441</Modified>
+      <Modified>2016-09-12T17:36:27.909</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -103,6 +103,14 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.Xaml.Behaviors.Uwp.Managed\1.1.0\lib\uap10.0\Microsoft.Xaml.Interactivity.dll">
       <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
       <Modified>2016-02-22T08:29:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkit\2.5.12\lib\portable-net45+wp8+win8+wpa81\MyToolkit.dll">
+      <PackagePath>MyToolkit.dll</PackagePath>
+      <Modified>2016-04-06T15:56:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.12\lib\uap10.0\MyToolkit.Extended.dll">
+      <PackagePath>MyToolkit.Extended.dll</PackagePath>
+      <Modified>2016-08-26T21:16:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -468,13 +476,9 @@
       <PackagePath>Template10Library.dll</PackagePath>
       <Modified>2016-05-19T13:17:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\MyToolkit.dll">
-      <PackagePath>MyToolkit.dll</PackagePath>
-      <Modified>2016-08-26T19:58:29.849</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\MyToolkit.Extended.dll">
-      <PackagePath>MyToolkit.Extended.dll</PackagePath>
-      <Modified>2016-08-26T19:58:37.189</Modified>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x64\Debug\SurveySyncComponent.winmd">
+      <PackagePath>SurveySyncComponent.winmd</PackagePath>
+      <Modified>2016-09-12T17:36:25.407</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.13.0\Redist\Debug\x64\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
@@ -488,35 +492,47 @@
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
       <Modified>2014-12-09T05:34:52.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
+      <PackagePath>SurveySyncComponent\SQLitePCL.Ext.dll</PackagePath>
+      <Modified>2014-12-09T05:34:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Surveydb.sqlite">
+      <PackagePath>Surveydb.sqlite</PackagePath>
+      <Modified>2016-09-12T16:43:36.412</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square300x300Logo.scale-200.png">
+      <PackagePath>Assets\Square300x300Logo.scale-200.png</PackagePath>
+      <Modified>2016-08-31T02:36:14.679</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:31:25.609</Modified>
+      <Modified>2016-08-31T02:27:14.835</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:28:11.161</Modified>
+      <Modified>2016-08-31T02:28:18.265</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:30:11.432</Modified>
+      <Modified>2016-08-31T02:24:52.843</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:01:49.128</Modified>
+      <Modified>2016-08-31T02:26:25.636</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:15:40.975</Modified>
+      <Modified>2016-08-31T02:36:14.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-08-09T12:15:52.027</Modified>
+      <Modified>2016-08-31T02:31:45.860</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png</PackagePath>
@@ -536,11 +552,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.xr.xml">
       <PackagePath>CMS-Survey.xr.xml</PackagePath>
-      <Modified>2016-08-26T20:05:17.782</Modified>
+      <Modified>2016-09-11T18:38:55.767</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-08-24T18:56:40.270</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.12\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
+      <PackagePath>MyToolkit.Extended\MyToolkit.Extended.xr.xml</PackagePath>
+      <Modified>2016-08-26T21:16:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Template10Library.xr.xml">
       <PackagePath>Template10Library\Template10Library.xr.xml</PackagePath>
@@ -576,11 +596,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-08-26T20:05:22.555</Modified>
+      <Modified>2016-09-12T17:30:39.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-08-26T20:05:23.715</Modified>
+      <Modified>2016-09-12T17:36:34.347</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
