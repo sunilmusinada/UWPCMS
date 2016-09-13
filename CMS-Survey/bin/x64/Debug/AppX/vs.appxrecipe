@@ -17,24 +17,18 @@
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <RegisteredManifestChecksum>983312CD70A7136505087CF0272986310F429DC543804FAB5F24E7A6132B2440</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.14.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>13228281-de3c-4cee-b5f6-12b990ea723a_z0txew2x9f0ce!App</RegisteredUserModeAppID>
-    <RegisteredPackageID>13228281-de3c-4cee-b5f6-12b990ea723a</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=kakar</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.14.0</RegisteredVersion>
-    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-12T17:36:34.351</Modified>
+      <Modified>2016-09-13T17:54:46.083</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-09-12T17:36:27.909</Modified>
+      <Modified>2016-09-13T17:54:43.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -596,11 +590,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-12T17:30:39.193</Modified>
+      <Modified>2016-09-13T17:48:09.881</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-09-12T17:36:34.347</Modified>
+      <Modified>2016-09-13T17:54:46.080</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -55,8 +55,9 @@ namespace CMS_Survey.Pages
         string tempCitiationId = string.Empty;
         List<ObservationHelper> ObservationsList = null;
         List<Tuple<string, string>> CitiableItems = new List<Tuple<string, string>>();
-
+        Dictionary<int, int> CantObserveKey;
         Dictionary<int, int> QuestionObservationDictionary;
+        public IUICommand btnResult;
         public NewSurvey()
         {
 
@@ -197,6 +198,7 @@ namespace CMS_Survey.Pages
             //SurveyHelper svHelper = new SurveyHelper();
             //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
             QuestionObservationDictionary = new Dictionary<int, int>();
+            CantObserveKey = new Dictionary<int, int>();
             SurveyHelper svHelper = new SurveyHelper(true);
             if (result == null)
             {
@@ -232,16 +234,18 @@ namespace CMS_Survey.Pages
                 addUIControl(grid, questionlabel, rowIndex++);
                 if (!QuestionObservationDictionary.Keys.Contains(question.questionId))
                     QuestionObservationDictionary.Add(question.questionId, 1);
+                //else
+                //    QuestionObservationDictionary[question.questionId] = QuestionObservationDictionary[question.questionId] + 1;
                 if (question.answersList != null && question.answersList.Length > 0)
                 {
-                   
+                    int ansIndex = 1;
                     foreach (SectionHelp.Answerslist answer in question.answersList)
                     {
 
-                        AddControlByType(answer, grid, ref rowIndex, question);
+                        AddControlByType(answer, grid, ref rowIndex, question,ansIndex);
 
                         addBlankLine(grid, rowIndex++);
-
+                        ansIndex++;
 
                     }
                     if (question.renderAddObservation)
@@ -372,7 +376,7 @@ namespace CMS_Survey.Pages
             Btn.Height = 40;
             Btn.Width = 150;
             Btn.IsEnabled = true;
-            Btn.Click += Btn_Click;
+            Btn.Click += AddObservationButtonClick;
             Btn.ClickMode = ClickMode.Press;
             int cntObservation = question.obsevationNumber;
             Btn.Name = question.questionId.ToString() + "_Add Observation_" + cntObservation.ToString();
@@ -414,10 +418,13 @@ namespace CMS_Survey.Pages
             var answerList = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
             if (answerList.obsevationNumber == 2)
                 return;
-            answerList.answersList[index + 1].answer = null;
-            answerList.answersList[index].answer = null;
-            answerList.answersList[index + 1].defaultVisible = false;
-            answerList.answersList[index].defaultVisible = false;
+            int startIndex = (index * 2) - 2;
+            answerList.answersList[startIndex + 1].answer = null;
+            answerList.answersList[startIndex].answer = null;
+            answerList.answersList[startIndex + 1].defaultVisible = false;
+            answerList.answersList[startIndex].renderRemoveButton = false;
+            answerList.answersList[startIndex + 1].renderRemoveButton = false;
+            answerList.answersList[startIndex].defaultVisible = false;
             answerList.obsevationNumber = answerList.obsevationNumber - 1;
             RemoveBlankObservations();
             //AdjustObservations(answerList, index * 2);
@@ -691,7 +698,7 @@ namespace CMS_Survey.Pages
 
             }
         }
-        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, SectionHelp.Surveyquestionanswerlist Question)
+        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, SectionHelp.Surveyquestionanswerlist Question,int ansIndex)
         {
             string QuestionText = Question.questionText;
             if (!answer.defaultVisible)
@@ -704,8 +711,9 @@ namespace CMS_Survey.Pages
                     {
 
                         TextBlock txBlock = new TextBlock();
-                       
+                        
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
+                        //txBlock.Text = "Observation " +(ansIndex-1).ToString();
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
 
                     }
@@ -731,15 +739,20 @@ namespace CMS_Survey.Pages
                         RadioButton radio = new RadioButton();
                         radio.Name = answer.htmlControlId.ToString();
                         radio.Content = option.value;
+                        if(radio.Content.ToString().Equals("Unable to observe"))
+                        {
+                            CantObserveKey.Add(Question.questionId, answer.htmlControlId);
+                        }
                         SetRadioState(radio.Content.ToString(), (Convert.ToString(answer.answer)), radio);
                         //radio.IsChecked = Convert.ToBoolean(answer.htmlControlText);
                         radio.Checked += Radio_Checked;
                         radio.IsEnabled = isEnabled;
                         radio.GroupName = groupIndex.ToString();
+                        radio.Checked += RadioControlChecked;
                         addUIControl(grid, radio, rowIndex++);
 
                     }
-
+                    
                     groupIndex++;
                     break;
                 case "checkbox":
@@ -868,6 +881,55 @@ namespace CMS_Survey.Pages
             //}
         }
 
+        private async void  RadioControlChecked(object sender, RoutedEventArgs e)
+        {
+            RadioButton radio = sender as RadioButton;
+            MessageDialog msgDialog;
+            if (radio == null)
+                return;
+            var controlId = Convert.ToInt32(radio.Name);
+           if( radio.Content.ToString() == "Unable to observe")
+            {
+                int questionId = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
+                var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionId)).Select(t => t).FirstOrDefault();
+                if (Questiion.obsevationNumber > 2)
+                {
+                   await ButtonShowMessageDialog_Click(null, null);
+                    if(Convert.ToInt32(btnResult.Id)==0)
+                    {
+                        for(int i=2;i<10;i++)
+                        {
+                            Questiion.answersList[i].answer = null;
+                           
+                        }
+                        Questiion.disableAddObservation = true;
+                        Questiion.renderAddObservation = false;
+                        Questiion.obsevationNumber = 2;
+                        getJson(mainGrid);
+                    }
+                    else
+                    {
+                        radio.IsChecked = false;
+                    }
+                }
+            }
+
+        }
+        private async Task ButtonShowMessageDialog_Click(object sender, RoutedEventArgs e)
+        {
+
+            var dialog = new Windows.UI.Popups.MessageDialog("Selecting Unable to observe will remove any existing observation 2-5 ");
+
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Continue") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            btnResult = await dialog.ShowAsync();
+
+            //var btn = sender as Button;
+            //tn.Content = $"Result: {result.Label} ({result.Id})";
+        }
         private void ChkBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBoxStateChanged(sender, false);
@@ -923,7 +985,7 @@ namespace CMS_Survey.Pages
             getJson(mainGrid);
         }
 
-        private void Btn_Click(object sender, RoutedEventArgs e)
+        private void AddObservationButtonClick(object sender, RoutedEventArgs e)
         {
             Button bn = sender as Button;
             var name = bn.Name.Split('_').First();
@@ -933,6 +995,7 @@ namespace CMS_Survey.Pages
                 return;
             int startIndex = (answerList.obsevationNumber * 2) - 2;
             answerList.answersList[startIndex].defaultVisible = true;
+            answerList.answersList[startIndex+1].renderRemoveButton = true;
             answerList.answersList[startIndex + 1].defaultVisible = true;
             answerList.obsevationNumber = answerList.obsevationNumber + 1;
             getJson(mainGrid);
