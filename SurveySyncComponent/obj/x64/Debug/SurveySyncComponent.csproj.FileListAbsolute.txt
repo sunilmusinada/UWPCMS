@@ -16,6 +16,5 @@ F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x64\Debug\pri.resfiles.intermed
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x64\Debug\qualifiers.txt
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x64\Debug\qualifiers.txt.intermediate
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
-F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x64\Debug\SurveySyncComponent.csprojResolveAssemblyReference.cache
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x64\Debug\SQLitePCL.Ext.dll
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x64\Debug\SQLitePCL.Ext.pri

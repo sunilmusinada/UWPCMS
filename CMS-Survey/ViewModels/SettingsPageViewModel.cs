@@ -48,18 +48,24 @@ namespace CMS_Survey.ViewModels
             set
             {
                 Set(ref _BusyText, value);
-                _ShowBusyCommand.RaiseCanExecuteChanged();
+                _RefreshProviders.RaiseCanExecuteChanged();
             }
         }
 
-        DelegateCommand _ShowBusyCommand;
-        public DelegateCommand ShowBusyCommand
-            => _ShowBusyCommand ?? (_ShowBusyCommand = new DelegateCommand(async () =>
+        DelegateCommand _RefreshProviders;
+        public DelegateCommand RefreshProviders
+            => _RefreshProviders ?? (_RefreshProviders = new DelegateCommand(async () =>
             {
+                BusyText = "Refreshing Providers...";
                 Views.Busy.SetBusy(true, _BusyText);
-                await Task.Delay(50000);
+                await RefreshAllProviders() ;
                 Views.Busy.SetBusy(false);
             }, () => !string.IsNullOrEmpty(BusyText)));
+
+        public async Task RefreshAllProviders()
+        {
+            await Services.ServiceHelper.ServiceHelperObject.RefreshHospitals();
+        }
     }
 
     public class AboutPartViewModel : ViewModelBase

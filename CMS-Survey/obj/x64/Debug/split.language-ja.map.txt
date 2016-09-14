@@ -1,6 +1,0 @@
-﻿[ResourceMetadata]
-"ResourceId"			"split.language-ja"
-"ResourceDimensions"		"language-ja-jp"
-
-[Files]
-"F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\split.language-ja.pri"			"resources.pri"

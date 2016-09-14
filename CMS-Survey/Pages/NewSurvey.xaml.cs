@@ -633,10 +633,13 @@ namespace CMS_Survey.Pages
 
             }
             else if (HTMLControlValue.Equals("No"))
+            {
                 if (RadioText.Equals("No"))
                     RdButton.IsChecked = true;
-
-
+            }
+            else if (HTMLControlValue.Equals("Unable to observe"))
+                if (RadioText.Equals("Unable to observe"))
+                    RdButton.IsChecked = true;
         }
 
         private List<string> GetStates()
@@ -888,31 +891,45 @@ namespace CMS_Survey.Pages
             if (radio == null)
                 return;
             var controlId = Convert.ToInt32(radio.Name);
-           if( radio.Content.ToString() == "Unable to observe")
+            int questionId = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
+            var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionId)).Select(t => t).FirstOrDefault();
+            var firstRadioAnswer = Questiion.answersList[0].answer;
+            if ( radio.Content.ToString() == "Unable to observe")
             {
-                int questionId = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
-                var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionId)).Select(t => t).FirstOrDefault();
-                if (Questiion.obsevationNumber > 2)
-                {
+                // if (Questiion.obsevationNumber > 2)
+                //{
                    await ButtonShowMessageDialog_Click(null, null);
                     if(Convert.ToInt32(btnResult.Id)==0)
                     {
+                        Questiion.answersList[0].answer = "Unable to observe";
                         for(int i=2;i<10;i++)
                         {
                             Questiion.answersList[i].answer = null;
+                            Questiion.answersList[i].defaultVisible = false;
                            
                         }
-                        Questiion.disableAddObservation = true;
-                        Questiion.renderAddObservation = false;
+                        
                         Questiion.obsevationNumber = 2;
-                        getJson(mainGrid);
+                       
                     }
+
                     else
                     {
                         radio.IsChecked = false;
+                        return;
                     }
-                }
+                    Questiion.disableAddObservation = true;
+                    Questiion.renderAddObservation = false;
+                getJson(mainGrid);
+                //}
             }
+            //if(firstRadioAnswer.Equals("Unable to observe"))
+            else
+            {
+               Questiion.disableAddObservation = false;
+             Questiion.renderAddObservation = true;
+                getJson(mainGrid);
+          }
 
         }
         private async Task ButtonShowMessageDialog_Click(object sender, RoutedEventArgs e)

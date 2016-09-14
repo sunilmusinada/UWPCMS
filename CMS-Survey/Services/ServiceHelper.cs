@@ -185,6 +185,14 @@ namespace CMS_Survey.Services
             //return Hospitals;
         }
 
+
+        internal async Task RefreshHospitals()
+        {
+            List<Hospital> Hospitals = await GetHospitalsForState("ALL");
+            Database.providers_lu_table providerTable = new Database.providers_lu_table();
+            providerTable.deleteAll();
+            await providerTable.BulkInsertProviders(Hospitals);
+        }
         private void SaveHospitalsLocal(string jsonString)
         {
             string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "Hospitals.json");

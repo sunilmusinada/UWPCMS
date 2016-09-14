@@ -130,5 +130,49 @@ namespace CMS_Survey.Database
             }
             return hospital;
         }
+
+        public async Task BulkInsertProviders(List<Hospital> _hospitals)
+        {
+            if (_hospitals == null)
+                return;
+            try
+            {
+                long userId;
+                using (var statement = db.Prepare(" BEGIN TRANSACTION"))
+                {
+                    statement.Step();
+                }
+                string insert_sql;
+                foreach (Hospital hsp in _hospitals)
+                {
+                    
+                    insert_sql = string.Format(@"INSERT INTO [providers_lu] ([Provider_Key]
+           ,[CCN]
+           ,[Facility_Name]
+          )
+     VALUES
+           ({0}
+           ,'{1}'
+           ,""{2}""
+            ); ", hsp.providerKey, hsp.ccn,hsp.facilityName);
+                    
+                    using (var userinsert = db.Prepare(insert_sql))
+                    {
+
+                        userinsert.Step();
+                    }
+                }
+                //COMMIT to accept all changes
+                using (var statement = db.Prepare("COMMIT TRANSACTION"))
+                {
+                    statement.Step();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

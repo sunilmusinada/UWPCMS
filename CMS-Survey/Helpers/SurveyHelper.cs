@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.UI.Popups;
 using static CMS_Survey.Models.SectionHelp;
 
 namespace CMS_Survey.Template
@@ -139,6 +140,8 @@ namespace CMS_Survey.Template
                  
                 }
                 CreateSurveyList();
+                MessageDialog msgDialog = new MessageDialog("Finished downloading Surveys", "Information");
+                await msgDialog.ShowAsync();
             }
             catch(Exception ex)
             {

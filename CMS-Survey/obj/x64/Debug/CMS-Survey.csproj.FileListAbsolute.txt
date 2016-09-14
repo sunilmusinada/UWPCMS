@@ -1,5 +1,6 @@
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SQLitePCL.Ext.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SQLitePCL.Ext.pri
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Surveydb.sqlite
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Assets\SplashScreen.scale-200.png
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Assets\Square150x150Logo.scale-200.png
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Assets\Square44x44Logo.scale-200.png
@@ -40,6 +41,8 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Microsoft.VisualBasic.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Microsoft.Win32.Primitives.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Microsoft.Xaml.Interactions.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Microsoft.Xaml.Interactivity.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\MyToolkit.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\MyToolkit.Extended.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Newtonsoft.Json.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\System.Private.DataContractSerialization.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SQLitePCL.dll
@@ -131,8 +134,9 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\System.Xml.XDocument.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\System.Xml.XmlDocument.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\System.Xml.XmlSerializer.dll
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Template10Library.dll
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\MyToolkit.dll
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\MyToolkit.Extended.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.winmd
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pdb
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pri
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\CMS-Survey.csprojResolveAssemblyReference.cache
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\App.g.i.cs
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\App.g.cs
@@ -253,13 +257,9 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\qualifiers.txt.intermediate
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\resources.en.resfiles
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\resources.en.resfiles.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\SQLitePCL.Ext.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Microsoft.Xaml.Interactions.pri.xml
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Microsoft.Xaml.Interactivity.pri.xml
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Template10Library.pri.xml
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\SQLitePCL.Ext.pri.xml
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\ProjectArchitectures.txt
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\MyToolkit.Extended.pri.xml
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Surveydb.sqlite
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.winmd
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pdb
-F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\SurveySyncComponent.pri
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Template10Library.pri.xml
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\ProjectArchitectures.txt

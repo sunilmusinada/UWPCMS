@@ -16,9 +16,6 @@
     <RootPropertyPathName Name="DisplayName" />
     <RootPropertyPathName Name="Logo" />
     <RootPropertyPathName Name="SettingsPartViewModel" />
-    <RootPropertyPathName Name="BusyText" />
-    <RootPropertyPathName Name="UseLightThemeButton" />
-    <RootPropertyPathName Name="UseShellBackButton" />
     <RootPropertyPathName Name="ActualWidth" />
     <RootPropertyPathName Name="ActualHeight" />
   </Roots.PropertyPathNames>
@@ -82,7 +79,6 @@
       <RootProperty Name="Style" />
       <RootProperty Name="Name" />
       <RootProperty Name="FontWeight" />
-      <RootProperty Name="LineHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
@@ -131,7 +127,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
@@ -252,10 +247,6 @@
       <RootMethod Name="SetBelow" />
       <RootMethod Name="GetAlignRightWith" />
       <RootMethod Name="SetAlignRightWith" />
-      <RootMethod Name="GetAlignBottomWith" />
-      <RootMethod Name="SetAlignBottomWith" />
-      <RootMethod Name="GetRightOf" />
-      <RootMethod Name="SetRightOf" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
@@ -318,7 +309,6 @@
       <RootProperty Name="DataContext" />
       <RootProperty Name="Header" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Padding" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="HorizontalAlignment" />
@@ -336,16 +326,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
-    <RootType FullName="Windows.UI.Xaml.Documents.Bold">
-      <RootProperty Name="Inlines" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
-      <RootProperty Name="Header" />
-      <RootProperty Name="IsOn" />
-      <RootProperty Name="OffContent" />
-      <RootProperty Name="OnContent" />
     </RootType>
     <RootType FullName="CMS_Survey.Views.SettingsPage" />
     <RootType FullName="Template10.Controls.ModalDialog">

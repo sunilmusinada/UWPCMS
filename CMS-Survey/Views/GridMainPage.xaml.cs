@@ -252,9 +252,9 @@ namespace CMS_Survey.Views
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 return;
             Template.SurveyHelper surveyHelper =new Template.SurveyHelper(true);
-            DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
-            DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
-            showBusyCommand.Execute();
+            //DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
+            //DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
+            //showBusyCommand.Execute();
             
              surveyHelper.GetUserSurveys();
              Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
@@ -262,7 +262,8 @@ namespace CMS_Survey.Views
             this.FilteredUsersurveys = this.Usersurveys;
         
             surveyHelper.CreateSurveyList();
-            hideBusyCommand.Execute();
+            //hideBusyCommand.Execute();
+           // ShowMessage("Finished downloading Surveys", "Information");
             Fetched = true;
         }
 
@@ -271,5 +272,7 @@ namespace CMS_Survey.Views
             CMS_Survey.Pages.NewSurvey.isEnabled = false;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
+
+
     }
 }
