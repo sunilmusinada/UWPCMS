@@ -40,7 +40,7 @@ namespace CMS_Survey.Pages
         private string CcnControlName;
         private TextBox ccnTextBox;
         private static List<Hospital> SelectedHospitals;
-        public static bool isEnabled=true;
+        public static bool isEnabled = true;
         private string FetchedHospitalCcn;
         private bool fromSavedObject = false;
         private string SelectedState = null;
@@ -75,7 +75,7 @@ namespace CMS_Survey.Pages
                 LoadedOffline = true;
                 if (e.Parameter != null)
                 {
-                   var surKey= Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                    var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                     if (CMS_Survey.Template.SurveyHelper.SurveyList == null && CMS_Survey.Template.SurveyHelper.SurveyList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
@@ -102,8 +102,8 @@ namespace CMS_Survey.Pages
                 {
                     if (e.Parameter != null)
                     {
-                          //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                          
+                        //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                         if (CMS_Survey.Template.SurveyHelper.SurveyList != null)
                         {
@@ -158,13 +158,13 @@ namespace CMS_Survey.Pages
         {
             Services.ServiceHelper svcHelper = Services.ServiceHelper.ServiceHelperObject;
             // await svcHelper.CallLoginService("kalyan", "kalyancpamula");
-            if(result==null)
-            foreach (var section in result.sections)
-            {
-                section.status = 1;
-                section.surveyKey = -1;
-                section.userKey = svcHelper.currentUser.userKey;
-            }
+            if (result == null)
+                foreach (var section in result.sections)
+                {
+                    section.status = 1;
+                    section.surveyKey = -1;
+                    section.userKey = svcHelper.currentUser.userKey;
+                }
         }
 
         private void ReadJsonFie()
@@ -192,11 +192,26 @@ namespace CMS_Survey.Pages
             }
         }
 
-        private SectionHelp.Rootobject getJson(Grid grid)
+        private SectionHelp.Rootobject getJson(Grid grid, bool scrollToTop = false)
         {
             //
             //SurveyHelper svHelper = new SurveyHelper();
             //List<JumpClass> jmpClass= svHelper.GetJumpSections(result.sections);
+            if (scrollToTop)
+            {
+                ScrollViewer scrollViewer = this.ScrollBar;
+                if (scrollViewer != null)
+                {
+                    //var val = ScrollViewer.VerticalOffsetProperty;
+                    scrollViewer.ScrollToVerticalOffset(0);
+                }
+            }
+            if (sectionIndex  == result.sections.Count()-1)
+            {
+                this.NextButton.Visibility = Visibility.Collapsed;
+            }
+            else
+                this.NextButton.Visibility = Visibility.Visible;
             QuestionObservationDictionary = new Dictionary<int, int>();
             CantObserveKey = new Dictionary<int, int>();
             SurveyHelper svHelper = new SurveyHelper(true);
@@ -205,7 +220,7 @@ namespace CMS_Survey.Pages
                 //
                 //NavigateToMainPage();
                 return null;
-             }
+            }
             jmpClass = svHelper.GetJumpSections(result.sections);
             JumpButtonLoad();
             HelpButtonLoad();
@@ -228,7 +243,7 @@ namespace CMS_Survey.Pages
                 TextBlock questionlabel = new TextBlock();
                 questionlabel.Text = question.questionText.Replace("<br>", Environment.NewLine).Replace("<li>", Environment.NewLine)
                                      .Replace("<ul>", "").Replace("<\\li>", "").Replace("<\\ul>", "")
-                                     .Replace("</li>", "").Replace("</ul>", "").Replace("<br/>", "").Replace("<br/>>", "").Replace("<div>", "").Replace("<div class=\"h4\"", "") ;
+                                     .Replace("</li>", "").Replace("</ul>", "").Replace("<br/>", "").Replace("<br/>>", "").Replace("<div>", "").Replace("<div class=\"h4\"", "");
                 questionlabel.TextWrapping = TextWrapping.Wrap;
                 //bool renderObservation = question.renderAddObservation;
                 addUIControl(grid, questionlabel, rowIndex++);
@@ -242,7 +257,7 @@ namespace CMS_Survey.Pages
                     foreach (SectionHelp.Answerslist answer in question.answersList)
                     {
 
-                        AddControlByType(answer, grid, ref rowIndex, question,ansIndex);
+                        AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
 
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
@@ -251,9 +266,9 @@ namespace CMS_Survey.Pages
                     if (question.renderAddObservation)
 
                     {
-                       
+
                         tempObservvationQuestionId = question.questionId.ToString();
-                      
+
                         addBlankLine(grid, rowIndex++);
                         addBlankLine(grid, rowIndex++);
                         if (question.obsevationNumber <= 5)
@@ -266,7 +281,7 @@ namespace CMS_Survey.Pages
                 }
                 // }
             }
-            if(result.sections.Count()-1==sectionIndex)
+            if (result.sections.Count() - 1 == sectionIndex)
             {
                 rowIndex = AddSurveyNotesSection(grid, rowIndex);
             }
@@ -338,12 +353,19 @@ namespace CMS_Survey.Pages
             if (string.IsNullOrEmpty(mailId))
                 return;
 
-           if(!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 await SaveSurvey();
-                await Services.ServiceHelper.ServiceHelperObject.CallAssignSurvey(mailId, SurveyKey);
+                bool success = await Services.ServiceHelper.ServiceHelperObject.CallAssignSurvey(mailId, SurveyKey);
+                if (success)
+                    this.NavigateToMainPage();
+                else
+                {
+                    MessageDialog msgDialog = new MessageDialog("Submit Survey failed", "Error");
+                    await msgDialog.ShowAsync();
+                }
             }
-           else
+            else
             {
                 await SaveSurvey();
                 Assignment assignment = new Assignment();
@@ -508,15 +530,15 @@ namespace CMS_Survey.Pages
         #region SaveAndProcess
         private async void processNext(object sender, RoutedEventArgs e)
         {
-            if(!isEnabled)
+            if (!isEnabled)
             {
                 if (sectionIndex < result.sections.Length - 1)
                 {
                     sectionIndex++;
                     getJson(mainGrid);
                 }
-                    return;
-                
+                return;
+
             }
             if (sectionIndex == 0)
             {
@@ -551,7 +573,7 @@ namespace CMS_Survey.Pages
         {
             await SaveSurvey();
             sectionIndex++;
-            getJson(mainGrid);
+            getJson(mainGrid, true);
         }
 
         private void processPrevious(object sender, RoutedEventArgs e)
@@ -701,7 +723,7 @@ namespace CMS_Survey.Pages
 
             }
         }
-        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, SectionHelp.Surveyquestionanswerlist Question,int ansIndex)
+        private void AddControlByType(SectionHelp.Answerslist answer, Grid grid, ref int rowIndex, SectionHelp.Surveyquestionanswerlist Question, int ansIndex)
         {
             string QuestionText = Question.questionText;
             if (!answer.defaultVisible)
@@ -714,7 +736,7 @@ namespace CMS_Survey.Pages
                     {
 
                         TextBlock txBlock = new TextBlock();
-                        
+
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
                         //txBlock.Text = "Observation " +(ansIndex-1).ToString();
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
@@ -723,8 +745,8 @@ namespace CMS_Survey.Pages
                     TextBox textBox = new TextBox();
                     textBox.Name = answer.htmlControlId.ToString();
                     textBox.Height = 150;
+                    textBox.TextWrapping = TextWrapping.Wrap;
 
-                  
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     textBox.LostFocus += TextBox_LostFocus;
                     if (answer.renderRemoveButton)
@@ -742,7 +764,7 @@ namespace CMS_Survey.Pages
                         RadioButton radio = new RadioButton();
                         radio.Name = answer.htmlControlId.ToString();
                         radio.Content = option.value;
-                        if(radio.Content.ToString().Equals("Unable to observe"))
+                        if (radio.Content.ToString().Equals("Unable to observe"))
                         {
                             CantObserveKey.Add(Question.questionId, answer.htmlControlId);
                         }
@@ -755,7 +777,7 @@ namespace CMS_Survey.Pages
                         addUIControl(grid, radio, rowIndex++);
 
                     }
-                    
+
                     groupIndex++;
                     break;
                 case "checkbox":
@@ -786,7 +808,7 @@ namespace CMS_Survey.Pages
                         GetStates().ForEach(e => cmbbox.Items.Add(e));
                         if (LoadedOffline)
                         {
-                           SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(val);  //Sunil
+                            SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(val);  //Sunil
                             cmbbox.SelectedValue = SelectedState;
                             //cmbbox.IsEnabled = false;
                         }
@@ -884,7 +906,7 @@ namespace CMS_Survey.Pages
             //}
         }
 
-        private async void  RadioControlChecked(object sender, RoutedEventArgs e)
+        private async void RadioControlChecked(object sender, RoutedEventArgs e)
         {
             RadioButton radio = sender as RadioButton;
             MessageDialog msgDialog;
@@ -894,42 +916,42 @@ namespace CMS_Survey.Pages
             int questionId = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
             var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionId)).Select(t => t).FirstOrDefault();
             var firstRadioAnswer = Questiion.answersList[0].answer;
-            if ( radio.Content.ToString() == "Unable to observe")
+            if (radio.Content.ToString() == "Unable to observe")
             {
                 // if (Questiion.obsevationNumber > 2)
                 //{
-                   await ButtonShowMessageDialog_Click(null, null);
-                    if(Convert.ToInt32(btnResult.Id)==0)
+                await ButtonShowMessageDialog_Click(null, null);
+                if (Convert.ToInt32(btnResult.Id) == 0)
+                {
+                    Questiion.answersList[0].answer = "Unable to observe";
+                    for (int i = 2; i < 10; i++)
                     {
-                        Questiion.answersList[0].answer = "Unable to observe";
-                        for(int i=2;i<10;i++)
-                        {
-                            Questiion.answersList[i].answer = null;
-                            Questiion.answersList[i].defaultVisible = false;
-                           
-                        }
-                        
-                        Questiion.obsevationNumber = 2;
-                       
+                        Questiion.answersList[i].answer = null;
+                        Questiion.answersList[i].defaultVisible = false;
+
                     }
 
-                    else
-                    {
-                        radio.IsChecked = false;
-                        return;
-                    }
-                    Questiion.disableAddObservation = true;
-                    Questiion.renderAddObservation = false;
+                    Questiion.obsevationNumber = 2;
+
+                }
+
+                else
+                {
+                    radio.IsChecked = false;
+                    return;
+                }
+                Questiion.disableAddObservation = true;
+                Questiion.renderAddObservation = false;
                 getJson(mainGrid);
                 //}
             }
             //if(firstRadioAnswer.Equals("Unable to observe"))
             else
             {
-               Questiion.disableAddObservation = false;
-             Questiion.renderAddObservation = true;
+                Questiion.disableAddObservation = false;
+                Questiion.renderAddObservation = true;
                 getJson(mainGrid);
-          }
+            }
 
         }
         private async Task ButtonShowMessageDialog_Click(object sender, RoutedEventArgs e)
@@ -986,7 +1008,7 @@ namespace CMS_Survey.Pages
             List<int> ControlID = Constants.QuestionSectionDictionary[QuestionID];
             foreach (var SurQuestionList in result.sections[sectionIndex].surveyQuestionAnswerList)
             {
-                if(ControlID.Contains(SurQuestionList.questionId))
+                if (ControlID.Contains(SurQuestionList.questionId))
                 {
                     //foreach (var item in SurQuestionList.answersList)
                     //{
@@ -994,10 +1016,10 @@ namespace CMS_Survey.Pages
                     //    item.answer = null;
                     //    item.defaultVisible = checkedState;
                     //}
-                   // SurQuestionList.renderAddObservation = checkedState;
+                    // SurQuestionList.renderAddObservation = checkedState;
                     SurQuestionList.renderQuestion = checkedState;
                 }
-               
+
             }
             getJson(mainGrid);
         }
@@ -1012,7 +1034,7 @@ namespace CMS_Survey.Pages
                 return;
             int startIndex = (answerList.obsevationNumber * 2) - 2;
             answerList.answersList[startIndex].defaultVisible = true;
-            answerList.answersList[startIndex+1].renderRemoveButton = true;
+            answerList.answersList[startIndex + 1].renderRemoveButton = true;
             answerList.answersList[startIndex + 1].defaultVisible = true;
             answerList.obsevationNumber = answerList.obsevationNumber + 1;
             getJson(mainGrid);
@@ -1141,7 +1163,7 @@ namespace CMS_Survey.Pages
         private async void ShowMessage(string message, string caption)
         {
             MessageDialog msgDialog = new MessageDialog(message, caption);
-           IUICommand cmd= await msgDialog.ShowAsync();
+            IUICommand cmd = await msgDialog.ShowAsync();
         }
 
         private void NavigateToMainPage()
@@ -1156,7 +1178,7 @@ namespace CMS_Survey.Pages
             if (await serviceHelper.IsOffline())
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest,result.sections.First().surveyKey.ToString(),Constants.SurveyFolder);
+                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
                 await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
                 HideProgress();
             }
@@ -1168,7 +1190,7 @@ namespace CMS_Survey.Pages
             else
             {
                 var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(),Constants.SurveyFolder);
+                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
                 HideProgress();
                 ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
                 NavigateToMainPage();
@@ -1425,9 +1447,9 @@ namespace CMS_Survey.Pages
             else
             {
                 sectionIndex = indx;
-                if(isEnabled)
-                await SaveSurvey();
-                getJson(mainGrid);
+                if (isEnabled)
+                    await SaveSurvey();
+                getJson(mainGrid, true);
             }
 
             //e.OriginalSource
@@ -1463,7 +1485,7 @@ namespace CMS_Survey.Pages
                                     AdjustObservations(secQA, n);
                                 }
                             }
-                           
+
 
                         }
                     }

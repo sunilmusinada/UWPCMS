@@ -365,7 +365,7 @@ namespace CMS_Survey.Services
 
         }
 
-        internal async Task<SectionHelp.Rootobject> CallAssignSurvey(string EmailId,string SurveyKey)
+        internal async Task<bool> CallAssignSurvey(string EmailId,string SurveyKey)
         {
             bool isSuccess = false;
             string jsonString = null;
@@ -398,7 +398,7 @@ namespace CMS_Survey.Services
             {
                 throw ex;
             }
-            return SecList;
+            return isSuccess;
         }
         #endregion
 

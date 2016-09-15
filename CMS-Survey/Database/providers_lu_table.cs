@@ -146,15 +146,16 @@ namespace CMS_Survey.Database
                 foreach (Hospital hsp in _hospitals)
                 {
                     
-                    insert_sql = string.Format(@"INSERT INTO [providers_lu] ([Provider_Key]
+                    insert_sql = string.Format(@"INSERT INTO [providers_lu] ([Provider_Key],[State]
            ,[CCN]
            ,[Facility_Name]
           )
      VALUES
            ({0}
-           ,'{1}'
-           ,""{2}""
-            ); ", hsp.providerKey, hsp.ccn,hsp.facilityName);
+            ,'{1}'
+           ,'{2}'
+           ,""{3}""
+            ); ", hsp.providerKey,hsp.stateCode, hsp.ccn,hsp.facilityName);
                     
                     using (var userinsert = db.Prepare(insert_sql))
                     {

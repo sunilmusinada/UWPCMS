@@ -17,10 +17,10 @@
                 <ColumnDefinition Width="287*"></ColumnDefinition>
                 <ColumnDefinition Width="73*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='3' x:Name="Previous" Content="Previous" HorizontalAlignment="Left" Grid.Column="0"                          Background="SteelBlue" Height="32" Margin="0,35,0,33" Width="76" Foreground="White"></Button>
-            <Button x:ConnectionId='4' Content="Save" HorizontalAlignment="Left" Grid.Column="0"                      Background="SteelBlue" Margin="94,35,0,33" Height="32" Width="51" RenderTransformOrigin="-0.673,0.479" Foreground="White"/>
-            <Button x:ConnectionId='5' x:Name="NextButton" Content="Next" HorizontalAlignment ="Left" Grid.Column="0"                     Background="SteelBlue" Height="32" Margin="162,35,0,33" Width="51" Foreground="White"></Button>
-            <Button x:ConnectionId='6' x:Name="JumpButton"  Content="Jump"
+            <Button x:ConnectionId='4' x:Name="Previous" Content="Previous" HorizontalAlignment="Left" Grid.Column="0"                          Background="SteelBlue" Height="32" Margin="0,35,0,33" Width="76" Foreground="White"></Button>
+            <Button x:ConnectionId='5' Content="Save" HorizontalAlignment="Left" Grid.Column="0"                      Background="SteelBlue" Margin="94,35,0,33" Height="32" Width="51" RenderTransformOrigin="-0.673,0.479" Foreground="White"/>
+            <Button x:ConnectionId='6' x:Name="NextButton" Content="Next" HorizontalAlignment ="Left" Grid.Column="0"                     Background="SteelBlue" Height="32" Margin="162,35,0,33" Width="51" Foreground="White"></Button>
+            <Button x:ConnectionId='7' x:Name="JumpButton"  Content="Jump"
                       Foreground="White" HorizontalAlignment="Left" Margin="224,35,0,33" Background="SteelBlue" Width="63" Height="32"                                                        >
                 <!--<Button.Flyout >
                     <MenuFlyout >
@@ -51,7 +51,7 @@
                 <!--
                 </Button.Flyout>-->
             </Button>
-            <Button x:ConnectionId='7' x:Name="HelpButton"  Content="Help"
+            <Button x:ConnectionId='8' x:Name="HelpButton"  Content="Help"
                 Foreground="White" VerticalAlignment="Center" Margin="10,35,0,33" Background="SteelBlue" Width="63" Height="32"                                                         Grid.Column="1">
                 <!--<Button.Flyout >
                     <MenuFlyout >
@@ -84,14 +84,14 @@
             </Button>
         </Grid>
 
-        <ScrollViewer VerticalAlignment="top"  Grid.Row="1">
+        <ScrollViewer x:ConnectionId='1' VerticalAlignment="top"  Grid.Row="1" x:Name="ScrollBar">
             <FlyoutBase.AttachedFlyout>
                 <MenuFlyout/>
             </FlyoutBase.AttachedFlyout>
-            <Grid x:ConnectionId='2' Name="mainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" VerticalAlignment="Bottom" Margin="90,0,128,68">
+            <Grid x:ConnectionId='3' Name="mainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" VerticalAlignment="Bottom" Margin="90,0,128,68">
             </Grid>
         </ScrollViewer>
-        <ProgressRing x:ConnectionId='1' x:Name="progressRing" HorizontalAlignment="Stretch" Margin="141,73,169,527" VerticalAlignment="Center" RenderTransformOrigin="-6.767,-2.95" Height="50" Foreground="SteelBlue" Width="50" Grid.Row="1"/>
+        <ProgressRing x:ConnectionId='2' x:Name="progressRing" HorizontalAlignment="Stretch" Margin="141,73,169,527" VerticalAlignment="Center" RenderTransformOrigin="-6.767,-2.95" Height="50" Foreground="SteelBlue" Width="50" Grid.Row="1"/>
 
 
 

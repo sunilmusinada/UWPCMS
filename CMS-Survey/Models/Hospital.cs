@@ -11,5 +11,7 @@ namespace CMS_Survey.Models
         public Int64 providerKey { get; set; }
         public string ccn { get; set; }
         public string facilityName { get; set; }
+
+        public string stateCode { get; set; }
     }
 }
