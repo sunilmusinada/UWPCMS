@@ -749,7 +749,7 @@ namespace CMS_Survey.Pages
 
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     textBox.LostFocus += TextBox_LostFocus;
-                    if (answer.renderRemoveButton)
+                    if (Question.renderAddObservation&&answer.renderRemoveButton)
                     {
                         int ind = QuestionObservationDictionary[Question.questionId];
                         AddRemoveObservationButton(mainGrid, rowIndex - 1, Question, ind);
@@ -1172,28 +1172,37 @@ namespace CMS_Survey.Pages
         }
         public async Task SaveSurvey()
         {
-            ShowProgress();
-            RemoveBlankObservations();
-            Services.ServiceHelper serviceHelper = Services.ServiceHelper.ServiceHelperObject;
-            if (await serviceHelper.IsOffline())
+            try
             {
-                var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
-                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
-                HideProgress();
+                ShowProgress();
+                RemoveBlankObservations();
+                Services.ServiceHelper serviceHelper = Services.ServiceHelper.ServiceHelperObject;
+                if (await serviceHelper.IsOffline())
+                {
+                    var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
+                    await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
+                    await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
+                    HideProgress();
+                }
+                else if (!await serviceHelper.IsOffline())
+                {
+                    result = await serviceHelper.CallSurveyService(result.sections.ToList());
+                    HideProgress();
+                }
+                else
+                {
+                    var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
+                    await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
+                    HideProgress();
+                    ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
+                    NavigateToMainPage();
+                }
             }
-            else if (!await serviceHelper.IsOffline())
+            catch(Exception ex)
             {
-                result = await serviceHelper.CallSurveyService(result.sections.ToList());
-                HideProgress();
-            }
-            else
-            {
-                var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
-                await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
-                HideProgress();
-                ShowMessage("Application went offline. You will be redirected to the Mainpage", "Error");
+                ShowMessage("Something went wrong. You will be redirected to the Mainpage", "Error");
                 NavigateToMainPage();
+
             }
 
         }

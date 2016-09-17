@@ -1,0 +1,12 @@
+App.xbf
+Controls\ProgressRing.xbf
+Pages\LoginPart.xbf
+Pages\NewSurvey.xbf
+Styles\Custom.xbf
+Views\Busy.xbf
+Views\DetailPage.xbf
+Views\GridMainPage.xbf
+Views\MainPage.xbf
+Views\SettingsPage.xbf
+Views\Shell.xbf
+Views\Splash.xbf
