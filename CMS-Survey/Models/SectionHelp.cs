@@ -94,10 +94,17 @@ namespace CMS_Survey.Models
 
             public int obsevationNumber { get; set; }
 
+            public List<DifferentUserAnswerList> differentUserAnswerList { get; set; }
+
         }
 
 
 
+        public class DifferentUserAnswerList
+        {
+            public int user { get; set; }
+            public string answer { get; set; }
+        }
 
         public class Answerslist
 
@@ -146,6 +153,8 @@ namespace CMS_Survey.Models
             public string observatgionNumberString { get; set; }
 
             public string dateString { get; set; }
+
+            public List<DifferentUserAnswerList> differentUserAnswerList { get; set; }
 
         }
 

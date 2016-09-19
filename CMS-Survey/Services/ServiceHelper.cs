@@ -18,7 +18,8 @@ namespace CMS_Survey.Services
         //public bool isOffline = false;
         public static bool _OfflineMode = false;
         private bool _isOffline;
-
+        public Dictionary<long, string> UserKeyDictionary;
+        List<User> users;
         public bool isOffline
         {
             get {
@@ -669,13 +670,24 @@ namespace CMS_Survey.Services
         }
         internal async Task AddAllUsers()
         {
-            List<User> users = await GetUsersForState("ALL");
+            users = await GetUsersForState("ALL");
             Database.users_table usrTable = new Database.users_table();
-           // usrTable.deleteAll();
+            GetUserKeyList();
+            usrTable.deleteAll();
             await usrTable.BulkInsertUsers(users);
 
         }
+        internal async Task GetUserKeyList()
+        {
+            UserKeyDictionary = new Dictionary<long, string>();
+           
+            foreach (User Usr in users)
+            {
+                UserKeyDictionary.Add(Usr.userKey, Usr.FirstName + " " + Usr.LastName);
 
+            }
+           
+        }
         #endregion
 
     }

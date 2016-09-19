@@ -17,6 +17,8 @@ namespace CMS_Survey.Models
         #region Properties
         public User CurrentUser = null;
         private Int64 _userKey;
+        List<User> users;
+        public Dictionary<long, string> UserKeyDictionary;
         public Int64 userKey
         {
             get { return _userKey; }
@@ -110,7 +112,8 @@ namespace CMS_Survey.Models
         {
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 return;
-            List<User> users = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+             users = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+            //GetUserKeyList();
             Database.users_table usrTable = new Database.users_table();
             if (users == null)
                 return;
@@ -118,6 +121,9 @@ namespace CMS_Survey.Models
             await usrTable.BulkInsertUsers(users);
 
         }
+       
+        
     }
+    
 
 }

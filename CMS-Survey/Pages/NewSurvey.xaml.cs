@@ -258,7 +258,8 @@ namespace CMS_Survey.Pages
                     {
 
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
-
+                        if(answer.differentUserAnswerList!=null&&answer.differentUserAnswerList.Count>0)
+                        AddOtherAnswers(answer.differentUserAnswerList, ref rowIndex);
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
@@ -490,6 +491,7 @@ namespace CMS_Survey.Pages
             Grid.SetRow(uiComponent, rowIndex);
             //addBlankLine(mainGrid, rowIndex);
         }
+
         private void addErrorLabelControl(Grid mainGrid, string Message, int rowIndex, string Question)
         {
             RowDefinition row = new RowDefinition();
@@ -904,6 +906,39 @@ namespace CMS_Survey.Pages
             //{
             //    AddRemoveObservationButton(grid, rowIndex, Question);
             //}
+        }
+
+        private void AddOtherAnswers(List<SectionHelp.DifferentUserAnswerList> DifferentAnswers, ref int rowIndex)
+        {
+            StackPanel panel = new StackPanel();
+            Border myBorder1 = new Border();
+            SolidColorBrush myBrush = new SolidColorBrush(Colors.Black);
+            myBorder1.BorderBrush = myBrush;
+            myBorder1.BorderThickness = new Thickness(6);
+            panel.BorderBrush = myBrush;
+            foreach (SectionHelp.DifferentUserAnswerList Otheranswer in DifferentAnswers)
+            {
+                TextBlock txBlock = new TextBlock();
+
+                txBlock.Text ="User :"+ Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(Otheranswer.user)).Select(k => k.Value).FirstOrDefault();
+                //txBlock.Text = "Observation " +(ansIndex-1).ToString();
+                panel.Children.Add(txBlock);
+                TextBlock blnk = new TextBlock();
+                blnk.Text = " ";
+                //addUIControl(mainGrid, txBlock, rowIndex++);
+                //addBlankLine(mainGrid, rowIndex);
+
+                TextBlock answer = new TextBlock();
+                answer.Text = Otheranswer.answer;
+                panel.Children.Add(answer);
+                TextBlock blnk2 = new TextBlock();
+                blnk.Text = " ";
+                panel.Children.Add(blnk2);
+                //addUIControl(mainGrid, answer, rowIndex++);
+                //addBlankLine(mainGrid, rowIndex);
+               
+            }
+            addUIControl(mainGrid, panel, rowIndex++);
         }
 
         private async void RadioControlChecked(object sender, RoutedEventArgs e)
