@@ -94,7 +94,7 @@ namespace CMS_Survey.Models
 
             public int obsevationNumber { get; set; }
 
-            public List<DifferentUserAnswerList> differentUserAnswerList { get; set; }
+            //public List<DifferentUserAnswerList> differentUserAnswerList { get; set; }
 
         }
 
