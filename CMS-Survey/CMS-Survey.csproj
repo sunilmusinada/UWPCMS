@@ -133,7 +133,6 @@
     <Compile Include="Database\user_survey_access_table.cs" />
     <Compile Include="Models\SectionHelp.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserSurvey.cs" />
     <Compile Include="Models\UserSurveyAccess.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Models\SurveyGridObject.cs" />
@@ -144,6 +143,7 @@
       <DependentUpon>NewSurvey.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Res\SurveyDataTemplateSelector.cs" />
     <Compile Include="Services\ServiceHelper.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Template\SurveyDataTemplateSelector.cs" />
@@ -215,6 +215,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\TemplateDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -261,6 +265,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CMS_Survey.Models\CMS_Survey.Models.csproj">
+      <Project>{90d9569f-0053-4f96-ad2c-a6ef0ad7bfcf}</Project>
+      <Name>CMS_Survey.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SurveySyncComponent\SurveySyncComponent.csproj">
       <Project>{d8a56a08-fed4-4d2d-a608-197d7ac89977}</Project>
       <Name>SurveySyncComponent</Name>

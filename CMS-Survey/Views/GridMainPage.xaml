@@ -10,7 +10,9 @@
       xmlns:local="using:CMS_Survey.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:CMS_Survey.ViewModels" 
-      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d" Loaded="GridMainPage1_Loaded">
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d" Loaded="GridMainPage1_Loaded"
+      xmlns:res="using:CMS_Survey.Res"
+      >
    
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
@@ -85,12 +87,12 @@
                                 PlaceholderText="Action Date"  Margin="850,0,0,0" TextChanged="Filter_TextChanged" />
                             </Grid>
                     </StackPanel>
-                    <ExtendedControls:DataGrid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid" 
+                    <ExtendedControls:DataGrid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid"
                    SelectionMode="Single" DefaultOrderIndex="0" Margin="0,50,-800,-800" ItemsSource="{x:Bind FilteredUsersurveys, Mode=OneWay}" 
                                            RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
                                          SelectionChanged="DataGrid_SelectionChanged"  Grid.RowSpan="1" 
                                                Width="1150" Height="600" HeaderBackground="SteelBlue" 
-                                               HorizontalAlignment="Right" >
+                                               HorizontalAlignment="Right">
 
                         <ExtendedControls:DataGrid.Columns >
                             <ExtendedControls:DataGridTextColumn Width="100" Header="Id" Binding="{Binding surveyKey}"/>
@@ -106,8 +108,9 @@
                   Binding="{Binding actionDateString}" Foreground="Black" />
 
                         </ExtendedControls:DataGrid.Columns>
-                        <ExtendedControls:DataGrid.ItemDetailsTemplate>
-                            <DataTemplate x:DataType="data:UserSurvey">
+                        <!--<ExtendedControls:DataGrid.ItemDetailsTemplate>
+                            <DataTemplate>
+                                --><!--x:DataType="data:UserSurvey">--><!--
                                 <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
 
                                     <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
@@ -118,12 +121,45 @@
 
                                 </StackPanel>
                             </DataTemplate>
-                        </ExtendedControls:DataGrid.ItemDetailsTemplate>
+                        </ExtendedControls:DataGrid.ItemDetailsTemplate>-->
                     </ExtendedControls:DataGrid>
+                    
                 </Grid>
             </Grid>
         </StackPanel>
-          
+       
     </RelativePanel>
+    
+    <!--<Page.Resources>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="InProgressTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="ApprovedTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <local:MyDataTemplateSelector x:Key="TempSelector"
+        InProgress="{StaticResource InProgressTemplate}"
+        Approved="{StaticResource ApprovedTemplate}">
+
+        </local:MyDataTemplateSelector>
+
+    </Page.Resources>-->
+    
 </Page>
 

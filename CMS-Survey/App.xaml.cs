@@ -59,8 +59,15 @@ namespace CMS_Survey
             CreateDatabase.CopyDataBase();
             conn = new SQLiteConnection("Surveydb.sqlite");
             Services.ServiceHelper.ServiceHelperObject.GetStates();
-           //CreateDatabase.LoadDatabse(conn);
+            //CreateDatabase.LoadDatabse(conn);
             // getJsonFile();
+            var usrfolder = ApplicationData.Current.LocalFolder;
+            if (Directory.Exists(usrfolder.Path + @"\Surveys"))
+            {
+
+                Directory.CreateDirectory(usrfolder.Path + @"\Surveys");
+               
+            }
             await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
             BackGroundTaskHelper bgtHelper = new Template.BackGroundTaskHelper();
             if (!bgtHelper.TaskRegistered)

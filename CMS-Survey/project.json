@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
-    "MyToolkitTest.Extended": "2.5.12",
+    "MyToolkitTest.Extended": "2.5.31",
     "Newtonsoft.Json": "8.0.3",
     "SQLitePCL": "3.8.7.2",
     "System.Data.SQLite": "1.0.102",

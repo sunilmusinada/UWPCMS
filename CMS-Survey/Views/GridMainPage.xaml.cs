@@ -19,6 +19,7 @@ using System.Linq;
 using Template10.Mvvm;
 using CMS_Survey.Template;
 using Windows.UI.Popups;
+using System.ComponentModel.DataAnnotations;
 
 namespace CMS_Survey.Views
 {
@@ -30,6 +31,8 @@ namespace CMS_Survey.Views
         public event MainPageLoadingHandler PageLoadEvent;
         bool Fetched = false;
         private ObservableCollection<UserSurvey> _Usersurveys;
+
+        
         //ProgressRing Progress = null;
         // Property.
         bool isOffline = false;
@@ -84,7 +87,28 @@ namespace CMS_Survey.Views
             InitializeComponent();
             this.Loading += MainPage_Loading;
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+            SCommand.Clicked += Buttonclicked;
             //SurveyObject.Rootobject survObj = getJson();
+        }
+
+        private void Buttonclicked(object sender)
+        {
+            SCommand command = sender as SCommand;
+            if (command == null)
+                return;
+            switch(command.CommandName)
+            {
+                case "Edit":
+                    Edit_Click(null, null);
+
+                    break;
+                case "View":
+                    View_Click(null, null);
+                    break;
+                case "Delete":
+                    Delete_Click(null, null);
+                    break;
+            }
         }
 
         private async void MainPage_Loading(FrameworkElement sender, object args)
@@ -178,7 +202,7 @@ namespace CMS_Survey.Views
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
-        {
+         {
             CMS_Survey.Pages.NewSurvey.isEnabled = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
@@ -199,11 +223,11 @@ namespace CMS_Survey.Views
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+         {
             DataGrid dgrid = sender as DataGrid;
             SelectedSurvey = dgrid.SelectedItem as UserSurvey;
-            if(SelectedSurvey!=null)
-            RenderButtons(SelectedSurvey.status);
+            //if(SelectedSurvey!=null)
+            //RenderButtons(SelectedSurvey.status);
         }
 
         private void Filter_TextChanged(object sender, TextChangedEventArgs e)
@@ -275,4 +299,20 @@ namespace CMS_Survey.Views
 
 
     }
+    //public sealed class MyDataTemplateSelector : Windows.UI.Xaml.Controls.DataTemplateSelector
+    //{
+    //    public DataTemplate InProgress { get; set; }
+    //    public DataTemplate Approved { get; set; }
+    //    protected override DataTemplate SelectTemplateCore(object item,
+    //                                                  DependencyObject container)
+    //    {
+    //        UserSurvey usrSrvyy = item as UserSurvey;
+    //        if (usrSrvyy.status == "In Progress")
+    //            return InProgress;
+    //        if (usrSrvyy.status == "Approved")
+    //            return Approved;
+
+    //        return base.SelectTemplateCore(item, container);
+    //    }
+    //}
 }

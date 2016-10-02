@@ -259,7 +259,7 @@ namespace CMS_Survey.Pages
 
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
                         if(answer.differentUserAnswerList!=null&&answer.differentUserAnswerList.Count>0)
-                        AddOtherAnswers(answer.differentUserAnswerList, ref rowIndex);
+                        AddOtherAnswers(answer, ref rowIndex);
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
@@ -908,9 +908,12 @@ namespace CMS_Survey.Pages
             //}
         }
 
-        private void AddOtherAnswers(List<SectionHelp.DifferentUserAnswerList> DifferentAnswers, ref int rowIndex)
+        private void AddOtherAnswers(SectionHelp.Answerslist answer, ref int rowIndex)
+
         {
-            StackPanel panel = new StackPanel();
+            List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
+
+           StackPanel panel = new StackPanel();
             Border myBorder1 = new Border();
             SolidColorBrush myBrush = new SolidColorBrush(Colors.Black);
             myBorder1.BorderBrush = myBrush;
@@ -918,6 +921,8 @@ namespace CMS_Survey.Pages
             panel.BorderBrush = myBrush;
             foreach (SectionHelp.DifferentUserAnswerList Otheranswer in DifferentAnswers)
             {
+
+               
                 TextBlock txBlock = new TextBlock();
 
                 txBlock.Text ="User :"+ Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(Otheranswer.user)).Select(k => k.Value).FirstOrDefault();
@@ -928,9 +933,9 @@ namespace CMS_Survey.Pages
                 //addUIControl(mainGrid, txBlock, rowIndex++);
                 //addBlankLine(mainGrid, rowIndex);
 
-                TextBlock answer = new TextBlock();
-                answer.Text = Otheranswer.answer;
-                panel.Children.Add(answer);
+                TextBlock Otherans = new TextBlock();
+                Otherans.Text = Otheranswer.answer;
+                panel.Children.Add(Otherans);
                 TextBlock blnk2 = new TextBlock();
                 blnk.Text = " ";
                 panel.Children.Add(blnk2);
@@ -1217,11 +1222,11 @@ namespace CMS_Survey.Pages
                     var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
-                    HideProgress();
+                    HideProgress(); 
                 }
                 else if (!await serviceHelper.IsOffline())
                 {
-                    result = await serviceHelper.CallSurveyService(result.sections.ToList());
+                   result = await serviceHelper.CallSurveyService(result.sections.ToList());
                     HideProgress();
                 }
                 else

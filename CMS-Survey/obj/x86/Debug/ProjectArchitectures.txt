@@ -1,2 +1,3 @@
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\CMS_Survey.Models.csproj;x86
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\CMS-Survey.csproj;x86
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\SurveySyncComponent.csproj;x86

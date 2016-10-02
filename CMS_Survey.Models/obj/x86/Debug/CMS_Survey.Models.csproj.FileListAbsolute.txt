@@ -1,0 +1,17 @@
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x86\Debug\CMS_Survey.Models.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x86\Debug\CMS_Survey.Models.pdb
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x86\Debug\CMS_Survey.Models.pri
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\CMS_Survey.Models.csprojResolveAssemblyReference.cache
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\CMS_Survey.Models.dll
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\CMS_Survey.Models.pdb
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\priconfig.xml
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\priconfig.xml.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\layout.resfiles
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\layout.resfiles.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\resources.resfiles
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\resources.resfiles.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\pri.resfiles
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\pri.resfiles.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\qualifiers.txt
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\qualifiers.txt.intermediate
+F:\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
