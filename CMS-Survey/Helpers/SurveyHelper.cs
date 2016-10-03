@@ -140,7 +140,7 @@ namespace CMS_Survey.Template
                  
                 }
                 CreateSurveyList();
-                MessageDialog msgDialog = new MessageDialog("Finished downloading Surveys", "Information");
+                MessageDialog msgDialog = new MessageDialog("Offline Sync Complete", "Information");
                 await msgDialog.ShowAsync();
             }
             catch(Exception ex)
