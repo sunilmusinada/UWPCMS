@@ -290,7 +290,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -2327,7 +2327,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -4497,7 +4497,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -6708,7 +6708,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -8887,7 +8887,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -11103,7 +11103,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -13282,7 +13282,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.31": {
+      "MyToolkitTest.Extended/2.5.33": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -15580,11 +15580,11 @@
         "lib/portable-sl5+wp71/MyToolkit.xml"
       ]
     },
-    "MyToolkitTest.Extended/2.5.31": {
-      "sha512": "8osp2zIxxt/mIW++XLnbVHBmyOxO8UCQe1Z49NllBHfaBkJc5Lq5r5KNFei4vhs/XFnYkp6WUmXL4jK4ZYRMSg==",
+    "MyToolkitTest.Extended/2.5.33": {
+      "sha512": "Vl96pDKeHGTj9IyTMIVoPVHln0APWl60iqkPoa+d5+ZHi5VO/uPjAFvmgPi7TonjsqUBgFWbPysc7MY39ZMvLg==",
       "type": "package",
       "files": [
-        "MyToolkitTest.Extended.2.5.31.nupkg.sha512",
+        "MyToolkitTest.Extended.2.5.33.nupkg.sha512",
         "MyToolkitTest.Extended.nuspec",
         "lib/uap10.0/MyToolkit.Extended.dll",
         "lib/uap10.0/MyToolkit.Extended.pri",
@@ -21436,7 +21436,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.1.0",
-      "MyToolkitTest.Extended >= 2.5.31",
+      "MyToolkitTest.Extended >= 2.5.33",
       "Newtonsoft.Json >= 8.0.3",
       "SQLitePCL >= 3.8.7.2",
       "System.Data.SQLite >= 1.0.102",

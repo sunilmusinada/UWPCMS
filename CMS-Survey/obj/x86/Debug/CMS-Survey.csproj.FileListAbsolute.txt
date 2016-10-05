@@ -289,3 +289,8 @@ F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\FxResources.System.Security.Cr
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\FxResources.System.Security.Cryptography.Encoding.SR.resw
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\FxResources.System.Security.Cryptography.Primitives.SR.resw
 F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\Views\AssignSurvey.xbf
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\AssignSurvey.g.i.cs
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\AssignSurvey.g.cs
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\AssignSurvey.xaml
+F:\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x86\Debug\Views\AssignSurvey.xbf

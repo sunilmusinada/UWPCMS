@@ -17,7 +17,7 @@
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
                 <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:GridMainPage" 
-                                          AutomationProperties.Name="Jerry"
+                                          AutomationProperties.Name="Jerry" 
                                           >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
@@ -36,21 +36,20 @@
                                Text="New Survey" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-               
+                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:AssignSurvey" 
+                                          AutomationProperties.Name="Jerry"
+                                         Visibility="Collapsed" >
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48"
+                                Symbol="Add" />
+                        <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
+                               Text="Assign Survey" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
             </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
-            <!--<Controls:HamburgerButtonInfo x:Name="LoginButton"
-                                              MaxWidth="48"
-                                              ButtonType="Command"
-                Tapped="LoginTapped">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                    Height="48"
-                                    Symbol="Contact" />
-                </StackPanel>
-            </Controls:HamburgerButtonInfo>-->
-            <!--  settingspage button  -->
+         
             <Controls:HamburgerButtonInfo x:Name="SettingsButton" PageParameter="0"
                                           PageType="views:SettingsPage">
                 <Controls:HamburgerButtonInfo.NavigationTransitionInfo>

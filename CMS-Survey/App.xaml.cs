@@ -58,12 +58,12 @@ namespace CMS_Survey
             //
             CreateDatabase.CopyDataBase();
             conn = new SQLiteConnection("Surveydb.sqlite");
-            var usrfolder = ApplicationData.Current.LocalFolder;
-            if (!Directory.Exists(usrfolder.Path + @"\Surveys"))
-            {
-                StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
-                       CreationCollisionOption.OpenIfExists);
-            }
+            //var usrfolder = ApplicationData.Current.LocalFolder;
+            //if (!Directory.Exists(usrfolder.Path + @"\Surveys"))
+            //{
+            //    StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
+            //           CreationCollisionOption.OpenIfExists);
+            //}
             Services.ServiceHelper.ServiceHelperObject.GetStates();
             //CreateDatabase.LoadDatabse(conn);
             // getJsonFile();

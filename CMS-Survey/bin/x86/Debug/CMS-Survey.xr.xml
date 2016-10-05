@@ -3,6 +3,7 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="IsActive" />
+    <RootPropertyPathName Name="AddSurveyorCommand" />
     <RootPropertyPathName Name="DeleteCommand" />
     <RootPropertyPathName Name="ViewCommand" />
     <RootPropertyPathName Name="EditCommand" />
@@ -80,6 +81,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Style" />
       <RootProperty Name="Name" />
       <RootProperty Name="FontWeight" />
@@ -224,24 +226,15 @@
       <RootProperty Name="GrabberBrush" />
       <RootProperty Name="GrabberVisibility" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="Height" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Child" />
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
-      <RootProperty Name="Mode" />
-      <RootProperty Name="FallbackValue" />
-    </RootType>
-    <RootType FullName="CMS_Survey.Views.Busy" />
-    <RootType FullName="CMS_Survey.ViewModels.DetailPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
-      <RootProperty Name="Background" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="DataContext" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignLeftWithPanel" />
       <RootMethod Name="SetAlignLeftWithPanel" />
       <RootMethod Name="GetAlignRightWithPanel" />
@@ -255,6 +248,20 @@
       <RootMethod Name="GetAlignRightWith" />
       <RootMethod Name="SetAlignRightWith" />
     </RootType>
+    <RootType FullName="CMS_Survey.Views.AssignSurvey" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
+      <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Child" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
+      <RootProperty Name="Mode" />
+      <RootProperty Name="FallbackValue" />
+    </RootType>
+    <RootType FullName="CMS_Survey.Views.Busy" />
+    <RootType FullName="CMS_Survey.ViewModels.DetailPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
     </RootType>
@@ -340,6 +347,7 @@
       <RootProperty Name="ClearHistory" />
       <RootProperty Name="PageType" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="PageParameter" />
       <RootProperty Name="NavigationTransitionInfo" />
     </RootType>

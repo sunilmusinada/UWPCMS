@@ -245,7 +245,7 @@ namespace CMS_Survey.Database
             }
         }
 
-        public async Task<List<string>> GetUsersForState(string StateCode)
+        public async Task<List<string>> GetUserMailsForState(string StateCode)
         {
 
             List<string> EmailIds = new List<string>();
@@ -276,6 +276,40 @@ namespace CMS_Survey.Database
                 statement.Step();
             }
             return EmailIds;
+        }
+
+        public async Task<List<string>> GetUsersForState(string StateCode)
+        {
+            
+
+            List<string> userNames = new List<string>();
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            { 
+                statement.Step();
+            }
+
+            string get_sql;
+            if (StateCode == "ALL")
+                get_sql = string.Format("SELECT First_Name,Last_Name FROM users");
+            else
+                get_sql = string.Format("SELECT First_Name,Last_Name FROM users WHERE state = '{0}'", StateCode);
+
+            using (var statement = db.Prepare(get_sql))
+            {
+
+                System.Diagnostics.Debug.WriteLine(get_sql);
+                while (statement.Step().Equals(SQLiteResult.ROW))
+                {
+                    var mail = string.Format("{0},{1}", Convert.ToString(statement[0]), Convert.ToString(statement[1]));
+                    userNames.Add(mail);
+
+                }
+            }
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            return userNames;
         }
     }
 }

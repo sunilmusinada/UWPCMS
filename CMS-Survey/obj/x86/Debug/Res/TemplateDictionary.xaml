@@ -12,7 +12,8 @@
                
                 <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
                 <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
-                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="{Binding DeleteCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="Auto" Margin="240,10,10,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
             </Grid>
 
         </StackPanel>
@@ -24,7 +25,8 @@
               
                 <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
                 <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
-                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="{Binding DeleteCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="200" Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
             </Grid>
 
         </StackPanel>
@@ -35,7 +37,8 @@
             <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
                 <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="160,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
                 <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
-                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Click="{Binding DeleteCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="200" Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
             </Grid>
 
         </StackPanel>
@@ -46,7 +49,8 @@
             <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
                 <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="160,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
                 <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
-                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="{Binding DeleteCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
             </Grid>
 
         </StackPanel>
@@ -57,7 +61,8 @@
             <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
                 <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="110,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
                 <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
-                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="{Binding DeleteCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="200" Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
             </Grid>
 
         </StackPanel>

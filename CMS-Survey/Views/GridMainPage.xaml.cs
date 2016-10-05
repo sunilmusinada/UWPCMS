@@ -108,6 +108,9 @@ namespace CMS_Survey.Views
                 case "Delete":
                     Delete_Click(null, null);
                     break;
+                case "AddSurveyor":
+                    AddSurveyorClicked(null, null);
+                    break;
             }
         }
 
@@ -200,13 +203,32 @@ namespace CMS_Survey.Views
                 throw ex;
             }
         }
+        private void AddSurveyorToSurvey(string SurveyKey)
+        {
+            try
+            {
 
+                var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SelectedSurvey);
+                this.Frame.Navigate(typeof(Views.AssignSurvey), param);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private void Edit_Click(object sender, RoutedEventArgs e)
          {
             CMS_Survey.Pages.NewSurvey.isEnabled = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
-        
+
+        private void AddSurveyorClicked(object sender, RoutedEventArgs e)
+        {
+            AddSurveyorToSurvey(SelectedSurvey.surveyKey);
+        }
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {

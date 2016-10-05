@@ -74,6 +74,10 @@ namespace CMS_Survey.Services
 
         private string AssignSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/assignsurvey?userKey={0}&surveyKey={1}&userEmail={2}";
 
+        private string SurveyorListUrl = HostUrl + @"SurveyRest/rest/myresource/surveyUsers?surveyKey={0}";
+
+        private string AddServeyorUrl = HostUrl + @"SurveyRest/rest/myresource/surveyUsers";
+
        // private string UsersListUrl=
         #endregion
         public static ServiceHelper ServiceHelperObject
@@ -550,13 +554,48 @@ namespace CMS_Survey.Services
             }
             return MailIds;
         }
+        internal async Task<List<string>> GetUsersForStateCode(string stateCode)
+        {
+            List<string> userNames = new List<string>();
+            try
+            {
+                var client = new HttpClient();
 
+                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UsersUrl, stateCode)));
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    string jsonString = await response.Content.ReadAsStringAsync();
+
+                    var users = Newtonsoft.Json.JsonConvert.DeserializeObject<ObservableCollection<User>>(jsonString);
+
+                    foreach (User usr in users)
+                    {
+                        var item = string.Format("{0},{1}", usr.FirstName, usr.LastName);
+                        userNames.Add(item);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return userNames;
+        }
         internal async Task<List<string>> GetMaildsForStateOffline(string stateCode)
         {
             List<string> MailIDs = new List<string>();
             Database.users_table usrTable = new Database.users_table();
-            MailIDs = await usrTable.GetUsersForState(stateCode);
+            MailIDs = await usrTable.GetUserMailsForState(stateCode);
             return MailIDs;
+        }
+        internal async Task<List<string>> GetUsersForStateOffline(string stateCode)
+        {
+            List<string> UserNames = new List<string>();
+            Database.users_table usrTable = new Database.users_table();
+            UserNames = await usrTable.GetUsersForState(stateCode);
+            return UserNames;
         }
         #endregion
 
@@ -691,5 +730,57 @@ namespace CMS_Survey.Services
         }
         #endregion
 
+
+        #region Surveyors
+        internal async Task<List<long>> GetSurveyorForSurvey(string SurveyKey)
+        {
+
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(SurveyorListUrl, SurveyKey)));
+            List<long> users = null;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<long>>(jsonString);
+
+            }
+            return users;
+        }
+        internal async Task<bool> AddSurveyors(List<long> Users)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+
+
+            try
+            {
+                var client = new HttpClient();
+                isSaveSuccessful = false;
+                //var values = new Dictionary<string, string>();
+
+                var content = new StringContent("", Encoding.UTF8, "application/json");
+
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+               
+                HttpResponseMessage response = await client.PutAsync(string.Format(AddServeyorUrl,Users), content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                    isSuccess = true;
+                    isSaveSuccessful = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isSuccess;
+        }
+        #endregion
     }
 }

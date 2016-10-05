@@ -51,5 +51,15 @@ namespace CMS_Survey.Models
                 return Dcmd;
             }
         }
+        private SCommand AdsCmd;
+        public SCommand AddSurveyorCommand
+        {
+            get
+            {
+                if (AdsCmd == null)
+                    AdsCmd = new SCommand(this, "AddSurveyor");
+                return AdsCmd;
+            }
+        }
     }
 }
