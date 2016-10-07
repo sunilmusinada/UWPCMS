@@ -46,10 +46,11 @@ namespace CMS_Survey.Views
               
                 if (e.Parameter != null)
                 {
+                    AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                     var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                     SurveyKeyText.Text = surv.surveyKey;
                     ProviderKeyText.Text = surv.surveyProvider;
-                    users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
+                    //users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
                     AddExistingUsersandNew();
                 }
                 else if (e.Parameter == null)
@@ -74,7 +75,7 @@ namespace CMS_Survey.Views
                         ProviderKeyText.Text = surv.surveyProvider;
                         m_SurveyKey = Convert.ToInt64(surv.surveyKey);
                         users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
-                        users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
+                       // users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
                         AddExistingUsersandNew();
                     }
                     else if (e.Parameter == null)
@@ -109,7 +110,7 @@ namespace CMS_Survey.Views
                     userLabel.TextWrapping = TextWrapping.Wrap;
                     AddUIControlWithAlignment(rowIndex , HorizontalAlignment.Left, userLabel, 1);
                     userLabel = new TextBlock();
-                    userLabel.Text =string.Format("{0},{1}",fisrtName,lastName);
+                    userLabel.Text =string.Format("{0} {1}",fisrtName,lastName);
                     userLabel.TextWrapping = TextWrapping.Wrap;
                    
                     AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Center, userLabel, 1);
@@ -219,7 +220,15 @@ namespace CMS_Survey.Views
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
             else
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateOffline(selectedItem);
-            UserList.ForEach(t => usrCmb.Items.Add(t));
+            foreach (var usr in UserList)
+            {
+                string firstName = usr.Split(' ').FirstOrDefault();
+                string LastName = usr.Split(' ').LastOrDefault();
+                long usrKey = GetUserKeyForUser(firstName, LastName);
+                if(!users.userKeys.Contains(usrKey))
+                usrCmb.Items.Add(usr);
+             }
+            //UserList.ForEach(t => usrCmb.Items.Add(t));
         }
 
         private void addUIControl(Grid mainGrid, FrameworkElement uiComponent, int rowIndex)
@@ -247,8 +256,8 @@ namespace CMS_Survey.Views
                 string username = Convert.ToString(srvr.UserCombobox.SelectedItem);
                 if (string.IsNullOrEmpty(username))
                     continue;
-                string firstName = username.Split(',').FirstOrDefault();
-                string LastName = username.Split(',').LastOrDefault();
+                string firstName = username.Split(' ').FirstOrDefault();
+                string LastName = username.Split(' ').LastOrDefault();
                 UserKeys.Add(GetUserKeyForUser(firstName, LastName));
             }
             if (UserKeys.Count < 0)

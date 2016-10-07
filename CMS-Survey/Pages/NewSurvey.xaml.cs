@@ -58,9 +58,10 @@ namespace CMS_Survey.Pages
         Dictionary<int, int> CantObserveKey;
         Dictionary<int, int> QuestionObservationDictionary;
         public IUICommand btnResult;
+        List<Models.User> AllUsers = null;
         public NewSurvey()
         {
-
+           
             this.InitializeComponent();
 
         }
@@ -73,6 +74,7 @@ namespace CMS_Survey.Pages
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 LoadedOffline = true;
+                AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                 if (e.Parameter != null)
                 {
                     var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
@@ -100,6 +102,7 @@ namespace CMS_Survey.Pages
                 LoadedOffline = false;
                 if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 {
+                    AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
                     if (e.Parameter != null)
                     {
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
@@ -353,7 +356,7 @@ namespace CMS_Survey.Pages
             string SurveyKey = Convert.ToString(result.sections.First().surveyKey);
             if (string.IsNullOrEmpty(mailId))
                 return;
-
+            mailId=GetMaild(mailId);
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 await SaveSurvey();
@@ -378,7 +381,12 @@ namespace CMS_Survey.Pages
             }
 
         }
-
+        private string GetMaild(string userandMailId)
+        {
+            string mailid;
+            mailid=userandMailId.Substring(userandMailId.IndexOf('(')+1).Replace(")","");
+            return mailid;
+        }
         private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
@@ -389,9 +397,22 @@ namespace CMS_Survey.Pages
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
             else
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForStateOffline(selectedItem);
-            Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
+            foreach (var mail in Maillist)
+            {
+                
+                if(!GetMaild(mail).Equals( GetMailIdForUser(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey)))
+                MailIdCombobox.Items.Add(mail);
+            }
+           // Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
         }
+        private string GetMailIdForUser(long userkey)
+        {
+            string key;
 
+            key = AllUsers.Where(e => e.userKey.Equals(userkey)).Select(e => e.Email).FirstOrDefault();
+
+            return key;
+        }
         private void AddObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question)
         {
             Button Btn = new Button();

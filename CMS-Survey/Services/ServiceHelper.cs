@@ -571,7 +571,7 @@ namespace CMS_Survey.Services
 
                     foreach (User usr in users)
                     {
-                        var item = string.Format("{0},{1}", usr.FirstName, usr.LastName);
+                        var item = string.Format("{0} {1}", usr.FirstName, usr.LastName);
                         userNames.Add(item);
                     }
 
@@ -595,6 +595,13 @@ namespace CMS_Survey.Services
             List<string> UserNames = new List<string>();
             Database.users_table usrTable = new Database.users_table();
             UserNames = await usrTable.GetUsersForState(stateCode);
+            return UserNames;
+        }
+        internal async Task<List<User>> GetFullUsersOffline(string StateCode)
+        {
+            List<User> UserNames = new List<User>();
+            Database.users_table usrTable = new Database.users_table();
+            UserNames = await usrTable.GetFullUsersForState(StateCode);
             return UserNames;
         }
         #endregion

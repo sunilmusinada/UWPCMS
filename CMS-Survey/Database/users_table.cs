@@ -311,5 +311,48 @@ namespace CMS_Survey.Database
             }
             return userNames;
         }
+
+        public async Task<List<User>> GetFullUsersForState(string StateCode)
+        {
+
+
+            List<User> userNames = new List<User>();
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+
+            string get_sql;
+            if (StateCode == "ALL")
+                get_sql = string.Format("SELECT * FROM users");
+            else
+                get_sql = string.Format("SELECT * FROM users WHERE state = '{0}'", StateCode);
+
+            using (var statement = db.Prepare(get_sql))
+            {
+
+                var usr = new User();
+                System.Diagnostics.Debug.WriteLine(get_sql);
+                while (statement.Step().Equals(SQLiteResult.ROW))
+                {
+                    usr.userKey = Convert.ToInt64(Convert.ToString(statement[0]));
+                    usr.userName = Convert.ToString(statement[1]);
+                    usr.FirstName= Convert.ToString(statement[3]);
+                    usr.LastName= Convert.ToString(statement[4]); 
+                    usr.Email= Convert.ToString(statement[5]);
+                    usr.Role= Convert.ToInt64(statement[6]);
+                    usr.State= Convert.ToString(statement[7]);
+
+                    //var mail = string.Format("{0},{1}", Convert.ToString(statement[0]), Convert.ToString(statement[1]));
+                    //userNames.Add(mail);
+                    userNames.Add(usr);
+                }
+            }
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            return userNames;
+        }
     }
 }
