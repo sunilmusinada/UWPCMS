@@ -732,26 +732,31 @@ namespace CMS_Survey.Services
 
 
         #region Surveyors
-        internal async Task<List<long>> GetSurveyorForSurvey(string SurveyKey)
+        internal async Task<Surveyors> GetSurveyorForSurvey(string SurveyKey)
         {
-
+            //List<long> usrs = new List<long>();
+            //usrs.Add(54);
+            //usrs.Add(55);
+            //usrs.Add(56);
+            //return usrs;
             var client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(SurveyorListUrl, SurveyKey)));
-            List<long> users = null;
+            Surveyors surveyors = null;
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<long>>(jsonString);
+                surveyors = Newtonsoft.Json.JsonConvert.DeserializeObject<Surveyors>(jsonString);
 
             }
-            return users;
+            return surveyors;
         }
-        internal async Task<bool> AddSurveyors(List<long> Users)
+        internal async Task<bool> AddSurveyors(Surveyors surveyors)
         {
             bool isSuccess = false;
             string jsonString = null;
             SectionHelp.Rootobject SecList = null;
             //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+            var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(surveyors);
 
 
             try
@@ -759,12 +764,12 @@ namespace CMS_Survey.Services
                 var client = new HttpClient();
                 isSaveSuccessful = false;
                 //var values = new Dictionary<string, string>();
+                string usersString = string.Empty;
 
-                var content = new StringContent("", Encoding.UTF8, "application/json");
-
+                HttpContent content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
                 //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
-               
-                HttpResponseMessage response = await client.PutAsync(string.Format(AddServeyorUrl,Users), content);
+
+                HttpResponseMessage response = await client.PutAsync(AddServeyorUrl, content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     jsonString = await response.Content.ReadAsStringAsync();

@@ -119,7 +119,7 @@
     <Compile Include="Helpers\BackGroundTaskHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\SurveyHelper.cs" />
-    <Compile Include="Helpers\Surveyor.cs" />
+    <Compile Include="Helpers\SurveyorControls.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Hospital.cs" />
@@ -128,6 +128,7 @@
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\StatesLu.cs" />
     <Compile Include="Models\Survey.cs" />
+    <Compile Include="Models\Surveyors.cs" />
     <Compile Include="Models\SurveyTypeLu.cs" />
     <Compile Include="Models\TableViewModelBase.cs" />
     <Compile Include="Database\users_table.cs" />

@@ -18,4 +18,3 @@ F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x86\Debug\pri.resfiles.intermed
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x86\Debug\qualifiers.txt
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x86\Debug\qualifiers.txt.intermediate
 F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
-F:\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\obj\x86\Debug\SurveySyncComponent.csprojResolveAssemblyReference.cache

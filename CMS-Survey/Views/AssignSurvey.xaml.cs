@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CMS_Survey.Helpers;
 using Windows.UI.Popups;
+using CMS_Survey.Models;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Views
@@ -23,11 +24,12 @@ namespace CMS_Survey.Views
     /// </summary>
     public sealed partial class AssignSurvey : Page
     {
-        List<long> users = null;
+        Surveyors users = null;
         List<Models.User> AllUsers = null;
-        List<Surveyor> SurveyorList = new List<Surveyor>();
+        List<SurveyorControls> SurveyorList = new List<SurveyorControls>();
         int rowIndex;
         int totalUserCount;
+        long m_SurveyKey;
         public AssignSurvey()
         {
             this.InitializeComponent();
@@ -63,14 +65,16 @@ namespace CMS_Survey.Views
                 {
                     if (e.Parameter != null)
                     {
+                        AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
-                       // var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                        // var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                         var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                         SurveyKeyText.Text = surv.surveyKey;
                         ProviderKeyText.Text = surv.surveyProvider;
+                        m_SurveyKey = Convert.ToInt64(surv.surveyKey);
                         users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
-                        users.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
+                        users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
                         AddExistingUsersandNew();
                     }
                     else if (e.Parameter == null)
@@ -91,23 +95,37 @@ namespace CMS_Survey.Views
         private void AddExistingUsersandNew()
         {
             rowIndex = 1;
-            if(users.Count>0)
-            {
-                foreach (long user in users)
+            string fisrtName;
+            string lastName;
+           
+                foreach (long user in users.userKeys)
                 {
-                    
+                    var usr = AllUsers.Where(e => e.userKey.Equals(user)).Select(e => e).FirstOrDefault();
+                    fisrtName = usr.FirstName;
+                    lastName = usr.LastName;
+
+                    TextBlock userLabel = new TextBlock();
+                    userLabel.Text = "User  :";
+                    userLabel.TextWrapping = TextWrapping.Wrap;
+                    AddUIControlWithAlignment(rowIndex , HorizontalAlignment.Left, userLabel, 1);
+                    userLabel = new TextBlock();
+                    userLabel.Text =string.Format("{0},{1}",fisrtName,lastName);
+                    userLabel.TextWrapping = TextWrapping.Wrap;
+                   
+                    AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Center, userLabel, 1);
+                    addBlankLine(UserDataGrid, rowIndex++);
+                    addBlankLine(UserDataGrid, rowIndex++);
+                
                 }
-            }
-            else
-            {
+          
                 rowIndex = AddNewSurveyor(rowIndex);
                 //addUIControl(UserDataGrid, cmbbox1, rowIndex++);
-            }
+            
         }
 
         private int AddNewSurveyor(int rowIndex)
         {
-            Surveyor surV = new Helpers.Surveyor();
+            SurveyorControls surV = new Helpers.SurveyorControls();
             TextBlock questionlabel = new TextBlock();
             questionlabel.Text = "State";
             questionlabel.TextWrapping = TextWrapping.Wrap;
@@ -220,9 +238,11 @@ namespace CMS_Survey.Views
 
         private async void Submit_Click(object sender, RoutedEventArgs e)
         {
-             AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+
+            Surveyors surveyors = new Surveyors();
+            surveyors.surveyKey = m_SurveyKey;
             List<long> UserKeys = new List<long>();
-            foreach (Surveyor srvr in SurveyorList)
+            foreach (SurveyorControls srvr in SurveyorList)
             {
                 string username = Convert.ToString(srvr.UserCombobox.SelectedItem);
                 if (string.IsNullOrEmpty(username))
@@ -233,7 +253,8 @@ namespace CMS_Survey.Views
             }
             if (UserKeys.Count < 0)
                 return;
-         bool success=   await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(UserKeys);
+            surveyors.userKeys = UserKeys;
+         bool success=   await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
             if (success)
                 NavigateToMainPage();
             else
