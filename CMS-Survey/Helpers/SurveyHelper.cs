@@ -30,7 +30,7 @@ namespace CMS_Survey.Template
         {
             SurveyList = new ObservableCollection<Models.SectionHelp.Rootobject>();
 
-            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, Constants.SurveyFolder);
+            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, Constants.SurveyFolder,Services.ServiceHelper.ServiceHelperObject.currentUser.userKey.ToString());
 
 
             if (!Directory.Exists(FilePath))
@@ -161,14 +161,16 @@ namespace CMS_Survey.Template
             if (string.IsNullOrEmpty(JsonRequest))
                 return;
             var usrfolder = ApplicationData.Current.LocalFolder;
-            StorageFolder folder = await usrfolder.CreateFolderAsync("Surveys",
+            string subFolder = "Surveys";
+            subFolder= subFolder + "\\" + Services.ServiceHelper.ServiceHelperObject.currentUser.userKey.ToString();
+            StorageFolder folder = await usrfolder.CreateFolderAsync(subFolder,
                    CreationCollisionOption.OpenIfExists);
             var path = folder.Path;
           
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
           var userKey= Services.ServiceHelper.ServiceHelperObject.currentUser.userKey;
-            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey, userKey));
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
             var sectionHelp = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(JsonRequest);
             JsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(sectionHelp.sections.ToList());
             await Services.ServiceHelper.ServiceHelperObject.WriteFile(JsonRequest, SurveyKey,userKey.ToString(), folder, FilePath);

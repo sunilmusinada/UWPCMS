@@ -279,6 +279,7 @@ namespace CMS_Survey.Services
         public async Task SaveSurveyLocal(string jsonRequest,string SurveyKey,string SubFolder)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
+            SubFolder = SubFolder + "\\" + this.currentUser.userKey.ToString();
             StorageFolder folder = await usrfolder.CreateFolderAsync(SubFolder,
                    CreationCollisionOption.OpenIfExists);
             var path = folder.Path;
@@ -286,7 +287,7 @@ namespace CMS_Survey.Services
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
           
-            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey,this.currentUser.userKey));
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
           
             textFile = (IStorageFile)null;
             await WriteFile(jsonRequest, SurveyKey,this.currentUser.userKey.ToString(), folder, FilePath);
@@ -316,11 +317,11 @@ namespace CMS_Survey.Services
         {
             if (!File.Exists(FilePath))
             {
-                textFile = await folder.CreateFileAsync(string.Format("{0}_{1}.json", SurveyKey,UserKey));
+                textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey,UserKey));
             }
             else
             {
-                textFile = await folder.GetFileAsync(string.Format("{0}_{1}.json", SurveyKey,UserKey));
+                textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey,UserKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
         }

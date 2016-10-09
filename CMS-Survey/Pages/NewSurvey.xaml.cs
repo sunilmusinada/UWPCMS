@@ -78,7 +78,7 @@ namespace CMS_Survey.Pages
                 if (e.Parameter != null)
                 {
                     var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                    if (CMS_Survey.Template.SurveyHelper.SurveyList == null && CMS_Survey.Template.SurveyHelper.SurveyList.Count == 0)
+                    if (CMS_Survey.Template.SurveyHelper.SurveyList == null || CMS_Survey.Template.SurveyHelper.SurveyList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
                         NavigateToMainPage();

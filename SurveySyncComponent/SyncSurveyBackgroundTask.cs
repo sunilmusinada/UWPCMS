@@ -18,7 +18,7 @@ namespace SurveySyncComponent
         private static SQLiteConnection conn;
         Assignment_table assignTable;
         BackgroundTaskDeferral _deferral;
-        internal string userKey=null;
+        internal string userKey = null;
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             _deferral = taskInstance.GetDeferral();
@@ -26,17 +26,17 @@ namespace SurveySyncComponent
             try
             {
                 assignTable = new Assignment_table(conn);
-               Task t= SyncAllLocalSurveys();
+                Task t = SyncAllLocalSurveys();
                 await t;
                 Task t2 = AssignSurveys();
                 await t2;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
-            
+
             _deferral.Complete();
         }
 
@@ -50,6 +50,7 @@ namespace SurveySyncComponent
         private async Task SaveSurveyLocal(string jsonRequest, string SurveyKey, string SubFolder)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
+            SubFolder = SubFolder + "\\" + userKey.ToString();
             StorageFolder folder = await usrfolder.CreateFolderAsync(SubFolder,
                    CreationCollisionOption.OpenIfExists);
             var path = folder.Path;
@@ -57,7 +58,7 @@ namespace SurveySyncComponent
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
-            string FilePath = Path.Combine(path, string.Format("{0}_{1}.json", SurveyKey,userKey));
+            string FilePath = Path.Combine(path, string.Format("{0}.json", SurveyKey));
 
             textFile = (IStorageFile)null;
             await WriteFile(jsonRequest, SurveyKey, folder, FilePath);
@@ -67,11 +68,11 @@ namespace SurveySyncComponent
         {
             if (!File.Exists(FilePath))
             {
-                textFile = await folder.CreateFileAsync(string.Format("{0}_{1}.json", SurveyKey, userKey));
+                textFile = await folder.CreateFileAsync(string.Format("{0}.json", SurveyKey));
             }
             else
             {
-                textFile = await folder.GetFileAsync(string.Format("{0}_{1}.json", SurveyKey, userKey));
+                textFile = await folder.GetFileAsync(string.Format("{0}.json", SurveyKey));
             }
             await FileIO.WriteTextAsync(textFile, jsonRequest);
         }
@@ -109,21 +110,27 @@ namespace SurveySyncComponent
         {
 
             DirectoryInfo Dinfo = await GetTempSurveyDirectory();
-            foreach (FileInfo SurveyFile in Dinfo.GetFiles("*.json"))
+            foreach (var Dir in Dinfo.GetDirectories())
             {
-                string json = "";
 
-                userKey = SurveyFile.Name.Replace(".json", "").Substring(SurveyFile.Name.IndexOf('_') + 1);
-                using (StreamReader sr = SurveyFile.OpenText())
+
+                foreach (FileInfo SurveyFile in Dir.GetFiles("*.json"))
                 {
-                   
-                    json = sr.ReadToEnd();
-                }
+                    string json = "";
+
+                    //userKey = SurveyFile.Name.Replace(".json", "").Substring(SurveyFile.Name.IndexOf('_') + 1);
+                    userKey = Dir.Name;
+                    using (StreamReader sr = SurveyFile.OpenText())
+                    {
+
+                        json = sr.ReadToEnd();
+                    }
                     if (await CallSurveyService(json))
                     {
                         await DeleteFiles(SurveyFile.Name);
                     }
-              
+
+                }
             }
         }
 
@@ -152,23 +159,23 @@ namespace SurveySyncComponent
             List<Assignment> assignments = GetAllAssignments();
             foreach (Assignment assign in assignments)
             {
-               bool assigned= await CallAssignSurvey(assign.EmailID, Convert.ToString(assign.Survey_Key),assign.User_Key);
-                if(assigned)
-                DeleteAssignment(assign.Assignment_ID);
+                bool assigned = await CallAssignSurvey(assign.EmailID, Convert.ToString(assign.Survey_Key), assign.User_Key);
+                if (assigned)
+                    DeleteAssignment(assign.Assignment_ID);
             }
         }
         private List<Assignment> GetAllAssignments()
         {
             List<Assignment> AssignmentList = new List<Assignment>();
-          
-           AssignmentList= assignTable.GetAssignments();
+
+            AssignmentList = assignTable.GetAssignments();
             return AssignmentList;
         }
         private void DeleteAssignment(long id)
         {
             assignTable.deleteAssignment(id);
         }
-        private async Task<bool> CallAssignSurvey(string EmailId, string SurveyKey,long userKey)
+        private async Task<bool> CallAssignSurvey(string EmailId, string SurveyKey, long userKey)
         {
             bool isSuccess = false;
             string jsonString = null;
@@ -192,7 +199,7 @@ namespace SurveySyncComponent
                     jsonString = await response.Content.ReadAsStringAsync();
 
                     //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
-                   
+
                     isAssignSuccessful = true;
 
                 }
