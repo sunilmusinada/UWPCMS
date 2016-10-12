@@ -293,6 +293,31 @@ namespace CMS_Survey.Services
             await WriteFile(jsonRequest, SurveyKey,this.currentUser.userKey.ToString(), folder, FilePath);
         
         }
+        public async Task SaveSurveyList(string jsonRequest, string SubFolder)
+        {
+            var usrfolder = ApplicationData.Current.LocalFolder;
+            SubFolder = SubFolder + "\\" + this.currentUser.userKey.ToString();
+            StorageFolder folder = await usrfolder.CreateFolderAsync(SubFolder,
+                   CreationCollisionOption.OpenIfExists);
+            var path = folder.Path;
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            string FilePath = Path.Combine(path, string.Format("SurveyList.json"));
+
+            textFile = (IStorageFile)null;
+            if (!File.Exists(FilePath))
+            {
+                textFile = await folder.CreateFileAsync(string.Format("SurveyList.json"));
+            }
+            else
+            {
+                textFile = await folder.GetFileAsync(string.Format("SurveyList.json"));
+            }
+            await FileIO.WriteTextAsync(textFile, jsonRequest);
+
+        }
         public async Task SaveSurveyTemp(string jsonRequest, string SurveyKey,Int64 userKey)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
@@ -458,8 +483,9 @@ namespace CMS_Survey.Services
         #endregion
 
         #region User Survey
-        internal async Task CallUserSurveyService()
+        internal async Task<string> CallUserSurveyService()
         {
+            string jsonString = string.Empty;
             try
             {
                 var client = new HttpClient();
@@ -468,48 +494,56 @@ namespace CMS_Survey.Services
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
 
-                    string jsonString = await response.Content.ReadAsStringAsync();
-
+                    jsonString = await response.Content.ReadAsStringAsync();
+                    
                     UserSurveyList = Newtonsoft.Json.JsonConvert.DeserializeObject<ObservableCollection<UserSurvey>>(jsonString);
 
                 }
             }
             catch(Exception ex)
             {
+                //throw a meaningful exception here
                 throw ex;
             }
-            
+            return jsonString;
         }
         internal void CallUserSurveyServiceOffline()
         {
             SurveyHelper svHelper = new SurveyHelper();
             
             UserSurveyList = new ObservableCollection<UserSurvey>();
-            foreach (var SurveyObj in SurveyHelper.SurveyList)
+            if (SurveyHelper.SurveyJsonList == null || SurveyHelper.SurveyJsonList.Count == 0)
+                return;
+            foreach (var item in SurveyHelper.SurveyJsonList)
             {
-                UserSurvey usrSurvey = new UserSurvey();
-                var surObj = SurveyObj.sections.FirstOrDefault();
-                if (surObj == null)
-                    return;
-                var stateList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
-                var Statecode = stateList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault();
-                var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
-                int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
-                var hsp= GetHospitalForProviderKey(provider);
-                usrSurvey.surveyProvider = hsp.facilityName;
-               
-                usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
-                usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
-                usrSurvey.surveyNumber = "";
-                // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
-                usrSurvey.surveyProvider = Convert.ToString(usrSurvey.surveyProvider);
-                usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
-                usrSurvey.endDateString = "";
-                UserSurveyList.Add(usrSurvey);
+                UserSurveyList.Add(item);
             }
+            //foreach (var SurveyObj in SurveyHelper.SurveyList)
+            //{
+            //    UserSurvey usrSurvey = new UserSurvey();
+            //    var surObj = SurveyObj.sections.FirstOrDefault();
+            //    if (surObj == null)
+            //        return;
+            //    var stateList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
+            //    var Statecode = stateList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault();
+            //    var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
+            //    int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
+            //    var hsp= GetHospitalForProviderKey(provider);
+            //    usrSurvey.surveyProvider = hsp.facilityName;
+               
+            //    usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
+            //    usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
+            //    usrSurvey.surveyNumber = "";
+            //    // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
+            //    usrSurvey.surveyProvider = Convert.ToString(usrSurvey.surveyProvider);
+            //    usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
+            //    usrSurvey.endDateString = "";
+            //    UserSurveyList.Add(usrSurvey);
+            //}
             
 
         }
+
 
         internal string GetOfflineSelectedState(string stateCode)
         {

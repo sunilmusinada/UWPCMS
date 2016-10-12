@@ -136,7 +136,7 @@ namespace CMS_Survey.Views
         private void RenderButtons(string Status)
         {
             
-            //this.vi
+            
            
         }
 
@@ -159,6 +159,7 @@ namespace CMS_Survey.Views
         //    //btn.Margin.Right = 0;
         //    //btn.Margin.Bottom = 0;
         //}
+
         public async Task GetSurveys()
         {
             //progressRing = new ProgressRing();

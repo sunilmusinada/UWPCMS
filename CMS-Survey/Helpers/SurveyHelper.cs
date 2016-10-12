@@ -17,6 +17,8 @@ namespace CMS_Survey.Template
         internal static SectionHelp.Rootobject Request;
         public List<SurverInsertObject> surveyInsertObjectList { get; set; }
         public static ObservableCollection<SectionHelp.Rootobject> SurveyList { get; set; }
+
+        public static List<Models.UserSurvey> SurveyJsonList { get; set; }
         internal SurveyHelper(SectionHelp.Rootobject SectionHelpRoot)
         {
             Request = SectionHelpRoot;
@@ -39,20 +41,23 @@ namespace CMS_Survey.Template
 
             try
             {
-                foreach (var item in dInfo.GetFiles("*.json"))
-                {
-                    var RootObj = new Rootobject();
-                    List<Models.SectionHelp.Section> SectionList = null;
+                //foreach (var item in dInfo.GetFiles("*.json"))
+                //{
+                //    var RootObj = new Rootobject();
+                //    List<Models.SectionHelp.Section> SectionList = null;
 
-                    using (StreamReader file = File.OpenText(item.FullName))
+                    using (StreamReader file = File.OpenText(FilePath+ "\\SurveyList.json" ))
                     {
                         var json = file.ReadToEnd();
-                        SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
-                        RootObj.sections = SectionList.ToArray();
-                        SurveyList.Add(RootObj);
-                        // System.Diagnostics.Debug.WriteLine(result);
-                    }
+                        //SurveyJsonList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
+                        //RootObj.sections = SectionList.ToArray();
+                        //SurveyList.Add(RootObj);
+                    SurveyJsonList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserSurvey>>(json);
+                    //RootObj.sections = SectionList.ToArray();
+                    //SurveyList.Add(RootObj);
+                    // System.Diagnostics.Debug.WriteLine(result);
                 }
+               // }
             }
             catch (Exception ex)
             {
@@ -129,7 +134,10 @@ namespace CMS_Survey.Template
                     svcHelper.CallUserSurveyServiceOffline();
                 }
                 else
-                    await svcHelper.CallUserSurveyService();
+                {
+                  string jsonString=   await svcHelper.CallUserSurveyService();
+                  await Services.ServiceHelper.ServiceHelperObject.SaveSurveyList(jsonString, Constants.SurveyFolder);
+                }
                 var surveyList = svcHelper.UserSurveyList;
                 
                 foreach (UserSurvey usrSurvey in surveyList)
@@ -174,6 +182,32 @@ namespace CMS_Survey.Template
             var sectionHelp = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(JsonRequest);
             JsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(sectionHelp.sections.ToList());
             await Services.ServiceHelper.ServiceHelperObject.WriteFile(JsonRequest, SurveyKey,userKey.ToString(), folder, FilePath);
+        }
+
+        public static SectionHelp.Rootobject GetSurveyFromLocal(string SurveyKey)
+        {
+            var RootObj = new Rootobject();
+            List<Models.SectionHelp.Section> SectionList = null;
+            string FilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, Constants.SurveyFolder, Services.ServiceHelper.ServiceHelperObject.currentUser.userKey.ToString());
+            if (!Directory.Exists(FilePath))
+                return RootObj;
+            try
+            {
+                using (StreamReader file = File.OpenText(FilePath + string.Format("\\{0}.json",SurveyKey)))
+                {
+                    var json = file.ReadToEnd();
+                    SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.SectionHelp.Section>>(json);
+                    RootObj.sections = SectionList.ToArray();
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+
+                //MessageDialog
+            }
+            return RootObj;
         }
     }
 

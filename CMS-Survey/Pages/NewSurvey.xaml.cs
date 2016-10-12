@@ -29,6 +29,7 @@ namespace CMS_Survey.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Not an empty page, this will either load an new survey or an existing survey.
     /// </summary>
     public sealed partial class NewSurvey : Page
     {
@@ -66,6 +67,7 @@ namespace CMS_Survey.Pages
 
         }
 
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             ObservationsList = new List<Models.ObservationHelper>();
@@ -78,7 +80,7 @@ namespace CMS_Survey.Pages
                 if (e.Parameter != null)
                 {
                     var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                    if (CMS_Survey.Template.SurveyHelper.SurveyList == null || CMS_Survey.Template.SurveyHelper.SurveyList.Count == 0)
+                    if (CMS_Survey.Template.SurveyHelper.SurveyJsonList == null || CMS_Survey.Template.SurveyHelper.SurveyJsonList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
                         NavigateToMainPage();
@@ -86,7 +88,7 @@ namespace CMS_Survey.Pages
                     }
                     else
                     {
-                        result = CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
+                        result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(surKey));//CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
                         //result = Helpers.SurveyHelper.Request;
                     }
                 }
@@ -108,10 +110,10 @@ namespace CMS_Survey.Pages
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        if (CMS_Survey.Template.SurveyHelper.SurveyList != null)
+                        if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
                         {
 
-                            result = CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
+                            result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
                             if (result == null)
                             {
                                 if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())

@@ -177,10 +177,7 @@ namespace CMS_Survey.Views
            
            
             btn.Visibility = Visibility.Collapsed;
-            if (totalUserCount == 5)
-            {
-                return;
-            }
+           
             rowIndex = AddNewSurveyor(rowIndex);
         }
 

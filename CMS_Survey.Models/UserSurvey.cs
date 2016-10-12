@@ -21,6 +21,8 @@ namespace CMS_Survey.Models
         public string endDateString { get; set; }
         public string actionDateString { get; set; }
         public string startDateString { get; set; }
+
+        public List<long> otherSurveyerKeys { get; set; }
         private SCommand ecmd;
         public SCommand EditCommand
         {

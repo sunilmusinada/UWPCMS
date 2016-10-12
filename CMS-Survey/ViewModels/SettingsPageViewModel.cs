@@ -16,7 +16,7 @@ namespace CMS_Survey.ViewModels
     public class SettingsPartViewModel : ViewModelBase
     {
         Services.SettingsServices.SettingsService _settings;
-
+        public string SelectedState = string.Empty;
         public SettingsPartViewModel()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)

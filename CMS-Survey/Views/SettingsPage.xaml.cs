@@ -19,5 +19,10 @@ namespace CMS_Survey.Views
             var index = int.Parse(_SerializationService.Deserialize(e.Parameter?.ToString()).ToString());
             MyPivot.SelectedIndex = index;
         }
+
+        private void StateSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //ViewModel.
+        }
     }
 }
