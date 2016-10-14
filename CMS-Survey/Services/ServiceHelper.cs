@@ -10,6 +10,8 @@ using System.Net;
 using CMS_Survey.Models;
 using System.Collections.ObjectModel;
 using CMS_Survey.Template;
+using Newtonsoft.Json;
+
 namespace CMS_Survey.Services
 {
     internal class ServiceHelper
@@ -431,6 +433,65 @@ namespace CMS_Survey.Services
                 throw ex;
             }
             return isSuccess;
+        }
+
+        internal async Task AddSurveyToList(List<Models.SectionHelp.Section> SectionList)
+        {
+            try
+            {
+                var usrfolder = ApplicationData.Current.LocalFolder;
+                var SubFolder = Constants.SurveyFolder + "\\" + this.currentUser.userKey.ToString();
+                StorageFolder folder = await usrfolder.CreateFolderAsync(SubFolder,
+                       CreationCollisionOption.OpenIfExists);
+                var path = folder.Path;
+                string json = string.Empty;
+                if (!Directory.Exists(path))
+                    return;
+
+                string FilePath = Path.Combine(path, string.Format("SurveyList.json"));
+
+
+                if (!File.Exists(FilePath))
+                {
+                    await folder.CreateFileAsync(string.Format("SurveyList.json"));
+                }
+
+                textFile = await folder.GetFileAsync(string.Format("SurveyList.json"));
+                json = File.ReadAllText(FilePath);
+                List<UserSurvey> userSurveys = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserSurvey>>(json);
+                UserSurvey usrSurvey = new UserSurvey();
+                var surObj = SectionList.FirstOrDefault();
+                if (surObj == null)
+                    return;
+                var stateList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(100)).Select(e => e.answersList).FirstOrDefault();
+                var Statecode = stateList.Where(e => e.htmlControlId.Equals(100)).Select(e => e.answer).FirstOrDefault();
+                var ansList = surObj.surveyQuestionAnswerList.Where(e => e.questionId.Equals(200)).Select(e => e.answersList).FirstOrDefault();
+                int provider = Convert.ToInt32(ansList.Where(e => e.htmlControlId.Equals(200)).Select(e => e.answer).FirstOrDefault());
+                var hsp = GetHospitalForProviderKey(provider);
+                usrSurvey.surveyProvider = hsp.facilityName;
+
+                usrSurvey.surveyKey = Convert.ToString(surObj.surveyKey);
+                usrSurvey.surveyType = "Infection control";//Convert.ToString(surObj.surveyName);
+                usrSurvey.surveyNumber = Convert.ToString(surObj.surveyKey);
+                // var _hospital = Hospitals.Where(e => e.providerKey.Equals(provider)).Select(e => e.facilityName).FirstOrDefault();
+                usrSurvey.surveyProvider = Convert.ToString(usrSurvey.surveyProvider);
+                usrSurvey.status = "In Progress";//Convert.ToString(surObj.status);
+                usrSurvey.endDateString = "";
+                userSurveys.Add(usrSurvey);
+                json = Newtonsoft.Json.JsonConvert.SerializeObject(userSurveys, Formatting.None,
+ 
+                         new JsonSerializerSettings()
+                         {
+                             ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                         });
+                await FileIO.WriteTextAsync(textFile, json);
+            }
+            catch(Exception ex)
+            {
+
+                throw ex;
+
+            }
         }
         #endregion
 

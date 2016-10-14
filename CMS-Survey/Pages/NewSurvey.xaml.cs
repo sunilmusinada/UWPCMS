@@ -163,13 +163,27 @@ namespace CMS_Survey.Pages
         {
             Services.ServiceHelper svcHelper = Services.ServiceHelper.ServiceHelperObject;
             // await svcHelper.CallLoginService("kalyan", "kalyancpamula");
-            if (result == null)
+            long surveyKey;
+            if (result != null)
+            {
+                Windows.Storage.ApplicationDataContainer localSettings =
+       Windows.Storage.ApplicationData.Current.LocalSettings;
+                if(localSettings.Values.Keys.Contains("OfflineSurveyKey"))
+                {
+                    surveyKey = Convert.ToInt64(localSettings.Values["OfflineSurveyKey"])-1;
+                }
+                else
+                {
+                    localSettings.Values.Add("OfflineSurveyKey", -1);
+                    surveyKey = -1;
+                }
                 foreach (var section in result.sections)
                 {
                     section.status = 1;
-                    section.surveyKey = -1;
+                    section.surveyKey = surveyKey;
                     section.userKey = svcHelper.currentUser.userKey;
                 }
+            }
         }
 
         private void ReadJsonFie()
@@ -1245,6 +1259,7 @@ namespace CMS_Survey.Pages
                     var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(result.sections.ToList());
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
+                    await serviceHelper.AddSurveyToList(result.sections.ToList());
                     HideProgress(); 
                 }
                 else if (!await serviceHelper.IsOffline())
