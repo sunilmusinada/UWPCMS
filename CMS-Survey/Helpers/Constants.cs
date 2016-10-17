@@ -16,7 +16,7 @@ namespace CMS_Survey.Template
         public const string Submitted = "Submitted";
         public const string Approved = "Approved";
         public const string Rejected = "Rejected";
-        
+        public static readonly string OtherSurveysFolder = "OtherUsers";
         public static readonly String HTML_CONTROL_LABEL = "label";
 	public static readonly String HTML_CONTROL_RADIO = "radio";
 	public static readonly String HTML_CONTROL_CHECK_BOX = "checkbox";

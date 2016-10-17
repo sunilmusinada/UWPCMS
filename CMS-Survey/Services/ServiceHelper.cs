@@ -857,7 +857,7 @@ namespace CMS_Survey.Services
         {
             bool isSuccess = false;
             string jsonString = null;
-            SectionHelp.Rootobject SecList = null;
+            //SectionHelp.Rootobject SecList = null;
             //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
             var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(surveyors);
 
@@ -888,6 +888,39 @@ namespace CMS_Survey.Services
                 throw ex;
             }
             return isSuccess;
+        }
+
+        internal async Task<bool> AddSurveyorsOffline(Surveyors surveyors)
+        {
+            bool success = false;
+            try
+            {
+                var usrfolder = ApplicationData.Current.LocalFolder;
+                string jsonRequest = string.Empty;
+                StorageFolder tempFolder = await usrfolder.CreateFolderAsync(Constants.OtherSurveysFolder, CreationCollisionOption.OpenIfExists);
+                var Temppath = tempFolder.Path;
+                if (!Directory.Exists(Temppath))
+                    Directory.CreateDirectory(Temppath);
+                string TempFilePath = Path.Combine(Temppath, string.Format("{0}.json", surveyors.surveyKey));
+                textFile = (IStorageFile)null;
+                jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(surveyors);
+
+                if (!File.Exists(TempFilePath))
+                {
+                    textFile = await tempFolder.CreateFileAsync(string.Format("{0}.json", surveyors.surveyKey));
+                }
+                else
+                {
+                    textFile = await tempFolder.GetFileAsync(string.Format("{0}.json", surveyors.surveyKey));
+                }
+                await FileIO.WriteTextAsync(textFile, jsonRequest);
+                success = true;
+            }
+            catch(Exception ex)
+            {
+                success = false;
+            }
+            return success;
         }
         #endregion
     }

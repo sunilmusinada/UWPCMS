@@ -41,15 +41,25 @@ namespace CMS_Survey.Views
             SurveyKeyText.Text = "";
             ProviderKeyText.Text = "";
             totalUserCount = 0;
+            var surList = CMS_Survey.Template.SurveyHelper.SurveyJsonList;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
               
                 if (e.Parameter != null)
                 {
+                   
                     AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                     var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                     SurveyKeyText.Text = surv.surveyKey;
                     ProviderKeyText.Text = surv.surveyProvider;
+                    var otherUsersList = surList.Where(t => t.surveyKey.Equals(surv.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
+                    if (otherUsersList == null && otherUsersList.Count <= 0)
+                        return;
+                    var surveyors = new Surveyors();
+                    m_SurveyKey=Convert.ToInt64(surv.surveyKey);
+                    surveyors.surveyKey = m_SurveyKey;
+                    surveyors.userKeys = otherUsersList;
+                    users = surveyors;
                     //users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
                     AddExistingUsersandNew();
                 }
@@ -60,6 +70,7 @@ namespace CMS_Survey.Views
                 }
             }
             else
+
             {
                
                 if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
@@ -68,13 +79,20 @@ namespace CMS_Survey.Views
                     {
                         AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-
+                        
                         // var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                         var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                         SurveyKeyText.Text = surv.surveyKey;
                         ProviderKeyText.Text = surv.surveyProvider;
                         m_SurveyKey = Convert.ToInt64(surv.surveyKey);
-                        users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
+                        var otherUsersList = surList.Where(t => t.surveyKey.Equals(surv.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
+                        if (otherUsersList==null&& otherUsersList.Count <= 0)
+                            return;
+                        var surveyors = new Surveyors();
+                        surveyors.surveyKey = m_SurveyKey;
+                        surveyors.userKeys = otherUsersList;
+                        users = surveyors;
+                        //users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
                        // users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
                         AddExistingUsersandNew();
                     }
@@ -260,7 +278,15 @@ namespace CMS_Survey.Views
             if (UserKeys.Count < 0)
                 return;
             surveyors.userKeys = UserKeys;
-         bool success=   await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
+            bool success = false;
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            {
+                success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
+            }
+            else
+            {
+                success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyorsOffline(surveyors);
+            }
             if (success)
                 NavigateToMainPage();
             else

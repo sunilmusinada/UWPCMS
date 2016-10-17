@@ -31,3 +31,4 @@ F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\pri.resfiles.
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\qualifiers.txt
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\qualifiers.txt.intermediate
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x86\Debug\CMS_Survey.Models.csprojResolveAssemblyReference.cache

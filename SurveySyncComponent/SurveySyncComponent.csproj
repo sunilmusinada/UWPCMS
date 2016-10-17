@@ -111,6 +111,7 @@
     <Compile Include="Assignment.cs" />
     <Compile Include="Assignment_table.cs" />
     <Compile Include="SectionHelp.cs" />
+    <Compile Include="Surveyors.cs" />
     <Compile Include="SyncSurveyBackgroundTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

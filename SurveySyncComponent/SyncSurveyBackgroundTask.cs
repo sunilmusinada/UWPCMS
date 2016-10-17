@@ -31,6 +31,9 @@ namespace SurveySyncComponent
                 Task t2 = AssignSurveys();
                 await t2;
 
+                Task t3 = AddAllSurveyors();
+                await t3;
+
             }
             catch (Exception ex)
             {
@@ -47,6 +50,7 @@ namespace SurveySyncComponent
         static string HostUrl = @"https://cms-specialtysurveys-internal.org/";
         private string SurveyUrl = HostUrl + @"SurveyRest/rest/myresource/questionanswers";
         private string AssignSurveyUrl = HostUrl + @"SurveyRest/rest/myresource/assignsurvey?userKey={0}&surveyKey={1}&userEmail={2}";
+        private string AddServeyorUrl = HostUrl + @"SurveyRest/rest/myresource/surveyUsers";
         private async Task SaveSurveyLocal(string jsonRequest, string SurveyKey, string SubFolder)
         {
             var usrfolder = ApplicationData.Current.LocalFolder;
@@ -210,5 +214,65 @@ namespace SurveySyncComponent
             }
             return isAssignSuccessful;
         }
+        internal async Task<bool> AddSurveyors(Surveyors surveyors)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            //SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+            var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(surveyors);
+
+
+            try
+            {
+                var client = new HttpClient();
+                isSaveSuccessful = false;
+                //var values = new Dictionary<string, string>();
+                string usersString = string.Empty;
+
+                HttpContent content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PutAsync(AddServeyorUrl, content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                    isSuccess = true;
+                    isSaveSuccessful = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isSuccess;
+        }
+
+        private async Task AddAllSurveyors()
+        {
+            var usrfolder = ApplicationData.Current.LocalFolder;
+            StorageFolder folder = await usrfolder.CreateFolderAsync("OtherUsers",
+                   CreationCollisionOption.OpenIfExists);
+            var path = folder.Path;
+            if (!Directory.Exists(path))
+                return;
+            Surveyors survy = null;
+            DirectoryInfo Dinfo = new DirectoryInfo(path);
+            foreach (var fl in Dinfo.GetFiles("*.json"))
+            {
+                string json = string.Empty;
+                using (StreamReader sr = fl.OpenText())
+                {
+                    json = sr.ReadToEnd();
+                    
+                }
+                survy = Newtonsoft.Json.JsonConvert.DeserializeObject<Surveyors>(json);
+                await AddSurveyors(survy);
+            }
+        }
+
     }
 }

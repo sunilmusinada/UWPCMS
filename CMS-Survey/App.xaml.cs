@@ -80,7 +80,7 @@ namespace CMS_Survey
             {
                 bgtHelper.RegisterTask();
             }
-         // bgtHelper.Unregister();
+            //bgtHelper.Unregister();
 
 
             await Task.CompletedTask;

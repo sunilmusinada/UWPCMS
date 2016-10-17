@@ -300,7 +300,7 @@ namespace CMS_Survey.Database
                 System.Diagnostics.Debug.WriteLine(get_sql);
                 while (statement.Step().Equals(SQLiteResult.ROW))
                 {
-                    var mail = string.Format("{0},{1}", Convert.ToString(statement[0]), Convert.ToString(statement[1]));
+                    var mail = string.Format("{0} {1}", Convert.ToString(statement[0]), Convert.ToString(statement[1]));
                     userNames.Add(mail);
 
                 }
@@ -331,12 +331,13 @@ namespace CMS_Survey.Database
             using (var statement = db.Prepare(get_sql))
             {
 
-                var usr = new User();
+                //var usr = new User();
                 System.Diagnostics.Debug.WriteLine(get_sql);
                 while (statement.Step().Equals(SQLiteResult.ROW))
                 {
+                    var usr = new User();
                     usr.userKey = Convert.ToInt64(Convert.ToString(statement[0]));
-                    usr.userName = Convert.ToString(statement[1]);
+                    usr.userName = Convert.ToString(statement[1]).Replace("."," ");
                     usr.FirstName= Convert.ToString(statement[3]);
                     usr.LastName= Convert.ToString(statement[4]); 
                     usr.Email= Convert.ToString(statement[5]);
