@@ -385,7 +385,7 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\System.Xml.XmlSerializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library.dll">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library.dll">
       <PackagePath>Template10Library.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x86\Debug\CMS_Survey.Models.dll">
@@ -457,28 +457,28 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.33\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
       <PackagePath>MyToolkit.Extended\MyToolkit.Extended.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Template10Library.xr.xml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Template10Library.xr.xml">
       <PackagePath>Template10Library\Template10Library.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Controls\HamburgerMenu.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Controls\HamburgerMenu.xaml">
       <PackagePath>Template10Library\Controls\HamburgerMenu.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Properties\Template10Library.rd.xml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Properties\Template10Library.rd.xml">
       <PackagePath>Template10Library\Properties\Template10Library.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\Generic.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\Generic.xaml">
       <PackagePath>Template10Library\Themes\Generic.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\HamburgerMenu.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\HamburgerMenu.xaml">
       <PackagePath>Template10Library\Themes\HamburgerMenu.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\ModalDialog.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\ModalDialog.xaml">
       <PackagePath>Template10Library\Themes\ModalDialog.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\PageHeader.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\PageHeader.xaml">
       <PackagePath>Template10Library\Themes\PageHeader.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.11\lib\uap10.0\Template10Library\Themes\Resizer.xaml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Themes\Resizer.xaml">
       <PackagePath>Template10Library\Themes\Resizer.xaml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x86\Debug\resources.pri">

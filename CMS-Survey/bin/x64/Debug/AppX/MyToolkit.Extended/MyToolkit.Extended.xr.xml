@@ -28,6 +28,9 @@
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="CollectionGroups" />
     <RootPropertyPathName Name="Group" />
+    <RootPropertyPathName Name="Description" />
+    <RootPropertyPathName Name="Subtitle" />
+    <RootPropertyPathName Name="Image" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
@@ -156,6 +159,8 @@
       <RootProperty Name="VerticalContentAlignment" />
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="Template" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -278,6 +283,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="TextWrapping" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
       <RootProperty Name="Children" />

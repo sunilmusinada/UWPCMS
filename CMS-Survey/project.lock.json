@@ -290,7 +290,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -2077,9 +2077,9 @@
           }
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -2327,7 +2327,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -4246,9 +4246,9 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -4497,7 +4497,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -6454,9 +6454,9 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -6708,7 +6708,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -8632,9 +8632,9 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -8887,7 +8887,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -10849,9 +10849,9 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -11103,7 +11103,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -13027,9 +13027,9 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -13282,7 +13282,7 @@
           "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
         }
       },
-      "MyToolkitTest.Extended/2.5.33": {
+      "MyToolkitTest.Extended/2.5.34": {
         "dependencies": {
           "MyToolkit": "2.5.13"
         },
@@ -15244,9 +15244,9 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.1.11": {
+      "Template10/1.1.12": {
         "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
           "Newtonsoft.Json": "8.0.3"
         },
@@ -15580,11 +15580,11 @@
         "lib/portable-sl5+wp71/MyToolkit.xml"
       ]
     },
-    "MyToolkitTest.Extended/2.5.33": {
-      "sha512": "Vl96pDKeHGTj9IyTMIVoPVHln0APWl60iqkPoa+d5+ZHi5VO/uPjAFvmgPi7TonjsqUBgFWbPysc7MY39ZMvLg==",
+    "MyToolkitTest.Extended/2.5.34": {
+      "sha512": "r8clQK4ZkK2xIWeVop3wNJJOh8nNrFcIceMw2AwJS9dI/K+bGk3s2W2Hk0pAUWIPr2z2D6BjBJp3VIo79Bc5pg==",
       "type": "package",
       "files": [
-        "MyToolkitTest.Extended.2.5.33.nupkg.sha512",
+        "MyToolkitTest.Extended.2.5.34.nupkg.sha512",
         "MyToolkitTest.Extended.nuspec",
         "lib/uap10.0/MyToolkit.Extended.dll",
         "lib/uap10.0/MyToolkit.Extended.pri",
@@ -21412,11 +21412,11 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Template10/1.1.11": {
-      "sha512": "xXPtDTGpSX/QV+r37AGR8oCcUaP2f4c2XD4dHE8T9dFVwq/o51ACWJW35zpSadTsDtwtBrNBMbcOZup5rTzcYA==",
+    "Template10/1.1.12": {
+      "sha512": "FTvwISozoKs5syQkwaHl/s8iPts23Q+VFjTbnNnA+ad6MHqP5bOiq3ibjEXHGJkN5nSKY7FoMH4W1/aCS1n/ew==",
       "type": "package",
       "files": [
-        "Template10.1.1.11.nupkg.sha512",
+        "Template10.1.1.12.nupkg.sha512",
         "Template10.nuspec",
         "build/uap10.0/Template10.targets",
         "lib/uap10.0/Template10Library.dll",
@@ -21436,7 +21436,7 @@
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.1.0",
-      "MyToolkitTest.Extended >= 2.5.33",
+      "MyToolkitTest.Extended >= 2.5.34",
       "Newtonsoft.Json >= 8.0.3",
       "SQLitePCL >= 3.8.7.2",
       "System.Data.SQLite >= 1.0.102",

@@ -2,7 +2,9 @@ App.xbf
 Controls\ProgressRing.xbf
 Pages\LoginPart.xbf
 Pages\NewSurvey.xbf
+Res\TemplateDictionary.xbf
 Styles\Custom.xbf
+Views\AssignSurvey.xbf
 Views\Busy.xbf
 Views\DetailPage.xbf
 Views\GridMainPage.xbf

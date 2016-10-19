@@ -76,6 +76,7 @@
       <RootProperty Name="MinHeight" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="IsTabStop" />
       <RootEvent Name="Holding" />
       <RootEvent Name="Loaded" />
       <RootEvent Name="RightTapped" />
@@ -241,6 +242,7 @@
     </RootType>
     <RootType FullName="System.Boolean" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
       <RootMethod Name="GetAlignBottomWithPanel" />
       <RootMethod Name="SetAlignBottomWithPanel" />

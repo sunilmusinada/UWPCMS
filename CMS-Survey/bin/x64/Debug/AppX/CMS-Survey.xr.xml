@@ -3,6 +3,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="IsActive" />
+    <RootPropertyPathName Name="AddSurveyorCommand" />
+    <RootPropertyPathName Name="DeleteCommand" />
+    <RootPropertyPathName Name="ViewCommand" />
+    <RootPropertyPathName Name="EditCommand" />
     <RootPropertyPathName Name="actionDateString" />
     <RootPropertyPathName Name="endDateString" />
     <RootPropertyPathName Name="status" />
@@ -25,6 +29,7 @@
       <RootProperty Name="Resources" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
+      <RootProperty Name="MergedDictionaries" />
       <RootProperty Name="Source" />
       <RootProperty Name="ThemeDictionaries" />
     </RootType>
@@ -76,6 +81,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Style" />
       <RootProperty Name="Name" />
       <RootProperty Name="FontWeight" />
@@ -102,10 +108,10 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="FontWeight" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Command" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
       <RootEvent Name="Click" />
       <RootEvent Name="Loading" />
       <RootEvent Name="Loaded" />
@@ -154,12 +160,14 @@
       <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalContentAlignment" />
-      <RootMethod Name="GetIsScrollInertiaEnabled" />
-      <RootMethod Name="SetIsScrollInertiaEnabled" />
-      <RootMethod Name="GetIsVerticalRailEnabled" />
-      <RootMethod Name="SetIsVerticalRailEnabled" />
+      <RootMethod Name="GetVerticalScrollBarVisibility" />
+      <RootMethod Name="SetVerticalScrollBarVisibility" />
       <RootMethod Name="GetVerticalScrollMode" />
       <RootMethod Name="SetVerticalScrollMode" />
+      <RootMethod Name="GetIsVerticalRailEnabled" />
+      <RootMethod Name="SetIsVerticalRailEnabled" />
+      <RootMethod Name="GetIsScrollInertiaEnabled" />
+      <RootMethod Name="SetIsScrollInertiaEnabled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
       <RootMethod Name="GetAttachedFlyout" />
@@ -170,6 +178,9 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="CMS_Survey.Pages.NewSurvey" />
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
     <RootType FullName="System.Double" />
     <RootType FullName="Windows.UI.Color" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
@@ -217,24 +228,15 @@
       <RootProperty Name="GrabberBrush" />
       <RootProperty Name="GrabberVisibility" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="Height" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Child" />
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
-      <RootProperty Name="Mode" />
-      <RootProperty Name="FallbackValue" />
-    </RootType>
-    <RootType FullName="CMS_Survey.Views.Busy" />
-    <RootType FullName="CMS_Survey.ViewModels.DetailPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
-      <RootProperty Name="Background" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="DataContext" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignLeftWithPanel" />
       <RootMethod Name="SetAlignLeftWithPanel" />
       <RootMethod Name="GetAlignRightWithPanel" />
@@ -248,6 +250,20 @@
       <RootMethod Name="GetAlignRightWith" />
       <RootMethod Name="SetAlignRightWith" />
     </RootType>
+    <RootType FullName="CMS_Survey.Views.AssignSurvey" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
+      <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Child" />
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
+      <RootProperty Name="Mode" />
+      <RootProperty Name="FallbackValue" />
+    </RootType>
+    <RootType FullName="CMS_Survey.Views.Busy" />
+    <RootType FullName="CMS_Survey.ViewModels.DetailPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
     </RootType>
@@ -276,7 +292,6 @@
       <RootProperty Name="HeaderBackground" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Columns" />
-      <RootProperty Name="ItemDetailsTemplate" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="MyToolkit.Controls.DataGridTextColumn">
@@ -284,9 +299,6 @@
       <RootProperty Name="Header" />
       <RootProperty Name="Binding" />
       <RootProperty Name="Foreground" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Label" />
@@ -327,6 +339,11 @@
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="SelectionChanged" />
+    </RootType>
     <RootType FullName="CMS_Survey.Views.SettingsPage" />
     <RootType FullName="Template10.Controls.ModalDialog">
       <RootProperty Name="CanBackButtonDismiss" />
@@ -337,6 +354,7 @@
       <RootProperty Name="ClearHistory" />
       <RootProperty Name="PageType" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="PageParameter" />
       <RootProperty Name="NavigationTransitionInfo" />
     </RootType>

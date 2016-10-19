@@ -62,7 +62,7 @@ namespace CMS_Survey.Pages
         List<Models.User> AllUsers = null;
         public NewSurvey()
         {
-           
+
             this.InitializeComponent();
 
         }
@@ -168,9 +168,9 @@ namespace CMS_Survey.Pages
             {
                 Windows.Storage.ApplicationDataContainer localSettings =
        Windows.Storage.ApplicationData.Current.LocalSettings;
-                if(localSettings.Values.Keys.Contains("OfflineSurveyKey"))
+                if (localSettings.Values.Keys.Contains("OfflineSurveyKey"))
                 {
-                    surveyKey = Convert.ToInt64(localSettings.Values["OfflineSurveyKey"])-1;
+                    surveyKey = Convert.ToInt64(localSettings.Values["OfflineSurveyKey"]) - 1;
                 }
                 else
                 {
@@ -225,7 +225,7 @@ namespace CMS_Survey.Pages
                     scrollViewer.ScrollToVerticalOffset(0);
                 }
             }
-            if (sectionIndex  == result.sections.Count()-1)
+            if (sectionIndex == result.sections.Count() - 1)
             {
                 this.NextButton.Visibility = Visibility.Collapsed;
             }
@@ -277,8 +277,8 @@ namespace CMS_Survey.Pages
                     {
 
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
-                        if(answer.differentUserAnswerList!=null&&answer.differentUserAnswerList.Count>0)
-                        AddOtherAnswers(answer, ref rowIndex);
+                        if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
+                            AddOtherAnswers(answer, ref rowIndex);
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
@@ -372,7 +372,7 @@ namespace CMS_Survey.Pages
             string SurveyKey = Convert.ToString(result.sections.First().surveyKey);
             if (string.IsNullOrEmpty(mailId))
                 return;
-            mailId=GetMaild(mailId);
+            mailId = GetMaild(mailId);
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 await SaveSurvey();
@@ -400,7 +400,7 @@ namespace CMS_Survey.Pages
         private string GetMaild(string userandMailId)
         {
             string mailid;
-            mailid=userandMailId.Substring(userandMailId.IndexOf('(')+1).Replace(")","");
+            mailid = userandMailId.Substring(userandMailId.IndexOf('(') + 1).Replace(")", "");
             return mailid;
         }
         private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
@@ -415,11 +415,11 @@ namespace CMS_Survey.Pages
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForStateOffline(selectedItem);
             foreach (var mail in Maillist)
             {
-                
-                if(!GetMaild(mail).Equals( GetMailIdForUser(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey)))
-                MailIdCombobox.Items.Add(mail);
+
+                if (!GetMaild(mail).Equals(GetMailIdForUser(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey)))
+                    MailIdCombobox.Items.Add(mail);
             }
-           // Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
+            // Maillist.ForEach(t => MailIdCombobox.Items.Add(t));
         }
         private string GetMailIdForUser(long userkey)
         {
@@ -788,7 +788,7 @@ namespace CMS_Survey.Pages
 
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     textBox.LostFocus += TextBox_LostFocus;
-                    if (Question.renderAddObservation&&answer.renderRemoveButton)
+                    if (Question.renderAddObservation && answer.renderRemoveButton)
                     {
                         int ind = QuestionObservationDictionary[Question.questionId];
                         AddRemoveObservationButton(mainGrid, rowIndex - 1, Question, ind);
@@ -809,7 +809,7 @@ namespace CMS_Survey.Pages
                         }
                         SetRadioState(radio.Content.ToString(), (Convert.ToString(answer.answer)), radio);
                         //radio.IsChecked = Convert.ToBoolean(answer.htmlControlText);
-                        radio.Checked += Radio_Checked;
+                        //radio.Checked += Radio_Checked;
                         radio.IsEnabled = isEnabled;
                         radio.GroupName = groupIndex.ToString();
                         radio.Checked += RadioControlChecked;
@@ -950,7 +950,7 @@ namespace CMS_Survey.Pages
         {
             List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
 
-           StackPanel panel = new StackPanel();
+            StackPanel panel = new StackPanel();
             Border myBorder1 = new Border();
             SolidColorBrush myBrush = new SolidColorBrush(Colors.Black);
             myBorder1.BorderBrush = myBrush;
@@ -959,10 +959,10 @@ namespace CMS_Survey.Pages
             foreach (SectionHelp.DifferentUserAnswerList Otheranswer in DifferentAnswers)
             {
 
-               
+
                 TextBlock txBlock = new TextBlock();
 
-                txBlock.Text ="User :"+ Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(Otheranswer.user)).Select(k => k.Value).FirstOrDefault();
+                txBlock.Text = "User :" + Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(Otheranswer.user)).Select(k => k.Value).FirstOrDefault();
                 //txBlock.Text = "Observation " +(ansIndex-1).ToString();
                 panel.Children.Add(txBlock);
                 TextBlock blnk = new TextBlock();
@@ -978,7 +978,7 @@ namespace CMS_Survey.Pages
                 panel.Children.Add(blnk2);
                 //addUIControl(mainGrid, answer, rowIndex++);
                 //addBlankLine(mainGrid, rowIndex);
-               
+
             }
             addUIControl(mainGrid, panel, rowIndex++);
         }
@@ -986,12 +986,39 @@ namespace CMS_Survey.Pages
         private async void RadioControlChecked(object sender, RoutedEventArgs e)
         {
             RadioButton radio = sender as RadioButton;
+            SetControlValue(radio.Content, radio.Name, "Radio");
+            if (sectionIndex <= 4)
+                return;
             MessageDialog msgDialog;
             if (radio == null)
                 return;
             var controlId = Convert.ToInt32(radio.Name);
-            int questionId = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
-            var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionId)).Select(t => t).FirstOrDefault();
+            //var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Select(t => t.answersList.Where(z => z.htmlControlId.Equals(controlId)));
+            bool found = false;
+            int questionID=-1;
+            foreach (var item in result.sections[sectionIndex].surveyQuestionAnswerList)
+            {
+                if (found)
+                    break;
+                foreach (var ans in item.answersList)
+                {
+                    if (ans.htmlControlId == controlId)
+                    {
+                        questionID = item.questionId;
+                        found = true;
+                        break;
+                    }
+
+                }
+            }
+
+
+            if(CantObserveKey!=null&&CantObserveKey.Count>0)
+                questionID = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
+
+            var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionID)).Select(t => t).FirstOrDefault();
+            if (Questiion == null)
+                return;
             var firstRadioAnswer = Questiion.answersList[0].answer;
             if (radio.Content.ToString() == "Unable to observe")
             {
@@ -1025,9 +1052,11 @@ namespace CMS_Survey.Pages
             //if(firstRadioAnswer.Equals("Unable to observe"))
             else
             {
-                Questiion.disableAddObservation = false;
-                Questiion.renderAddObservation = true;
-                getJson(mainGrid);
+                
+                    Questiion.disableAddObservation = false;
+                    Questiion.renderAddObservation = true;
+                    getJson(mainGrid);
+                
             }
 
         }
@@ -1260,11 +1289,11 @@ namespace CMS_Survey.Pages
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.SurveyFolder);
                     await serviceHelper.SaveSurveyLocal(jsonRequest, result.sections.First().surveyKey.ToString(), Constants.TempSurveyFolder);
                     await serviceHelper.AddSurveyToList(result.sections.ToList());
-                    HideProgress(); 
+                    HideProgress();
                 }
                 else if (!await serviceHelper.IsOffline())
                 {
-                   result = await serviceHelper.CallSurveyService(result.sections.ToList());
+                    result = await serviceHelper.CallSurveyService(result.sections.ToList());
                     HideProgress();
                 }
                 else
@@ -1276,7 +1305,7 @@ namespace CMS_Survey.Pages
                     NavigateToMainPage();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ShowMessage("Something went wrong. You will be redirected to the Mainpage", "Error");
                 NavigateToMainPage();
@@ -1555,6 +1584,8 @@ namespace CMS_Survey.Pages
                     {
                         int obsNumber = secQA.obsevationNumber;
                         if (obsNumber == 1)
+                            continue;
+                        if (secQA.answersList.Count() < 9)
                             continue;
                         for (int i = 2; i <= 5; i++)
                         {

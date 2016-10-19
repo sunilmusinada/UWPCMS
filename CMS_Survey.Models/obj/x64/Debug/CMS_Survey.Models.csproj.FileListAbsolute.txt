@@ -1,0 +1,16 @@
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x64\Debug\CMS_Survey.Models.dll
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x64\Debug\CMS_Survey.Models.pdb
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x64\Debug\CMS_Survey.Models.pri
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\CMS_Survey.Models.dll
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\CMS_Survey.Models.pdb
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\priconfig.xml
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\priconfig.xml.intermediate
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\layout.resfiles
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\layout.resfiles.intermediate
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\resources.resfiles
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\resources.resfiles.intermediate
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\pri.resfiles
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\pri.resfiles.intermediate
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\qualifiers.txt
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\qualifiers.txt.intermediate
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt

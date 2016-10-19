@@ -10,7 +10,9 @@
       xmlns:local="using:CMS_Survey.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:CMS_Survey.ViewModels" 
-      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d"                              >
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d"                              
+      xmlns:res="using:CMS_Survey.Res"
+      >
    
     <Page.DataContext>
         <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
@@ -56,9 +58,9 @@
 
             <!--  secondary commands  -->
             <controls:PageHeader.SecondaryCommands>
-                <AppBarButton x:ConnectionId='17'                                         Label="Settings" />
-                <AppBarButton x:ConnectionId='18'                                        Label="Privacy" />
-                <AppBarButton x:ConnectionId='19'                                      Label="About" />
+                <AppBarButton x:ConnectionId='14'                                         Label="Settings" />
+                <AppBarButton x:ConnectionId='15'                                        Label="Privacy" />
+                <AppBarButton x:ConnectionId='16'                                      Label="About" />
             </controls:PageHeader.SecondaryCommands>
 
         </controls:PageHeader>
@@ -75,22 +77,22 @@
                     <StackPanel>
                         <Grid HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="1450" Margin="-135,75,-1150,-900">
                             <!--<TextBlock Text="Filter" FontWeight="Bold" Margin="0,50,-600,-600" />-->
-                        <TextBox x:ConnectionId='13' Name="IDFilter" Width="0" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='10' Name="IDFilter" Width="0" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Id" Margin="-1100,0,0,0"                                  />
-                        <TextBox x:ConnectionId='14' Name="ProviderFilter" Width="200" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='11' Name="ProviderFilter" Width="200" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Provider" Margin="-800,0,0,0"                                 />
-                             <TextBox x:ConnectionId='15' Name="EndDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             <TextBox x:ConnectionId='12' Name="EndDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Survey End Date"  Margin="450,0,0,0"                                  />
-                        <TextBox x:ConnectionId='16' Name="ActionDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='13' Name="ActionDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Action Date"  Margin="850,0,0,0"                                  />
                             </Grid>
                     </StackPanel>
-                    <ExtendedControls:DataGrid x:ConnectionId='9' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid" 
+                    <ExtendedControls:DataGrid x:ConnectionId='9' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid"
                    SelectionMode="Single" DefaultOrderIndex="0" Margin="0,50,-800,-800"                                                         
                                            RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
                                                                                        Grid.RowSpan="1" 
                                                Width="1150" Height="600" HeaderBackground="SteelBlue" 
-                                               HorizontalAlignment="Right" >
+                                               HorizontalAlignment="Right">
 
                         <ExtendedControls:DataGrid.Columns >
                             <ExtendedControls:DataGridTextColumn Width="100" Header="Id" Binding="{Binding surveyKey}"/>
@@ -106,25 +108,59 @@
                   Binding="{Binding actionDateString}" Foreground="Black" />
 
                         </ExtendedControls:DataGrid.Columns>
-                        <ExtendedControls:DataGrid.ItemDetailsTemplate>
-                            <DataTemplate                             >
+                        <!--<ExtendedControls:DataGrid.ItemDetailsTemplate>
+                            <DataTemplate>
+                                --><!--x:DataType="data:UserSurvey">--><!--
                                 <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
 
                                     <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
-                                        <Button x:ConnectionId='10' x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"                   />
-                                        <Button x:ConnectionId='11' x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top"                   />
-                                        <Button x:ConnectionId='12' x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top"                     />
+                                        <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                                        <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                                        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
                                     </Grid>
 
                                 </StackPanel>
                             </DataTemplate>
-                        </ExtendedControls:DataGrid.ItemDetailsTemplate>
+                        </ExtendedControls:DataGrid.ItemDetailsTemplate>-->
                     </ExtendedControls:DataGrid>
+                    
                 </Grid>
             </Grid>
         </StackPanel>
-          
+       
     </RelativePanel>
+    
+    <!--<Page.Resources>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="InProgressTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="ApprovedTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <local:MyDataTemplateSelector x:Key="TempSelector"
+        InProgress="{StaticResource InProgressTemplate}"
+        Approved="{StaticResource ApprovedTemplate}">
+
+        </local:MyDataTemplateSelector>
+
+    </Page.Resources>-->
+    
 </Page>
 
 
