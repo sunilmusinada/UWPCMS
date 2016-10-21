@@ -30,6 +30,7 @@ namespace CMS_Survey.Views
         int rowIndex;
         int totalUserCount;
         long m_SurveyKey;
+        UserSurvey SelectedSurvey;
         public AssignSurvey()
         {
             this.InitializeComponent();
@@ -41,6 +42,7 @@ namespace CMS_Survey.Views
             SurveyKeyText.Text = "";
             ProviderKeyText.Text = "";
             totalUserCount = 0;
+            CMS_Survey.Template.SurveyHelper.SurveyHelperObject.CreateSurveyList();
             var surList = CMS_Survey.Template.SurveyHelper.SurveyJsonList;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
@@ -49,14 +51,14 @@ namespace CMS_Survey.Views
                 {
                    
                     AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
-                    var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
-                    SurveyKeyText.Text = surv.surveyKey;
-                    ProviderKeyText.Text = surv.surveyProvider;
-                    var otherUsersList = surList.Where(t => t.surveyKey.Equals(surv.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
+                    SelectedSurvey = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
+                    SurveyKeyText.Text = SelectedSurvey.surveyKey;
+                    ProviderKeyText.Text = SelectedSurvey.surveyProvider;
+                    var otherUsersList = surList.Where(t => t.surveyKey.Equals(SelectedSurvey.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
                     if (otherUsersList == null && otherUsersList.Count <= 0)
                         return;
                     var surveyors = new Surveyors();
-                    m_SurveyKey=Convert.ToInt64(surv.surveyKey);
+                    m_SurveyKey=Convert.ToInt64(SelectedSurvey.surveyKey);
                     surveyors.surveyKey = m_SurveyKey;
                     surveyors.userKeys = otherUsersList;
                     users = surveyors;
@@ -79,13 +81,13 @@ namespace CMS_Survey.Views
                     {
                         AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        
+
                         // var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        var surv = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
-                        SurveyKeyText.Text = surv.surveyKey;
-                        ProviderKeyText.Text = surv.surveyProvider;
-                        m_SurveyKey = Convert.ToInt64(surv.surveyKey);
-                        var otherUsersList = surList.Where(t => t.surveyKey.Equals(surv.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
+                        SelectedSurvey = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
+                        SurveyKeyText.Text = SelectedSurvey.surveyKey;
+                        ProviderKeyText.Text = SelectedSurvey.surveyProvider;
+                        m_SurveyKey = Convert.ToInt64(SelectedSurvey.surveyKey);
+                        var otherUsersList = surList.Where(t => t.surveyKey.Equals(SelectedSurvey.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
                         if (otherUsersList==null&& otherUsersList.Count <= 0)
                             return;
                         var surveyors = new Surveyors();
@@ -282,15 +284,17 @@ namespace CMS_Survey.Views
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
+                await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+                await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
             }
             else
             {
                 success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyorsOffline(surveyors);
             }
             if (success)
-                NavigateToMainPage();
+                AddSurveyorToSurvey();
             else
-               ShowMessage("Failed to Add Surveyor's to the Survey","Error");
+                ShowMessage("Failed to Add Surveyor's to the Survey", "Error");
         }
         private async void ShowMessage(string message, string caption)
         {
@@ -305,6 +309,23 @@ namespace CMS_Survey.Views
           key=  AllUsers.Where(e => e.FirstName.Equals(FirstName) && e.LastName.Equals(LastName)).Select(e => e.userKey).FirstOrDefault();
 
             return key;
+        }
+
+        private void AddSurveyorToSurvey()
+        {
+            try
+            {
+
+                var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SelectedSurvey);
+                this.Frame.Navigate(typeof(Views.AssignSurvey), param);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

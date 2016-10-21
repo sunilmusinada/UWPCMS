@@ -14,6 +14,7 @@ namespace CMS_Survey.Template
 {
     internal class SurveyHelper
     {
+        private static SurveyHelper _suveyHelper;
         internal static SectionHelp.Rootobject Request;
         public List<SurverInsertObject> surveyInsertObjectList { get; set; }
         public static ObservableCollection<SectionHelp.Rootobject> SurveyList { get; set; }
@@ -24,9 +25,18 @@ namespace CMS_Survey.Template
             Request = SectionHelpRoot;
            
         }
-        internal SurveyHelper()
+        private SurveyHelper()
         {
             CreateSurveyList();
+        }
+        public static SurveyHelper SurveyHelperObject
+        {
+            get
+            {
+                if (_suveyHelper == null)
+                    _suveyHelper = new SurveyHelper();
+                return _suveyHelper;
+            }
         }
         public void CreateSurveyList()
         {

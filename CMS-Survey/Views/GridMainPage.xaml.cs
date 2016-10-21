@@ -32,7 +32,7 @@ namespace CMS_Survey.Views
         bool Fetched = false;
         private ObservableCollection<UserSurvey> _Usersurveys;
 
-        
+        Template.SurveyHelper surveyHelper;
         //ProgressRing Progress = null;
         // Property.
         bool isOffline = false;
@@ -118,7 +118,8 @@ namespace CMS_Survey.Views
         {
            
            await GetSurveys();
-           
+          
+
         }
         private async void ShowMessage(string message, string caption)
         {
@@ -173,8 +174,10 @@ namespace CMS_Survey.Views
             else
             {
                 await svcHelper.IsOffline();
-                //await svcHelper.CallUserSurveyService();
                 await svcHelper.CallUserSurveyService();
+                await svcHelper.CallUserSurveyService();
+                CMS_Survey.Template.SurveyHelper.SurveyHelperObject.CreateSurveyList();
+                // CreateSurveyList()
             }
             // Progress.IsActive = true;
             if (Fetched)
@@ -298,19 +301,19 @@ namespace CMS_Survey.Views
                 return;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 return;
-            Template.SurveyHelper surveyHelper =new Template.SurveyHelper(true);
+            surveyHelper = CMS_Survey.Template.SurveyHelper.SurveyHelperObject;
             //DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
             //DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             //showBusyCommand.Execute();
-            
-             surveyHelper.GetUserSurveys();
-             Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
-            this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
-            this.FilteredUsersurveys = this.Usersurveys;
-        
             surveyHelper.CreateSurveyList();
+            surveyHelper.GetUserSurveys();
+            //Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+            //this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
+            //this.FilteredUsersurveys = this.Usersurveys;
+
+           
             //hideBusyCommand.Execute();
-           // ShowMessage("Finished downloading Surveys", "Information");
+            // ShowMessage("Finished downloading Surveys", "Information");
             Fetched = true;
         }
 

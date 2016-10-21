@@ -558,7 +558,7 @@ namespace CMS_Survey.Services
                     jsonString = await response.Content.ReadAsStringAsync();
                     
                     UserSurveyList = Newtonsoft.Json.JsonConvert.DeserializeObject<ObservableCollection<UserSurvey>>(jsonString);
-
+                    await Services.ServiceHelper.ServiceHelperObject.SaveSurveyList(jsonString, Constants.SurveyFolder);
                 }
             }
             catch(Exception ex)
@@ -570,7 +570,7 @@ namespace CMS_Survey.Services
         }
         internal void CallUserSurveyServiceOffline()
         {
-            SurveyHelper svHelper = new SurveyHelper();
+            SurveyHelper svHelper = SurveyHelper.SurveyHelperObject;
             
             UserSurveyList = new ObservableCollection<UserSurvey>();
             if (SurveyHelper.SurveyJsonList == null || SurveyHelper.SurveyJsonList.Count == 0)

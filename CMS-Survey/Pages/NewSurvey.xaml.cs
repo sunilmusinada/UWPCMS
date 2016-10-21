@@ -233,7 +233,7 @@ namespace CMS_Survey.Pages
                 this.NextButton.Visibility = Visibility.Visible;
             QuestionObservationDictionary = new Dictionary<int, int>();
             CantObserveKey = new Dictionary<int, int>();
-            SurveyHelper svHelper = new SurveyHelper(true);
+            SurveyHelper svHelper = SurveyHelper.SurveyHelperObject;
             if (result == null)
             {
                 //
