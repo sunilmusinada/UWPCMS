@@ -362,8 +362,8 @@ namespace CMS_Survey.Services
             {
                 jsonString = await CallGetSurveyServiceJson(CurrentuserKey, surveykey);
                 SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
-                   
-               
+                await SaveSurveyLocal(jsonString, surveykey, Constants.SurveyFolder);
+
             }
             catch(Exception ex)
             {

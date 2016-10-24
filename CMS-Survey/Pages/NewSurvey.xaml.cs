@@ -110,21 +110,25 @@ namespace CMS_Survey.Pages
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
-                        {
 
-                            result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
-                            if (result == null)
-                            {
-                                if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                                    result = await GetClickedSurvey(Convert.ToString(res));
-                            }
-                        }
-                        else
-                        {
-                            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                                result = await GetClickedSurvey(Convert.ToString(res));
-                        }
+                        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                            result = await GetClickedSurvey(Convert.ToString(res));
+
+                        //if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
+                        //{
+
+                        //    result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
+                        //    if (result == null)
+                        //    {
+                        //        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                        //            result = await GetClickedSurvey(Convert.ToString(res));
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                        //        result = await GetClickedSurvey(Convert.ToString(res));
+                        //}
                         //    var MyVariable = await WindowWrapper.Current().Dispatcher
                         // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
                     }
