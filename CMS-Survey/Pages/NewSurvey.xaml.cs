@@ -483,16 +483,59 @@ namespace CMS_Survey.Pages
             if (answerList.obsevationNumber == 2)
                 return;
             int startIndex = (index * 2) - 2;
-            answerList.answersList[startIndex + 1].answer = null;
-            answerList.answersList[startIndex].answer = null;
-            answerList.answersList[startIndex + 1].defaultVisible = false;
-            answerList.answersList[startIndex].renderRemoveButton = false;
-            answerList.answersList[startIndex + 1].renderRemoveButton = false;
-            answerList.answersList[startIndex].defaultVisible = false;
-            answerList.obsevationNumber = answerList.obsevationNumber - 1;
-            RemoveBlankObservations();
-            //AdjustObservations(answerList, index * 2);
-            getJson(mainGrid);
+            //var ans = answerList.answersList.ToList();
+            if(startIndex<8)
+            {
+                answerList.answersList[startIndex].answer = null;
+                answerList.answersList[startIndex].renderRemoveButton = false;
+                answerList.answersList[startIndex].defaultVisible = false;
+                answerList.answersList[startIndex + 1].answer = null;
+                answerList.answersList[startIndex + 1].renderRemoveButton = false;
+                answerList.answersList[startIndex + 1].defaultVisible = false;
+                answerList.obsevationNumber = answerList.obsevationNumber - 1;
+                for (int i=index;i<5;i++)
+                {
+                    var sInd = (i * 2) - 2;
+                    answerList.answersList[sInd].answer = answerList.answersList[sInd+2].answer;
+                    
+                    answerList.answersList[sInd+1].answer = answerList.answersList[sInd + 3].answer;
+                    if (answerList.answersList[sInd + 2].answer != null || answerList.answersList[sInd + 3].answer != null)
+                    {
+                        answerList.answersList[sInd].renderRemoveButton = true;
+                        answerList.answersList[sInd].defaultVisible = true;
+                        answerList.answersList[sInd+1].renderRemoveButton = true;
+                        answerList.answersList[sInd+1].defaultVisible = true;
+                    }
+                    answerList.answersList[sInd + 2].answer = null;
+                    answerList.answersList[sInd + 3].answer = null;
+                    answerList.answersList[sInd+2].renderRemoveButton = false;
+                    answerList.answersList[sInd+2].defaultVisible = false;
+                    answerList.answersList[sInd + 3].renderRemoveButton = false;
+                    answerList.answersList[sInd + 3].defaultVisible = false;
+                }
+            }
+            else if( startIndex == 8)
+            {
+                answerList.answersList[startIndex].answer = null;
+                answerList.answersList[startIndex].renderRemoveButton = false;
+                answerList.answersList[startIndex].defaultVisible = false;
+                answerList.answersList[startIndex + 1].answer = null;
+                answerList.answersList[startIndex + 1].renderRemoveButton = false;
+                answerList.answersList[startIndex + 1].defaultVisible = false;
+                answerList.obsevationNumber = answerList.obsevationNumber - 1;
+            }
+
+                //ans.RemoveAt(startIndex);
+                //ans.RemoveAt(startIndex+1);
+                //ans.Add(new SectionHelp.Answerslist());
+                //ans.Add(new SectionHelp.Answerslist());
+                //answerList.answersList = null;
+
+                //answerList.answersList = ans.ToArray();
+                //
+                // RemoveBlankObservations();
+                //AdjustObservations(answerList, index * 2);
+                getJson(mainGrid);
         }
         #region ControlMethods
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -791,7 +834,8 @@ namespace CMS_Survey.Pages
                     textBox.TextWrapping = TextWrapping.Wrap;
 
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
-                    textBox.LostFocus += TextBox_LostFocus;
+                    //textBox.LostFocus += TextBox_LostFocus;
+                    textBox.TextChanged += TextBox_TextChanged1;
                     if (Question.renderAddObservation && answer.renderRemoveButton)
                     {
                         int ind = QuestionObservationDictionary[Question.questionId];
@@ -949,6 +993,11 @@ namespace CMS_Survey.Pages
             //}
         }
 
+        private void TextBox_TextChanged1(object sender, TextChangedEventArgs e)
+        {
+            TextBox_LostFocus(sender, e);
+        }
+
         private void AddOtherAnswers(SectionHelp.Answerslist answer, ref int rowIndex)
 
         {
@@ -1018,7 +1067,7 @@ namespace CMS_Survey.Pages
 
 
             if(CantObserveKey!=null&&CantObserveKey.Count>0)
-                questionID = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).First();
+                questionID = CantObserveKey.Where(t => t.Value.Equals(controlId)).Select(t => t.Key).FirstOrDefault();
 
             var Questiion = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.Equals(questionID)).Select(t => t).FirstOrDefault();
             if (Questiion == null)
@@ -1577,6 +1626,8 @@ namespace CMS_Survey.Pages
             //throw new NotImplementedException();
         }
         #endregion
+
+
 
         private void RemoveBlankObservations()
         {
