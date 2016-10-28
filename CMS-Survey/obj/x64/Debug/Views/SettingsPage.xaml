@@ -90,7 +90,7 @@
                                                                                                    
                                 Content="Refresh Providers" />
                         <TextBlock x:ConnectionId='14' x:Name="State" Text="State" Margin="12,10,0,0" TextWrapping="Wrap" />
-                        <ComboBox x:ConnectionId='15' x:Name="StateCombobox" Margin="12,30,0,0" Width="135"                                         />
+                        <ComboBox x:ConnectionId='15' x:Name="StateCombobox" Margin="12,30,0,0" Width="135"                                             />
                         <!--RelativePanel.AlignBottomWith="BusyTextTextBox"
                                 RelativePanel.RightOf="BusyTextTextBox"-->
 

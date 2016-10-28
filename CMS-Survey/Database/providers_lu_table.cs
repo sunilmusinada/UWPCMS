@@ -29,6 +29,24 @@ namespace CMS_Survey.Database
             }
         }
 
+        public void deleteForState(string StateCode)
+        {
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            string sql =string.Format( "DELETE FROM providers_lu where State='{0}'", StateCode);
+            using (var query = db.Prepare(sql))
+            {
+                query.Step();
+            }
+            //COMMIT to accept all changes
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+        }
+
         public List<ProvidersLu> GetProviderSForState(string StateCode)
         {
             string sql = string.Format(@"SELECT *

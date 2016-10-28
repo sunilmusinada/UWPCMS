@@ -499,12 +499,12 @@ namespace CMS_Survey.Pages
                     answerList.answersList[sInd].answer = answerList.answersList[sInd+2].answer;
                     
                     answerList.answersList[sInd+1].answer = answerList.answersList[sInd + 3].answer;
-                    if (answerList.answersList[sInd + 2].answer != null || answerList.answersList[sInd + 3].answer != null)
+                    if (answerList.answersList[sInd + 2].renderRemoveButton || answerList.answersList[sInd+3].renderRemoveButton)
                     {
                         answerList.answersList[sInd].renderRemoveButton = true;
                         answerList.answersList[sInd].defaultVisible = true;
-                        answerList.answersList[sInd+1].renderRemoveButton = true;
-                        answerList.answersList[sInd+1].defaultVisible = true;
+                        answerList.answersList[sInd + 1].renderRemoveButton = true;
+                        answerList.answersList[sInd + 1].defaultVisible = true;
                     }
                     answerList.answersList[sInd + 2].answer = null;
                     answerList.answersList[sInd + 3].answer = null;
@@ -1193,6 +1193,7 @@ namespace CMS_Survey.Pages
                 return;
             int startIndex = (answerList.obsevationNumber * 2) - 2;
             answerList.answersList[startIndex].defaultVisible = true;
+            answerList.answersList[startIndex].renderRemoveButton = true;
             answerList.answersList[startIndex + 1].renderRemoveButton = true;
             answerList.answersList[startIndex + 1].defaultVisible = true;
             answerList.obsevationNumber = answerList.obsevationNumber + 1;

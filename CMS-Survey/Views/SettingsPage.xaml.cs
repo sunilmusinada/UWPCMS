@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -11,7 +12,10 @@ namespace CMS_Survey.Views
         public SettingsPage()
         {
             InitializeComponent();
+            StateCombobox.Items.Clear();
             _SerializationService = Template10.Services.SerializationService.SerializationService.Json;
+            var states=Services.ServiceHelper.ServiceHelperObject.GetStates();
+            states.ForEach(e => StateCombobox.Items.Add(e.stateName));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -22,7 +26,10 @@ namespace CMS_Survey.Views
 
         private void StateSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ViewModel.
+            ComboBox cmbx = sender as ComboBox;
+            string state =Convert.ToString(cmbx.SelectedValue);
+            string stateName=Services.ServiceHelper.ServiceHelperObject.GetCodeforState(state);
+            ViewModel.SettingsPartViewModel.SetState(stateName);
         }
     }
 }

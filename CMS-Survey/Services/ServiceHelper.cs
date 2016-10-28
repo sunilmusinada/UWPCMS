@@ -194,11 +194,11 @@ namespace CMS_Survey.Services
         }
 
 
-        internal async Task RefreshHospitals()
+        internal async Task RefreshHospitals(string StateCode)
         {
-            List<Hospital> Hospitals = await GetHospitalsForState("ALL");
+           List<Hospital> Hospitals = await GetHospitalsForState(StateCode);
             Database.providers_lu_table providerTable = new Database.providers_lu_table();
-            providerTable.deleteAll();
+            providerTable.deleteForState(StateCode);
             await providerTable.BulkInsertProviders(Hospitals);
         }
         private void SaveHospitalsLocal(string jsonString)

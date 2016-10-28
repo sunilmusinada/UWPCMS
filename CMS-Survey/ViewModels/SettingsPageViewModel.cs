@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Template10.Services.SettingsService;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 
 namespace CMS_Survey.ViewModels
@@ -34,7 +35,10 @@ namespace CMS_Survey.ViewModels
             get { return _settings.UseShellBackButton; }
             set { _settings.UseShellBackButton = value; base.RaisePropertyChanged(); }
         }
-
+        public void SetState(string State)
+        {
+            SelectedState = State;
+        }
         public bool UseLightThemeButton
         {
             get { return _settings.AppTheme.Equals(ApplicationTheme.Light); }
@@ -56,6 +60,12 @@ namespace CMS_Survey.ViewModels
         public DelegateCommand RefreshProviders
             => _RefreshProviders ?? (_RefreshProviders = new DelegateCommand(async () =>
             {
+                if(string.IsNullOrEmpty(SelectedState))
+                {
+                    MessageDialog msgDialog = new MessageDialog("Please Select a state to Refresh", "Warning");
+                    await msgDialog.ShowAsync();
+                    return;
+                }
                 BusyText = "Refreshing Providers...";
                 Views.Busy.SetBusy(true, _BusyText);
                 await RefreshAllProviders() ;
@@ -64,7 +74,7 @@ namespace CMS_Survey.ViewModels
 
         public async Task RefreshAllProviders()
         {
-            await Services.ServiceHelper.ServiceHelperObject.RefreshHospitals();
+            await Services.ServiceHelper.ServiceHelperObject.RefreshHospitals(SelectedState);
         }
     }
 
