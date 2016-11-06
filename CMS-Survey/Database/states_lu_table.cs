@@ -56,6 +56,32 @@ namespace CMS_Survey.Database
             }
             return States;
         }
+        public string GetStateForStateCode(string Code)
+        {
+            string sql = string.Format(@"Select State_Name FROM states_lu where State_Code= '{0}'", Code);
+            string state = string.Empty ;
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
 
+            using (var query = db.Prepare(sql))
+            {
+                if (query.Step().Equals(SQLiteResult.ROW))
+                {
+
+
+                    state = (string)query[0];
+                   
+
+                }
+            }
+            //COMMIT to accept all changes
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+            return state;
+        }
     }
 }

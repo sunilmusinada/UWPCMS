@@ -282,7 +282,7 @@ namespace CMS_Survey.Pages
 
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
                         if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
-                            AddOtherAnswers(answer, ref rowIndex);
+                            AddOtherAnswers(answer,question, ref rowIndex);
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
@@ -998,7 +998,7 @@ namespace CMS_Survey.Pages
             TextBox_LostFocus(sender, e);
         }
 
-        private void AddOtherAnswers(SectionHelp.Answerslist answer, ref int rowIndex)
+        private void AddOtherAnswers(SectionHelp.Answerslist answer, SectionHelp.Surveyquestionanswerlist question, ref int rowIndex)
 
         {
             List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
@@ -1019,12 +1019,27 @@ namespace CMS_Survey.Pages
                 //txBlock.Text = "Observation " +(ansIndex-1).ToString();
                 panel.Children.Add(txBlock);
                 TextBlock blnk = new TextBlock();
-                blnk.Text = " ";
+                blnk.Text = " "; 
                 //addUIControl(mainGrid, txBlock, rowIndex++);
                 //addBlankLine(mainGrid, rowIndex);
 
                 TextBlock Otherans = new TextBlock();
+                
                 Otherans.Text = Otheranswer.answer;
+                if (sectionIndex == 0)
+                {
+                    if(question.questionText=="State")
+                    {
+                        Otherans.Text= Services.ServiceHelper.ServiceHelperObject.GetStateNameforStateCode(Otheranswer.answer);
+                    }
+                    if(question.questionText== "Hospital Name")
+                    {
+                       var hsp=Services.ServiceHelper.ServiceHelperObject.GetHospitalForProviderKey(Convert.ToInt32(Otheranswer.answer));
+                        Otherans.Text = hsp.facilityName;
+
+
+                    }
+                }
                 panel.Children.Add(Otherans);
                 TextBlock blnk2 = new TextBlock();
                 blnk.Text = " ";
@@ -1227,7 +1242,8 @@ namespace CMS_Survey.Pages
             cmbx.Items.Clear();
             if (_Hospitals == null)
                 await GetHospitals(SelectedState);
-
+            if (_Hospitals == null)
+                return;
             _Hospitals.ForEach(e => cmbx.Items.Add(e));
             var hostpitalName = SelectedHospitals.Where(hsp => hsp.providerKey.ToString().Equals(hospitalCode)).Select(hsp => hsp.facilityName).FirstOrDefault();
             if (_Hospitals.Contains(hostpitalName))

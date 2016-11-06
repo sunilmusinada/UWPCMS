@@ -1,6 +1,8 @@
 WinMetadata\Windows.winmd
 SQLitePCL.Ext.dll
 SQLitePCL.Ext.pri
+Assets\green-glossy-ball.jpg
+Assets\RedIcon.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square300x300Logo.scale-200.png

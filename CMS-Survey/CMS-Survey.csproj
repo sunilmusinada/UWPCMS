@@ -98,6 +98,8 @@
     <None Include="CMS-Survey_TemporaryKey.pfx" />
     <None Include="Models\graph.dgml" />
     <None Include="project.json" />
+    <Content Include="Assets\green-glossy-ball.jpg" />
+    <Content Include="Assets\RedIcon.png" />
     <Content Include="Surveydb.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

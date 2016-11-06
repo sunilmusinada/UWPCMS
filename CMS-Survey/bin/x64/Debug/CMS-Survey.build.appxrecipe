@@ -406,8 +406,11 @@
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SurveySyncComponent\SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Surveydb.sqlite">
-      <PackagePath>Surveydb.sqlite</PackagePath>
+    <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\green-glossy-ball.jpg">
+      <PackagePath>Assets\green-glossy-ball.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\RedIcon.png">
+      <PackagePath>Assets\RedIcon.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Square300x300Logo.scale-200.png">
       <PackagePath>Assets\Square300x300Logo.scale-200.png</PackagePath>
@@ -441,6 +444,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Assets\Wide310x150Logo.scale-200_1234.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200_1234.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Surveydb.sqlite">
+      <PackagePath>Surveydb.sqlite</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\Help.htm">
       <PackagePath>Help.htm</PackagePath>

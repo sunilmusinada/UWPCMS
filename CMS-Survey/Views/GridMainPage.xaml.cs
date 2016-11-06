@@ -175,6 +175,7 @@ namespace CMS_Survey.Views
             {
                 await svcHelper.IsOffline();
                 await svcHelper.CallUserSurveyService();
+                await Task.Delay(100);
                 await svcHelper.CallUserSurveyService();
                 CMS_Survey.Template.SurveyHelper.SurveyHelperObject.CreateSurveyList();
                 // CreateSurveyList()

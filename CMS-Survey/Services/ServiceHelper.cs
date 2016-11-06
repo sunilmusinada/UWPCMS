@@ -50,8 +50,8 @@ namespace CMS_Survey.Services
 
         internal User currentUser;
         private IStorageFile textFile { get; set; }
-        public static  string HostUrl = @"https://cms-specialtysurveys-internal.org/";
-        //public static string HostUrl = @"http://localhost:8080/";
+        //public static  string HostUrl = @"https://cms-specialtysurveys-internal.org/";
+        public static string HostUrl = @"http://localhost:8080/";
         public static string CitationUrl = HostUrl + "Survey-web";
         #region UrlStrings
         private string LoginServiceUrl = HostUrl+ @"SurveyRest/rest/myresource/authentication?userName={0}&password={1}";
@@ -166,6 +166,12 @@ namespace CMS_Survey.Services
             var Code = StateCode.Where(e => e.stateName.ToUpper().Equals(StateName.ToUpper())).Select(e => e.stateCode).FirstOrDefault();
             return Code;
         }
+
+        public string GetStateNameforStateCode(string Code)
+        {
+            State statsLu = new Models.State();
+            return statsLu.GetStateForCode(Code);
+        }
         #endregion
 
         #region Hospital Service
@@ -212,7 +218,7 @@ namespace CMS_Survey.Services
                 fileStream.Write(byteData, 0, byteData.Length);
             }
         }
-
+        
         internal  List<Hospital> GetHospitalForStateOffline(string StateCode)
         {
             Hospitals = new List<Hospital>();
@@ -552,6 +558,7 @@ namespace CMS_Survey.Services
                 var client = new HttpClient();
 
                 HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.userKey)));
+                //response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.userKey)));
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
 

@@ -15,6 +15,12 @@ namespace CMS_Survey.Models
                 states_lu_table stable = new states_lu_table();
                 return stable.GetAllStates();
             }  }
+
+        public string GetStateForCode(string Code)
+        {
+            states_lu_table stable = new Database.states_lu_table();
+            return stable.GetStateForStateCode(Code);
+        }
         public string stateCode { get; set; }
         public string stateName { get; set; }
 
