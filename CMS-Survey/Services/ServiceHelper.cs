@@ -575,6 +575,32 @@ namespace CMS_Survey.Services
             }
             return jsonString;
         }
+
+        internal async Task<string> CallUserSurveyServiceWithoutSave()
+        {
+            string jsonString = string.Empty;
+            try
+            {
+                var client = new HttpClient();
+
+                HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.userKey)));
+                //response = await client.GetAsync(new Uri(string.Format(UserSurveyUrl, this.currentUser.userKey)));
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    UserSurveyList = Newtonsoft.Json.JsonConvert.DeserializeObject<ObservableCollection<UserSurvey>>(jsonString);
+                    //await Services.ServiceHelper.ServiceHelperObject.SaveSurveyList(jsonString, Constants.SurveyFolder);
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw a meaningful exception here
+                throw ex;
+            }
+            return jsonString;
+        }
         internal void CallUserSurveyServiceOffline()
         {
             SurveyHelper svHelper = SurveyHelper.SurveyHelperObject;

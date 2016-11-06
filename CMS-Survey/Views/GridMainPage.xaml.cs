@@ -53,7 +53,7 @@ namespace CMS_Survey.Views
         private ObservableCollection<UserSurvey> _FilteredUsersurveys;
         //ProgressRing Progress = null;
         // Property.
-      
+
         public ObservableCollection<UserSurvey> FilteredUsersurveys
         {
             get { return _FilteredUsersurveys; }
@@ -75,7 +75,7 @@ namespace CMS_Survey.Views
         public string Filter
         {
             get { return _filter; }
-            set { _filter=value; }
+            set { _filter = value; }
         }
 
 
@@ -96,7 +96,7 @@ namespace CMS_Survey.Views
             SCommand command = sender as SCommand;
             if (command == null)
                 return;
-            switch(command.CommandName)
+            switch (command.CommandName)
             {
                 case "Edit":
                     Edit_Click(null, null);
@@ -116,10 +116,13 @@ namespace CMS_Survey.Views
 
         private async void MainPage_Loading(FrameworkElement sender, object args)
         {
-           
-           await GetSurveys();
-          
+            DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand;
+            DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
+            showBusyCommand.Execute();
 
+            await GetSurveys();
+
+            hideBusyCommand.Execute();
         }
         private async void ShowMessage(string message, string caption)
         {
@@ -136,9 +139,9 @@ namespace CMS_Survey.Views
 
         private void RenderButtons(string Status)
         {
-            
-            
-           
+
+
+
         }
 
         //public void AddEditButton()
@@ -150,7 +153,7 @@ namespace CMS_Survey.Views
         //    btn.VerticalAlignment = VerticalAlignment.Top;
         //    btn.Click += Edit_Click;
         //    btn.Margin = new Thickness(10, 10, 0, 0);
-            
+
         //    Grid btnGrid = CMS_Survey.Pages.NewSurvey.FindVisualChildren<Grid>(this.DataGrid).ToList().Where(t=>t.Name.Equals("ButtonGrid")).FirstOrDefault();
         //    btnGrid.Children.Add(btn);
         //   ////// var obj=this.FindName("ButtonGrid") as Grid;
@@ -174,8 +177,8 @@ namespace CMS_Survey.Views
             else
             {
                 await svcHelper.IsOffline();
-                await svcHelper.CallUserSurveyService();
-                await Task.Delay(100);
+                await svcHelper.CallUserSurveyServiceWithoutSave();
+               
                 await svcHelper.CallUserSurveyService();
                 CMS_Survey.Template.SurveyHelper.SurveyHelperObject.CreateSurveyList();
                 // CreateSurveyList()
@@ -183,25 +186,25 @@ namespace CMS_Survey.Views
             // Progress.IsActive = true;
             if (Fetched)
             {
-               
+
             }
             this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             this.FilteredUsersurveys = this.Usersurveys;
-           
+
             //progressRing.IsActive = false;
             //Progress.IsActive = false;
         }
-    
+
         private void GetClickedSurvey(string SurveyKey)
         {
             try
             {
-               
-                    var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SurveyKey);
-                    this.Frame.Navigate(typeof(Pages.NewSurvey), param);
-                
 
-                
+                var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SurveyKey);
+                this.Frame.Navigate(typeof(Pages.NewSurvey), param);
+
+
+
             }
             catch (Exception ex)
             {
@@ -225,7 +228,7 @@ namespace CMS_Survey.Views
             }
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
-         {
+        {
             CMS_Survey.Pages.NewSurvey.isEnabled = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
@@ -245,12 +248,12 @@ namespace CMS_Survey.Views
             {
                 await Services.ServiceHelper.ServiceHelperObject.DeleteSurvey(SelectedSurvey.surveyKey);
             }
-           await  GetSurveys();
+            await GetSurveys();
             //HideAllControls();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-         {
+        {
             DataGrid dgrid = sender as DataGrid;
             SelectedSurvey = dgrid.SelectedItem as UserSurvey;
             //if(SelectedSurvey!=null)
@@ -259,7 +262,7 @@ namespace CMS_Survey.Views
 
         private void Filter_TextChanged(object sender, TextChangedEventArgs e)
         {
-           
+
             TextBox txtBox = sender as TextBox;
             string txtBxName = txtBox.Name;
             string FilterText = txtBox.Text.ToUpper();
@@ -268,7 +271,7 @@ namespace CMS_Survey.Views
                 FilteredUsersurveys = Usersurveys;
                 return;
             }
-            switch(txtBxName)
+            switch (txtBxName)
             {
                 case "IDFilter":
                     FilteredUsersurveys = new ObservableCollection<UserSurvey>((from surv in Usersurveys
@@ -291,8 +294,8 @@ namespace CMS_Survey.Views
                                                                                 select surv).ToList());
                     break;
             }
-              
-                
+
+
         }
 
         private async void GridMainPage1_Loaded(object sender, RoutedEventArgs e)
@@ -312,7 +315,7 @@ namespace CMS_Survey.Views
             //this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             //this.FilteredUsersurveys = this.Usersurveys;
 
-           
+
             //hideBusyCommand.Execute();
             // ShowMessage("Finished downloading Surveys", "Information");
             Fetched = true;

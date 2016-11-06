@@ -73,6 +73,7 @@ namespace CMS_Survey.Pages
             ObservationsList = new List<Models.ObservationHelper>();
             SectionHelp.Rootobject survObj = null;
             base.OnNavigatedTo(e);
+            ShowProgress();
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 LoadedOffline = true;
@@ -140,6 +141,7 @@ namespace CMS_Survey.Pages
                 }
                 else
                 {
+                    HideProgress();
                     ShowMessage("Application went offline. You will be re-directed to the Main page", "Error");
                     NavigateToMainPage();
                     return;
@@ -148,11 +150,13 @@ namespace CMS_Survey.Pages
             survObj = getJson(mainGrid);
             if (survObj == null)
             {
+                HideProgress();
                 ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
                 NavigateToMainPage();
                 return;
             }
             GetHelpDocuments();
+            HideProgress();
             // parameters.Name
             // parameters.Text
             // ...
