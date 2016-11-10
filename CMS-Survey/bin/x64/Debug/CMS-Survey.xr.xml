@@ -279,6 +279,15 @@
     </RootType>
     <RootType FullName="CMS_Survey.Views.DetailPage" />
     <RootType FullName="CMS_Survey.ViewModels.MainPageViewModel" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Stretch" />
+    </RootType>
     <RootType FullName="MyToolkit.Controls.DataGrid">
       <RootProperty Name="Background" />
       <RootProperty Name="SelectionMode" />
@@ -333,11 +342,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Source" />
-      <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Margin" />

@@ -119,6 +119,7 @@
     <Compile Include="Database\survey_table.cs" />
     <Compile Include="Database\survey_type_lu_table.cs" />
     <Compile Include="Helpers\BackGroundTaskHelper.cs" />
+    <Compile Include="Helpers\CMSCombobox.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\SurveyHelper.cs" />
     <Compile Include="Helpers\SurveyorControls.cs" />

@@ -127,7 +127,8 @@
                 </Grid>
             </Grid>
         </StackPanel>
-       
+        <Image x:Name="image" Source="..\Assets\RedIcon.png" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0"/>
+
     </RelativePanel>
     
     <!--<Page.Resources>

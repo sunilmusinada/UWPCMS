@@ -23,6 +23,7 @@ using Windows.UI.Popups;
 using CMS_Survey.Template;
 using Windows.UI;
 using Windows.UI.Xaml.Documents;
+using CMS_Survey.Helpers;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -46,9 +47,9 @@ namespace CMS_Survey.Pages
         private bool fromSavedObject = false;
         private string SelectedState = null;
         private bool LoadedOffline = false;
-        private ComboBox stateControl = null;
-        private ComboBox HospitalControl = null;
-        private ComboBox MailIdCombobox = null;
+        private CMSCombobox stateControl = null;
+        private CMSCombobox HospitalControl = null;
+        private CMSCombobox MailIdCombobox = null;
         private TextBox Hospitalcn = null;
         private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock;
         List<JumpClass> jmpClass;
@@ -348,7 +349,7 @@ namespace CMS_Survey.Pages
             questionlabel.Text = "State";
             questionlabel.TextWrapping = TextWrapping.Wrap;
             addUIControl(grid, questionlabel, rowIndex++);
-            ComboBox cmbbox = new ComboBox();
+            CMSCombobox cmbbox = new CMSCombobox();
             cmbbox.Name = "StateSelectCombobox";
             cmbbox.Width = 66;
             cmbbox.Items.Add("ALL");
@@ -359,7 +360,7 @@ namespace CMS_Survey.Pages
             questionlabel.Text = "Email address";
             questionlabel.TextWrapping = TextWrapping.Wrap;
             addUIControl(grid, questionlabel, rowIndex++);
-            ComboBox cmbbox1 = new ComboBox();
+            CMSCombobox cmbbox1 = new CMSCombobox();
             cmbbox1.Name = "EmailIDCombobox";
             MailIdCombobox = cmbbox1;
             cmbbox1.Width = 400;
@@ -888,7 +889,8 @@ namespace CMS_Survey.Pages
                     addUIControl(grid, chkBox, rowIndex++);
                     break;
                 case "select":
-                    ComboBox cmbbox = new ComboBox();
+                    CMS_Survey.Helpers.CMSCombobox cmbbox = new Helpers.CMSCombobox();
+                    
                     cmbbox.Name = answer.htmlControlId.ToString();
                     cmbbox.Width = 200;
                     var val = Convert.ToString(answer.answer);

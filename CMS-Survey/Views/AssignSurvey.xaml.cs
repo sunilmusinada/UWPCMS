@@ -39,6 +39,7 @@ namespace CMS_Survey.Views
         {
           
             base.OnNavigatedTo(e);
+            Submit.Visibility = Visibility.Visible;
             SurveyKeyText.Text = "";
             ProviderKeyText.Text = "";
             totalUserCount = 0;
@@ -152,20 +153,21 @@ namespace CMS_Survey.Views
             questionlabel.TextWrapping = TextWrapping.Wrap;
             addUIControl(UserDataGrid, questionlabel, rowIndex++);
 
-            ComboBox cmbbox = new ComboBox();
+            CMSCombobox cmbbox = new CMSCombobox();
             cmbbox.Name = "StateSelectCombobox_"+totalUserCount.ToString();
             cmbbox.Width = 66;
             cmbbox.Items.Add("ALL");
             Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
             surV.StateComboBox = cmbbox;
             cmbbox.SelectionChanged += StateSelectionComboboxChanged;
+           
             addUIControl(UserDataGrid, cmbbox, rowIndex++);
             questionlabel = new TextBlock();
             questionlabel.Text = "User";
             questionlabel.TextWrapping = TextWrapping.Wrap;
             AddUIControlWithAlignment(rowIndex - 2, HorizontalAlignment.Center, questionlabel, 1);
             // addUIControl(UserDataGrid, questionlabel, rowIndex++);
-            ComboBox cmbbox1 = new ComboBox();
+            CMSCombobox cmbbox1 = new CMSCombobox();
             cmbbox1.Name = "UsersCombobox_"+totalUserCount.ToString();
             cmbbox1.Width = 200;
             surV.UserCombobox = cmbbox1;
@@ -186,8 +188,8 @@ namespace CMS_Survey.Views
                 rowIndex = rowIndex + 3;
                 totalUserCount = totalUserCount + 1;
             }
-            
-           
+
+            cmbbox.SelectedValue = "ALL";
             return rowIndex;
         }
 
@@ -264,7 +266,7 @@ namespace CMS_Survey.Views
 
         private async void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            Submit.Visibility = Visibility.Collapsed;
             Surveyors surveyors = new Surveyors();
             surveyors.surveyKey = m_SurveyKey;
             List<long> UserKeys = new List<long>();

@@ -58,16 +58,16 @@
             
             <!--  secondary commands  -->
             <controls:PageHeader.SecondaryCommands>
-                <AppBarButton x:ConnectionId='14'                                         Label="Settings" />
-                <AppBarButton x:ConnectionId='15'                                        Label="Privacy" />
-                <AppBarButton x:ConnectionId='16'                                      Label="About" />
+                <AppBarButton x:ConnectionId='15'                                         Label="Settings" />
+                <AppBarButton x:ConnectionId='16'                                        Label="Privacy" />
+                <AppBarButton x:ConnectionId='17'                                      Label="About" />
             </controls:PageHeader.SecondaryCommands>
 
         </controls:PageHeader>
      
                 <StackPanel>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <Grid x:ConnectionId='8' x:Name="ActualGrid">
+                <Grid x:ConnectionId='9' x:Name="ActualGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <!--<RowDefinition Height="*" />
@@ -77,17 +77,17 @@
                     <StackPanel>
                         <Grid HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="1450" Margin="-135,75,-1150,-900">
                             <!--<TextBlock Text="Filter" FontWeight="Bold" Margin="0,50,-600,-600" />-->
-                        <TextBox x:ConnectionId='10' Name="IDFilter" Width="0" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='11' Name="IDFilter" Width="0" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Id" Margin="-1100,0,0,0"                                  />
-                        <TextBox x:ConnectionId='11' Name="ProviderFilter" Width="200" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='12' Name="ProviderFilter" Width="200" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Provider" Margin="-800,0,0,0"                                 />
-                             <TextBox x:ConnectionId='12' Name="EndDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                             <TextBox x:ConnectionId='13' Name="EndDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Survey End Date"  Margin="450,0,0,0"                                  />
-                        <TextBox x:ConnectionId='13' Name="ActionDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:ConnectionId='14' Name="ActionDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                 PlaceholderText="Action Date"  Margin="850,0,0,0"                                  />
                             </Grid>
                     </StackPanel>
-                    <ExtendedControls:DataGrid x:ConnectionId='9' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid"
+                    <ExtendedControls:DataGrid x:ConnectionId='10' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid"
                    SelectionMode="Single" DefaultOrderIndex="0" Margin="0,50,-800,-800"                                                         
                                            RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
                                                                                        Grid.RowSpan="1" 
@@ -127,7 +127,8 @@
                 </Grid>
             </Grid>
         </StackPanel>
-       
+        <Image x:ConnectionId='8' x:Name="image" Source="..\Assets\RedIcon.png" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0"/>
+
     </RelativePanel>
     
     <!--<Page.Resources>

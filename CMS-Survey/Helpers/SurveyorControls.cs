@@ -8,8 +8,8 @@ namespace CMS_Survey.Helpers
 {
     public class SurveyorControls
     {
-        public ComboBox StateComboBox { get; set; }
-        public ComboBox UserCombobox { get; set; }
+        public CMSCombobox StateComboBox { get; set; }
+        public CMSCombobox UserCombobox { get; set; }
 
         public Button AddSurveyorButton { get; set; }
     }
