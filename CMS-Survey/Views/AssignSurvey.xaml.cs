@@ -239,7 +239,7 @@ namespace CMS_Survey.Views
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
             else
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateOffline(selectedItem);
-            foreach (var usr in UserList)
+            foreach (var usr in UserList.OrderBy(f=>f))
             {
                 string firstName = usr.Split(' ').FirstOrDefault();
                 string LastName = usr.Split(' ').LastOrDefault();

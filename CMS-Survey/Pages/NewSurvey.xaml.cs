@@ -67,6 +67,10 @@ namespace CMS_Survey.Pages
 
             this.InitializeComponent();
             SurveyHelper.SurveyHelperObject.FinishedDownloading += SurveyHelperObject_FinishedDownloading;
+            if (SurveyHelper.SurveyHelperObject.DownloadFinished)
+            {
+                ChangeIndicator();
+            }
         }
 
         private void SurveyHelperObject_FinishedDownloading(object sender, EventArgs e)

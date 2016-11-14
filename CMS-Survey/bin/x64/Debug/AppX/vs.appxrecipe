@@ -17,18 +17,24 @@
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <RegisteredManifestChecksum>6BE6F387BE21939117B7016926B1C106AA7740F5CB6663604CF3C9089501DE22</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.14.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>13228281-de3c-4cee-b5f6-12b990ea723a_z0txew2x9f0ce!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>13228281-de3c-4cee-b5f6-12b990ea723a</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=kakar</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.14.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-14T13:23:52.849</Modified>
+      <Modified>2016-11-14T13:26:06.470</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-14T13:23:49.686</Modified>
+      <Modified>2016-11-14T13:26:03.852</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -647,11 +653,11 @@
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-14T13:23:51.979</Modified>
+      <Modified>2016-11-14T13:26:05.645</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-14T13:23:52.843</Modified>
+      <Modified>2016-11-14T13:26:06.466</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
