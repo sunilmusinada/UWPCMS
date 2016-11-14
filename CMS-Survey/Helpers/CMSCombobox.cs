@@ -28,7 +28,7 @@ namespace CMS_Survey.Helpers
 
         private void OnScrollViewerLoaded(object sender, RoutedEventArgs e)
         {
-            _scrollViewer.Loaded -= OnScrollViewerLoaded;
+           // _scrollViewer.Loaded -= OnScrollViewerLoaded;
             _scrollViewer.ChangeView(null, 0, null);
         }
     }
