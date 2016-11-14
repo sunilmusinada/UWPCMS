@@ -99,7 +99,7 @@ namespace CMS_Survey.Views
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 ChangeIndicator();
         }
-
+         
         private void Buttonclicked(object sender)
         {
             SCommand command = sender as SCommand;
@@ -314,6 +314,7 @@ namespace CMS_Survey.Views
                 return;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 return;
+            await Task.Delay(2000);
             surveyHelper = CMS_Survey.Template.SurveyHelper.SurveyHelperObject;
             //DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand ;
             //DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
