@@ -128,9 +128,14 @@ namespace CMS_Survey.Views
             DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand;
             DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             showBusyCommand.Execute();
+            try
+            {
+                await GetSurveys();
+            }
+            catch (Exception ex)
+            {
 
-            await GetSurveys();
-
+            }
             hideBusyCommand.Execute();
         }
         private async void ShowMessage(string message, string caption)

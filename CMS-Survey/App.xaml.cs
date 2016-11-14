@@ -74,7 +74,10 @@ namespace CMS_Survey
                 Directory.CreateDirectory(usrfolder.Path + @"\Surveys");
                
             }
-            await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            {
+                await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
+            }
             BackGroundTaskHelper bgtHelper = new Template.BackGroundTaskHelper();
             if (!bgtHelper.TaskRegistered)
             {
