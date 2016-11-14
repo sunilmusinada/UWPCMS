@@ -24,6 +24,7 @@ using CMS_Survey.Template;
 using Windows.UI;
 using Windows.UI.Xaml.Documents;
 using CMS_Survey.Helpers;
+using Windows.UI.Xaml.Media.Imaging;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -65,9 +66,19 @@ namespace CMS_Survey.Pages
         {
 
             this.InitializeComponent();
-
+            SurveyHelper.SurveyHelperObject.FinishedDownloading += SurveyHelperObject_FinishedDownloading;
         }
 
+        private void SurveyHelperObject_FinishedDownloading(object sender, EventArgs e)
+        {
+            ChangeIndicator();
+        }
+
+        private void ChangeIndicator()
+        {
+            string url = "ms-appx:///Assets/green-glossy-ball.jpg";
+            image.Source = new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute));
+        }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -112,7 +123,10 @@ namespace CMS_Survey.Pages
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-
+                        if (SurveyHelper.SurveyHelperObject.DownloadFinished )
+                        {
+                            ChangeIndicator();
+                        }
                         if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                             result = await GetClickedSurvey(Convert.ToString(res));
 
@@ -234,6 +248,7 @@ namespace CMS_Survey.Pages
                     scrollViewer.ScrollToVerticalOffset(0);
                 }
             }
+           
             if (sectionIndex == result.sections.Count() - 1)
             {
                 this.NextButton.Visibility = Visibility.Collapsed;

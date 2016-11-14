@@ -18,8 +18,10 @@ namespace CMS_Survey.Template
         internal static SectionHelp.Rootobject Request;
         public List<SurverInsertObject> surveyInsertObjectList { get; set; }
         public static ObservableCollection<SectionHelp.Rootobject> SurveyList { get; set; }
-
+        public event EventHandler FinishedDownloading;
         public static List<Models.UserSurvey> SurveyJsonList { get; set; }
+
+        public  bool DownloadFinished = false;
         internal SurveyHelper(SectionHelp.Rootobject SectionHelpRoot)
         {
             Request = SectionHelpRoot;
@@ -160,10 +162,20 @@ namespace CMS_Survey.Template
                 CreateSurveyList();
                 MessageDialog msgDialog = new MessageDialog("Offline Sync Complete", "Information");
                 await msgDialog.ShowAsync();
+                DownloadFinished = true;
+                OnFinishedDownload(null);
             }
             catch(Exception ex)
             {
 
+            }
+        }
+        protected virtual void OnFinishedDownload(EventArgs e)
+        {
+            EventHandler handler = FinishedDownloading;
+            if (handler != null)
+            {
+                handler(this, e);
             }
         }
         private async Task<string> GetClickedSurvey(string SurveyKey)

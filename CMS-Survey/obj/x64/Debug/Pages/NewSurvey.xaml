@@ -82,6 +82,7 @@
                 <!--
                 </Button.Flyout>-->
             </Button>
+            <Image x:ConnectionId='9' x:Name="image" Height="23" Margin="0,40,52,37" VerticalAlignment="Center" RenderTransformOrigin="0.528,4.043" Source="ms-appx:///Assets/RedIcon.png" Width="53" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
         </Grid>
 
         <ScrollViewer x:ConnectionId='1' VerticalAlignment="top"  Grid.Row="1" x:Name="ScrollBar">

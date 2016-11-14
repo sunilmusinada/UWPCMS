@@ -20,6 +20,8 @@ using Template10.Mvvm;
 using CMS_Survey.Template;
 using Windows.UI.Popups;
 using System.ComponentModel.DataAnnotations;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace CMS_Survey.Views
 {
@@ -82,6 +84,7 @@ namespace CMS_Survey.Views
         public GridMainPage()
         {
             this.DataContext = this;
+            CMS_Survey.Template.SurveyHelper.SurveyHelperObject.FinishedDownloading += SurveyHelperObject_FinishedDownloading;
             //GetSurveys();
             Services.ServiceHelper.ServiceHelperObject.getJsonFile();
             InitializeComponent();
@@ -89,6 +92,12 @@ namespace CMS_Survey.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             SCommand.Clicked += Buttonclicked;
             //SurveyObject.Rootobject survObj = getJson();
+        }
+
+        private async void SurveyHelperObject_FinishedDownloading(object sender, EventArgs e)
+        {
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                ChangeIndicator();
         }
 
         private void Buttonclicked(object sender)
@@ -314,11 +323,16 @@ namespace CMS_Survey.Views
             //Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
             //this.Usersurveys = Services.ServiceHelper.ServiceHelperObject.UserSurveyList;
             //this.FilteredUsersurveys = this.Usersurveys;
-
-
+            //ChangeIndicator();
             //hideBusyCommand.Execute();
             // ShowMessage("Finished downloading Surveys", "Information");
             Fetched = true;
+        }
+
+        public void ChangeIndicator()
+        {
+            string url = "ms-appx:///Assets/green-glossy-ball.jpg";
+            image.Source = new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute));
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
