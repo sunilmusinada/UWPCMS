@@ -62,6 +62,23 @@ namespace CMS_Survey.Database
                 statement.Step();
             }
         }
+        public async Task UpdateUserDetails(string firstName, string LastName,string email,string State, long UserKey)
+        {
+            using (var statement = db.Prepare("BEGIN TRANSACTION"))
+            {
+                statement.Step();
+            }
+            string sql = string.Format(@" UPDATE[users] SET[First_Name] = ""{0}"",[Last_Name] = ""{1}"",[email] = ""{2}"",[state] = ""{3}"" WHERE[User_Key]={4}", firstName,LastName,email,State,UserKey);
+            using (var users = db.Prepare(sql))
+            {
+                users.Step();
+            }
+            //COMMIT to accept all changes
+            using (var statement = db.Prepare("COMMIT TRANSACTION"))
+            {
+                statement.Step();
+            }
+        }
         public async Task insertUser(User user)
         {
 
@@ -137,7 +154,8 @@ namespace CMS_Survey.Database
             }
             UserKey=-1;
             User user = null;
-            string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}' & Password='{1}'",userId,password);
+            //string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}' & Password='{1}'",userId,password);
+            string get_sql = string.Format(@"SELECT * FROM[users] where userid = '{0}' ", userId);
             using (var statement = db.Prepare(get_sql))
             {
                 
@@ -221,8 +239,11 @@ namespace CMS_Survey.Database
                 string insert_sql;
                 foreach (User user in users)
                 {
-                    if (DoesUserExist(user.userName,user.Password, out userId))
+                    if (DoesUserExist(user.userName, user.Password, out userId))
+                    {
+                        await UpdateUserDetails(user.FirstName, user.LastName, user.Email, user.State, userId);
                         continue;
+                    }
                     if(DoesUserExist(user.userName,out userId))
                     deleteUser(user.userKey);
                     insert_sql = string.Format(" INSERT INTO users (User_Key,UserId, Password, First_Name, Last_Name, email, role, state) VALUES({0}, '{1}', '{2}', '{3}', '{4}', '{5}', {6},'{7}')", user.userKey, user.userName, user.Password, user.FirstName, user.LastName, user.Email, user.Role, user.State);

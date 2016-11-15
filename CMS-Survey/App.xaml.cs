@@ -15,6 +15,8 @@ using System.IO;
 using System.Net;
 using Windows.UI.Xaml.Controls;
 using CMS_Survey.Template;
+using Windows.UI.ViewManagement;
+
 namespace CMS_Survey
 {
     /// Documentation on APIs used in this page:
@@ -36,7 +38,7 @@ namespace CMS_Survey
             RequestedTheme = _settings.AppTheme;
             CacheMaxDuration = _settings.CacheMaxDuration;
             ShowShellBackButton = _settings.UseShellBackButton;
-
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             #endregion
         }
        

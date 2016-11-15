@@ -849,7 +849,7 @@ namespace CMS_Survey.Services
             users = await GetUsersForState("ALL");
             Database.users_table usrTable = new Database.users_table();
             GetUserKeyList();
-            usrTable.deleteAll();
+            //usrTable.deleteAll();
             await usrTable.BulkInsertUsers(users);
 
         }
