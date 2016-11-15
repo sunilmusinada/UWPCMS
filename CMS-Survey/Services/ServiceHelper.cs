@@ -844,14 +844,21 @@ namespace CMS_Survey.Services
             }
             return Users;
         }
+       
         internal async Task AddAllUsers()
         {
             users = await GetUsersForState("ALL");
             Database.users_table usrTable = new Database.users_table();
-            GetUserKeyList();
+            await GetUserKeyList();
             //usrTable.deleteAll();
             await usrTable.BulkInsertUsers(users);
 
+        }
+
+        internal async Task PrepareUsers()
+        {
+            users =await GetFullUsersOffline("ALL");
+          await  GetUserKeyList();
         }
         internal async Task GetUserKeyList()
         {

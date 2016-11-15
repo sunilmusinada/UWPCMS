@@ -80,6 +80,10 @@ namespace CMS_Survey
             {
                 await Services.ServiceHelper.ServiceHelperObject.AddAllUsers();
             }
+            else
+            {
+                await Services.ServiceHelper.ServiceHelperObject.PrepareUsers();
+            }
             BackGroundTaskHelper bgtHelper = new Template.BackGroundTaskHelper();
             if (!bgtHelper.TaskRegistered)
             {
