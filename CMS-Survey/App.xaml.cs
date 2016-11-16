@@ -44,19 +44,7 @@ namespace CMS_Survey
        
         public override async Task OnInitializeAsync(IActivatedEventArgs args)
         {
-            if (Window.Current.Content as ModalDialog == null)
-            {
-                // create a new frame 
-                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
-
-                // create modal root
-                Window.Current.Content = new ModalDialog
-                {
-                    DisableBackButtonWhenModal = true,
-                    Content = new Views.Shell(nav),
-                    ModalContent = new Pages.LoginPart()//.Busy(),
-                };
-            }
+            LaunchLoginPage();
             //
             CreateDatabase.CopyDataBase();
             conn = new SQLiteConnection("Surveydb.sqlite");
@@ -74,7 +62,7 @@ namespace CMS_Survey
             {
 
                 Directory.CreateDirectory(usrfolder.Path + @"\Surveys");
-               
+
             }
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
@@ -95,7 +83,24 @@ namespace CMS_Survey
             await Task.CompletedTask;
         }
 
-      
+        public  void LaunchLoginPage()
+        {
+            Window.Current.Content = null;
+            if (Window.Current.Content as ModalDialog == null)
+            {
+                // create a new frame 
+                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
+
+                // create modal root
+                Window.Current.Content = new ModalDialog
+                {
+                    DisableBackButtonWhenModal = true,
+                    Content = new Views.Shell(nav,this),
+                    ModalContent = new Pages.LoginPart()//.Busy(),
+                };
+            }
+        }
+
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
            

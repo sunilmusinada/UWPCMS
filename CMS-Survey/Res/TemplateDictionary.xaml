@@ -67,7 +67,20 @@
 
         </StackPanel>
     </DataTemplate>
-  <!--<local:MyDataTemplateSelector x:Key="TempSelector"
+    <DataTemplate  x:Key="ReturnedForRevisionTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <!--<local:MyDataTemplateSelector x:Key="TempSelector"
         InProgress="{StaticResource InProgressTemplate}"
         Approved="{StaticResource ApprovedTemplate}">
 

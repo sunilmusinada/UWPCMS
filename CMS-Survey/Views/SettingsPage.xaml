@@ -138,7 +138,7 @@
                 </ScrollViewer>
             </PivotItem>-->
 
-            <!--  about  -->
+            <!--  about  --><!--
             <PivotItem Header="About">
                 <RelativePanel DataContext="{Binding AboutPartViewModel}">
 
@@ -173,7 +173,7 @@
                     </TextBlock>
 
                 </RelativePanel>
-            </PivotItem>
+            </PivotItem>-->
         </Pivot>
 
     </RelativePanel>

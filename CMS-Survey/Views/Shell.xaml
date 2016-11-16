@@ -16,9 +16,9 @@
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
-                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:GridMainPage" 
+                <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:GridMainPage"
                                           AutomationProperties.Name="Jerry" 
-                                          >
+                                        Selected="HamburgerButtonInfo_Selected"  >
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48" Height="48"
                                 Symbol="Home" />
@@ -62,7 +62,20 @@
                                Text="Settings" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-        </Controls:HamburgerMenu.SecondaryButtons>
+
+                <Controls:HamburgerButtonInfo x:Name="LogOutButton" PageParameter="0"
+                                      Selected="LogOutButton_Selected" >
+                    <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                        <SuppressNavigationTransitionInfo />
+                    </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Width="48" Height="48"
+                                Symbol="Stop" />
+                        <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
+                               Text="Logout" />
+                    </StackPanel>
+                </Controls:HamburgerButtonInfo>
+            </Controls:HamburgerMenu.SecondaryButtons>
 
 
 

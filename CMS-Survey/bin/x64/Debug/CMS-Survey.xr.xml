@@ -3,10 +3,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="IsActive" />
-    <RootPropertyPathName Name="AddSurveyorCommand" />
     <RootPropertyPathName Name="DeleteCommand" />
     <RootPropertyPathName Name="ViewCommand" />
     <RootPropertyPathName Name="EditCommand" />
+    <RootPropertyPathName Name="AddSurveyorCommand" />
     <RootPropertyPathName Name="actionDateString" />
     <RootPropertyPathName Name="endDateString" />
     <RootPropertyPathName Name="status" />
@@ -14,11 +14,6 @@
     <RootPropertyPathName Name="surveyProvider" />
     <RootPropertyPathName Name="surveyKey" />
     <RootPropertyPathName Name="Filter" />
-    <RootPropertyPathName Name="AboutPartViewModel" />
-    <RootPropertyPathName Name="Version" />
-    <RootPropertyPathName Name="Publisher" />
-    <RootPropertyPathName Name="DisplayName" />
-    <RootPropertyPathName Name="Logo" />
     <RootPropertyPathName Name="SettingsPartViewModel" />
     <RootPropertyPathName Name="ActualWidth" />
     <RootPropertyPathName Name="ActualHeight" />
@@ -110,8 +105,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Command" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootEvent Name="Click" />
@@ -187,7 +182,6 @@
       <RootProperty Name="Source" />
       <RootProperty Name="Width" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Stretch" />
     </RootType>
     <RootType FullName="CMS_Survey.Pages.NewSurvey" />
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
@@ -249,7 +243,6 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Children" />
       <RootProperty Name="Background" />
-      <RootProperty Name="DataContext" />
       <RootMethod Name="GetAlignLeftWithPanel" />
       <RootMethod Name="SetAlignLeftWithPanel" />
       <RootMethod Name="GetAlignRightWithPanel" />
@@ -260,8 +253,6 @@
       <RootMethod Name="SetAlignBottomWithPanel" />
       <RootMethod Name="GetBelow" />
       <RootMethod Name="SetBelow" />
-      <RootMethod Name="GetAlignRightWith" />
-      <RootMethod Name="SetAlignRightWith" />
     </RootType>
     <RootType FullName="CMS_Survey.Views.AssignSurvey" />
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
@@ -335,18 +326,6 @@
       <RootProperty Name="Header" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Border">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="IsHitTestVisible" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Child" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Documents.Run">
-      <RootProperty Name="Text" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
@@ -365,6 +344,7 @@
       <RootProperty Name="Visibility" />
       <RootProperty Name="PageParameter" />
       <RootProperty Name="NavigationTransitionInfo" />
+      <RootEvent Name="Selected" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
