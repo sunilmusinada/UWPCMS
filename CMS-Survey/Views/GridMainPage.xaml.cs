@@ -120,6 +120,9 @@ namespace CMS_Survey.Views
                 case "AddSurveyor":
                     AddSurveyorClicked(null, null);
                     break;
+                case "Review":
+                    ReView_Click(null, null);
+                    break;
             }
         }
 
@@ -244,6 +247,7 @@ namespace CMS_Survey.Views
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             CMS_Survey.Pages.NewSurvey.isEnabled = true;
+            CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
 
@@ -344,9 +348,15 @@ namespace CMS_Survey.Views
         private void View_Click(object sender, RoutedEventArgs e)
         {
             CMS_Survey.Pages.NewSurvey.isEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
-
+        private void ReView_Click(object sender, RoutedEventArgs e)
+        {
+            CMS_Survey.Pages.NewSurvey.isEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isCommentsEnabled = true;
+            GetClickedSurvey(SelectedSurvey.surveyKey);
+        }
 
     }
     //public sealed class MyDataTemplateSelector : Windows.UI.Xaml.Controls.DataTemplateSelector

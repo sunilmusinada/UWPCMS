@@ -53,34 +53,9 @@
             </Button>
             <Button x:Name="HelpButton"  Content="Help"
                 Foreground="White" VerticalAlignment="Center" Margin="10,35,0,33" Background="SteelBlue" Width="63" Height="32" Loading="JumpButton_Loading" Loaded="JumpButton_Loaded" Grid.Column="1">
-                <!--<Button.Flyout >
-                    <MenuFlyout >
-                        
-                    </MenuFlyout>
-                    -->
-                <!--<Flyout>
-                        <StackPanel Name="JumpSectionPanel" Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="Share">
-                                    <Button.Flyout>
-                                        <Flyout>
-                                            <StackPanel Name="asdf" Orientation="Vertical">
-                                                <Button Content="asdf"></Button>
-                                            </StackPanel>
-                                        </Flyout>
-                                    </Button.Flyout>
-                                </Button>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="Share"></Button>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Settings"></TextBlock>
-                            </StackPanel>
-                        </StackPanel>
-                    </Flyout>-->
-                <!--
-                </Button.Flyout>-->
+              </Button>
+            <Button x:Name="CommentsButton"  Content="Comments/Actions"
+                Foreground="White" VerticalAlignment="Center" Margin="-250,35,90,33" Background="SteelBlue" Width="160" Height="32" Click="CommentsButton_Click" Grid.Column="1">
             </Button>
             <Image x:Name="image" Height="23" Margin="0,40,52,37" VerticalAlignment="Center" RenderTransformOrigin="0.528,4.043" Source="ms-appx:///Assets/RedIcon.png" Width="53" HorizontalAlignment="Right" Grid.ColumnSpan="2"/>
         </Grid>

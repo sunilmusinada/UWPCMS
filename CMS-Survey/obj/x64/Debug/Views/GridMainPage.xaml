@@ -1,0 +1,173 @@
+﻿<Page x:ConnectionId='1' x:Name="GridMainPage1" x:Class="CMS_Survey.Views.GridMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Behaviors="using:Template10.Behaviors"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:ExtendedControls="using:MyToolkit.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:CMS_Survey.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:CMS_Survey.ViewModels" 
+      xmlns:data="using:CMS_Survey.Models" mc:Ignorable="d"                              
+      xmlns:res="using:CMS_Survey.Res"
+      >
+
+    <Page.DataContext>
+        <vm:MainPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='3' x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:ConnectionId='4' x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Narrow Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='5' x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Normal Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='6' x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+                        <!--<Setter Target="stateTextBox.Text" Value="Wide Visual State" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:ConnectionId='7' x:Name="pageHeader" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True" Text="Main Page" Margin="0,1,0,-1">
+
+            <!--  secondary commands  -->
+            <controls:PageHeader.SecondaryCommands>
+                <AppBarButton x:ConnectionId='15'                                         Label="Settings" />
+                <!--<AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
+                <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />-->
+            </controls:PageHeader.SecondaryCommands>
+
+        </controls:PageHeader>
+
+        <StackPanel>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid x:ConnectionId='9' x:Name="ActualGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!--<RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />-->
+                    </Grid.RowDefinitions>
+
+                    <StackPanel>
+                        <Grid Height="48"  VerticalAlignment="Top" Margin="-135,95,-965,-900" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <!--<TextBlock Text="Filter" FontWeight="Bold" Margin="0,50,-600,-600" />-->
+                            <TextBox x:ConnectionId='11' Name="IDFilter" Width="0" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                PlaceholderText="Id" Margin="-1100,8,0,8"                                  Grid.ColumnSpan="2" />
+                            <TextBox x:ConnectionId='12' Name="ProviderFilter" Width="200" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                PlaceholderText="Provider" Margin="225,8,880,8"                                 />
+                            <TextBox x:ConnectionId='13' Name="EndDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                PlaceholderText="Survey End Date"  Margin="875,8,280,8"                                  />
+                            <TextBox x:ConnectionId='14' Name="ActionDateFilter" Width="150" Height="29" Text="{Binding Filter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                PlaceholderText="Action Date"  Margin="1075,8,80,8"                                  />
+                        </Grid>
+                    </StackPanel>
+                    <ExtendedControls:DataGrid x:ConnectionId='10' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="SurveyGrid"
+                   SelectionMode="Single" DefaultOrderIndex="0" Margin="0,161,-800,-761"                                                         
+                                           RowBackgroundEvenBrush="White" RowBackgroundOddBrush="LightBlue" 
+                                                                                       Grid.RowSpan="1" 
+                                               Width="1150" Height="600" HeaderBackground="SteelBlue" 
+                                               HorizontalAlignment="Right" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsScrollInertiaEnabled="True">
+
+                        <ExtendedControls:DataGrid.Columns >
+                            <ExtendedControls:DataGridTextColumn Width="100" Header="Id" Binding="{Binding surveyKey}"/>
+
+                            <ExtendedControls:DataGridTextColumn Width="*" Header="Provider" Binding="{Binding surveyProvider}" Foreground="Black"/>
+                            <ExtendedControls:DataGridTextColumn Width="*" Header="Survey Type" 
+                  Binding="{Binding surveyType}" Foreground="Black"/>
+                            <ExtendedControls:DataGridTextColumn Width="*" Header="Status" 
+                  Binding="{Binding status}" Foreground="Black"/>
+                            <ExtendedControls:DataGridTextColumn Width="*" Header="Survey End Date" 
+                  Binding="{Binding endDateString}" Foreground="Black"/>
+                            <ExtendedControls:DataGridTextColumn Width="*" Header="Action Date" 
+                  Binding="{Binding actionDateString}" Foreground="Black" />
+
+                        </ExtendedControls:DataGrid.Columns>
+                        <!--<ExtendedControls:DataGrid.ItemDetailsTemplate>
+                            <DataTemplate>
+                                -->
+                        <!--x:DataType="data:UserSurvey">-->
+                        <!--
+                                <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+                                    <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                                        <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                                        <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                                        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                                    </Grid>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ExtendedControls:DataGrid.ItemDetailsTemplate>-->
+                    </ExtendedControls:DataGrid>
+
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <Image x:ConnectionId='8' x:Name="image" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Source="ms-appx:///Assets/RedIcon.png" RenderTransformOrigin="12.143,2.414" Margin="1090,60,0,0"/>
+
+    </RelativePanel>
+
+    <!--<Page.Resources>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="InProgressTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:DataType="data:UserSurvey" x:Key="ApprovedTemplate" >
+            <StackPanel Margin="12,0,12,12" >
+
+                <Grid  HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                    <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Edit_Click"/>
+                    <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Click="View_Click"/>
+                    <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Click="Delete_Click"/>
+                </Grid>
+
+            </StackPanel>
+        </DataTemplate>
+        <local:MyDataTemplateSelector x:Key="TempSelector"
+        InProgress="{StaticResource InProgressTemplate}"
+        Approved="{StaticResource ApprovedTemplate}">
+
+        </local:MyDataTemplateSelector>
+
+    </Page.Resources>-->
+
+</Page>
+
+

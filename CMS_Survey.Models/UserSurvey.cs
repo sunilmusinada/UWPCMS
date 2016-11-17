@@ -43,6 +43,17 @@ namespace CMS_Survey.Models
                 return vcmd;
             }
         }
+        private SCommand Rvcmd;
+        public SCommand ReViewCommand
+        {
+            get
+            {
+                if (Rvcmd == null)
+
+                    Rvcmd = new SCommand(this, "Review");
+                return Rvcmd;
+            }
+        }
         private SCommand Dcmd;
         public SCommand DeleteCommand
         {

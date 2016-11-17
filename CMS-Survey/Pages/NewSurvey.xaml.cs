@@ -44,6 +44,7 @@ namespace CMS_Survey.Pages
         private TextBox ccnTextBox;
         private static List<Hospital> SelectedHospitals;
         public static bool isEnabled = true;
+        public static bool isCommentsEnabled = false;
         private string FetchedHospitalCcn;
         private bool fromSavedObject = false;
         private string SelectedState = null;
@@ -52,7 +53,7 @@ namespace CMS_Survey.Pages
         private CMSCombobox HospitalControl = null;
         private CMSCombobox MailIdCombobox = null;
         private TextBox Hospitalcn = null;
-        private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock;
+        private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock,FromErrorBlock;
         List<JumpClass> jmpClass;
         string tempObservvationQuestionId = string.Empty;
         string tempCitiationId = string.Empty;
@@ -62,9 +63,11 @@ namespace CMS_Survey.Pages
         Dictionary<int, int> QuestionObservationDictionary;
         public IUICommand btnResult;
         List<Models.User> AllUsers = null;
+        DatePicker fromTimePicker,toTimePicker;
+        
         public NewSurvey()
         {
-
+           
             this.InitializeComponent();
             SurveyHelper.SurveyHelperObject.FinishedDownloading += SurveyHelperObject_FinishedDownloading;
             if (SurveyHelper.SurveyHelperObject.DownloadFinished)
@@ -86,6 +89,21 @@ namespace CMS_Survey.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (e.Parameter == null)
+            {
+                isEnabled = true;
+                isCommentsEnabled = false;
+
+            }
+            if(isCommentsEnabled)
+            {
+                CommentsButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                CommentsButton.Visibility = Visibility.Collapsed;
+            }
+
             ObservationsList = new List<Models.ObservationHelper>();
             SectionHelp.Rootobject survObj = null;
             base.OnNavigatedTo(e);
@@ -615,6 +633,8 @@ namespace CMS_Survey.Pages
                 HospitalErrorBlock = ErrorTextBlock;
             if (Question.Equals("CCN"))
                 HospitalCnBlock = ErrorTextBlock;
+            if (Question.Equals("From"))
+                FromErrorBlock = ErrorTextBlock;
             ErrorTextBlock.Visibility = Visibility.Collapsed;
             mainGrid.RowDefinitions.Add(row);
             mainGrid.Children.Add(ErrorTextBlock);
@@ -846,7 +866,7 @@ namespace CMS_Survey.Pages
                     {
 
                         TextBlock txBlock = new TextBlock();
-
+                       
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
                         //txBlock.Text = "Observation " +(ansIndex-1).ToString();
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
@@ -856,7 +876,7 @@ namespace CMS_Survey.Pages
                     textBox.Name = answer.htmlControlId.ToString();
                     textBox.Height = 150;
                     textBox.TextWrapping = TextWrapping.Wrap;
-
+                    textBox.AcceptsReturn = true;
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
                     //textBox.LostFocus += TextBox_LostFocus;
                     textBox.TextChanged += TextBox_TextChanged1;
@@ -983,11 +1003,14 @@ namespace CMS_Survey.Pages
                     TextBlock txtBlock = new TextBlock();
                     if (answer.htmlControlText.Equals("From"))
                     {
-                        txtBlock.Text = (Convert.ToString(answer.answer));
+                        fromTimePicker = dtPicker;
+                        txtBlock.Text = "From";
+                        addErrorLabelControl(grid, "From date cannot be greater than To date", rowIndex, "From");
                     }
                     else if (answer.htmlControlText.Equals("To"))
                     {
-                        txtBlock.Text = (Convert.ToString(answer.answer));
+                        toTimePicker = dtPicker;
+                        txtBlock.Text = "To";
                     }
                     dtPicker.IsEnabled = isEnabled;
                     txtBlock.TextWrapping = TextWrapping.Wrap;
@@ -1501,6 +1524,13 @@ namespace CMS_Survey.Pages
             else
                 HospitalCnBlock.Visibility = Visibility.Collapsed;
 
+            if (fromTimePicker.Date > toTimePicker.Date)
+            {
+                isvalid = false;
+                FromErrorBlock.Visibility = Visibility.Visible;
+            }
+            else
+                FromErrorBlock.Visibility = Visibility.Collapsed;
             return isvalid;
 
         }
@@ -1670,6 +1700,12 @@ namespace CMS_Survey.Pages
         #endregion
 
 
+
+        private async void CommentsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.CommentsDialog dialog = new Pages.CommentsDialog();
+            await dialog.ShowAsync();
+        }
 
         private void RemoveBlankObservations()
         {

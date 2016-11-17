@@ -141,6 +141,9 @@
     <Compile Include="Models\UserSurveyAccess.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Models\SurveyGridObject.cs" />
+    <Compile Include="Pages\CommentsDialog.xaml.cs">
+      <DependentUpon>CommentsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPart.xaml.cs">
       <DependentUpon>LoginPart.xaml</DependentUpon>
     </Compile>
@@ -212,6 +215,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\ProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CommentsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

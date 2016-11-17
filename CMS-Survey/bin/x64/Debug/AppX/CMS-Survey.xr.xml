@@ -6,6 +6,7 @@
     <RootPropertyPathName Name="DeleteCommand" />
     <RootPropertyPathName Name="ViewCommand" />
     <RootPropertyPathName Name="EditCommand" />
+    <RootPropertyPathName Name="ReViewCommand" />
     <RootPropertyPathName Name="AddSurveyorCommand" />
     <RootPropertyPathName Name="actionDateString" />
     <RootPropertyPathName Name="endDateString" />
@@ -37,13 +38,13 @@
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -89,29 +90,54 @@
       <RootProperty Name="UpdateSourceTrigger" />
     </RootType>
     <RootType FullName="CMS_Survey.Controls.ProgressRing" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
+      <RootProperty Name="Title" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="MinHeight" />
+      <RootProperty Name="MinWidth" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="AcceptsReturn" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="PlaceholderText" />
+      <RootEvent Name="TextChanged" />
+    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
-      <RootProperty Name="Fill" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="FontSize" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Style" />
       <RootProperty Name="Name" />
       <RootProperty Name="Background" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Command" />
       <RootProperty Name="Visibility" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootEvent Name="Click" />
       <RootEvent Name="Loading" />
       <RootEvent Name="Loaded" />
+    </RootType>
+    <RootType FullName="CMS_Survey.Pages.CommentsDialog" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Margin" />
@@ -121,16 +147,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Name" />
@@ -171,9 +187,6 @@
       <RootMethod Name="SetAttachedFlyout" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />

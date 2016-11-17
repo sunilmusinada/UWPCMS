@@ -559,3 +559,8 @@ F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Microsoft.Xaml.Inter
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\MyToolkit.Extended.pri.xml
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Template10Library.pri.xml
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\ProjectArchitectures.txt
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Pages\CommentsDialog.xbf
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.g.i.cs
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.g.cs
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.xaml
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.xbf

@@ -155,7 +155,7 @@ namespace CMS_Survey.Views
 
             CMSCombobox cmbbox = new CMSCombobox();
             cmbbox.Name = "StateSelectCombobox_"+totalUserCount.ToString();
-            cmbbox.Width = 66;
+            cmbbox.Width = 75;
             cmbbox.Items.Add("ALL");
             Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
             surV.StateComboBox = cmbbox;
