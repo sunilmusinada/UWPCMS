@@ -64,7 +64,7 @@ namespace CMS_Survey.Pages
         public IUICommand btnResult;
         List<Models.User> AllUsers = null;
         DatePicker fromTimePicker,toTimePicker;
-        
+        public string SurveyKey;
         public NewSurvey()
         {
            
@@ -115,6 +115,7 @@ namespace CMS_Survey.Pages
                 if (e.Parameter != null)
                 {
                     var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                    SurveyKey = Convert.ToString(surKey);
                     if (CMS_Survey.Template.SurveyHelper.SurveyJsonList == null || CMS_Survey.Template.SurveyHelper.SurveyJsonList.Count == 0)
                     {
                         ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
@@ -145,6 +146,7 @@ namespace CMS_Survey.Pages
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
                         var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                        SurveyKey = Convert.ToString(res);
                         if (SurveyHelper.SurveyHelperObject.DownloadFinished )
                         {
                             ChangeIndicator();
@@ -1500,7 +1502,7 @@ namespace CMS_Survey.Pages
         }
 
         private bool Validate()
-        {
+         {
             bool isvalid = true;
             if (string.IsNullOrEmpty(Convert.ToString(stateControl.SelectedValue)))
             {
@@ -1704,6 +1706,8 @@ namespace CMS_Survey.Pages
         private async void CommentsButton_Click(object sender, RoutedEventArgs e)
         {
             Pages.CommentsDialog dialog = new Pages.CommentsDialog();
+            dialog.SurveyKey = SurveyKey;
+            dialog.MakeCloseInVisible();
             await dialog.ShowAsync();
         }
 

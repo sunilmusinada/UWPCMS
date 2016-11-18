@@ -123,6 +123,9 @@ namespace CMS_Survey.Views
                 case "Review":
                     ReView_Click(null, null);
                     break;
+                case "ViewComments":
+                    Comments_Click(null, null);
+                    break;
             }
         }
 
@@ -357,7 +360,16 @@ namespace CMS_Survey.Views
             CMS_Survey.Pages.NewSurvey.isCommentsEnabled = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
-
+        private async void Comments_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.CommentsDialog dialog = new Pages.CommentsDialog();
+            dialog.SetComments(Convert.ToString(SelectedSurvey.supervisorComments));
+            dialog.HideActionsGrid();
+            dialog.MakeCommentsReadonly();
+            dialog.MakeCloseVisible();
+            await dialog.ShowAsync();
+           
+        }
     }
     //public sealed class MyDataTemplateSelector : Windows.UI.Xaml.Controls.DataTemplateSelector
     //{

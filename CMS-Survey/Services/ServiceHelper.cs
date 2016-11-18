@@ -80,6 +80,8 @@ namespace CMS_Survey.Services
 
         private string AddServeyorUrl = HostUrl + @"SurveyRest/rest/myresource/surveyUsers";
 
+        private string ApproveRejectUrl = HostUrl + @"SurveyRest/rest/myresource/approveorreject?surveyKey={0}&userKey={1}&status={2}&comments={3}";
+
        // private string UsersListUrl=
         #endregion
         public static ServiceHelper ServiceHelperObject
@@ -872,7 +874,41 @@ namespace CMS_Survey.Services
            
         }
         #endregion
+        #region Approve orReject
+        internal async Task<bool> ApproveOrReject(string SurveyKey,string Status,string Comments)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
 
+
+            try
+            {
+                var client = new HttpClient();
+               
+                var content = new StringContent("", Encoding.UTF8, "application/json");
+
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+             
+                HttpResponseMessage response = await client.PutAsync(string.Format(ApproveRejectUrl,SurveyKey,Convert.ToString(this.currentUser.userKey), Status, Comments), content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+                    isSuccess = true;
+                  
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isSuccess;
+        }
+
+
+        #endregion
 
         #region Surveyors
         internal async Task<Surveyors> GetSurveyorForSurvey(string SurveyKey)
