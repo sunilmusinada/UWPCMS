@@ -86,6 +86,7 @@ namespace CMS_Survey.Pages
 
         private async void SaveApprove_Click(object sender, RoutedEventArgs e)
         {
+
             if (!await IsOnline())
                 return;
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "Approved", CommentsTextBox.Text);
