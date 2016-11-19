@@ -251,6 +251,7 @@ namespace CMS_Survey.Views
         {
             CMS_Survey.Pages.NewSurvey.isEnabled = true;
             CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isReview = false;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
 
@@ -352,12 +353,14 @@ namespace CMS_Survey.Views
         {
             CMS_Survey.Pages.NewSurvey.isEnabled = false;
             CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isReview = false;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
         private void ReView_Click(object sender, RoutedEventArgs e)
         {
             CMS_Survey.Pages.NewSurvey.isEnabled = false;
             CMS_Survey.Pages.NewSurvey.isCommentsEnabled = true;
+            CMS_Survey.Pages.NewSurvey.isReview = true;
             GetClickedSurvey(SelectedSurvey.surveyKey);
         }
         private async void Comments_Click(object sender, RoutedEventArgs e)

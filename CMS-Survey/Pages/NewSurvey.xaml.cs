@@ -65,6 +65,7 @@ namespace CMS_Survey.Pages
         List<Models.User> AllUsers = null;
         DatePicker fromTimePicker,toTimePicker;
         public string SurveyKey;
+        public static bool isReview = false;
         public NewSurvey()
         {
            
@@ -74,6 +75,8 @@ namespace CMS_Survey.Pages
             {
                 ChangeIndicator();
             }
+           
+         
         }
 
         private void SurveyHelperObject_FinishedDownloading(object sender, EventArgs e)
@@ -81,6 +84,7 @@ namespace CMS_Survey.Pages
             ChangeIndicator();
         }
 
+       
         private void ChangeIndicator()
         {
             string url = "ms-appx:///Assets/green-glossy-ball.jpg";
@@ -95,15 +99,7 @@ namespace CMS_Survey.Pages
                 isCommentsEnabled = false;
 
             }
-            if(isCommentsEnabled)
-            {
-                CommentsButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                CommentsButton.Visibility = Visibility.Collapsed;
-            }
-
+            CommentsButton.Visibility = Visibility.Collapsed;
             ObservationsList = new List<Models.ObservationHelper>();
             SectionHelp.Rootobject survObj = null;
             base.OnNavigatedTo(e);
@@ -196,6 +192,15 @@ namespace CMS_Survey.Pages
             }
             GetHelpDocuments();
             HideProgress();
+            if (isCommentsEnabled)
+            {
+                CommentsButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                CommentsButton.Visibility = Visibility.Collapsed;
+            }
+
             // parameters.Name
             // parameters.Text
             // ...
@@ -326,7 +331,16 @@ namespace CMS_Survey.Pages
 
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
                         if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
-                            AddOtherAnswers(answer,question, ref rowIndex);
+                        {
+                            if (result.sections.Count() - 1 == sectionIndex)
+                            {
+                                if (question.questionId == -3)
+                                {
+                                    continue;
+                                }
+                            }
+                            AddOtherAnswers(answer, question, ref rowIndex);
+                        }
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
@@ -490,10 +504,13 @@ namespace CMS_Survey.Pages
             Btn.Name = question.questionId.ToString() + "_Add Observation_" + cntObservation.ToString();
             Btn.IsEnabled = IsEnabled;
             Btn.Content = "Add Observation " + cntObservation.ToString();
+            if(!isReview)
             addUIControl(grid, Btn, rowIndex - 2);
         }
         private void AddRemoveObservationButton(Grid grid, int rowIndex, SectionHelp.Surveyquestionanswerlist question, int ObservationIndex)
         {
+            if (isReview)
+                return;
             if (result.sections.Count() - 1 == sectionIndex)
                 return;
             int cntObservation = question.obsevationNumber - 1;
@@ -647,6 +664,8 @@ namespace CMS_Survey.Pages
         }
         private void addCitationLinkControl(Grid mainGrid, FrameworkElement uiComponent, int rowIndex)
         {
+            if (isReview)
+                return;
             RowDefinition row = new RowDefinition();
             row.Height = new GridLength(0, GridUnitType.Auto);
             mainGrid.RowDefinitions.Add(row);
@@ -870,7 +889,7 @@ namespace CMS_Survey.Pages
                         TextBlock txBlock = new TextBlock();
                        
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
-                        //txBlock.Text = "Observation " +(ansIndex-1).ToString();
+                       
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
 
                     }
@@ -880,7 +899,14 @@ namespace CMS_Survey.Pages
                     textBox.TextWrapping = TextWrapping.Wrap;
                     textBox.AcceptsReturn = true;
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
-                    //textBox.LostFocus += TextBox_LostFocus;
+                    
+                    if (result.sections.Count() - 1 == sectionIndex)
+                    {
+                       if(Question.questionId==-3)
+                        {
+                            textBox.IsReadOnly = true;
+                        }
+                    }
                     textBox.TextChanged += TextBox_TextChanged1;
                     if (Question.renderAddObservation && answer.renderRemoveButton)
                     {
@@ -889,6 +915,7 @@ namespace CMS_Survey.Pages
                         QuestionObservationDictionary[Question.questionId] = ind + 1;
                     }
                     textBox.IsEnabled = isEnabled;
+                    if(!isReview)
                     addUIControl(grid, textBox, rowIndex++);
                     break;
                 case "radio":
@@ -907,6 +934,7 @@ namespace CMS_Survey.Pages
                         radio.IsEnabled = isEnabled;
                         radio.GroupName = groupIndex.ToString();
                         radio.Checked += RadioControlChecked;
+                        if(!isReview)
                         addUIControl(grid, radio, rowIndex++);
 
                     }
@@ -927,6 +955,7 @@ namespace CMS_Survey.Pages
                     chkBox.Unchecked += ChkBox_Unchecked;
                     chkBox.Checked += ChkBox_Checked;
                     chkBox.IsEnabled = isEnabled;
+                    if(!isReview)
                     addUIControl(grid, chkBox, rowIndex++);
                     break;
                 case "select":
@@ -966,6 +995,7 @@ namespace CMS_Survey.Pages
                     }
                     cmbbox.IsEnabled = isEnabled;
                     //cmbbox.SelectedValue = string.IsNullOrEmpty((Convert.ToString(answer.answer))) ? "" : (Convert.ToString(answer.answer));
+                    if(!isReview)
                     addUIControl(grid, cmbbox, rowIndex++);
                     break;
 
@@ -992,6 +1022,7 @@ namespace CMS_Survey.Pages
                     txtBx.LostFocus += TextBox_LostFocus;
                     txtBx.IsEnabled = isEnabled;
                     addErrorLabelControl(grid, "Please select a Certificate number", rowIndex, "CCN");
+                    if(!isReview)
                     addUIControl(grid, txtBx, rowIndex++);
                     break;
                 case "date":
@@ -1016,8 +1047,11 @@ namespace CMS_Survey.Pages
                     }
                     dtPicker.IsEnabled = isEnabled;
                     txtBlock.TextWrapping = TextWrapping.Wrap;
-                    addUIControl(grid, txtBlock, rowIndex++);
-                    addUIControl(grid, dtPicker, rowIndex++);
+                    if (!isReview)
+                    {
+                        addUIControl(grid, txtBlock, rowIndex++);
+                        addUIControl(grid, dtPicker, rowIndex++);
+                    }
                     break;
             }
             #endregion
@@ -1675,9 +1709,15 @@ namespace CMS_Survey.Pages
             //}
             MenuFlyoutItem mFlyItem = (MenuFlyoutItem)e.OriginalSource;
             var ClickedName = mFlyItem.Name;
-            if (sectionIndex == 0)
-                if (!Validate())
-                    return;
+
+            if (sectionIndex == 0&& !isReview)
+            {
+               if (!isEnabled)
+                {
+                    if (!Validate())
+                        return;
+                }
+            }
             var item = jmpClass.Where(t => t.SectionTitle != null).Where(t => t.SectionTitle.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             if (item == null)
             {
@@ -1705,10 +1745,16 @@ namespace CMS_Survey.Pages
 
         private async void CommentsButton_Click(object sender, RoutedEventArgs e)
         {
-            Pages.CommentsDialog dialog = new Pages.CommentsDialog();
+            Pages.CommentsDialog dialog = new Pages.CommentsDialog(result.sections.LastOrDefault());
             dialog.SurveyKey = SurveyKey;
             dialog.MakeCloseInVisible();
+            dialog.NavigateToMainPage += Dialog_NavigatetoMainPage;
             await dialog.ShowAsync();
+        }
+
+        private void Dialog_NavigatetoMainPage(object sender, EventArgs e)
+        {
+            this.NavigateToMainPage();
         }
 
         private void RemoveBlankObservations()

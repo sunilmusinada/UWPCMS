@@ -28,13 +28,13 @@
     <AppXManifest Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-18T17:48:46.736</Modified>
+      <Modified>2016-11-19T11:39:08.599</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-18T17:48:44.279</Modified>
+      <Modified>2016-11-19T11:39:05.259</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -104,9 +104,9 @@
       <PackagePath>MyToolkit.dll</PackagePath>
       <Modified>2016-08-30T19:22:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.38\lib\uap10.0\MyToolkit.Extended.dll">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.40\lib\uap10.0\MyToolkit.Extended.dll">
       <PackagePath>MyToolkit.Extended.dll</PackagePath>
-      <Modified>2016-11-15T16:15:52.000</Modified>
+      <Modified>2016-11-19T10:07:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -608,15 +608,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.xr.xml">
       <PackagePath>CMS-Survey.xr.xml</PackagePath>
-      <Modified>2016-11-18T17:19:53.602</Modified>
+      <Modified>2016-11-19T09:53:57.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-09-16T21:14:53.968</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.38\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
+    <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\MyToolkitTest.Extended\2.5.40\lib\uap10.0\MyToolkit.Extended\MyToolkit.Extended.xr.xml">
       <PackagePath>MyToolkit.Extended\MyToolkit.Extended.xr.xml</PackagePath>
-      <Modified>2016-11-15T16:15:52.000</Modified>
+      <Modified>2016-11-19T10:07:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Template10\1.1.12\lib\uap10.0\Template10Library\Template10Library.xr.xml">
       <PackagePath>Template10Library\Template10Library.xr.xml</PackagePath>
@@ -653,11 +653,11 @@
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-18T17:46:53.387</Modified>
+      <Modified>2016-11-19T10:18:04.969</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-18T17:48:46.730</Modified>
+      <Modified>2016-11-19T11:39:08.594</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

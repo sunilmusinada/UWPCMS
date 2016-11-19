@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS_Survey.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,22 +32,53 @@ namespace CMS_Survey.Pages
     {
         public MyResult Result { get; set; }
         public string SurveyKey { get; set; }
+        SectionHelp.Section _section;
+
+        public event EventHandler NavigateToMainPage;
         public CommentsDialog()
         {
             this.InitializeComponent();
+        }
+
+        internal  void OnNavigationCalled(EventArgs e)
+        {
+            EventHandler handler = NavigateToMainPage;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        public CommentsDialog(SectionHelp.Section Section)
+        {
+            this.InitializeComponent();
+            _section = Section;
+            if (_section != null)
+            {
+                var ansList = _section.surveyQuestionAnswerList.Where(e => e.questionId == -3).Select(e => e.answersList).FirstOrDefault();
+                var ans = ansList.FirstOrDefault();
+                if (ans != null)
+                {
+                    CommentsTextBox.Text = Convert.ToString(ans.answer);
+                }
+            }
+          
         }
         private async void SaveAndContinue_Click(object sender, RoutedEventArgs e)
         {
             if (!await IsOnline())
                 return;
-           bool issuccess=await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "SAVE", CommentsTextBox.Text);
-            if(issuccess)
-            dialog.Hide();
+            bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "SAVE", CommentsTextBox.Text);
+            if (issuccess)
+            {
+                dialog.Hide();
+              
+            }
             else
             {
                 MessageDialog md = new MessageDialog("Error occured while saving", "Error");
                 await md.ShowAsync();
-            }    
+            }
         }
         public void HideActionsGrid()
         {
@@ -75,13 +107,16 @@ namespace CMS_Survey.Pages
                 return;
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "Revision Required", CommentsTextBox.Text);
             if (issuccess)
+            {
                 dialog.Hide();
+                OnNavigationCalled(null);
+            }
             else
             {
                 MessageDialog md = new MessageDialog("Error occured while Returning for Revision", "Error");
                 await md.ShowAsync();
             }
-           
+
         }
 
         private async void SaveApprove_Click(object sender, RoutedEventArgs e)
@@ -91,7 +126,10 @@ namespace CMS_Survey.Pages
                 return;
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "Approved", CommentsTextBox.Text);
             if (issuccess)
+            {
                 dialog.Hide();
+                OnNavigationCalled(null);
+            }
             else
             {
                 MessageDialog md = new MessageDialog("Error occured while Approving", "Error");
@@ -106,7 +144,7 @@ namespace CMS_Survey.Pages
 
         public async Task<bool> IsOnline()
         {
-            if(!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
                 return true;
             }
@@ -117,5 +155,7 @@ namespace CMS_Survey.Pages
                 return false;
             }
         }
+
+
     }
 }
