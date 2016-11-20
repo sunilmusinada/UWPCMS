@@ -323,9 +323,11 @@ namespace CMS_Survey.Pages
                 if (question.answersList != null && question.answersList.Length > 0)
                 {
                     int ansIndex = 1;
+                    int i = 1;
+                    int j = 1;
                     foreach (SectionHelp.Answerslist answer in question.answersList)
                     {
-
+                        j++;
                         AddControlByType(answer, grid, ref rowIndex, question, ansIndex);
                         if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
                         {
@@ -337,7 +339,12 @@ namespace CMS_Survey.Pages
                                 }
                             }
                             //AddOtherAnswers(answer, question, ref rowIndex);
-                            AddUserObservation(answer);
+                            AddUserObservation(answer,question.questionId,i);
+                        }
+                        if(j==3)
+                        {
+                            i++;
+                            j = 1;
                         }
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
@@ -377,15 +384,19 @@ namespace CMS_Survey.Pages
             return result;
             //}
         }
-        public void AddUserObservation(SectionHelp.Answerslist answer)
+        public void AddUserObservation(SectionHelp.Answerslist answer, int QuestionId, int obsNumber)
         {
             UserObservation usrObs;
+            int i = answer.observationNumber;
+             
             foreach (SectionHelp.DifferentUserAnswerList Otheranswer in answer.differentUserAnswerList)
             {
+               
                 usrObs = new UserObservation();
                 usrObs.UserKey = Otheranswer.user;
                 usrObs.Answer = Otheranswer.answer;
-                usrObs.ObservationNumber = Convert.ToInt32(answer.observatgionNumberString);
+                usrObs.questionID = QuestionId;
+                usrObs.ObservationNumber = obsNumber; //Convert.ToInt32(answer.observatgionNumberString);
                 UserObservationList.Add(usrObs);
             }
         }
@@ -794,7 +805,10 @@ namespace CMS_Survey.Pages
                                     answer.answer = val;
                                     break;
                                 case "checkbox":
-                                    answer.answer = ControlValue;
+                                    var ansList = new List<Object>();
+                                    ansList.Add(ControlValue);
+                                   // ansList.Add(ans);
+                                    answer.answersList = ansList.ToArray();
                                     break;
                             }
 
@@ -969,7 +983,13 @@ namespace CMS_Survey.Pages
                     {
                         label = answer.htmlOptions.First().value;
                     }
-                    var chkVal = Convert.ToBoolean(answer.answer);
+                    Boolean chkVal = false;
+                    if (answer.answersList!=null&answer.answersList.Count()>0)
+                    {
+                        var an = answer.answersList[0];
+                        chkVal = Convert.ToBoolean(an);
+                    }
+                   
                     chkBox.IsChecked = chkVal;
                     chkBox.Content = label;
                     chkBox.Unchecked += ChkBox_Unchecked;
@@ -1181,12 +1201,13 @@ namespace CMS_Survey.Pages
                 foreach (UserObservation Otheranswer in usrOb.OrderBy(e=>e.ObservationNumber))
                 {
                     
-                    if(olObdNumber!=Otheranswer.ObservationNumber&&sectionIndex!=0)
+                    if(olObdNumber!=Otheranswer.ObservationNumber&&sectionIndex!=0&&question.renderAddObservation)
                     {
                         
                         olObdNumber = Otheranswer.ObservationNumber;
                         TextBlock blnk = new TextBlock();
-                        blnk.Text = "Observation : "+ olObdNumber+1;
+                        var obsnumber = olObdNumber+1;
+                        blnk.Text = "Observation : "+ olObdNumber;
                         panel.Children.Add(blnk);
                     }
 
@@ -1213,14 +1234,15 @@ namespace CMS_Survey.Pages
                         }
                     }
                     panel.Children.Add(Otherans);
-                    TextBlock blnk2 = new TextBlock();
-                    blnk2.Text = " ";
-                    panel.Children.Add(blnk2);
+                   
                     //addUIControl(mainGrid, answer, rowIndex++);
                     //addBlankLine(mainGrid, rowIndex);
 
                 }
             }
+            TextBlock blnk2 = new TextBlock();
+            blnk2.Text = " ";
+            panel.Children.Add(blnk2);
             addUIControl(mainGrid, panel, rowIndex++);
         }
 
@@ -1898,8 +1920,10 @@ namespace CMS_Survey.Pages
                 int sl = emptySlot * 2;
                 secQA.answersList[sl - 2].answer = secQA.answersList[n - 2].answer;
                 secQA.answersList[sl - 2].defaultVisible = true;
+                //secQA.answersList[sl - 2].observatgionNumberString = secQA.answersList[n - 2].observatgionNumberString;
                 secQA.answersList[sl - 1].answer = secQA.answersList[n - 1].answer;
                 secQA.answersList[sl - 1].defaultVisible = true;
+                //secQA.answersList[sl - 1].observatgionNumberString = secQA.answersList[n - 1].observatgionNumberString;
                 secQA.answersList[n - 2].answer = null;
                 secQA.answersList[n - 2].defaultVisible = false;
                 secQA.answersList[n - 1].answer = null;

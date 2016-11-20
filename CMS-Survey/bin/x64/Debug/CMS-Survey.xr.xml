@@ -3,10 +3,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="IsActive" />
+    <RootPropertyPathName Name="ViewCommand" />
     <RootPropertyPathName Name="EditCommand" />
     <RootPropertyPathName Name="ViewCommentsCommand" />
     <RootPropertyPathName Name="DeleteCommand" />
-    <RootPropertyPathName Name="ViewCommand" />
     <RootPropertyPathName Name="ReViewCommand" />
     <RootPropertyPathName Name="AddSurveyorCommand" />
     <RootPropertyPathName Name="actionDateString" />
