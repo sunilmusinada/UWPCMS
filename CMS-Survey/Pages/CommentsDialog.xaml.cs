@@ -71,7 +71,14 @@ namespace CMS_Survey.Pages
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "SAVE", CommentsTextBox.Text);
             if (issuccess)
             {
+                bool success=await DownloadSurveyInfo();
+                if(success)
                 dialog.Hide();
+                else
+                {
+                    MessageDialog md = new MessageDialog("Error occured while saving", "Error");
+                    await md.ShowAsync();
+                }
               
             }
             else
@@ -108,7 +115,14 @@ namespace CMS_Survey.Pages
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "Revision Required", CommentsTextBox.Text);
             if (issuccess)
             {
-                dialog.Hide();
+                bool success = await DownloadSurveyInfo();
+                if (success)
+                    dialog.Hide();
+                else
+                {
+                    MessageDialog md = new MessageDialog("Error occured while returning for Revision", "Error");
+                    await md.ShowAsync();
+                }
                 OnNavigationCalled(null);
             }
             else
@@ -127,7 +141,14 @@ namespace CMS_Survey.Pages
             bool issuccess = await Services.ServiceHelper.ServiceHelperObject.ApproveOrReject(SurveyKey, "Approved", CommentsTextBox.Text);
             if (issuccess)
             {
-                dialog.Hide();
+                bool success = await DownloadSurveyInfo();
+                if (success)
+                    dialog.Hide();
+                else
+                {
+                    MessageDialog md = new MessageDialog("Error occured while approving", "Error");
+                    await md.ShowAsync();
+                }
                 OnNavigationCalled(null);
             }
             else
@@ -156,6 +177,39 @@ namespace CMS_Survey.Pages
             }
         }
 
+        private void ShowProgress()
+        {
+            ProgressR.Visibility = Visibility.Visible;
+            ProgressR.IsActive = true;
+        }
+        private void HideProgress()
+        {
+            ProgressR.Visibility = Visibility.Collapsed;
+            ProgressR.IsActive = false;
+        }
+        public async Task<bool> DownloadSurveyInfo()
+        {
+            bool saveSuccessFul = false;
+            ShowProgress();
+            try
+            {
 
+                this.SaveAndContinue.Visibility = Visibility.Collapsed;
+                this.SaveReturnRevision.Visibility = Visibility.Collapsed;
+                this.SaveApprove.Visibility = Visibility.Collapsed;
+                await Services.ServiceHelper.ServiceHelperObject.CallGetSurveyService(Convert.ToString(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey), SurveyKey);
+                await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+                saveSuccessFul = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                HideProgress();
+            }
+            return saveSuccessFul;
+        }
     }
 }

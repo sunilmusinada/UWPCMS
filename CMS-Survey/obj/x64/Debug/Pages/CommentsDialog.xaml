@@ -22,18 +22,19 @@
                 <ColumnDefinition Width="52*"/>
                 <ColumnDefinition Width="173*" />
             </Grid.ColumnDefinitions>
-            <Button x:ConnectionId='6' Grid.Row="1" Content="Save and Continue" x:Name="SaveAndContinue" FontSize="12"                               Margin="10,10,0,155" Width="130" Height="35" />
-            <Button x:ConnectionId='7' Grid.Row="1" Grid.Column="1" Content="Save and Return for Revisions" x:Name="SaveReturnRevision" FontSize="12"                                  Margin="9.667,10,0,155" Width="182" Grid.ColumnSpan="3" Height="35" />
-            <Button x:ConnectionId='8' Grid.Row="1" Grid.Column="4" Content="Save and Approve" x:Name="SaveApprove"  FontSize="12"                           Margin="10.333,10,0,155" Width="138" Height="35" />
-          
+            <Button x:ConnectionId='7' Grid.Row="1" Content="Save and Continue" x:Name="SaveAndContinue" FontSize="12"                               Margin="10,10,0,155" Width="130" Height="35" />
+            <Button x:ConnectionId='8' Grid.Row="1" Grid.Column="1" Content="Save and Return for Revisions" x:Name="SaveReturnRevision" FontSize="12"                                  Margin="9.667,10,0,155" Width="182" Grid.ColumnSpan="3" Height="35" />
+            <Button x:ConnectionId='9' Grid.Row="1" Grid.Column="4" Content="Save and Approve" x:Name="SaveApprove"  FontSize="12"                           Margin="10.333,10,0,155" Width="138" Height="35" />
+
 
 
 
         </Grid>
         <Grid x:ConnectionId='3' Name="CloseGrid" Margin="0,480,0,0" >
-            <Button x:ConnectionId='5' Name="CloseButton" Content="Close"                           Margin="220,14,0,14"  ></Button>
+            <Button x:ConnectionId='6' Name="CloseButton" Content="Close"                           Margin="220,14,0,14"  ></Button>
         </Grid>
         <TextBox x:ConnectionId='4' x:Name="CommentsTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="465" Width="478" AcceptsReturn="True"/>
+        <ProgressRing x:ConnectionId='5' Name="ProgressR" HorizontalAlignment="Left" Margin="222,219,0,0" VerticalAlignment="Top" Width="55" Height="56"/>
     </Grid>
 </ContentDialog>
 

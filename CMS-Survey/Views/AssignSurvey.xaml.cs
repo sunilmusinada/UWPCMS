@@ -107,7 +107,7 @@ namespace CMS_Survey.Views
                 else
                 {
                   
-                    NavigateToMainPage();
+                    NavigateToMainPage("Assign");
                     return;
                 }
             }
@@ -259,9 +259,10 @@ namespace CMS_Survey.Views
             Grid.SetRow(uiComponent, rowIndex);
             //addBlankLine(mainGrid, rowIndex);
         }
-        private void NavigateToMainPage()
+        private void NavigateToMainPage(string Source)
         {
-            this.Frame.Navigate(typeof(Views.GridMainPage));
+            var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(Source);
+            this.Frame.Navigate(typeof(Views.GridMainPage), param);
         }
 
         private async void Submit_Click(object sender, RoutedEventArgs e)

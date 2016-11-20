@@ -63,8 +63,8 @@
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
 
-                <Controls:HamburgerButtonInfo x:ConnectionId='7' x:Name="LogOutButton" PageParameter="0"
-                                                                       >
+                <!--<Controls:HamburgerButtonInfo x:Name="LogOutButton" PageParameter="0"
+                                      Selected="LogOutButton_Selected" >
                     <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
                         <SuppressNavigationTransitionInfo />
                     </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
@@ -74,7 +74,7 @@
                         <TextBlock Margin="12,0,0,0" VerticalAlignment="Center"
                                Text="Logout" />
                     </StackPanel>
-                </Controls:HamburgerButtonInfo>
+                </Controls:HamburgerButtonInfo>-->
             </Controls:HamburgerMenu.SecondaryButtons>
 
 

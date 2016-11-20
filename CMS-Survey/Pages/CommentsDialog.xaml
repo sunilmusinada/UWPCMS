@@ -25,7 +25,7 @@
             <Button Grid.Row="1" Content="Save and Continue" x:Name="SaveAndContinue" FontSize="12" Click="SaveAndContinue_Click" Margin="10,10,0,155" Width="130" Height="35" />
             <Button Grid.Row="1" Grid.Column="1" Content="Save and Return for Revisions" x:Name="SaveReturnRevision" FontSize="12" Click="SaveReturnRevision_Click" Margin="9.667,10,0,155" Width="182" Grid.ColumnSpan="3" Height="35" />
             <Button Grid.Row="1" Grid.Column="4" Content="Save and Approve" x:Name="SaveApprove"  FontSize="12" Click="SaveApprove_Click" Margin="10.333,10,0,155" Width="138" Height="35" />
-          
+
 
 
 
@@ -34,5 +34,6 @@
             <Button Name="CloseButton" Content="Close" Click="CloseButton_Click" Margin="220,14,0,14"  ></Button>
         </Grid>
         <TextBox x:Name="CommentsTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="465" Width="478" AcceptsReturn="True"/>
+        <ProgressRing Name="ProgressR" HorizontalAlignment="Left" Margin="222,219,0,0" VerticalAlignment="Top" Width="55" Height="56"/>
     </Grid>
 </ContentDialog>
