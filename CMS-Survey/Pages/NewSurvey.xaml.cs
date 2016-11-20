@@ -346,11 +346,12 @@ namespace CMS_Survey.Pages
                             i++;
                             j = 1;
                         }
+                        if(!isReview)
                         addBlankLine(grid, rowIndex++);
                         ansIndex++;
 
                     }
-                    AddOtherAnswersPerUser(UserObservationList, question, ref rowIndex);
+                    
                     if (question.renderAddObservation)
 
                     {
@@ -365,7 +366,7 @@ namespace CMS_Survey.Pages
                         ObservationsList.Add(new ObservationHelper(question, question.questionId.ToString(), rowIndex));
 
                     }
-
+                    AddOtherAnswersPerUser(UserObservationList, question, ref rowIndex);
                 }
                 // }
             }
@@ -923,7 +924,7 @@ namespace CMS_Survey.Pages
                         TextBlock txBlock = new TextBlock();
 
                         txBlock.Text = "Observation " + QuestionObservationDictionary[Question.questionId].ToString();
-
+                        if(!isReview)
                         addUIControl(mainGrid, txBlock, rowIndex - 1);
 
                     }
