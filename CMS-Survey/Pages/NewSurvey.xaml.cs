@@ -1864,6 +1864,8 @@ namespace CMS_Survey.Pages
                             continue;
                         if (secQA.answersList.Count() < 9)
                             continue;
+                        if (obsNumber > 5)
+                            continue;
                         for (int i = 2; i <= 5; i++)
                         {
                             int n = i * 2;
