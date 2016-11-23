@@ -819,9 +819,21 @@ namespace CMS_Survey.Pages
                                     break;
                                 case "checkbox":
                                     var ansList = new List<Object>();
-                                    ansList.Add(ControlValue);
-                                   // ansList.Add(ans);
-                                    answer.answersList = ansList.ToArray();
+                                    if (Constants.CheckBoxAnswerDictionary.Keys.Contains(answer.htmlControlId))
+                                    {
+                                        var chStat = Convert.ToBoolean(ControlValue);
+                                        if (chStat)
+                                        {
+                                            string ctrlVal = Constants.CheckBoxAnswerDictionary[answer.htmlControlId];
+                                            ansList.Add(ctrlVal);
+                                            // ansList.Add(ans);
+                                            answer.answersList = ansList.ToArray();
+                                        }
+                                        else
+                                        {
+                                            answer.answersList = ansList.ToArray();
+                                        }
+                                    }
                                     break;
                             }
 
@@ -1007,8 +1019,13 @@ namespace CMS_Survey.Pages
                     if (answer.answersList!=null&answer.answersList.Count()>0)
                     {
                         var an = answer.answersList[0];
-                        chkVal = Convert.ToBoolean(an);
-                       
+                        if (Constants.CheckBoxAnswerDictionary.Keys.Contains(answer.htmlControlId))
+                        {
+                            if (Constants.CheckBoxAnswerDictionary[answer.htmlControlId].Equals(an))
+                            {
+                                chkVal = true;//Convert.ToBoolean(an);
+                            }
+                        }
                     }
                    
                     chkBox.IsChecked = chkVal;
