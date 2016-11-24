@@ -1331,7 +1331,7 @@ namespace CMS_Survey.Pages
                 if (Convert.ToInt32(btnResult.Id) == 0)
                 {
                     Questiion.answersList[0].answer = "Unable to observe";
-                    for (int i = 2; i < 10; i++)
+                    for (int i = 1; i < 10; i++)
                     {
                         Questiion.answersList[i].answer = null;
                         Questiion.answersList[i].defaultVisible = false;
@@ -1358,6 +1358,10 @@ namespace CMS_Survey.Pages
                 radio.IsChecked = true;
                 Questiion.disableAddObservation = false;
                 Questiion.renderAddObservation = true;
+                Questiion.answersList[0].renderRemoveButton = true;
+                Questiion.answersList[0].defaultVisible=true;
+                Questiion.answersList[1].renderRemoveButton = true;
+                Questiion.answersList[1].defaultVisible = true;
                 getJson(mainGrid);
 
             }

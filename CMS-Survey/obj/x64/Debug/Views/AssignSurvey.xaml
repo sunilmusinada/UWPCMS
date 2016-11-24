@@ -15,7 +15,7 @@
                 <TextBlock x:ConnectionId='5' x:Name="SurveyKeyText" HorizontalAlignment="Left" Margin="167,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                 <TextBlock x:ConnectionId='6' x:Name="ProviderKeyText" HorizontalAlignment="Left" Margin="167,45,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"/>
             </Grid>
-            <Grid x:ConnectionId='1' x:Name="UserDataGrid" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="478" Margin="10,160,-288,-491" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True"/>
+            <Grid x:ConnectionId='1' x:Name="UserDataGrid" Height="431" VerticalAlignment="Top" Margin="10,160,-488,-491" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True"/>
             <Button x:ConnectionId='2' x:Name="Submit" Content="Submit" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="76" Margin="276,0,-323,0" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="{ThemeResource AppBarBorderThemeBrush}"                     />
         </RelativePanel>
 

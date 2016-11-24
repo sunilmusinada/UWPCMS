@@ -37,7 +37,7 @@ namespace CMS_Survey.Views
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-          
+
             base.OnNavigatedTo(e);
             Submit.Visibility = Visibility.Visible;
             SurveyKeyText.Text = "";
@@ -47,10 +47,10 @@ namespace CMS_Survey.Views
             var surList = CMS_Survey.Template.SurveyHelper.SurveyJsonList;
             if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
             {
-              
+
                 if (e.Parameter != null)
                 {
-                   
+
                     AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                     SelectedSurvey = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                     SurveyKeyText.Text = SelectedSurvey.surveyKey;
@@ -59,7 +59,7 @@ namespace CMS_Survey.Views
                     if (otherUsersList == null && otherUsersList.Count <= 0)
                         return;
                     var surveyors = new Surveyors();
-                    m_SurveyKey=Convert.ToInt64(SelectedSurvey.surveyKey);
+                    m_SurveyKey = Convert.ToInt64(SelectedSurvey.surveyKey);
                     surveyors.surveyKey = m_SurveyKey;
                     surveyors.userKeys = otherUsersList;
                     users = surveyors;
@@ -68,14 +68,14 @@ namespace CMS_Survey.Views
                 }
                 else if (e.Parameter == null)
                 {
-                   
+
 
                 }
             }
             else
 
             {
-               
+
                 if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 {
                     if (e.Parameter != null)
@@ -89,29 +89,29 @@ namespace CMS_Survey.Views
                         ProviderKeyText.Text = SelectedSurvey.surveyProvider;
                         m_SurveyKey = Convert.ToInt64(SelectedSurvey.surveyKey);
                         var otherUsersList = surList.Where(t => t.surveyKey.Equals(SelectedSurvey.surveyKey)).Select(t => t.otherSurveyerKeys).FirstOrDefault();
-                        if (otherUsersList==null&& otherUsersList.Count <= 0)
+                        if (otherUsersList == null && otherUsersList.Count <= 0)
                             return;
                         var surveyors = new Surveyors();
                         surveyors.surveyKey = m_SurveyKey;
                         surveyors.userKeys = otherUsersList;
                         users = surveyors;
                         //users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
-                       // users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
+                        // users.userKeys.Remove(Services.ServiceHelper.ServiceHelperObject.currentUser.userKey);
                         AddExistingUsersandNew();
                     }
                     else if (e.Parameter == null)
                     {
-                        
+
                     }
                 }
                 else
                 {
-                  
+
                     NavigateToMainPage("Assign");
                     return;
                 }
             }
-          
+
         }
 
         private void AddExistingUsersandNew()
@@ -119,30 +119,40 @@ namespace CMS_Survey.Views
             rowIndex = 1;
             string fisrtName;
             string lastName;
-           
-                foreach (long user in users.userKeys)
-                {
-                    var usr = AllUsers.Where(e => e.userKey.Equals(user)).Select(e => e).FirstOrDefault();
-                    fisrtName = usr.FirstName;
-                    lastName = usr.LastName;
 
-                    TextBlock userLabel = new TextBlock();
-                    userLabel.Text = "User  :";
-                    userLabel.TextWrapping = TextWrapping.Wrap;
-                    AddUIControlWithAlignment(rowIndex , HorizontalAlignment.Left, userLabel, 1);
-                    userLabel = new TextBlock();
-                    userLabel.Text =string.Format("{0} {1}",fisrtName,lastName);
-                    userLabel.TextWrapping = TextWrapping.Wrap;
-                   
-                    AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Center, userLabel, 1);
-                    addBlankLine(UserDataGrid, rowIndex++);
-                    addBlankLine(UserDataGrid, rowIndex++);
-                
-                }
-          
-                rowIndex = AddNewSurveyor(rowIndex);
-                //addUIControl(UserDataGrid, cmbbox1, rowIndex++);
-            
+            foreach (long user in users.userKeys)
+            {
+                var usr = AllUsers.Where(e => e.userKey.Equals(user)).Select(e => e).FirstOrDefault();
+                fisrtName = usr.FirstName;
+                lastName = usr.LastName;
+
+                TextBlock userLabel = new TextBlock();
+                userLabel.Text = "User  :";
+                userLabel.TextWrapping = TextWrapping.Wrap;
+                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Left, userLabel, 1);
+                userLabel = new TextBlock();
+                userLabel.Text = string.Format("{0} {1}", fisrtName, lastName);
+                userLabel.TextWrapping = TextWrapping.Wrap;
+                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Center, userLabel, 1);
+                Button btn = new Button();
+                btn.Content = "Remove";
+                btn.Name = user.ToString();
+                btn.Click += RemoveButton;
+                btn.IsEnabled = true;
+                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Right, btn, 1);
+                addBlankLine(UserDataGrid, rowIndex++);
+                addBlankLine(UserDataGrid, rowIndex++);
+
+            }
+
+            rowIndex = AddNewSurveyor(rowIndex);
+            //addUIControl(UserDataGrid, cmbbox1, rowIndex++);
+
+        }
+
+        private void RemoveButton(object sender, RoutedEventArgs e)
+        {
+           // throw new NotImplementedException();
         }
 
         private int AddNewSurveyor(int rowIndex)
@@ -154,13 +164,13 @@ namespace CMS_Survey.Views
             addUIControl(UserDataGrid, questionlabel, rowIndex++);
 
             CMSCombobox cmbbox = new CMSCombobox();
-            cmbbox.Name = "StateSelectCombobox_"+totalUserCount.ToString();
+            cmbbox.Name = "StateSelectCombobox_" + totalUserCount.ToString();
             cmbbox.Width = 75;
             cmbbox.Items.Add("ALL");
             Services.ServiceHelper.ServiceHelperObject.StateCode.Select(e => e.stateCode).ToList().ForEach(t => cmbbox.Items.Add(t));
             surV.StateComboBox = cmbbox;
             cmbbox.SelectionChanged += StateSelectionComboboxChanged;
-           
+
             addUIControl(UserDataGrid, cmbbox, rowIndex++);
             questionlabel = new TextBlock();
             questionlabel.Text = "User";
@@ -168,14 +178,14 @@ namespace CMS_Survey.Views
             AddUIControlWithAlignment(rowIndex - 2, HorizontalAlignment.Center, questionlabel, 1);
             // addUIControl(UserDataGrid, questionlabel, rowIndex++);
             CMSCombobox cmbbox1 = new CMSCombobox();
-            cmbbox1.Name = "UsersCombobox_"+totalUserCount.ToString();
+            cmbbox1.Name = "UsersCombobox_" + totalUserCount.ToString();
             cmbbox1.Width = 200;
             surV.UserCombobox = cmbbox1;
             AddUIControlWithAlignment(rowIndex - 1, HorizontalAlignment.Center, cmbbox1, 1);
             if (totalUserCount < 5)
             {
                 Button btn = new Button();
-                btn.Name = "AddSurveyorButton_"+totalUserCount.ToString();
+                btn.Name = "AddSurveyorButton_" + totalUserCount.ToString();
                 btn.Width = 120;
                 btn.Height = 35;
                 btn.Content = "Add Surveyor";
@@ -196,16 +206,16 @@ namespace CMS_Survey.Views
         private void AddSurveyorClicked(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-           
-           
+
+
             btn.Visibility = Visibility.Collapsed;
-           
+
             rowIndex = AddNewSurveyor(rowIndex);
         }
 
-        private void AddUIControlWithAlignment(int rowIndex,HorizontalAlignment alignment, FrameworkElement uiComponent,int columnSpan)
+        private void AddUIControlWithAlignment(int rowIndex, HorizontalAlignment alignment, FrameworkElement uiComponent, int columnSpan)
         {
-           
+
             RowDefinition row = new RowDefinition();
             row.Height = new GridLength(0, GridUnitType.Auto);
             UserDataGrid.RowDefinitions.Add(row);
@@ -230,23 +240,23 @@ namespace CMS_Survey.Views
         private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
-        
+
             var selectedItem = Convert.ToString(cmb.SelectedItem);
-           
+
             ComboBox usrCmb = SurveyorList.Where(t => t.StateComboBox.Name.Equals(cmb.Name)).Select(t => t.UserCombobox).FirstOrDefault();
             List<string> UserList = null;
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
             else
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateOffline(selectedItem);
-            foreach (var usr in UserList.OrderBy(f=>f))
+            foreach (var usr in UserList.OrderBy(f => f))
             {
                 string firstName = usr.Split(' ').FirstOrDefault();
                 string LastName = usr.Split(' ').LastOrDefault();
                 long usrKey = GetUserKeyForUser(firstName, LastName);
-                if(!users.userKeys.Contains(usrKey))
-                usrCmb.Items.Add(usr);
-             }
+                if (!users.userKeys.Contains(usrKey))
+                    usrCmb.Items.Add(usr);
+            }
             //UserList.ForEach(t => usrCmb.Items.Add(t));
         }
 
@@ -303,13 +313,13 @@ namespace CMS_Survey.Views
         {
             MessageDialog msgDialog = new MessageDialog(message, caption);
             IUICommand cmd = await msgDialog.ShowAsync();
-      
-        }
-        private long GetUserKeyForUser(string FirstName,string LastName)
-        {
-            long key=-1;
 
-          key=  AllUsers.Where(e => e.FirstName.Equals(FirstName) && e.LastName.Equals(LastName)).Select(e => e.userKey).FirstOrDefault();
+        }
+        private long GetUserKeyForUser(string FirstName, string LastName)
+        {
+            long key = -1;
+
+            key = AllUsers.Where(e => e.FirstName.Equals(FirstName) && e.LastName.Equals(LastName)).Select(e => e.userKey).FirstOrDefault();
 
             return key;
         }
