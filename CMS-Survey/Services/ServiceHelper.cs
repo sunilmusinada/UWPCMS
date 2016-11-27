@@ -80,6 +80,8 @@ namespace CMS_Survey.Services
 
         private string AddServeyorUrl = HostUrl + @"SurveyRest/rest/myresource/surveyUsers";
 
+        private string DeleteServeyorUrl = HostUrl + @"SurveyRest/rest/myresource/deleteSurveyUsers";
+
         private string ApproveRejectUrl = HostUrl + @"SurveyRest/rest/myresource/approveorreject?surveyKey={0}&userKey={1}&status={2}&comments={3}";
 
        // private string UsersListUrl=
@@ -949,6 +951,43 @@ namespace CMS_Survey.Services
                 //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await client.PutAsync(AddServeyorUrl, content);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    jsonString = await response.Content.ReadAsStringAsync();
+
+                    //SecList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
+                    isSuccess = true;
+                    isSaveSuccessful = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return isSuccess;
+        }
+
+        internal async Task<bool> DeleteSurveyors(Surveyors surveyors)
+        {
+            bool isSuccess = false;
+            string jsonString = null;
+            //SectionHelp.Rootobject SecList = null;
+            //var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(SectionList);
+            var jsonRequest = Newtonsoft.Json.JsonConvert.SerializeObject(surveyors);
+
+
+            try
+            {
+                var client = new HttpClient();
+                isSaveSuccessful = false;
+                //var values = new Dictionary<string, string>();
+                string usersString = string.Empty;
+
+                HttpContent content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+                //HttpContent content = new StringContent(UserEmail, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PutAsync(DeleteServeyorUrl,content);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     jsonString = await response.Content.ReadAsStringAsync();

@@ -359,8 +359,8 @@ namespace CMS_Survey.Pages
 
                         tempObservvationQuestionId = question.questionId.ToString();
 
-                        addBlankLine(grid, rowIndex++);
-                        addBlankLine(grid, rowIndex++);
+                        //addBlankLine(grid, rowIndex++);
+                        //addBlankLine(grid, rowIndex++);
                         if (question.obsevationNumber <= 5)
                             AddObservationButton(grid, rowIndex, question);
                         //AddRemoveObservationButton(grid, rowIndex, question);
@@ -1144,7 +1144,14 @@ namespace CMS_Survey.Pages
                 TextBlock tb = new TextBlock();
                 Hyperlink hyperlink = new Hyperlink();
                 Run run = new Run();
-                run.Text = Question.citableTagName;
+                string linkText = linkText = Question.citableTagName;
+                if (!string.IsNullOrEmpty(linkText))
+                {
+                    if (linkText.Length > 75)
+                        linkText = Question.citableTagName.Substring(0, 75);
+                    
+                }
+                run.Text = linkText;
                 hyperlink.NavigateUri = new Uri(Services.ServiceHelper.CitationUrl + Question.citableTagURL);
                 hyperlink.Inlines.Add(run);
                 tb.Inlines.Add(hyperlink);

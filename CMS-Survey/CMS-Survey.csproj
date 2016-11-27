@@ -122,6 +122,7 @@
     <Compile Include="Helpers\CMSCombobox.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\SurveyHelper.cs" />
+    <Compile Include="Helpers\Surveyor.cs" />
     <Compile Include="Helpers\SurveyorControls.cs" />
     <Compile Include="Helpers\UserObservation.cs" />
     <Compile Include="Models\Answer.cs" />

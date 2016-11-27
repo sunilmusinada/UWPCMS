@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using CMS_Survey.Helpers;
 using Windows.UI.Popups;
 using CMS_Survey.Models;
+using System.Threading.Tasks;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Views
@@ -25,15 +26,21 @@ namespace CMS_Survey.Views
     public sealed partial class AssignSurvey : Page
     {
         Surveyors users = null;
+        public IUICommand btnResult;
         List<Models.User> AllUsers = null;
         List<SurveyorControls> SurveyorList = new List<SurveyorControls>();
         int rowIndex;
         int totalUserCount;
         long m_SurveyKey;
         UserSurvey SelectedSurvey;
+        NavigationEventArgs Eventargs;
+        Surveyors DeleteUsrs;
         public AssignSurvey()
         {
             this.InitializeComponent();
+            DeleteUsrs = new Surveyors();
+            DeleteUsrs.userKeys = new List<long>();
+           
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -50,7 +57,7 @@ namespace CMS_Survey.Views
 
                 if (e.Parameter != null)
                 {
-
+                    Eventargs = e;
                     AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                     SelectedSurvey = Template10.Services.SerializationService.SerializationService.Json.Deserialize<Models.UserSurvey>(Convert.ToString(e.Parameter));
                     SurveyKeyText.Text = SelectedSurvey.surveyKey;
@@ -63,8 +70,8 @@ namespace CMS_Survey.Views
                     surveyors.surveyKey = m_SurveyKey;
                     surveyors.userKeys = otherUsersList;
                     users = surveyors;
-                    //users = await Services.ServiceHelper.ServiceHelperObject.GetSurveyorForSurvey(surv.surveyKey);
-                    AddExistingUsersandNew();
+                    AddExistingUsersandNew(true);
+                    Submit.Visibility = Visibility.Collapsed;
                 }
                 else if (e.Parameter == null)
                 {
@@ -80,6 +87,8 @@ namespace CMS_Survey.Views
                 {
                     if (e.Parameter != null)
                     {
+                        Eventargs = e;
+                        Submit.Visibility = Visibility.Visible;
                         AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
                         //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
 
@@ -114,12 +123,15 @@ namespace CMS_Survey.Views
 
         }
 
-        private void AddExistingUsersandNew()
+        private void AddExistingUsersandNew(bool isOffline=false)
         {
             rowIndex = 1;
             string fisrtName;
             string lastName;
-
+            UserDataGrid.Children.Clear();
+            DeleteUsrs.surveyKey = m_SurveyKey;
+            addBlankLine(UserDataGrid, rowIndex++);
+            addBlankLine(UserDataGrid, rowIndex++);
             foreach (long user in users.userKeys)
             {
                 var usr = AllUsers.Where(e => e.userKey.Equals(user)).Select(e => e).FirstOrDefault();
@@ -129,32 +141,55 @@ namespace CMS_Survey.Views
                 TextBlock userLabel = new TextBlock();
                 userLabel.Text = "User  :";
                 userLabel.TextWrapping = TextWrapping.Wrap;
-                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Left, userLabel, 1);
+                AddUIControlWithAlignment(rowIndex++, HorizontalAlignment.Left, userLabel, 1);
+                // addUIControl(UserDataGrid,userLabel, rowIndex);
                 userLabel = new TextBlock();
                 userLabel.Text = string.Format("{0} {1}", fisrtName, lastName);
                 userLabel.TextWrapping = TextWrapping.Wrap;
-                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Center, userLabel, 1);
-                Button btn = new Button();
-                btn.Content = "Remove";
-                btn.Name = user.ToString();
-                btn.Click += RemoveButton;
-                btn.IsEnabled = true;
-                AddUIControlWithAlignment(rowIndex, HorizontalAlignment.Right, btn, 1);
+                AddUIControlWithAlignment(rowIndex-1, HorizontalAlignment.Center, userLabel, 1);
+                if (!isOffline)
+                {
+                    Button btn = new Button();
+                    btn.Content = "Remove";
+                    btn.Name = user.ToString();
+                    btn.Click += RemoveButton;
+                    btn.Width = 120;
+                    btn.Height = 35;
+                    btn.IsEnabled = true;
+                    btn.Visibility = Visibility.Visible;
+                    //UserDataGrid.Children.Add(btn);
+                    if(!Services.ServiceHelper.ServiceHelperObject.currentUser.userKey.ToString().Equals(user.ToString()))
+                    AddbuttonWithAlignment(rowIndex-1, HorizontalAlignment.Right, btn, 3);
+                }
                 addBlankLine(UserDataGrid, rowIndex++);
-                addBlankLine(UserDataGrid, rowIndex++);
+                //addBlankLine(UserDataGrid, rowIndex++);
 
             }
-
+            if (!isOffline)
             rowIndex = AddNewSurveyor(rowIndex);
             //addUIControl(UserDataGrid, cmbbox1, rowIndex++);
 
         }
 
-        private void RemoveButton(object sender, RoutedEventArgs e)
+        private async void RemoveButton(object sender, RoutedEventArgs e)
         {
-           // throw new NotImplementedException();
+           await  RemoveButtonClicked(sender);
         }
-
+        public async Task RemoveButtonClicked(object sender)
+        {
+            Button btn = sender as Button;
+            await RemoveButtonShowMessageDialog_Click(null, null);
+            if (Convert.ToInt32(btnResult.Id) == 0)
+            {
+                if (btn != null)
+                {
+                    users.userKeys.Remove(Convert.ToInt64(btn.Name));
+                    DeleteUsrs.userKeys.Add(Convert.ToInt64(btn.Name));
+                    AddExistingUsersandNew();
+                }
+            }
+            // throw new NotImplementedException();
+        }
         private int AddNewSurveyor(int rowIndex)
         {
             SurveyorControls surV = new Helpers.SurveyorControls();
@@ -190,6 +225,7 @@ namespace CMS_Survey.Views
                 btn.Height = 35;
                 btn.Content = "Add Surveyor";
                 btn.Click += AddSurveyorClicked;
+                
                 addBlankLine(UserDataGrid, rowIndex++);
                 //addUIControl(UserDataGrid, btn, rowIndex++);
                 surV.AddSurveyorButton = btn;
@@ -223,9 +259,20 @@ namespace CMS_Survey.Views
             UserDataGrid.Children.Add(uiComponent);
             Grid.SetColumnSpan(uiComponent, columnSpan);
             Grid.SetRow(uiComponent, rowIndex);
-            Grid.SetColumn(uiComponent, columnSpan);
+            //Grid.SetColumn(uiComponent, columnSpan);
         }
-
+        private void AddbuttonWithAlignment(int rowIndex,HorizontalAlignment alignment,Button btn,int columnSpan)
+        {
+            RowDefinition row = new RowDefinition();
+            row.Height = new GridLength(0, GridUnitType.Auto);
+            UserDataGrid.RowDefinitions.Add(row);
+            btn.HorizontalAlignment = alignment;
+            UserDataGrid.Children.Add(btn);
+            
+            Grid.SetColumnSpan(btn, columnSpan);
+            Grid.SetRow(btn, rowIndex);
+            //Grid.SetColumn(btn, columnSpan);
+        }
         private void addBlankLine(Grid mainGrid, int rowIndex)
         {
             TextBlock blank = new TextBlock();
@@ -242,8 +289,10 @@ namespace CMS_Survey.Views
             ComboBox cmb = sender as ComboBox;
 
             var selectedItem = Convert.ToString(cmb.SelectedItem);
-
+           
             ComboBox usrCmb = SurveyorList.Where(t => t.StateComboBox.Name.Equals(cmb.Name)).Select(t => t.UserCombobox).FirstOrDefault();
+            if (usrCmb!=null&&usrCmb.Items != null)
+                usrCmb.Items.Clear();
             List<string> UserList = null;
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
@@ -277,37 +326,54 @@ namespace CMS_Survey.Views
 
         private async void Submit_Click(object sender, RoutedEventArgs e)
         {
-            Submit.Visibility = Visibility.Collapsed;
-            Surveyors surveyors = new Surveyors();
-            surveyors.surveyKey = m_SurveyKey;
-            List<long> UserKeys = new List<long>();
-            foreach (SurveyorControls srvr in SurveyorList)
+            try
             {
-                string username = Convert.ToString(srvr.UserCombobox.SelectedItem);
-                if (string.IsNullOrEmpty(username))
-                    continue;
-                string firstName = username.Split(' ').FirstOrDefault();
-                string LastName = username.Split(' ').LastOrDefault();
-                UserKeys.Add(GetUserKeyForUser(firstName, LastName));
+                ShowProgress();
+                Submit.Visibility = Visibility.Collapsed;
+                ResetButton.Visibility = Visibility.Collapsed;
+                Surveyors surveyors = new Surveyors();
+                surveyors.surveyKey = m_SurveyKey;
+                List<long> UserKeys = new List<long>();
+                foreach (SurveyorControls srvr in SurveyorList)
+                {
+                    string username = Convert.ToString(srvr.UserCombobox.SelectedItem);
+                    if (string.IsNullOrEmpty(username))
+                        continue;
+                    string firstName = username.Split(' ').FirstOrDefault();
+                    string LastName = username.Split(' ').LastOrDefault();
+                    var usrKey = GetUserKeyForUser(firstName, LastName);
+                    if (!UserKeys.Contains(usrKey))
+                        UserKeys.Add(usrKey);
+                }
+                if (UserKeys.Count < 0)
+                    return;
+                surveyors.userKeys = UserKeys;
+                bool success = false;
+                if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                {
+                    success = await Services.ServiceHelper.ServiceHelperObject.DeleteSurveyors(DeleteUsrs);
+                    success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
+                    await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+                    await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+                }
+                else
+                {
+                    success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyorsOffline(surveyors);
+                }
+                if (success)
+                    AddSurveyorToSurvey();
+                else
+                    ShowMessage("Failed to Add Surveyor's to the Survey", "Error");
             }
-            if (UserKeys.Count < 0)
-                return;
-            surveyors.userKeys = UserKeys;
-            bool success = false;
-            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+            catch (Exception ex)
             {
-                success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyors(surveyors);
-                await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
-                await Services.ServiceHelper.ServiceHelperObject.CallUserSurveyService();
+
             }
-            else
+            finally
             {
-                success = await Services.ServiceHelper.ServiceHelperObject.AddSurveyorsOffline(surveyors);
+                HideProgress();
+                ResetButton.Visibility = Visibility.Visible;
             }
-            if (success)
-                AddSurveyorToSurvey();
-            else
-                ShowMessage("Failed to Add Surveyor's to the Survey", "Error");
         }
         private async void ShowMessage(string message, string caption)
         {
@@ -339,6 +405,62 @@ namespace CMS_Survey.Views
             {
                 throw ex;
             }
+        }
+
+        private async void ResetButto_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof(Views.AssignSurvey), Eventargs);
+            //UserDataGrid.Children.Clear();
+            //OnNavigatedTo(Eventargs);
+           await  ButtonShowMessageDialog_Click(null, null);
+            if (Convert.ToInt32(btnResult.Id) == 0)
+            {
+                var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SelectedSurvey);
+                this.Frame.Navigate(typeof(Views.AssignSurvey), param);
+            }
+
+        }
+
+        private async Task ButtonShowMessageDialog_Click(object sender, RoutedEventArgs e)
+        {
+
+            var dialog = new Windows.UI.Popups.MessageDialog("Refresh will remove any pending changes in this page.");
+
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Continue") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            btnResult = await dialog.ShowAsync();
+
+            //var btn = sender as Button;
+            //tn.Content = $"Result: {result.Label} ({result.Id})";
+        }
+        private async Task RemoveButtonShowMessageDialog_Click(object sender, RoutedEventArgs e)
+        {
+
+            var dialog = new Windows.UI.Popups.MessageDialog("Removing the user for this Survey will remove all the answers from this user.");
+
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Continue") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            btnResult = await dialog.ShowAsync();
+
+            //var btn = sender as Button;
+            //tn.Content = $"Result: {result.Label} ({result.Id})";
+        }
+        private void HideProgress()
+        {
+            progressRing.IsActive = false;
+            progressRing.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowProgress()
+        {
+            progressRing.Visibility = Visibility.Visible;
+            progressRing.IsActive = true;
         }
     }
 }

@@ -8,16 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,-158,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True" >
-        <RelativePanel HorizontalAlignment="Left" Height="601" Margin="10,29,0,0" VerticalAlignment="Top" Width="498" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True">
-            <Grid HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="478" Margin="10,58,-488,-138" ScrollViewer.VerticalScrollMode="Auto">
-                <TextBlock x:ConnectionId='3' x:Name="SurveyKey" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Survey Key    :" VerticalAlignment="Top" RenderTransformOrigin="0.548,-0.883" Width="111"/>
-                <TextBlock x:ConnectionId='4' x:Name="Provider" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Provider        :" VerticalAlignment="Top"/>
-                <TextBlock x:ConnectionId='5' x:Name="SurveyKeyText" HorizontalAlignment="Left" Margin="167,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-                <TextBlock x:ConnectionId='6' x:Name="ProviderKeyText" HorizontalAlignment="Left" Margin="167,45,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"/>
-            </Grid>
-            <Grid x:ConnectionId='1' x:Name="UserDataGrid" Height="431" VerticalAlignment="Top" Margin="10,160,-488,-491" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True"/>
-            <Button x:ConnectionId='2' x:Name="Submit" Content="Submit" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="76" Margin="276,0,-323,0" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="{ThemeResource AppBarBorderThemeBrush}"                     />
-        </RelativePanel>
+        <!--<RelativePanel HorizontalAlignment="Left" Height="601" Margin="10,29,0,0" VerticalAlignment="Top" Width="498" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True">
+           </RelativePanel>-->
+        <Grid HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="478" Margin="10,58,-488,-138" ScrollViewer.VerticalScrollMode="Auto">
+            <TextBlock x:ConnectionId='5' x:Name="SurveyKey" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Survey Key    :" VerticalAlignment="Top" RenderTransformOrigin="0.548,-0.883" Width="111"/>
+            <TextBlock x:ConnectionId='6' x:Name="Provider" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Provider        :" VerticalAlignment="Top"/>
+            <TextBlock x:ConnectionId='7' x:Name="SurveyKeyText" HorizontalAlignment="Left" Margin="167,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+            <TextBlock x:ConnectionId='8' x:Name="ProviderKeyText" HorizontalAlignment="Left" Margin="167,45,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid x:ConnectionId='1' x:Name="UserDataGrid" Height="430" VerticalAlignment="Top" Margin="10,161,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.IsVerticalRailEnabled="True" HorizontalAlignment="Left" Width="478"/>
+        <Button x:ConnectionId='2' x:Name="Submit" Content="Submit" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="76" Margin="100,0,0,0"  Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="{ThemeResource AppBarBorderThemeBrush}"                     />
+        <Button x:ConnectionId='3' x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="64.6666641235352" Margin="280,0,0,0" Background="{ThemeResource ContentDialogBorderThemeBrush}" Foreground="{ThemeResource AppBarBorderThemeBrush}"                          />
+        <ProgressRing x:ConnectionId='4' Name="progressRing" HorizontalAlignment="Left" Margin="180,236,0,0" VerticalAlignment="Top" Height="99" Width="135"/>
 
     </Grid>
 </Page>
