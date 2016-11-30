@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-fr"
+"ResourceDimensions"		"language-fr-fr"
+
+[Files]
+"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\split.language-fr.pri"			"resources.pri"

@@ -83,25 +83,25 @@ namespace CMS_Survey.Views
             Template10.Controls.HamburgerButtonInfo binfo = sender as Template10.Controls.HamburgerButtonInfo;
             binfo.IsChecked = false;
             
-            ContentDialog LogoutDialog = new ContentDialog()
-            {
-                Title = "Logout",
-                Content = "Do you want to Log out?",
-                PrimaryButtonText = "Ok",
-                SecondaryButtonText = "Cancel"
-            };
+            //ContentDialog LogoutDialog = new ContentDialog()
+            //{
+            //    Title = "Logout",
+            //    Content = "Do you want to Log out?",
+            //    PrimaryButtonText = "Ok",
+            //    SecondaryButtonText = "Cancel"
+            //};
 
-            ContentDialogResult result = await LogoutDialog.ShowAsync();
-            if (result.Equals(ContentDialogResult.Primary))
-            {
+            //ContentDialogResult result = await LogoutDialog.ShowAsync();
+            //if (result.Equals(ContentDialogResult.Primary))
+            //{
                 Services.ServiceHelper.ServiceHelperObject.currentUser = null;
                 _App.LaunchLoginPage();
                 
-            }
-            else if(result.Equals(ContentDialogResult.Secondary))
-            {
+            //}
+            //else if(result.Equals(ContentDialogResult.Secondary))
+            //{
                 
-            }
+            //}
                 
         }
     }

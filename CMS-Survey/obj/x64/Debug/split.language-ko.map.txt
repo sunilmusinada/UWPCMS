@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-ko"
+"ResourceDimensions"		"language-ko-kr"
+
+[Files]
+"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\split.language-ko.pri"			"resources.pri"

@@ -1,0 +1,187 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CMS_Survey.Res"
+    xmlns:Views="CMS_Survey.Views"
+    xmlns:Model="using:CMS_Survey.Models">
+
+    <DataTemplate  x:Key="InProgressTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+               
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="300,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="InProgressCommentsTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="300,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="375,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="RejectedTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+              
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Visibility="Collapsed" Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="370,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>-->
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="ApprovedCommentsTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="80,10,0,0"  VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="200" FontSize="12" Visibility="Collapsed" Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="370,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>-->
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="ApprovedTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="80,10,0,0"  VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" Width="200" FontSize="12" Visibility="Collapsed" Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="370,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>-->
+                <!--<Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="PendingReviewTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="160,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <!--<Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>-->
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>-->
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" FontSize="12"  Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>
+                <!--<Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="160,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="PendingReviewCommentsTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="160,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <!--<Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>-->
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>-->
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" FontSize="12"  Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+                <Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="SubmittedTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"  >
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="110,10,0,0" Visibility="Collapsed" VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left" FontSize="12" Width="200" Visibility="Collapsed" Margin="240,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+                <!--<Button x:Name="Review" Content="Review" HorizontalAlignment="Left" Visibility="Collapsed" Margin="300,10,0,0" VerticalAlignment="Top" Command="{Binding ReViewCommand}"/>-->
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="155,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="ReturnedForRevisionTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <!--<Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+                --><!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="ReturnedForRevisionCommentsTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <!--<Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>-->
+                <!--<Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>-->
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="80,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate  x:Key="RevisionRequiredCommentsTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>-->
+                <Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate  x:Key="RevisionRequiredTemplate" >
+        <StackPanel Margin="12,0,12,12" x:Name="GridPanel">
+
+            <Grid x:Name="ItemGrid" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Top" Width="340"   >
+
+                <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding EditCommand}"/>
+                <Button x:Name="View" Content="View" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommand}"/>
+                <!--<Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Command="{Binding DeleteCommand}"/>-->
+                <!--<Button x:Name="ViewComments" Content="View Comments" HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Command="{Binding ViewCommentsCommand}"/>-->
+                <!--<Button x:Name="AddSurveyor" Content="Add Surveyor" HorizontalAlignment="Left"  Margin="225,10,0,0" VerticalAlignment="Top" Command="{Binding AddSurveyorCommand}"/>-->
+            </Grid>
+
+        </StackPanel>
+    </DataTemplate>
+    <!--<local:MyDataTemplateSelector x:Key="TempSelector"
+        InProgress="{StaticResource InProgressTemplate}"
+        Approved="{StaticResource ApprovedTemplate}">
+
+  </local:MyDataTemplateSelector>-->
+
+</ResourceDictionary>
+

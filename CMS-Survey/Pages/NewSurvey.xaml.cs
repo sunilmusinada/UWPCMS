@@ -25,6 +25,8 @@ using Windows.UI;
 using Windows.UI.Xaml.Documents;
 using CMS_Survey.Helpers;
 using Windows.UI.Xaml.Media.Imaging;
+using Microsoft.Win32;
+using Windows.Storage.Pickers;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -466,6 +468,7 @@ namespace CMS_Survey.Pages
             btn.Width = 200;
             btn.Click += SubmitButtonClicked;
             addUIControl(grid, btn, rowIndex++);
+            cmbbox.SelectedItem = "ALL";
             return rowIndex;
         }
 
@@ -516,6 +519,10 @@ namespace CMS_Survey.Pages
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
             else
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForStateOffline(selectedItem);
+            if(Maillist!=null&&Maillist.Count>0)
+            {
+                Maillist = Maillist.OrderBy(f=>f).ToList();
+            }
             foreach (var mail in Maillist)
             {
 
@@ -668,13 +675,23 @@ namespace CMS_Survey.Pages
             mainGrid.Children.Add(blank);
             Grid.SetRow(blank, rowIndex);
         }
-        private void addUIControl(Grid mainGrid, FrameworkElement uiComponent, int rowIndex)
+        private void addUIControl(Grid mainGrid, FrameworkElement uiComponent, int rowIndex,int column=-1)
         {
             RowDefinition row = new RowDefinition();
             row.Height = new GridLength(0, GridUnitType.Auto);
             mainGrid.RowDefinitions.Add(row);
             mainGrid.Children.Add(uiComponent);
             Grid.SetRow(uiComponent, rowIndex);
+            if(column!=-1)
+            {
+                if (column == 1)
+                    uiComponent.HorizontalAlignment = HorizontalAlignment.Left;
+                else if (column == 2)
+                    uiComponent.HorizontalAlignment = HorizontalAlignment.Center;
+                Grid.SetColumnSpan(uiComponent, column);
+               
+                Grid.SetColumn(uiComponent, column);
+            }
             //addBlankLine(mainGrid, rowIndex);
         }
 
@@ -1133,6 +1150,22 @@ namespace CMS_Survey.Pages
                         addUIControl(grid, dtPicker, rowIndex++);
                     }
                     break;
+
+                case "file":
+                    Button selectBtn = new Button();
+                    selectBtn.Name = "SelectButton";
+                    selectBtn.Content = "Choose";
+                    selectBtn.Click += SelectBtn_Click;
+                    selectBtn.Width = 150;
+                    addUIControl(grid, selectBtn, rowIndex,1);
+                    Button uploadBtn = new Button();
+                    uploadBtn.Name = "UploadBtn";
+                    uploadBtn.Content = "Upload";
+                    uploadBtn.Click += UploadBtn_Click;
+                    uploadBtn.Width = 150;
+                    addUIControl(grid, uploadBtn, rowIndex++,2);
+
+                    break;  
             }
             #endregion
             if (!string.IsNullOrEmpty(Question.citableTagURL))
@@ -1162,6 +1195,30 @@ namespace CMS_Survey.Pages
             //{
             //    AddRemoveObservationButton(grid, rowIndex, Question);
             //}
+        }
+
+        private async void SelectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker fileOpenpicker = new FileOpenPicker();
+            fileOpenpicker.ViewMode = PickerViewMode.List;
+            fileOpenpicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            //fileOpenpicker.FileTypeFilter.Add("*.*");
+            fileOpenpicker.FileTypeFilter.Add("*");
+            StorageFile file = await fileOpenpicker.PickSingleFileAsync();
+            if (file != null)
+            {
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                 
+            }
+            else
+            {
+
+            }
+        }
+
+        private void UploadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void TextBox_TextChanged1(object sender, TextChangedEventArgs e)

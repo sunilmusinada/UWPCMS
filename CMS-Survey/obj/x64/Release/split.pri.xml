@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="13228281-de3c-4cee-b5f6-12b990ea723a" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Language>EN,EN-US</Language>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="CMS-Survey.xr.xml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/CMS-Survey.xr.xml">
+				<Candidate type="Path">
+					<Value>CMS-Survey.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Help.htm" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Help.htm">
+				<Candidate type="Path">
+					<Value>Help.htm</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SQLitePCL.Ext.dll" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/SQLitePCL.Ext.dll">
+				<Candidate type="Path">
+					<Value>SQLitePCL.Ext.dll</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SQLitePCL.Ext.pri" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/SQLitePCL.Ext.pri">
+				<Candidate type="Path">
+					<Value>SQLitePCL.Ext.pri</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Surveydb.sqlite" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Surveydb.sqlite">
+				<Candidate type="Path">
+					<Value>Surveydb.sqlite</Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="green-glossy-ball.jpg" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/green-glossy-ball.jpg">
+					<Candidate type="Path">
+						<Value>Assets\green-glossy-ball.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="RedIcon.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/RedIcon.png">
+					<Candidate type="Path">
+						<Value>Assets\RedIcon.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square300x300Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square300x300Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square300x300Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.targetsize-24_altform-unplated_456.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Square44x44Logo.targetsize-24_altform-unplated_456.png">
+					<Candidate type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated_456.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.scale-200_1234.png" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Assets/Wide310x150Logo.scale-200_1234.png">
+					<Candidate type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200_1234.png</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Controls">
+				<NamedResource name="ProgressRing.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Controls/ProgressRing.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="MyToolkit.Extended">
+				<NamedResource name="MyToolkit.Extended.xr.xml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/MyToolkit.Extended/MyToolkit.Extended.xr.xml">
+					<Candidate type="Path">
+						<Value>MyToolkit.Extended\MyToolkit.Extended.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Controls">
+					<ResourceMapSubtree name="DataGrid">
+						<NamedResource name="TemplateDictionary.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/MyToolkit.Extended/Controls/DataGrid/TemplateDictionary.xbf">
+							<Candidate type="EmbeddedData">
+								<Base64Value>[Embedded Binary Data]</Base64Value>
+							</Candidate>
+						</NamedResource>
+					</ResourceMapSubtree>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/MyToolkit.Extended/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Pages">
+				<NamedResource name="CommentsDialog.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Pages/CommentsDialog.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LoginPart.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Pages/LoginPart.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NewSurvey.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Pages/NewSurvey.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Res">
+				<NamedResource name="TemplateDictionary.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Res/TemplateDictionary.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Styles">
+				<NamedResource name="Custom.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Styles/Custom.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="SurveySyncComponent">
+				<NamedResource name="SQLitePCL.Ext.dll" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/SurveySyncComponent/SQLitePCL.Ext.dll">
+					<Candidate type="Path">
+						<Value>SurveySyncComponent\SQLitePCL.Ext.dll</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SQLitePCL.Ext.pri" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/SurveySyncComponent/SQLitePCL.Ext.pri">
+					<Candidate type="Path">
+						<Value>SurveySyncComponent\SQLitePCL.Ext.pri</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Template10Library">
+				<NamedResource name="Template10Library.xr.xml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Template10Library.xr.xml">
+					<Candidate type="Path">
+						<Value>Template10Library\Template10Library.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Controls">
+					<NamedResource name="HamburgerMenu.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Controls/HamburgerMenu.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Controls\HamburgerMenu.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="HamburgerMenu.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Controls/HamburgerMenu.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Template10Library.rd.xml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Properties/Template10Library.rd.xml">
+						<Candidate type="Path">
+							<Value>Template10Library\Properties\Template10Library.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/Generic.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\Generic.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Generic.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="HamburgerMenu.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/HamburgerMenu.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\HamburgerMenu.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="HamburgerMenu.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/HamburgerMenu.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ModalDialog.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/ModalDialog.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\ModalDialog.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ModalDialog.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/ModalDialog.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="PageHeader.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/PageHeader.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\PageHeader.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="PageHeader.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/PageHeader.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Resizer.xaml" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/Resizer.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\Resizer.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Resizer.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Template10Library/Themes/Resizer.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Views">
+				<NamedResource name="AssignSurvey.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/AssignSurvey.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Busy.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/Busy.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DetailPage.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/DetailPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GridMainPage.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/GridMainPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MainPage.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/MainPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SettingsPage.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/SettingsPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Shell.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/Shell.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Splash.xbf" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/Views/Splash.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactions">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CallMethodActionValidMethodNotFoundExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/CallMethodActionValidMethodNotFoundExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find method named {0} on object of type {1} that matches the expected signature.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotFindEventNameExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/CannotFindEventNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find an event named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotFindPropertyNameExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotFindPropertyNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find a property named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotSetValueExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotSetValueExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot assign value of type {0} to property {1} of type {2}. The {1} property can be assigned only values of type {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionPropertyIsReadOnlyExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionPropertyIsReadOnlyExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Property {0} defined by type {1} does not expose a set method and therefore cannot be modified.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EventNotSupportedExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/EventNotSupportedExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Event {0} is not supported. Consider implementing a custom IBehavior to respond to this event.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GoToStateActionTargetHasNoStateGroups" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/GoToStateActionTargetHasNoStateGroups">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Target {0} does not define any VisualStateGroups.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidLeftOperand" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/InvalidLeftOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidOperands" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/InvalidOperands">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} and Value property of type {1} cannot be used with operator {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidRightOperand" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactions/Strings/InvalidRightOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Value property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactivity">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactivity/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DuplicateBehaviorInCollectionExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactivity/Strings/DuplicateBehaviorInCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot add an instance of a behavior to a BehaviorCollection more than once.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidAssociatedObjectExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactivity/Strings/InvalidAssociatedObjectExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>AssociatedObject is of type {0} but should be of type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonActionAddedToActionCollectionExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactivity/Strings/NonActionAddedToActionCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IAction types are supported in an ActionCollection.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonBehaviorAddedToBehaviorCollectionExceptionMessage" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/Microsoft.Xaml.Interactivity/Strings/NonBehaviorAddedToBehaviorCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IBehavior types are supported in a BehaviorCollection.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="SQLitePCL.Resources">
+			<NamedResource name="Platform_AssemblyNotFound" uri="ms-resource://13228281-de3c-4cee-b5f6-12b990ea723a/SQLitePCL.Resources/Platform_AssemblyNotFound">
+				<Candidate qualifiers="Language-EN" isDefault="true" type="String">
+					<Value>A SQLite Wrapper assembly for the current platform was not found. Ensure that the current project references both {0} and the following platform-specific assembly: {1}.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

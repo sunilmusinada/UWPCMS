@@ -16,25 +16,25 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>6BE6F387BE21939117B7016926B1C106AA7740F5CB6663604CF3C9089501DE22</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.14.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>B7F5A3D81B427CBC435AD8806BAB9706FDB3547C22F7B1C46091AAF0CA6BC9AA</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>13228281-de3c-4cee-b5f6-12b990ea723a_1.0.23.0_x64__z0txew2x9f0ce</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>13228281-de3c-4cee-b5f6-12b990ea723a_z0txew2x9f0ce!App</RegisteredUserModeAppID>
     <RegisteredPackageID>13228281-de3c-4cee-b5f6-12b990ea723a</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=kakar</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.14.0</RegisteredVersion>
+    <RegisteredVersion>1.0.23.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-27T16:42:20.916</Modified>
+      <Modified>2016-11-30T18:16:13.854</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-27T16:42:17.587</Modified>
+      <Modified>2016-11-30T18:16:11.380</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -522,11 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x64\Debug\CMS_Survey.Models.dll">
       <PackagePath>CMS_Survey.Models.dll</PackagePath>
-      <Modified>2016-11-26T15:33:21.018</Modified>
+      <Modified>2016-11-28T18:21:54.441</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x64\Debug\SurveySyncComponent.winmd">
       <PackagePath>SurveySyncComponent.winmd</PackagePath>
-      <Modified>2016-11-26T15:33:21.473</Modified>
+      <Modified>2016-11-28T18:21:55.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.14.2\Redist\Debug\x64\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
@@ -653,11 +653,11 @@
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-27T16:42:19.593</Modified>
+      <Modified>2016-11-30T18:16:13.077</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-11-27T16:42:20.912</Modified>
+      <Modified>2016-11-30T18:16:13.849</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

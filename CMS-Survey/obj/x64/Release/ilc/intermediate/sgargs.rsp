@@ -1,0 +1,11 @@
+/out:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\intermediate\SgGenerated\\"
+/int:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\intermediate\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\intermediate\PreMergeILTransformed\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\intermediate\TransformedSRWR\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\in\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\in\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\x64\ilc\lib\Private\\"
+/ref:"F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\in\WinMetadata\\"
+/ca:System.Private.CoreLib
+"@F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Release\ilc\intermediate\PreMergeILTransformed\ComputedSerializationInput.txt"
