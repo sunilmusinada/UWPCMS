@@ -104,6 +104,8 @@ namespace CMS_Survey.Models
         {
             public int user { get; set; }
             public string answer { get; set; }
+
+            public DateTime? answerDate { get; set; }
         }
 
         public class Answerslist
