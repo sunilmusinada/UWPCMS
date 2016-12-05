@@ -983,6 +983,19 @@ namespace CMS_Survey.Pages
                     textBox.Height = 150;
                     textBox.TextWrapping = TextWrapping.Wrap;
                     textBox.AcceptsReturn = true;
+                    if(sectionIndex == 0 && string.IsNullOrEmpty(Convert.ToString(answer.answer)))
+                    {
+                        if(answer.differentUserAnswerList==null||answer.differentUserAnswerList.Count==0)
+                        {
+                            textBox.Text = "";
+                        }
+                        else
+                        {
+                            var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
+                            textBox.Text = ans.answer;
+                        }
+                    }
+                    else
                     textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
 
                     if (result.sections.Count() - 1 == sectionIndex)
@@ -1071,13 +1084,39 @@ namespace CMS_Survey.Pages
                         if (LoadedOffline)
                         {
                             SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(val);  //Sunil
-                            cmbbox.SelectedValue = SelectedState;
+                            if (sectionIndex == 0 && string.IsNullOrEmpty(val))
+                            {
+                                if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
+                                {
+                                   
+                                }
+                                else
+                                {
+                                    var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
+                                    SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(ans.answer);
+                                    
+                                }
+                            }
+                         cmbbox.SelectedValue = SelectedState;
                             //cmbbox.IsEnabled = false;
                         }
                         else
                         {
                             cmbbox.IsEnabled = true;
                             SelectedState = GetStateFromCode(val);
+                            if (sectionIndex == 0 && string.IsNullOrEmpty(val))
+                            {
+                                if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
+                                {
+
+                                }
+                                else
+                                {
+                                    var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
+                                    SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(ans.answer);
+
+                                }
+                            }
                             cmbbox.SelectedValue = SelectedState;
                         }
                         addErrorLabelControl(grid, "Please select a state", rowIndex, "State");
@@ -1090,6 +1129,19 @@ namespace CMS_Survey.Pages
                         cmbbox.SelectionChanged += CmbBxHospitalSelected;
                         if (!string.IsNullOrEmpty(val))
                             SetHospital(cmbbox, val);
+                        else if (sectionIndex == 0)
+                        {
+                            if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
+                                if(!string.IsNullOrEmpty(ans.answer))
+                                SetHospital(cmbbox, ans.answer);
+                            }
+                        }
                         addErrorLabelControl(grid, "Please select a Hospital", rowIndex, "Hospital");
                     }
                     cmbbox.IsEnabled = isEnabled;
@@ -1130,6 +1182,20 @@ namespace CMS_Survey.Pages
                     dtPicker.DateChanged += DtPicker_DateChanged;
                     dtPicker.Width = 150;
                     DateTime dttime = DateTime.Now;
+                    if(sectionIndex==0&& string.IsNullOrEmpty(Convert.ToString(answer.dateString)))
+                    {
+                        if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
+                            if (!string.IsNullOrEmpty(ans.answer))
+                                dtPicker.Date = (DateTime.TryParse(Convert.ToString(ans.answer), out dttime)) ? dttime : DateTime.Now;
+                        }
+                    }
+                    else
                     dtPicker.Date = (DateTime.TryParse(Convert.ToString(answer.dateString), out dttime)) ? dttime : DateTime.Now;
 
                     TextBlock txtBlock = new TextBlock();
