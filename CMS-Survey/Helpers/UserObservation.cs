@@ -11,6 +11,7 @@ namespace CMS_Survey.Helpers
         public long UserKey { get; set; }
         public string Answer { get; set; }
 
+        public DateTime? AnswerDate { get; set; }
         public int questionID { get; set; }
         public int ObservationNumber { get; set; }
     }

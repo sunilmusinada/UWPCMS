@@ -412,6 +412,7 @@ namespace CMS_Survey.Pages
                 usrObs = new UserObservation();
                 usrObs.UserKey = Otheranswer.user;
                 usrObs.Answer = Otheranswer.answer;
+                usrObs.AnswerDate =Convert.ToDateTime(Otheranswer.answerDate);
                 usrObs.questionID = QuestionId;
                 usrObs.ObservationNumber = obsNumber; //Convert.ToInt32(answer.observatgionNumberString);
                 UserObservationList.Add(usrObs);
@@ -1363,17 +1364,21 @@ namespace CMS_Survey.Pages
             myBorder1.BorderBrush = myBrush;
             myBorder1.BorderThickness = new Thickness(6);
             panel.BorderBrush = myBrush;
-
+            UserObservationList = UserObservationList.OrderByDescending(e => e.AnswerDate).ToList();
             var usrObsList = UserObservationList.GroupBy(e => e.UserKey);
+            int i = 1;
             foreach (var usrOb in usrObsList)
             {
+                if (!isReview)
+                {
+                    TextBlock txBlock = new TextBlock();
 
-                TextBlock txBlock = new TextBlock();
-
-                txBlock.Text = "User :" + Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(usrOb.Key)).Select(k => k.Value).FirstOrDefault();
-                //txBlock.Text = "Observation " +(ansIndex-1).ToString();
-                panel.Children.Add(txBlock);
+                    txBlock.Text = "User :" + Services.ServiceHelper.ServiceHelperObject.UserKeyDictionary.Where(k => k.Key.Equals(usrOb.Key)).Select(k => k.Value).FirstOrDefault();
+                    //txBlock.Text = "Observation " +(ansIndex-1).ToString();
+                    panel.Children.Add(txBlock);
+                }
                 int olObdNumber = -1;
+                int ans = 1;
                 foreach (UserObservation Otheranswer in usrOb.OrderBy(e => e.ObservationNumber))
                 {
 
@@ -1414,8 +1419,11 @@ namespace CMS_Survey.Pages
 
                     //addUIControl(mainGrid, answer, rowIndex++);
                     //addBlankLine(mainGrid, rowIndex);
-
+                   
                 }
+                if (isReview)
+                    break;
+                i++;
             }
             TextBlock blnk2 = new TextBlock();
             blnk2.Text = " ";
