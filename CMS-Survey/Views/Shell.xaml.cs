@@ -82,7 +82,7 @@ namespace CMS_Survey.Views
         {
             Template10.Controls.HamburgerButtonInfo binfo = sender as Template10.Controls.HamburgerButtonInfo;
             binfo.IsChecked = false;
-            
+
             //ContentDialog LogoutDialog = new ContentDialog()
             //{
             //    Title = "Logout",
@@ -94,6 +94,7 @@ namespace CMS_Survey.Views
             //ContentDialogResult result = await LogoutDialog.ShowAsync();
             //if (result.Equals(ContentDialogResult.Primary))
             //{
+            CMS_Survey.Views.GridMainPage.Fetched = false;
                 Services.ServiceHelper.ServiceHelperObject.currentUser = null;
                 _App.LaunchLoginPage();
                 

@@ -31,7 +31,7 @@ namespace CMS_Survey.Views
         public delegate void MainPageLoadingHandler(object sender, EventArgs e);
         private string _filter;
         public event MainPageLoadingHandler PageLoadEvent;
-        bool Fetched = false;
+        public static bool Fetched = false;
         private ObservableCollection<UserSurvey> _Usersurveys;
 
         Template.SurveyHelper surveyHelper;
