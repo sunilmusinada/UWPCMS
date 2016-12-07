@@ -375,7 +375,7 @@ namespace CMS_Survey.Services
                 SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
                 if(isSaveinProgress)
                 {
-                    await Task.Delay(2000); 
+                    await Task.Delay(1000); 
                 }
                
                     isSaveinProgress = true;
