@@ -131,6 +131,9 @@ namespace CMS_Survey.Views
 
         private async void MainPage_Loading(FrameworkElement sender, object args)
         {
+            CMS_Survey.Pages.NewSurvey.isEnabled = true;
+            CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isReview = false;
             DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand;
             DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             showBusyCommand.Execute();
