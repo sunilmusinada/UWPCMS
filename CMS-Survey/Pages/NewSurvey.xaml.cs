@@ -97,114 +97,123 @@ namespace CMS_Survey.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter == null)
+            try
             {
-                isEnabled = true;
-                isCommentsEnabled = false;
-
-            }
-            CommentsButton.Visibility = Visibility.Collapsed;
-            ObservationsList = new List<Models.ObservationHelper>();
-            SectionHelp.Rootobject survObj = null;
-            base.OnNavigatedTo(e);
-            ShowProgress();
-            if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-            {
-                LoadedOffline = true;
-                AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
-                if (e.Parameter != null)
+                if (e.Parameter == null)
                 {
-                    var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                    SurveyKey = Convert.ToString(surKey);
-                    if (CMS_Survey.Template.SurveyHelper.SurveyJsonList == null || CMS_Survey.Template.SurveyHelper.SurveyJsonList.Count == 0)
-                    {
-                        ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
-                        NavigateToMainPage("Error");
-                        return;
-                    }
-                    else
-                    {
-                        result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(surKey));//CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
-                        //result = Helpers.SurveyHelper.Request;
-                    }
-                }
-                else if (e.Parameter == null)
-                {
-                    ReadJsonFie();
-                    UpdateKeys();
+                    isEnabled = true;
+                    isCommentsEnabled = false;
 
                 }
-            }
-            else
-            {
-                LoadedOffline = false;
-                if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                CommentsButton.Visibility = Visibility.Collapsed;
+                ObservationsList = new List<Models.ObservationHelper>();
+                SectionHelp.Rootobject survObj = null;
+                base.OnNavigatedTo(e);
+                ShowProgress();
+                if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 {
-                    AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+                    LoadedOffline = true;
+                    AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetFullUsersOffline("ALL");
                     if (e.Parameter != null)
                     {
-                        //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-
-                        var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                        SurveyKey = Convert.ToString(res);
-                        if (SurveyHelper.SurveyHelperObject.DownloadFinished)
+                        var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                        SurveyKey = Convert.ToString(surKey);
+                        if (CMS_Survey.Template.SurveyHelper.SurveyJsonList == null || CMS_Survey.Template.SurveyHelper.SurveyJsonList.Count == 0)
                         {
-                            ChangeIndicator();
+                            ShowMessage("The selected survey is not available now because application is Offline.You will be re-directed to the Main page", "Error");
+                            NavigateToMainPage("Error");
+                            return;
                         }
-                        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                            result = await GetClickedSurvey(Convert.ToString(res));
-
-                        //if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
-                        //{
-
-                        //    result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
-                        //    if (result == null)
-                        //    {
-                        //        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                        //            result = await GetClickedSurvey(Convert.ToString(res));
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                        //        result = await GetClickedSurvey(Convert.ToString(res));
-                        //}
-                        //    var MyVariable = await WindowWrapper.Current().Dispatcher
-                        // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
+                        else
+                        {
+                            result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(surKey));//CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(surKey)).FirstOrDefault();
+                                                                                                                   //result = Helpers.SurveyHelper.Request;
+                        }
                     }
                     else if (e.Parameter == null)
                     {
                         ReadJsonFie();
                         UpdateKeys();
+
                     }
                 }
                 else
                 {
+                    LoadedOffline = false;
+                    if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                    {
+                        AllUsers = await Services.ServiceHelper.ServiceHelperObject.GetUsersForState("ALL");
+                        if (e.Parameter != null)
+                        {
+                            //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+
+                            var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
+                            SurveyKey = Convert.ToString(res);
+                            if (SurveyHelper.SurveyHelperObject.DownloadFinished)
+                            {
+                                ChangeIndicator();
+                            }
+                            if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                                result = await GetClickedSurvey(Convert.ToString(res));
+
+                            //if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
+                            //{
+
+                            //    result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
+                            //    if (result == null)
+                            //    {
+                            //        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                            //            result = await GetClickedSurvey(Convert.ToString(res));
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
+                            //        result = await GetClickedSurvey(Convert.ToString(res));
+                            //}
+                            //    var MyVariable = await WindowWrapper.Current().Dispatcher
+                            // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
+                        }
+                        else if (e.Parameter == null)
+                        {
+                            ReadJsonFie();
+                            UpdateKeys();
+                        }
+                    }
+                    else
+                    {
+                        HideProgress();
+                        ShowMessage("Application went offline. You will be re-directed to the Main page", "Error");
+                        NavigateToMainPage("Error");
+                        return;
+                    }
+                }
+                survObj = getJson(mainGrid);
+                if (survObj == null)
+                {
                     HideProgress();
-                    ShowMessage("Application went offline. You will be re-directed to the Main page", "Error");
+                    ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
                     NavigateToMainPage("Error");
                     return;
                 }
+                GetHelpDocuments();
+                HideProgress();
+                if (isCommentsEnabled)
+                {
+                    CommentsButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    CommentsButton.Visibility = Visibility.Collapsed;
+                }
             }
-            survObj = getJson(mainGrid);
-            if (survObj == null)
+            catch (Exception ex)
             {
                 HideProgress();
                 ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
                 NavigateToMainPage("Error");
                 return;
             }
-            GetHelpDocuments();
-            HideProgress();
-            if (isCommentsEnabled)
-            {
-                CommentsButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                CommentsButton.Visibility = Visibility.Collapsed;
-            }
-
             // parameters.Name
             // parameters.Text
             // ...
