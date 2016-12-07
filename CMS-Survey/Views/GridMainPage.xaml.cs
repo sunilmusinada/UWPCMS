@@ -55,7 +55,7 @@ namespace CMS_Survey.Views
         private ObservableCollection<UserSurvey> _FilteredUsersurveys;
         //ProgressRing Progress = null;
         // Property.
-
+        
         public ObservableCollection<UserSurvey> FilteredUsersurveys
         {
             get { return _FilteredUsersurveys; }
@@ -137,6 +137,7 @@ namespace CMS_Survey.Views
             DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand;
             DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             showBusyCommand.Execute();
+
             try
             {
                 await GetSurveys();

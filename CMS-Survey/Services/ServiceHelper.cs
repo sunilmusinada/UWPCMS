@@ -22,6 +22,7 @@ namespace CMS_Survey.Services
         private bool _isOffline;
         public Dictionary<long, string> UserKeyDictionary;
         List<User> users;
+        bool isSaveinProgress = false;
         public bool isOffline
         {
             get {
@@ -372,7 +373,15 @@ namespace CMS_Survey.Services
             {
                 jsonString = await CallGetSurveyServiceJson(CurrentuserKey, surveykey);
                 SectionList = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionHelp.Rootobject>(jsonString);
-                await SaveSurveyLocal(jsonString, surveykey, Constants.SurveyFolder);
+                if(isSaveinProgress)
+                {
+                    await Task.Delay(2000); 
+                }
+               
+                    isSaveinProgress = true;
+                    await SaveSurveyLocal(jsonString, surveykey, Constants.SurveyFolder);
+                    isSaveinProgress = false;
+                
 
             }
             catch(Exception ex)

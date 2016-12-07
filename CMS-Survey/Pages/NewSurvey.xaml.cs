@@ -108,7 +108,7 @@ namespace CMS_Survey.Pages
                 CommentsButton.Visibility = Visibility.Collapsed;
                 ObservationsList = new List<Models.ObservationHelper>();
                 SectionHelp.Rootobject survObj = null;
-                base.OnNavigatedTo(e);
+               // base.OnNavigatedTo(e);
                 ShowProgress();
                 if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 {
@@ -209,9 +209,10 @@ namespace CMS_Survey.Pages
             }
             catch (Exception ex)
             {
-                HideProgress();
-                ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
                 NavigateToMainPage("Error");
+                
+                ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
+               
                 return;
             }
             // parameters.Name
