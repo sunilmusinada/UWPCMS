@@ -28,13 +28,13 @@
     <AppXManifest Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-07T17:02:55.637</Modified>
+      <Modified>2016-12-12T17:55:35.555</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\CMS-Survey.exe">
       <PackagePath>entrypoint\CMS-Survey.exe</PackagePath>
-      <Modified>2016-12-07T17:02:52.347</Modified>
+      <Modified>2016-12-12T17:55:32.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\AJ\.nuget\packages\Microsoft.CSharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -522,11 +522,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS_Survey.Models\bin\x64\Debug\CMS_Survey.Models.dll">
       <PackagePath>CMS_Survey.Models.dll</PackagePath>
-      <Modified>2016-12-07T16:24:42.498</Modified>
+      <Modified>2016-12-07T18:43:59.025</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\SurveySyncComponent\bin\x64\Debug\SurveySyncComponent.winmd">
       <PackagePath>SurveySyncComponent.winmd</PackagePath>
-      <Modified>2016-12-07T16:24:44.244</Modified>
+      <Modified>2016-12-07T18:43:59.827</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.14.2\Redist\Debug\x64\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
@@ -653,11 +653,11 @@
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-07T17:02:54.636</Modified>
+      <Modified>2016-12-07T18:44:44.014</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Core\CMS-Survey.exe">
       <PackagePath>CMS-Survey.exe</PackagePath>
-      <Modified>2016-12-07T17:02:55.632</Modified>
+      <Modified>2016-12-12T17:55:35.550</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -603,7 +603,12 @@ namespace CMS_Survey.Pages
             var index = Convert.ToInt32(bn.Name.Split('_').Last());
             var answerList = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
             if (answerList.obsevationNumber == 2)
+             {
+                answerList.answersList[0].answer = null;
+                answerList.answersList[1].answer = null;
+                getJson(mainGrid);
                 return;
+            }
             int startIndex = (index * 2) - 2;
             //var ans = answerList.answersList.ToList();
             if (startIndex < 8)
@@ -1105,7 +1110,7 @@ namespace CMS_Survey.Pages
                                 {
                                     var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
                                     SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(ans.answer);
-                                    
+                                    cmbbox.IsEnabled = false;
                                 }
                             }
                          cmbbox.SelectedValue = SelectedState;
@@ -1125,7 +1130,7 @@ namespace CMS_Survey.Pages
                                 {
                                     var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
                                     SelectedState = Services.ServiceHelper.ServiceHelperObject.GetOfflineSelectedState(ans.answer);
-
+                                    cmbbox.IsEnabled = false;
                                 }
                             }
                             cmbbox.SelectedValue = SelectedState;
@@ -1151,11 +1156,14 @@ namespace CMS_Survey.Pages
                                 var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
                                 if(!string.IsNullOrEmpty(ans.answer))
                                 SetHospital(cmbbox, ans.answer);
+                                cmbbox.IsEnabled = false;
                             }
                         }
                         addErrorLabelControl(grid, "Please select a Hospital", rowIndex, "Hospital");
                     }
                     cmbbox.IsEnabled = isEnabled;
+                    if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
+                        cmbbox.IsEnabled = false;
                     //cmbbox.SelectedValue = string.IsNullOrEmpty((Convert.ToString(answer.answer))) ? "" : (Convert.ToString(answer.answer));
                     if (!isReview)
                         addUIControl(grid, cmbbox, rowIndex++);
@@ -1486,7 +1494,7 @@ namespace CMS_Survey.Pages
                 if (Convert.ToInt32(btnResult.Id) == 0)
                 {
                     Questiion.answersList[0].answer = "Unable to observe";
-                    for (int i = 1; i < 10; i++)
+                    for (int i = 2; i < 10; i++)
                     {
                         Questiion.answersList[i].answer = null;
                         Questiion.answersList[i].defaultVisible = false;
