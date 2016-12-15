@@ -605,6 +605,9 @@ namespace CMS_Survey.Pages
             if (answerList.obsevationNumber == 2)
              {
                 answerList.answersList[0].answer = null;
+
+                if (answerList.answersList[0].childIdList != null && answerList.answersList[0].childIdList.Count() > 0)
+                    answerList.answersList[0].childIdList = null;
                 answerList.answersList[1].answer = null;
                 getJson(mainGrid);
                 return;
@@ -1375,7 +1378,8 @@ namespace CMS_Survey.Pages
 
         {
             //List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
-
+            if (sectionIndex == 0)
+                return;
             StackPanel panel = new StackPanel();
             Border myBorder1 = new Border();
             SolidColorBrush myBrush = new SolidColorBrush(Colors.Black);
@@ -1385,6 +1389,7 @@ namespace CMS_Survey.Pages
             UserObservationList = UserObservationList.OrderByDescending(e => e.AnswerDate).ToList();
             var usrObsList = UserObservationList.GroupBy(e => e.UserKey);
             int i = 1;
+            
             foreach (var usrOb in usrObsList)
             {
                 if (!isReview)
@@ -1511,7 +1516,7 @@ namespace CMS_Survey.Pages
                     return;
                 }
                 Questiion.disableAddObservation = true;
-                Questiion.renderAddObservation = false;
+                Questiion.renderAddObservation = true;
                 getJson(mainGrid);
                 //}
             }
