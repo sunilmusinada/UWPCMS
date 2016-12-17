@@ -604,7 +604,7 @@ namespace CMS_Survey.Pages
             var answerList = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
             if (answerList.obsevationNumber == 2)
              {
-                answerList.answersList[0].answer = null;
+                answerList.answersList[0].answer =null;
 
                 if (answerList.answersList[0].childIdList != null && answerList.answersList[0].childIdList.Count() > 0)
                     answerList.answersList[0].childIdList = null;
@@ -616,12 +616,16 @@ namespace CMS_Survey.Pages
             //var ans = answerList.answersList.ToList();
             if (startIndex < 8)
             {
-                answerList.answersList[startIndex].answer = null;
+                answerList.answersList[startIndex].answer =null;
                 answerList.answersList[startIndex].renderRemoveButton = false;
                 answerList.answersList[startIndex].defaultVisible = false;
+                if (answerList.answersList[startIndex].childIdList != null && answerList.answersList[startIndex].childIdList.Count() > 0)
+                    answerList.answersList[startIndex].childIdList = null;
                 answerList.answersList[startIndex + 1].answer = null;
                 answerList.answersList[startIndex + 1].renderRemoveButton = false;
                 answerList.answersList[startIndex + 1].defaultVisible = false;
+                if (answerList.answersList[startIndex+1].childIdList != null && answerList.answersList[startIndex+1].childIdList.Count() > 0)
+                    answerList.answersList[startIndex+1].childIdList = null;
                 answerList.obsevationNumber = answerList.obsevationNumber - 1;
                 for (int i = index; i < 5; i++)
                 {
@@ -1378,7 +1382,7 @@ namespace CMS_Survey.Pages
 
         {
             //List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
-            if (sectionIndex == 0)
+            if (sectionIndex == 0&&!isReview)
                 return;
             StackPanel panel = new StackPanel();
             Border myBorder1 = new Border();
