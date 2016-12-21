@@ -1208,22 +1208,28 @@ namespace CMS_Survey.Pages
                     dtPicker.DateChanged += DtPicker_DateChanged;
                     dtPicker.Width = 150;
                     DateTime dttime = DateTime.Now;
-                    if(sectionIndex==0&& string.IsNullOrEmpty(Convert.ToString(answer.dateString)))
+                    if (sectionIndex == 0 && string.IsNullOrEmpty(Convert.ToString(answer.dateString)))
                     {
                         if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
                         {
-
+                            dtPicker.Date = DateTime.Now;
+                            DtPicker_DateChanged(dtPicker, null);
                         }
                         else
                         {
                             var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
                             if (!string.IsNullOrEmpty(answer.dateString))
+                            {
                                 dtPicker.Date = (DateTime.TryParse(Convert.ToString(answer.dateString), out dttime)) ? dttime : DateTime.Now;
+                                DtPicker_DateChanged(dtPicker, null);
+                            }
                         }
                     }
                     else
-                    dtPicker.Date = (DateTime.TryParse(Convert.ToString(answer.dateString), out dttime)) ? dttime : DateTime.Now;
-
+                    {
+                        dtPicker.Date = (DateTime.TryParse(Convert.ToString(answer.dateString), out dttime)) ? dttime : DateTime.Now;
+                        DtPicker_DateChanged(dtPicker, null);
+                    }
                     TextBlock txtBlock = new TextBlock();
                     if (answer.htmlControlText.Equals("From"))
                     {
