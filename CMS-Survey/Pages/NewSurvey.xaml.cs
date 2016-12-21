@@ -1217,8 +1217,8 @@ namespace CMS_Survey.Pages
                         else
                         {
                             var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
-                            if (!string.IsNullOrEmpty(ans.answer))
-                                dtPicker.Date = (DateTime.TryParse(Convert.ToString(ans.answer), out dttime)) ? dttime : DateTime.Now;
+                            if (!string.IsNullOrEmpty(answer.dateString))
+                                dtPicker.Date = (DateTime.TryParse(Convert.ToString(answer.dateString), out dttime)) ? dttime : DateTime.Now;
                         }
                     }
                     else
@@ -1238,9 +1238,10 @@ namespace CMS_Survey.Pages
                     }
                     dtPicker.IsEnabled = isEnabled;
                     txtBlock.TextWrapping = TextWrapping.Wrap;
+                    addUIControl(grid, txtBlock, rowIndex++);
                     if (!isReview)
                     {
-                        addUIControl(grid, txtBlock, rowIndex++);
+                        
                         addUIControl(grid, dtPicker, rowIndex++);
                     }
                     break;
