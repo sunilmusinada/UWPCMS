@@ -1238,10 +1238,9 @@ namespace CMS_Survey.Pages
                     }
                     dtPicker.IsEnabled = isEnabled;
                     txtBlock.TextWrapping = TextWrapping.Wrap;
-                    addUIControl(grid, txtBlock, rowIndex++);
                     if (!isReview)
                     {
-                        
+                        addUIControl(grid, txtBlock, rowIndex++);
                         addUIControl(grid, dtPicker, rowIndex++);
                     }
                     break;
@@ -1407,6 +1406,8 @@ namespace CMS_Survey.Pages
                 }
                 int olObdNumber = -1;
                 int ans = 1;
+                if (ans == 3)
+                    ans = 1;
                 foreach (UserObservation Otheranswer in usrOb.OrderBy(e => e.ObservationNumber))
                 {
 
@@ -1441,6 +1442,20 @@ namespace CMS_Survey.Pages
                             Otherans.Text = hsp.facilityName;
 
 
+                        }
+                        if(question.questionText=="Date of site visit")
+                        {
+                           
+                            if (isReview)
+                            {
+                                TextBlock txtBlock = new TextBlock();
+                                if(ans==1)
+                                    txtBlock.Text = "From";
+                                if (ans == 2)
+                                    txtBlock.Text = "To";
+                                panel.Children.Add(txtBlock);
+                            }
+                            ans++;
                         }
                     }
                     panel.Children.Add(Otherans);
