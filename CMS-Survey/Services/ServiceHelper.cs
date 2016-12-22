@@ -85,6 +85,8 @@ namespace CMS_Survey.Services
 
         private string ApproveRejectUrl = HostUrl + @"SurveyRest/rest/myresource/approveorreject?surveyKey={0}&userKey={1}&status={2}&comments={3}";
 
+        private string CheckOwnerUrl = HostUrl + @"/SurveyRest/rest/myresource/primaryuser?userKey={0}&surveyKey={1}";
+
        // private string UsersListUrl=
         #endregion
         public static ServiceHelper ServiceHelperObject
@@ -922,6 +924,21 @@ namespace CMS_Survey.Services
         #endregion
 
         #region Surveyors
+
+        internal async Task<bool> IsUserOwner(string SurveyKey)
+        {
+            bool isOwner = false;
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(new Uri(string.Format(CheckOwnerUrl,currentUser.userKey, SurveyKey)));
+            Surveyors surveyors = null;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                isOwner = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(jsonString);
+
+            }
+            return isOwner;
+        }
         internal async Task<Surveyors> GetSurveyorForSurvey(string SurveyKey)
         {
             //List<long> usrs = new List<long>();

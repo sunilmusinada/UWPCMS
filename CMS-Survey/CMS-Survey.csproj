@@ -143,6 +143,9 @@
     <Compile Include="Models\UserSurveyAccess.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Models\SurveyGridObject.cs" />
+    <Compile Include="Pages\ErrorsWarningsDialog.xaml.cs">
+      <DependentUpon>ErrorsWarningsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CommentsDialog.xaml.cs">
       <DependentUpon>CommentsDialog.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
     <Page Include="Controls\ProgressRing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ErrorsWarningsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CommentsDialog.xaml">
       <SubType>Designer</SubType>

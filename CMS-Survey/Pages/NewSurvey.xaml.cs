@@ -37,7 +37,10 @@ namespace CMS_Survey.Pages
     /// </summary>
     public sealed partial class NewSurvey : Page
     {
+        bool isUserOwner = false;
+        List<string> UnAnsweredList = null;
         private int sectionIndex = 0;
+        public static bool isInCheckBoxState = false;
         SectionHelp.Rootobject result = new SectionHelp.Rootobject();
         List<UserObservation> UserObservationList;
         private int groupIndex = 0;
@@ -108,7 +111,7 @@ namespace CMS_Survey.Pages
                 CommentsButton.Visibility = Visibility.Collapsed;
                 ObservationsList = new List<Models.ObservationHelper>();
                 SectionHelp.Rootobject survObj = null;
-               // base.OnNavigatedTo(e);
+                // base.OnNavigatedTo(e);
                 ShowProgress();
                 if (await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 {
@@ -156,23 +159,7 @@ namespace CMS_Survey.Pages
                             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                                 result = await GetClickedSurvey(Convert.ToString(res));
 
-                            //if (CMS_Survey.Template.SurveyHelper.SurveyJsonList != null)
-                            //{
 
-                            //    result = CMS_Survey.Template.SurveyHelper.GetSurveyFromLocal(Convert.ToString(res)); //CMS_Survey.Template.SurveyHelper.SurveyList.Where(t => t.sections.First().surveyKey.ToString().Equals(res)).FirstOrDefault();
-                            //    if (result == null)
-                            //    {
-                            //        if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                            //            result = await GetClickedSurvey(Convert.ToString(res));
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
-                            //        result = await GetClickedSurvey(Convert.ToString(res));
-                            //}
-                            //    var MyVariable = await WindowWrapper.Current().Dispatcher
-                            // .DispatchAsync<SectionHelp.Rootobject>(() => { return result; });
                         }
                         else if (e.Parameter == null)
                         {
@@ -188,6 +175,7 @@ namespace CMS_Survey.Pages
                         return;
                     }
                 }
+                isUserOwner = await Services.ServiceHelper.ServiceHelperObject.IsUserOwner(result.sections[0].surveyKey.ToString());
                 survObj = getJson(mainGrid);
                 if (survObj == null)
                 {
@@ -210,15 +198,16 @@ namespace CMS_Survey.Pages
             catch (Exception ex)
             {
                 NavigateToMainPage("Error");
-                
+
                 ShowMessage("Selected Survey is not available right now. You will be re-directed to the Main page", "Error");
-               
+
                 return;
             }
             // parameters.Name
             // parameters.Text
             // ...
         }
+
         private async Task<SectionHelp.Rootobject> GetClickedSurvey(string SurveyKey)
         {
             var currentUserKey = Services.ServiceHelper.ServiceHelperObject.currentUser.userKey;
@@ -405,10 +394,12 @@ namespace CMS_Survey.Pages
 
         private void Setcheckboxes()
         {
+            isInCheckBoxState = true;
             foreach (CheckBox chkBx in UpdatedCheckBoxes)
             {
                 CheckBoxStateChanged(chkBx, !chkBx.IsChecked, true);
             }
+            isInCheckBoxState = false;
             getJson(mainGrid, false, true);
         }
         public void AddUserObservation(SectionHelp.Answerslist answer, int QuestionId, int obsNumber)
@@ -422,7 +413,7 @@ namespace CMS_Survey.Pages
                 usrObs = new UserObservation();
                 usrObs.UserKey = Otheranswer.user;
                 usrObs.Answer = Otheranswer.answer;
-                usrObs.AnswerDate =Convert.ToDateTime(Otheranswer.answerDate);
+                usrObs.AnswerDate = Convert.ToDateTime(Otheranswer.answerDate);
                 usrObs.questionID = QuestionId;
                 usrObs.ObservationNumber = obsNumber; //Convert.ToInt32(answer.observatgionNumberString);
                 UserObservationList.Add(usrObs);
@@ -603,8 +594,8 @@ namespace CMS_Survey.Pages
             var index = Convert.ToInt32(bn.Name.Split('_').Last());
             var answerList = result.sections[sectionIndex].surveyQuestionAnswerList.Where(t => t.questionId.ToString().Equals(name)).Select(t => t).FirstOrDefault();
             if (answerList.obsevationNumber == 2)
-             {
-                answerList.answersList[0].answer =null;
+            {
+                answerList.answersList[0].answer = null;
 
                 if (answerList.answersList[0].childIdList != null && answerList.answersList[0].childIdList.Count() > 0)
                     answerList.answersList[0].childIdList = null;
@@ -616,7 +607,7 @@ namespace CMS_Survey.Pages
             //var ans = answerList.answersList.ToList();
             if (startIndex < 8)
             {
-                answerList.answersList[startIndex].answer =null;
+                answerList.answersList[startIndex].answer = null;
                 answerList.answersList[startIndex].renderRemoveButton = false;
                 answerList.answersList[startIndex].defaultVisible = false;
                 if (answerList.answersList[startIndex].childIdList != null && answerList.answersList[startIndex].childIdList.Count() > 0)
@@ -624,8 +615,8 @@ namespace CMS_Survey.Pages
                 answerList.answersList[startIndex + 1].answer = null;
                 answerList.answersList[startIndex + 1].renderRemoveButton = false;
                 answerList.answersList[startIndex + 1].defaultVisible = false;
-                if (answerList.answersList[startIndex+1].childIdList != null && answerList.answersList[startIndex+1].childIdList.Count() > 0)
-                    answerList.answersList[startIndex+1].childIdList = null;
+                if (answerList.answersList[startIndex + 1].childIdList != null && answerList.answersList[startIndex + 1].childIdList.Count() > 0)
+                    answerList.answersList[startIndex + 1].childIdList = null;
                 answerList.obsevationNumber = answerList.obsevationNumber - 1;
                 for (int i = index; i < 5; i++)
                 {
@@ -805,11 +796,52 @@ namespace CMS_Survey.Pages
 
         private async Task SaveAndMoveForward()
         {
+            CheckAllAnswers();
+            if (UnAnsweredList.Count > 0)
+            {
+                Pages.ErrorsWarningsDialog dialog = new Pages.ErrorsWarningsDialog(UnAnsweredList);
+                dialog.SurveyKey = SurveyKey;
+                dialog.NavigateToMainPage += Dialog_NavigatetoMainPage;
+                var res = await dialog.ShowAsync();
+                if (dialog.Result == Result.Cancel)
+                    return;
+            }
             await SaveSurvey();
             sectionIndex++;
             getJson(mainGrid, true);
         }
+        private void CheckAllAnswers()
+        {
+            UnAnsweredList = new List<string>();
+            if (sectionIndex == 0)
+                return;
+            foreach (var SurQuestion in result.sections[sectionIndex].surveyQuestionAnswerList)
+            {
 
+                if (SurQuestion.answersList != null && SurQuestion.answersList.Count() > 0)
+                {
+                    if (SurQuestion.answersList[0].answer == null&& SurQuestion.renderQuestion)
+                    {
+                        if(SurQuestion.answersList[0].answersList!=null&&SurQuestion.answersList[0].answersList.Count()>0)
+                        {
+                            if (SurQuestion.answersList[0].answersList[0] != null)
+                                continue;
+                        }
+                        int num;
+                        if(Int32.TryParse(SurQuestion.questionText.Substring(0, 1), out num))
+                            UnAnsweredList.Add(SurQuestion.questionText.Substring(0, SurQuestion.questionText.IndexOf(" ") + 1));
+                        else
+                            UnAnsweredList.Add(SurQuestion.questionText);
+                    }
+                }
+                //    if (SurQuestion.answer==null)
+                //{
+                //    UnAnsweredList.Add(SurQuestion.questionText);
+                //}
+
+
+            }
+        }
         private void processPrevious(object sender, RoutedEventArgs e)
         {
             if (sectionIndex > 0)
@@ -1006,9 +1038,9 @@ namespace CMS_Survey.Pages
                     textBox.Height = 150;
                     textBox.TextWrapping = TextWrapping.Wrap;
                     textBox.AcceptsReturn = true;
-                    if(sectionIndex == 0 && string.IsNullOrEmpty(Convert.ToString(answer.answer)))
+                    if (sectionIndex == 0 && string.IsNullOrEmpty(Convert.ToString(answer.answer)))
                     {
-                        if(answer.differentUserAnswerList==null||answer.differentUserAnswerList.Count==0)
+                        if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
                         {
                             textBox.Text = "";
                         }
@@ -1019,7 +1051,7 @@ namespace CMS_Survey.Pages
                         }
                     }
                     else
-                    textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
+                        textBox.Text = string.IsNullOrEmpty(Convert.ToString(answer.answer)) ? "" : (Convert.ToString(answer.answer));
 
                     if (result.sections.Count() - 1 == sectionIndex)
                     {
@@ -1063,6 +1095,7 @@ namespace CMS_Survey.Pages
                     groupIndex++;
                     break;
                 case "checkbox":
+                    isInCheckBoxState = true;
                     CheckBox chkBox = new CheckBox();
                     chkBox.Name = answer.htmlControlId.ToString();
                     string label = string.Empty;
@@ -1092,6 +1125,7 @@ namespace CMS_Survey.Pages
                     chkBox.IsEnabled = isEnabled;
                     if (!isReview)
                         addUIControl(grid, chkBox, rowIndex++);
+                    isInCheckBoxState = false;
                     break;
                 case "select":
                     CMS_Survey.Helpers.CMSCombobox cmbbox = new Helpers.CMSCombobox();
@@ -1111,7 +1145,7 @@ namespace CMS_Survey.Pages
                             {
                                 if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
                                 {
-                                   
+
                                 }
                                 else
                                 {
@@ -1120,7 +1154,7 @@ namespace CMS_Survey.Pages
                                     cmbbox.IsEnabled = false;
                                 }
                             }
-                         cmbbox.SelectedValue = SelectedState;
+                            cmbbox.SelectedValue = SelectedState;
                             //cmbbox.IsEnabled = false;
                         }
                         else
@@ -1161,14 +1195,19 @@ namespace CMS_Survey.Pages
                             else
                             {
                                 var ans = answer.differentUserAnswerList.OrderByDescending(e => e.answerDate).FirstOrDefault();
-                                if(!string.IsNullOrEmpty(ans.answer))
-                                SetHospital(cmbbox, ans.answer);
+                                if (!string.IsNullOrEmpty(ans.answer))
+                                    SetHospital(cmbbox, ans.answer);
                                 cmbbox.IsEnabled = false;
                             }
                         }
                         addErrorLabelControl(grid, "Please select a Hospital", rowIndex, "Hospital");
                     }
                     cmbbox.IsEnabled = isEnabled;
+                    if (QuestionText == "Hospital Name")
+                    {
+                        if (isEnabled)
+                            cmbbox.IsEnabled = isUserOwner;
+                    }
                     if (answer.differentUserAnswerList != null && answer.differentUserAnswerList.Count > 0)
                         cmbbox.IsEnabled = false;
                     //cmbbox.SelectedValue = string.IsNullOrEmpty((Convert.ToString(answer.answer))) ? "" : (Convert.ToString(answer.answer));
@@ -1388,7 +1427,7 @@ namespace CMS_Survey.Pages
 
         {
             //List<SectionHelp.DifferentUserAnswerList> DifferentAnswers = answer.differentUserAnswerList;
-            if (sectionIndex == 0&&!isReview)
+            if (sectionIndex == 0 && !isReview)
                 return;
             StackPanel panel = new StackPanel();
             Border myBorder1 = new Border();
@@ -1399,7 +1438,7 @@ namespace CMS_Survey.Pages
             UserObservationList = UserObservationList.OrderByDescending(e => e.AnswerDate).ToList();
             var usrObsList = UserObservationList.GroupBy(e => e.UserKey);
             int i = 1;
-            
+
             foreach (var usrOb in usrObsList)
             {
                 if (!isReview)
@@ -1449,13 +1488,13 @@ namespace CMS_Survey.Pages
 
 
                         }
-                        if(question.questionText=="Date of site visit")
+                        if (question.questionText == "Date of site visit")
                         {
-                           
+
                             if (isReview)
                             {
                                 TextBlock txtBlock = new TextBlock();
-                                if(ans==1)
+                                if (ans == 1)
                                     txtBlock.Text = "From";
                                 if (ans == 2)
                                     txtBlock.Text = "To";
@@ -1468,7 +1507,7 @@ namespace CMS_Survey.Pages
 
                     //addUIControl(mainGrid, answer, rowIndex++);
                     //addBlankLine(mainGrid, rowIndex);
-                   
+
                 }
                 if (isReview)
                     break;
@@ -1576,6 +1615,21 @@ namespace CMS_Survey.Pages
             //var btn = sender as Button;
             //tn.Content = $"Result: {result.Label} ({result.Id})";
         }
+        private async Task ButtonCheckBoxShowMessageDialog_Click(object sender, RoutedEventArgs e)
+        {
+
+            var dialog = new Windows.UI.Popups.MessageDialog("Selecting Yes will remove answers, Do you want to continue");
+
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Continue") { Id = 0 });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            btnResult = await dialog.ShowAsync();
+
+            //var btn = sender as Button;
+            //tn.Content = $"Result: {result.Label} ({result.Id})";
+        }
         private void ChkBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBoxStateChanged(sender, false);
@@ -1587,13 +1641,16 @@ namespace CMS_Survey.Pages
             CheckBoxStateChanged(sender, true);
         }
 
-        private void CheckBoxStateChanged(object sender, bool? checkedState, bool isSetCheckbox = false)
+        private async void CheckBoxStateChanged(object sender, bool? checkedState, bool isSetCheckbox = false)
         {
+
+
             CheckBox chkB = sender as CheckBox;
             int ChckBoxID = Convert.ToInt32(chkB.Name);
             int QuestionID = -1;
             bool found = false;
             bool chkState = (checkedState == null) ? false : Convert.ToBoolean(checkedState);
+
             foreach (var SurQuestionList in result.sections[sectionIndex].surveyQuestionAnswerList)
             {
                 int i = 0;
@@ -1608,7 +1665,9 @@ namespace CMS_Survey.Pages
                         // item.answer = !checkedState;
                         //result.sections[sectionIndex].surveyQuestionAnswerList[i].answersList.Where(f => f.htmlControlId.Equals(ChckBoxID)).FirstOrDefault().answer = !checkedState;
                         if (!isSetCheckbox)
+                        {
                             SetControlValue(!checkedState, Convert.ToString(item.htmlControlId), item.htmlControlType);
+                        }
                         QuestionID = SurQuestionList.questionId;
                         found = true;
                         break;
@@ -1616,6 +1675,21 @@ namespace CMS_Survey.Pages
                 }
 
             }
+            if (!isInCheckBoxState)
+            {
+                if (!chkState)
+                {
+                    await ButtonCheckBoxShowMessageDialog_Click(null, null);
+                    if (Convert.ToInt32(btnResult.Id) == 1)
+                    {
+
+                        chkB.IsChecked = false;
+                        isInCheckBoxState = false;
+                        return;
+                    }
+                }
+            }
+            isInCheckBoxState = true;
             if (!Constants.QuestionSectionDictionary.ContainsKey(QuestionID))
                 return;
 
@@ -1640,7 +1714,7 @@ namespace CMS_Survey.Pages
                         item.renderRemoveButton = chkState;
                         i++;
                     }
-                    if (SurQuestionList.answersList != null && SurQuestionList.answersList.Count() > 0&&SurQuestionList.answersList[0].htmlControlType!= "checkbox")
+                    if (SurQuestionList.answersList != null && SurQuestionList.answersList.Count() > 0 && SurQuestionList.answersList[0].htmlControlType != "checkbox")
                     {
                         SurQuestionList.renderAddObservation = chkState;
                         SurQuestionList.obsevationNumber = 2;
@@ -1651,6 +1725,7 @@ namespace CMS_Survey.Pages
                 //}
 
             }
+            isInCheckBoxState = false;
             if (!isSetCheckbox)
                 getJson(mainGrid);
         }
@@ -1808,6 +1883,9 @@ namespace CMS_Survey.Pages
         {
             try
             {
+                //CheckAllAnswers();
+
+               
                 ShowProgress();
                 RemoveBlankObservations();
                 Services.ServiceHelper serviceHelper = Services.ServiceHelper.ServiceHelperObject;
@@ -2097,15 +2175,28 @@ namespace CMS_Survey.Pages
             {
                 item = jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             }
-
+           
             indx = item.PageIndex;
             if (indx.Equals(sectionIndex))
                 return;
             else
             {
-                sectionIndex = indx;
+                CheckAllAnswers();
+
                 if (isEnabled)
+                {
+                    if (UnAnsweredList.Count > 0)
+                    {
+                        Pages.ErrorsWarningsDialog dialog = new Pages.ErrorsWarningsDialog(UnAnsweredList);
+                        dialog.SurveyKey = SurveyKey;
+                        dialog.NavigateToMainPage += Dialog_NavigatetoMainPage;
+                        var res = await dialog.ShowAsync();
+                        if (dialog.Result == Result.Cancel)
+                            return;
+                    }
                     await SaveSurvey();
+                }
+                sectionIndex = indx;
                 getJson(mainGrid, true);
             }
 

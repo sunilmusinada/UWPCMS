@@ -137,7 +137,7 @@ namespace CMS_Survey.Views
             DelegateCommand showBusyCommand = ViewModel.ShowBusyCommand;
             DelegateCommand hideBusyCommand = ViewModel.HideBusyCommand;
             showBusyCommand.Execute();
-
+            UserName.Text = "Welcome "+Services.ServiceHelper.ServiceHelperObject.currentUser.FirstName + " " + Services.ServiceHelper.ServiceHelperObject.currentUser.LastName;
             try
             {
                 await GetSurveys();
