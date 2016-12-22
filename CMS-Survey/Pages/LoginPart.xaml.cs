@@ -14,8 +14,8 @@ namespace CMS_Survey.Pages
 
             this.InitializeComponent();
 #if WINDOWS_UWP
-            this.UserName.Text = "kalyan";
-            this.Password.Password = "kalyancpamula";
+            this.UserName.Text = "";
+            this.Password.Password = "";
 #endif
         }
 
