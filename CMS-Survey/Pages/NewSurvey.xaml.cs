@@ -37,7 +37,7 @@ namespace CMS_Survey.Pages
     /// </summary>
     public sealed partial class NewSurvey : Page
     {
-        bool isUserOwner = false;
+        bool isUserOwner = true;
         List<string> UnAnsweredList = null;
         private int sectionIndex = 0;
         public static bool isInCheckBoxState = false;
@@ -149,7 +149,7 @@ namespace CMS_Survey.Pages
                         if (e.Parameter != null)
                         {
                             //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-
+                           
                             var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                             SurveyKey = Convert.ToString(res);
                             if (SurveyHelper.SurveyHelperObject.DownloadFinished)
@@ -158,7 +158,7 @@ namespace CMS_Survey.Pages
                             }
                             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                                 result = await GetClickedSurvey(Convert.ToString(res));
-
+                            isUserOwner = await Services.ServiceHelper.ServiceHelperObject.IsUserOwner(result.sections[0].surveyKey.ToString());
 
                         }
                         else if (e.Parameter == null)
@@ -175,7 +175,7 @@ namespace CMS_Survey.Pages
                         return;
                     }
                 }
-                isUserOwner = await Services.ServiceHelper.ServiceHelperObject.IsUserOwner(result.sections[0].surveyKey.ToString());
+               
                 survObj = getJson(mainGrid);
                 if (survObj == null)
                 {
@@ -1185,7 +1185,10 @@ namespace CMS_Survey.Pages
                         cmbbox.DropDownOpened += Hospital_comboBoxOpened;
                         cmbbox.SelectionChanged += CmbBxHospitalSelected;
                         if (!string.IsNullOrEmpty(val))
+                        {
+                           
                             SetHospital(cmbbox, val);
+                        }
                         else if (sectionIndex == 0)
                         {
                             if (answer.differentUserAnswerList == null || answer.differentUserAnswerList.Count == 0)
@@ -1618,7 +1621,7 @@ namespace CMS_Survey.Pages
         private async Task ButtonCheckBoxShowMessageDialog_Click(object sender, RoutedEventArgs e)
         {
 
-            var dialog = new Windows.UI.Popups.MessageDialog("Selecting Yes will remove answers, Do you want to continue");
+            var dialog = new Windows.UI.Popups.MessageDialog("Caution: clicking yes for skip logic after inputting data in subsequent fields initially will now wipe all subsequent data.");
 
             dialog.Commands.Add(new Windows.UI.Popups.UICommand("Continue") { Id = 0 });
             dialog.Commands.Add(new Windows.UI.Popups.UICommand("Cancel") { Id = 1 });

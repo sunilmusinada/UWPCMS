@@ -487,5 +487,29 @@ namespace CMS_Survey.Views
             progressRing.Visibility = Visibility.Visible;
             progressRing.IsActive = true;
         }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            CMS_Survey.Pages.NewSurvey.isEnabled = true;
+            CMS_Survey.Pages.NewSurvey.isCommentsEnabled = false;
+            CMS_Survey.Pages.NewSurvey.isReview = false;
+            GetClickedSurvey(SelectedSurvey.surveyKey);
+        }
+        private void GetClickedSurvey(string SurveyKey)
+        {
+            try
+            {
+
+                var param = Template10.Services.SerializationService.SerializationService.Json.Serialize(SurveyKey);
+                this.Frame.Navigate(typeof(Pages.NewSurvey), param);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
