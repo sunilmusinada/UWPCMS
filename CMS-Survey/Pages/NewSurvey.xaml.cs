@@ -27,6 +27,7 @@ using CMS_Survey.Helpers;
 using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Win32;
 using Windows.Storage.Pickers;
+using System.Collections.ObjectModel;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CMS_Survey.Pages
@@ -53,11 +54,12 @@ namespace CMS_Survey.Pages
         public static bool isCommentsEnabled = false;
         private string FetchedHospitalCcn;
         private bool fromSavedObject = false;
+        List<string> Maillist;
         private string SelectedState = null;
         private bool LoadedOffline = false;
         private CMSCombobox stateControl = null;
         private CMSCombobox HospitalControl = null;
-        private CMSCombobox MailIdCombobox = null;
+        private AutoSuggestBox MailIdCombobox = null;
         private TextBox Hospitalcn = null;
         private TextBlock StateErrorBlock, HospitalErrorBlock, HospitalCnBlock, FromErrorBlock;
         List<JumpClass> jmpClass;
@@ -149,7 +151,7 @@ namespace CMS_Survey.Pages
                         if (e.Parameter != null)
                         {
                             //var surKey = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
-                           
+
                             var res = Template10.Services.SerializationService.SerializationService.Json.Deserialize(Convert.ToString(e.Parameter));
                             SurveyKey = Convert.ToString(res);
                             if (SurveyHelper.SurveyHelperObject.DownloadFinished)
@@ -175,7 +177,7 @@ namespace CMS_Survey.Pages
                         return;
                     }
                 }
-               
+
                 survObj = getJson(mainGrid);
                 if (survObj == null)
                 {
@@ -460,11 +462,18 @@ namespace CMS_Survey.Pages
             questionlabel.Text = "Email address";
             questionlabel.TextWrapping = TextWrapping.Wrap;
             addUIControl(grid, questionlabel, rowIndex++);
-            CMSCombobox cmbbox1 = new CMSCombobox();
-            cmbbox1.Name = "EmailIDCombobox";
-            MailIdCombobox = cmbbox1;
-            cmbbox1.Width = 400;
-            addUIControl(grid, cmbbox1, rowIndex++);
+            AutoSuggestBox autSugBox = new AutoSuggestBox();
+            MailIdCombobox = autSugBox;
+            autSugBox.TextChanged += AutoSuggestionTextChanged;
+            autSugBox.SuggestionChosen += AutSugBox_SuggestionChosen;
+            autSugBox.Width = 400;
+            autSugBox.Name = "EmailIDCombobox";
+            addUIControl(grid, autSugBox, rowIndex++,1);
+            //CMSCombobox cmbbox1 = new CMSCombobox();
+            //cmbbox1.Name = "EmailIDCombobox";
+            //MailIdCombobox = cmbbox1;
+            //cmbbox1.Width = 400;
+            //addUIControl(grid, cmbbox1, rowIndex++);
             addBlankLine(grid, rowIndex++);
             addBlankLine(grid, rowIndex++);
             Button btn = new Button();
@@ -476,9 +485,39 @@ namespace CMS_Survey.Pages
             return rowIndex;
         }
 
+        private void AutSugBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            if (args != null && args.SelectedItem != null)
+            {
+                var val = Convert.ToString(args.SelectedItem);
+                MailIdCombobox.Text = val;
+            }
+        }
+
+        private void AutoSuggestionTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var suggestions = new List<string>();
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                AutoSuggestBox atBx = sender as AutoSuggestBox;
+                if (atBx == null)
+                    return;
+                if (string.IsNullOrEmpty(atBx.Text))
+                {
+                    return;
+                }
+                var txt = atBx.Text;//.ToLower();
+                if (Maillist != null && Maillist.Count > 0)
+                {
+                    suggestions = Maillist.Where(e => e.Contains(txt)).OrderBy(e=>e).Select(e => e).ToList();
+                    atBx.ItemsSource = suggestions;
+                }
+            }
+        }
+
         private async void SubmitButtonClicked(object sender, RoutedEventArgs e)
         {
-            string mailId = Convert.ToString(MailIdCombobox.SelectedValue);
+            string mailId = Convert.ToString(MailIdCombobox.Text);
             string SurveyKey = Convert.ToString(result.sections.First().surveyKey);
             if (string.IsNullOrEmpty(mailId))
                 return;
@@ -518,7 +557,7 @@ namespace CMS_Survey.Pages
             ComboBox cmb = sender as ComboBox;
             var selectedItem = Convert.ToString(cmb.SelectedItem);
             MailIdCombobox.Items.Clear();
-            List<string> Maillist = null;
+            //List<string> Maillist = null;
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 Maillist = await Services.ServiceHelper.ServiceHelperObject.GetMaildsForState(selectedItem);
             else
@@ -820,15 +859,15 @@ namespace CMS_Survey.Pages
 
                 if (SurQuestion.answersList != null && SurQuestion.answersList.Count() > 0)
                 {
-                    if (SurQuestion.answersList[0].answer == null&& SurQuestion.renderQuestion)
+                    if (SurQuestion.answersList[0].answer == null && SurQuestion.renderQuestion)
                     {
-                        if(SurQuestion.answersList[0].answersList!=null&&SurQuestion.answersList[0].answersList.Count()>0)
+                        if (SurQuestion.answersList[0].answersList != null && SurQuestion.answersList[0].answersList.Count() > 0)
                         {
                             if (SurQuestion.answersList[0].answersList[0] != null)
                                 continue;
                         }
                         int num;
-                        if(Int32.TryParse(SurQuestion.questionText.Substring(0, 1), out num))
+                        if (Int32.TryParse(SurQuestion.questionText.Substring(0, 1), out num))
                             UnAnsweredList.Add(SurQuestion.questionText.Substring(0, SurQuestion.questionText.IndexOf(" ") + 1));
                         else
                             UnAnsweredList.Add(SurQuestion.questionText);
@@ -1186,7 +1225,7 @@ namespace CMS_Survey.Pages
                         cmbbox.SelectionChanged += CmbBxHospitalSelected;
                         if (!string.IsNullOrEmpty(val))
                         {
-                           
+
                             SetHospital(cmbbox, val);
                         }
                         else if (sectionIndex == 0)
@@ -1888,7 +1927,7 @@ namespace CMS_Survey.Pages
             {
                 //CheckAllAnswers();
 
-               
+
                 ShowProgress();
                 RemoveBlankObservations();
                 Services.ServiceHelper serviceHelper = Services.ServiceHelper.ServiceHelperObject;
@@ -2178,7 +2217,7 @@ namespace CMS_Survey.Pages
             {
                 item = jmpClass.Where(t => t.SubSection.Equals(ClickedName)).Select(t => t).FirstOrDefault();
             }
-           
+
             indx = item.PageIndex;
             if (indx.Equals(sectionIndex))
                 return;

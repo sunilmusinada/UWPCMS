@@ -35,6 +35,7 @@ namespace CMS_Survey.Views
         UserSurvey SelectedSurvey;
         NavigationEventArgs Eventargs;
         Surveyors DeleteUsrs;
+        List<string> UsersList = new List<string>();
         public AssignSurvey()
         {
             this.InitializeComponent();
@@ -234,11 +235,18 @@ namespace CMS_Survey.Views
             questionlabel.TextWrapping = TextWrapping.Wrap;
             AddUIControlWithAlignment(rowIndex - 2, HorizontalAlignment.Center, questionlabel, 1);
             // addUIControl(UserDataGrid, questionlabel, rowIndex++);
-            CMSCombobox cmbbox1 = new CMSCombobox();
-            cmbbox1.Name = "UsersCombobox_" + totalUserCount.ToString();
-            cmbbox1.Width = 200;
-            surV.UserCombobox = cmbbox1;
-            AddUIControlWithAlignment(rowIndex - 1, HorizontalAlignment.Center, cmbbox1, 1);
+            AutoSuggestBox autSugBox = new AutoSuggestBox();
+            autSugBox.Name = "UsersCombobox_" + totalUserCount.ToString();
+            autSugBox.Width = 200;
+            autSugBox.TextChanged += AutSugBox_TextChanged;
+            autSugBox.SuggestionChosen += AutSugBox_SuggestionChosen;
+            surV.UserCombobox = autSugBox;
+
+            //CMSCombobox cmbbox1 = new CMSCombobox();
+            //cmbbox1.Name = "UsersCombobox_" + totalUserCount.ToString();
+            //cmbbox1.Width = 200;
+            //surV.UserCombobox = cmbbox1;
+            AddUIControlWithAlignment(rowIndex - 1, HorizontalAlignment.Center, autSugBox, 1);
             if (totalUserCount < 5)
             {
                 Button btn = new Button();
@@ -259,6 +267,30 @@ namespace CMS_Survey.Views
 
             cmbbox.SelectedValue = "ALL";
             return rowIndex;
+        }
+
+        private void AutSugBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            AutoSuggestBox atBx = sender as AutoSuggestBox;
+            if (atBx == null)
+                return;
+            if (args.SelectedItem == null)
+                return;
+            atBx.Text = Convert.ToString(args.SelectedItem);
+        }
+
+        private void AutSugBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            AutoSuggestBox atBx = sender as AutoSuggestBox;
+            List<string> items = UsersList;
+            if (items == null && items.Count == 0)
+                return;
+            var txt = atBx.Text;//.ToLower();
+            if (args.Reason==AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                items = items.Where(e => e.Contains(txt)).OrderBy(e=>e).Select(e => e).ToList();
+                atBx.ItemsSource = items;
+            }
         }
 
         private void AddSurveyorClicked(object sender, RoutedEventArgs e)
@@ -311,8 +343,9 @@ namespace CMS_Survey.Views
             ComboBox cmb = sender as ComboBox;
 
             var selectedItem = Convert.ToString(cmb.SelectedItem);
-
-            ComboBox usrCmb = SurveyorList.Where(t => t.StateComboBox.Name.Equals(cmb.Name)).Select(t => t.UserCombobox).FirstOrDefault();
+           
+            AutoSuggestBox usrCmb = SurveyorList.Where(t => t.StateComboBox.Name.Equals(cmb.Name)).Select(t => t.UserCombobox).FirstOrDefault();
+           
             if (usrCmb != null && usrCmb.Items != null)
                 usrCmb.Items.Clear();
             List<string> UserList = null;
@@ -320,6 +353,7 @@ namespace CMS_Survey.Views
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
             else
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateOffline(selectedItem);
+            UsersList = UserList;
             foreach (var usr in UserList.OrderBy(f => f))
             {
                 string firstName = usr.Split(' ').FirstOrDefault();
@@ -359,7 +393,7 @@ namespace CMS_Survey.Views
                 List<long> UserKeys = new List<long>();
                 foreach (SurveyorControls srvr in SurveyorList)
                 {
-                    string username = Convert.ToString(srvr.UserCombobox.SelectedItem);
+                    string username = Convert.ToString(srvr.UserCombobox.Text);
                     if (string.IsNullOrEmpty(username))
                         continue;
                     string firstName = username.Split(' ').FirstOrDefault();
