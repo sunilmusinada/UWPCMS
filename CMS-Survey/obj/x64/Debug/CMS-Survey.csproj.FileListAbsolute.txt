@@ -564,3 +564,8 @@ F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.g.cs
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.xaml
 F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\CommentsDialog.xbf
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\bin\x64\Debug\Pages\ErrorsWarningsDialog.xbf
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\ErrorsWarningsDialog.g.i.cs
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\ErrorsWarningsDialog.g.cs
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\ErrorsWarningsDialog.xaml
+F:\downloads\CMS\CMS-Survey\UWPCMS\CMS-Survey\obj\x64\Debug\Pages\ErrorsWarningsDialog.xbf

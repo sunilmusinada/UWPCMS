@@ -1,6 +1,7 @@
 App.xbf
 Controls\ProgressRing.xbf
 Pages\CommentsDialog.xbf
+Pages\ErrorsWarningsDialog.xbf
 Pages\LoginPart.xbf
 Pages\NewSurvey.xbf
 Res\TemplateDictionary.xbf

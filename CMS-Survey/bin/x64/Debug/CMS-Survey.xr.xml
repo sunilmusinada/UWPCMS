@@ -44,8 +44,8 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -99,27 +99,33 @@
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="TextWrapping" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Height" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="VerticalScrollBarVisibility" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootMethod Name="GetVerticalScrollMode" />
+      <RootMethod Name="SetVerticalScrollMode" />
+      <RootMethod Name="GetVerticalScrollBarVisibility" />
+      <RootMethod Name="SetVerticalScrollBarVisibility" />
+      <RootMethod Name="GetIsVerticalRailEnabled" />
+      <RootMethod Name="SetIsVerticalRailEnabled" />
+      <RootMethod Name="GetIsScrollInertiaEnabled" />
+      <RootMethod Name="SetIsScrollInertiaEnabled" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
-      <RootProperty Name="AcceptsReturn" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="Header" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="PlaceholderText" />
-      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Name" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Name" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
@@ -133,9 +139,20 @@
       <RootEvent Name="Loading" />
       <RootEvent Name="Loaded" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+    <RootType FullName="CMS_Survey.Pages.ErrorsWarningsDialog" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="AcceptsReturn" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="PlaceholderText" />
+      <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="CMS_Survey.Pages.CommentsDialog" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
@@ -167,22 +184,6 @@
       <RootProperty Name="DataContext" />
       <RootProperty Name="Background" />
       <RootEvent Name="Loaded" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="VerticalScrollBarVisibility" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalContentAlignment" />
-      <RootMethod Name="GetVerticalScrollBarVisibility" />
-      <RootMethod Name="SetVerticalScrollBarVisibility" />
-      <RootMethod Name="GetVerticalScrollMode" />
-      <RootMethod Name="SetVerticalScrollMode" />
-      <RootMethod Name="GetIsVerticalRailEnabled" />
-      <RootMethod Name="SetIsVerticalRailEnabled" />
-      <RootMethod Name="GetIsScrollInertiaEnabled" />
-      <RootMethod Name="SetIsScrollInertiaEnabled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
       <RootMethod Name="GetAttachedFlyout" />

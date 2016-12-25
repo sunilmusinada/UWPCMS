@@ -134,7 +134,7 @@
             </Grid>
         </StackPanel>
         <Image x:ConnectionId='8' x:Name="image" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Source="ms-appx:///Assets/RedIcon.png" RenderTransformOrigin="12.143,2.414" Margin="1090,60,0,0"/>
-        <TextBlock x:ConnectionId='9' x:Name="UserName" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="" Width="350" Margin="0,52,-294.333,-52"/>
+        <TextBlock x:ConnectionId='9' x:Name="UserName" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="" Width="340" Margin="10,52,-294.333,-52"/>
 
     </RelativePanel>
 
