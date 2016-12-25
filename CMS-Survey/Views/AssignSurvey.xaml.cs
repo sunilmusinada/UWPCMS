@@ -341,13 +341,13 @@ namespace CMS_Survey.Views
         private async void StateSelectionComboboxChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
-
+            List<string> usrList = new List<string>();
             var selectedItem = Convert.ToString(cmb.SelectedItem);
            
             AutoSuggestBox usrCmb = SurveyorList.Where(t => t.StateComboBox.Name.Equals(cmb.Name)).Select(t => t.UserCombobox).FirstOrDefault();
-           
-            if (usrCmb != null && usrCmb.Items != null)
-                usrCmb.Items.Clear();
+
+            if (usrCmb != null && usrCmb.Items != null && usrCmb.Items.Count > 0)
+                usrCmb.ItemsSource = usrList;
             List<string> UserList = null;
             if (!await Services.ServiceHelper.ServiceHelperObject.IsOffline())
                 UserList = await Services.ServiceHelper.ServiceHelperObject.GetUsersForStateCode(selectedItem);
@@ -360,8 +360,9 @@ namespace CMS_Survey.Views
                 string LastName = usr.Split(' ').LastOrDefault();
                 long usrKey = GetUserKeyForUser(firstName, LastName);
                 if (!users.surveyerUserModels.Select(t=>t.userKey).ToList().Contains(usrKey))
-                    usrCmb.Items.Add(usr);
+                    usrList.Add(usr);
             }
+            usrCmb.ItemsSource = usrList;
             //UserList.ForEach(t => usrCmb.Items.Add(t));
         }
 
